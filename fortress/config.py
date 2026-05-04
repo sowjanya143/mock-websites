@@ -1,0 +1,34 @@
+"""Fortress site configuration."""
+
+import os
+
+
+class Config:
+    """Configuration for Fortress Investment Group site."""
+
+    # Site identification
+    COMPANY_NAME = 'Fortress Investment Group'
+    SITE_NAME = 'fortress'
+
+    # Security
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'fortress-dev-key-12345')
+
+    # CAPTCHA configuration (unique to Fortress: on every page)
+    CAPTCHA_ON_EVERY_PAGE = True
+    CAPTCHA_REQUIRED_PAGES = []
+
+    # Feature flags
+    SHOW_POPUPS = False
+    RATE_LIMIT_ENABLED = False
+
+    # Performance
+    ARTIFICIAL_DELAY = 0
+
+    # Data presentation
+    DATA_LAYOUT = 'js_tables'
+
+    # Financial data
+    GLOBAL_AUM = '$850,000,000,000'
+
+    # Debug mode
+    DEBUG = os.environ.get('DEBUG', True)
