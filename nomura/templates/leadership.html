@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Leadership Team</h1>
+
+<p class="intro">Meet the experienced leaders guiding Nomura's global strategy and operations.</p>
+
+<section class="team-section">
+    <div class="team-grid">
+        {% if team_data and team_data.items %}
+            {% for member in team_data.items %}
+            <div class="team-member">
+                <div class="member-header">
+                    <h3>{{ member.name }}</h3>
+                    <p class="title">{{ member.title }}</p>
+                </div>
+                <p class="bio">{{ member.bio }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {% if team_data and team_data.has_next %}
+    <div class="pagination">
+        <a href="?page={{ team_data.page - 1 }}" {% if not team_data.has_prev %}style="opacity: 0.5; cursor: not-allowed;"{% endif %}>Previous</a>
+        <span>Page {{ team_data.page }} of {{ team_data.total_pages }}</span>
+        <a href="?page={{ team_data.page + 1 }}" {% if not team_data.has_next %}style="opacity: 0.5; cursor: not-allowed;"{% endif %}>Next</a>
+    </div>
+    {% endif %}
+</section>
+
+<style>
+    h1 {
+        color: #003366;
+        margin-bottom: 15px;
+        font-size: 36px;
+    }
+
+    .intro {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .team-section {
+        margin-top: 30px;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .team-member {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #003366;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .team-member:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .member-header {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 12px;
+    }
+
+    .team-member h3 {
+        color: #003366;
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .team-member .title {
+        color: #004d99;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .team-member .bio {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .pagination a {
+        color: #003366;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 2px solid #003366;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: all 0.2s;
+    }
+
+    .pagination a:hover {
+        background: #003366;
+        color: white;
+    }
+
+    .pagination span {
+        color: #666;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Our Funds</h1>
+
+<p>Nomura offers a comprehensive range of investment funds across multiple asset classes designed to meet diverse investor objectives and risk profiles.</p>
+
+<section class="funds-section" data-total-aum="380000000000">
+    <div class="funds-grid">
+        {% if aum_data.by_fund %}
+            {% for fund in aum_data.by_fund %}
+            <div class="fund-card" data-aum="{{ fund.aum }}" data-fund-id="{{ fund.id }}">
+                <h3>{{ fund.name }}</h3>
+                <p class="strategy">Strategy: {{ fund.strategy }}</p>
+                <p class="aum-info">AUM: <strong>${{ "{:,.0f}B".format(fund.aum / 1e9) }}</strong></p>
+                <p class="description">
+                    {% if fund.strategy == 'Equities' %}
+                        Global equity investment fund focusing on value creation and long-term growth across international markets.
+                    {% elif fund.strategy == 'Fixed Income' %}
+                        Fixed income portfolio with exposure to investment-grade bonds and credit opportunities.
+                    {% elif fund.strategy == 'Derivatives & FX' %}
+                        Sophisticated strategies leveraging derivatives and foreign exchange markets for enhanced returns.
+                    {% elif fund.strategy == 'Alternative Investments' %}
+                        Alternative investment fund with exposure to hedge funds and specialized investment vehicles.
+                    {% else %}
+                        Diversified investment fund seeking attractive risk-adjusted returns across multiple opportunities.
+                    {% endif %}
+                </p>
+                <a href="/fund/{{ fund.id }}" class="fund-link">View Details</a>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="fund-stats">
+    <h2>Fund Statistics</h2>
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Active Funds</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">$380B</span>
+            <span class="stat-label">Total AUM</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Institutional Investors</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Asset Classes</span>
+        </div>
+    </div>
+</section>
+
+<style>
+    h1 {
+        color: #003366;
+        margin-bottom: 20px;
+        font-size: 36px;
+    }
+
+    > p {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .funds-section {
+        margin: 40px 0;
+    }
+
+    .funds-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .fund-card {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #003366;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .fund-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .fund-card h3 {
+        color: #003366;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .fund-card .strategy {
+        color: #004d99;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+
+    .fund-card .aum-info {
+        color: #003366;
+        font-size: 16px;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+
+    .fund-card .description {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .fund-card .fund-link {
+        display: inline-block;
+        color: #003366;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 8px 12px;
+        border: 2px solid #003366;
+        border-radius: 4px;
+        transition: all 0.2s;
+    }
+
+    .fund-card .fund-link:hover {
+        background: #003366;
+        color: white;
+    }
+
+    .fund-stats {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+
+    .fund-stats h2 {
+        color: #003366;
+        margin-bottom: 30px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        text-align: center;
+    }
+
+    .stat-box {
+        padding: 20px;
+        background: #f5f5f5;
+        border-radius: 8px;
+    }
+
+    .stat-box .stat-number {
+        display: block;
+        font-size: 28px;
+        font-weight: bold;
+        color: #003366;
+        margin-bottom: 5px;
+    }
+
+    .stat-box .stat-label {
+        display: block;
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+{% endblock %}

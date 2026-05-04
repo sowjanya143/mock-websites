@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Global AUM: $380,000,000,000 -->
+
+<section class="hero">
+    <h1>{{ company_name }}</h1>
+    <p class="tagline">Global Investment Banking & Trading</p>
+    <p class="intro">Leading provider of financial services with extensive capabilities in equities, fixed income, derivatives, and alternative investments.</p>
+</section>
+
+<section class="highlights">
+    <h2>Our Capabilities</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Equities</h3>
+            <p>Comprehensive equity trading, research, and investment services across global markets.</p>
+        </div>
+        <div class="card">
+            <h3>Fixed Income</h3>
+            <p>Expert fixed income trading and portfolio management across all major markets and credit sectors.</p>
+        </div>
+        <div class="card">
+            <h3>Derivatives</h3>
+            <p>Sophisticated derivatives and FX solutions tailored to institutional client needs.</p>
+        </div>
+        <div class="card">
+            <h3>Alternatives</h3>
+            <p>Access to alternative investment opportunities and specialized hedge fund strategies.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #003366 0%, #004d99 100%);
+        color: white;
+        border-radius: 8px;
+        margin-bottom: 40px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .tagline {
+        font-size: 24px;
+        margin-bottom: 10px;
+        opacity: 0.9;
+    }
+
+    .intro {
+        font-size: 16px;
+        margin-top: 15px;
+        opacity: 0.85;
+    }
+
+    .highlights {
+        margin-top: 40px;
+    }
+
+    .highlights h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #003366;
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3 {
+        color: #003366;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .card p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+</style>
+{% endblock %}

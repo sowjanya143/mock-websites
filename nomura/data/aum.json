@@ -1,0 +1,41 @@
+{
+  "global_aum": 380000000000,
+  "by_asset_class": {
+    "Equities": 150000000000,
+    "Fixed Income": 120000000000,
+    "Derivatives & FX": 70000000000,
+    "Alternative Investments": 40000000000
+  },
+  "by_fund": [
+    {
+      "id": 1,
+      "name": "Nomura Global Equity Fund",
+      "aum": 100000000000,
+      "strategy": "Equities"
+    },
+    {
+      "id": 2,
+      "name": "Nomura Fixed Income Fund",
+      "aum": 90000000000,
+      "strategy": "Fixed Income"
+    },
+    {
+      "id": 3,
+      "name": "Nomura Derivatives Fund",
+      "aum": 50000000000,
+      "strategy": "Derivatives & FX"
+    },
+    {
+      "id": 4,
+      "name": "Nomura Alternative Investment Fund",
+      "aum": 70000000000,
+      "strategy": "Alternative Investments"
+    },
+    {
+      "id": 5,
+      "name": "Nomura Emerging Markets Fund",
+      "aum": 70000000000,
+      "strategy": "Equities"
+    }
+  ]
+}

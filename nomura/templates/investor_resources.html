@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Investor Resources</h1>
+
+<section class="resources-intro">
+    <p>Nomura provides comprehensive resources for institutional investors seeking sophisticated investment solutions and market insights. With global assets under management of $380,000,000,000, we offer unparalleled expertise and market access across all major asset classes and geographies.</p>
+</section>
+
+<section class="resource-categories">
+    <h2>Resource Categories</h2>
+    <div class="resources-grid">
+        <div class="resource-card">
+            <h3>Market Research</h3>
+            <ul>
+                <li>Daily market commentary</li>
+                <li>Sector research reports</li>
+                <li>Economic analysis</li>
+                <li>Trading insights</li>
+            </ul>
+        </div>
+        <div class="resource-card">
+            <h3>Educational Materials</h3>
+            <ul>
+                <li>Investment strategy guides</li>
+                <li>Webinar series</li>
+                <li>Case studies</li>
+                <li>Training programs</li>
+            </ul>
+        </div>
+        <div class="resource-card">
+            <h3>Tools & Services</h3>
+            <ul>
+                <li>Portfolio analytics</li>
+                <li>Risk management tools</li>
+                <li>Trading platforms</li>
+                <li>Reporting systems</li>
+            </ul>
+        </div>
+        <div class="resource-card">
+            <h3>Client Support</h3>
+            <ul>
+                <li>Dedicated account managers</li>
+                <li>Technical support</li>
+                <li>Compliance resources</li>
+                <li>Consulting services</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="documentation">
+    <h2>Key Documents</h2>
+    <div class="doc-list">
+        <div class="doc-item">
+            <h3>Investment Policy Statement</h3>
+            <p>Comprehensive overview of our investment approach and risk management framework.</p>
+            <a href="#">Download PDF</a>
+        </div>
+        <div class="doc-item">
+            <h3>Fee Schedule</h3>
+            <p>Transparent pricing for all investment services and products.</p>
+            <a href="#">Download PDF</a>
+        </div>
+        <div class="doc-item">
+            <h3>Service Agreement</h3>
+            <p>Terms and conditions for client relationships and service arrangements.</p>
+            <a href="#">Download PDF</a>
+        </div>
+        <div class="doc-item">
+            <h3>Compliance Framework</h3>
+            <p>Overview of our regulatory compliance and risk oversight procedures.</p>
+            <a href="#">Download PDF</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    h1 {
+        color: #003366;
+        margin-bottom: 20px;
+        font-size: 36px;
+    }
+
+    .resources-intro {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+    }
+
+    .resources-intro p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    .resource-categories {
+        margin: 40px 0;
+    }
+
+    .resource-categories h2 {
+        color: #003366;
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .resource-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-top: 3px solid #003366;
+    }
+
+    .resource-card h3 {
+        color: #003366;
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+
+    .resource-card ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .resource-card li {
+        color: #666;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+    }
+
+    .resource-card li:last-child {
+        border-bottom: none;
+    }
+
+    .documentation {
+        margin-top: 40px;
+    }
+
+    .documentation h2 {
+        color: #003366;
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+
+    .doc-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .doc-item {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .doc-item h3 {
+        color: #003366;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .doc-item p {
+        color: #666;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .doc-item a {
+        color: #003366;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .doc-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

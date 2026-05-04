@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>News & Events</h1>
+
+<p class="intro">Latest news, press releases, and announcements from Nomura.</p>
+
+<section class="news-section">
+    {% if news_data %}
+        <div class="news-grid">
+            {% for article in news_data %}
+            <article class="news-card">
+                <div class="news-header">
+                    <h3>{{ article.title }}</h3>
+                    <p class="date">{{ article.date }}</p>
+                </div>
+                <p class="content">{{ article.content }}</p>
+                <a href="#" class="read-more">Read More</a>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No news articles available at this time.</p>
+    {% endif %}
+</section>
+
+<section class="events">
+    <h2>Upcoming Events</h2>
+    <div class="events-list">
+        <div class="event">
+            <h3>Q2 2026 Earnings Call</h3>
+            <p class="event-date">May 15, 2026</p>
+            <p>Join our leadership team for a discussion of Q2 2026 financial results and outlook.</p>
+        </div>
+        <div class="event">
+            <h3>Nomura Investment Forum</h3>
+            <p class="event-date">June 10-12, 2026</p>
+            <p>Annual gathering of institutional investors, featuring keynote speakers and investment presentations.</p>
+        </div>
+        <div class="event">
+            <h3>Asia-Pacific Trading Summit</h3>
+            <p class="event-date">July 5, 2026</p>
+            <p>Dedicated forum for discussing trading strategies and market opportunities in Asia-Pacific region.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    h1 {
+        color: #003366;
+        margin-bottom: 15px;
+        font-size: 36px;
+    }
+
+    .intro {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+
+    .news-section {
+        margin-bottom: 50px;
+    }
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 25px;
+    }
+
+    .news-card {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #003366;
+        transition: transform 0.2s;
+    }
+
+    .news-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .news-header {
+        margin-bottom: 15px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .news-card h3 {
+        color: #003366;
+        margin-bottom: 8px;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .news-card .date {
+        color: #999;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .news-card .content {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .news-card .read-more {
+        color: #003366;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .news-card .read-more:hover {
+        text-decoration: underline;
+    }
+
+    .events {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .events h2 {
+        color: #003366;
+        margin-top: 0;
+        margin-bottom: 25px;
+        font-size: 24px;
+    }
+
+    .events-list {
+        display: grid;
+        gap: 20px;
+    }
+
+    .event {
+        padding: 20px;
+        background: #f5f5f5;
+        border-left: 4px solid #003366;
+        border-radius: 4px;
+    }
+
+    .event h3 {
+        color: #003366;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+
+    .event-date {
+        color: #004d99;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    .event p {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.6;
+        margin: 0;
+    }
+</style>
+{% endblock %}
