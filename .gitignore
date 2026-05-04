@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.local
+
+# Databases/caches
+*.sqlite
+*.db
+.pytest_cache/
+.coverage
+
+# System
+.DS_Store
+node_modules/
+
+# Build artifacts
+dist/
+build/
+htmlcov/
