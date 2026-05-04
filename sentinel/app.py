@@ -24,8 +24,19 @@ from utils import (
 
 from config import Config
 
-# Create Flask app
-app = Flask(__name__, template_folder='templates', static_folder='static')
+# Create Flask app with template loaders for fortress and shared templates
+from jinja2 import FileSystemLoader, ChoiceLoader
+
+fortress_dir = Path(__file__).parent
+shared_dir = fortress_dir.parent / 'shared'
+
+loader = ChoiceLoader([
+    FileSystemLoader(str(fortress_dir / 'templates')),
+    FileSystemLoader(str(shared_dir / 'templates')),
+])
+
+app = Flask(__name__, template_folder=None)
+app.jinja_loader = loader
 app.config.from_object(Config)
 app.secret_key = Config.SECRET_KEY
 
@@ -37,7 +48,7 @@ def load_data():
     Returns:
         dict: Dictionary with keys: aum, team, news
     """
-    data_dir = Path(__file__).parent.parent / 'data'
+    data_dir = Path(__file__).parent / 'data'
 
     # Load and process AUM data
     aum_file = data_dir / 'aum.json'
@@ -207,4 +218,5 @@ def dismiss_popup():
 
 
 if __name__ == '__main__':
-    app.run(debug=Config.DEBUG, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=Config.DEBUG, host='0.0.0.0', port=port)
