@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Investment Strategies</h1>
+
+<section class="strategies-section">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Strategy</th>
+                <th>AUM</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Real Estate</strong></td>
+                <td>${{ "{:,.0f}B".format(180) }}</td>
+                <td>Global commercial real estate investments including office, retail, hospitality, and industrial properties. Focus on value creation and strategic asset management across core and opportunistic markets.</td>
+            </tr>
+            <tr>
+                <td><strong>Private Equity</strong></td>
+                <td>${{ "{:,.0f}B".format(140) }}</td>
+                <td>Leveraged buyouts and growth equity investments in middle-market companies. Emphasis on operational improvements, strategic growth, and creating sustainable competitive advantages.</td>
+            </tr>
+            <tr>
+                <td><strong>Debt</strong></td>
+                <td>${{ "{:,.0f}B".format(80) }}</td>
+                <td>Corporate credit, structured finance, and specialty lending across the capital structure. Active credit selection and risk management to optimize risk-adjusted returns.</td>
+            </tr>
+            <tr>
+                <td><strong>Opportunistic</strong></td>
+                <td>${{{ "{:,.0f}B".format(50) }}</td>
+                <td>Cross-asset class investments seeking exceptional value in special situations. Flexible approach to capitalize on market dislocations and unique opportunities worldwide.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .strategies-section {
+        margin-top: 30px;
+    }
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .data-table thead {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .data-table th {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 2px solid #e0e0e0;
+        color: #333;
+    }
+
+    .data-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+        color: #555;
+    }
+
+    .data-table tbody tr:hover {
+        background: #fafafa;
+    }
+
+    .data-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .data-table strong {
+        color: #333;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Richard Heitman",
+    "title": "Founder & Executive Chairman",
+    "bio": "Pioneering real estate investor and visionary founder of Heitman Capital Management. With over 30 years of experience, has built one of the most successful real estate and alternative investment firms globally."
+  },
+  {
+    "id": 2,
+    "name": "Jennifer Chapman",
+    "title": "Chief Executive Officer",
+    "bio": "Dynamic leader overseeing all business operations and strategic initiatives. Drives innovation, operational excellence, and sustained growth across all investment platforms and geographic regions."
+  },
+  {
+    "id": 3,
+    "name": "Michael Torres",
+    "title": "Chief Investment Officer",
+    "bio": "Senior investment strategist with extensive expertise in real estate, private equity, and alternative assets. Leads investment decisions and portfolio management across all asset classes and fund strategies."
+  },
+  {
+    "id": 4,
+    "name": "Sarah Anderson",
+    "title": "Global Head of Real Estate",
+    "bio": "Seasoned real estate professional managing the $180B real estate portfolio. Specializes in commercial, residential, and industrial properties across major markets worldwide."
+  },
+  {
+    "id": 5,
+    "name": "David Kumar",
+    "title": "Head of Private Equity",
+    "bio": "Experienced private equity executive leading acquisition strategy and portfolio company management. Focuses on value creation through operational improvements and strategic growth initiatives."
+  },
+  {
+    "id": 6,
+    "name": "Elizabeth Foster",
+    "title": "Chief Financial Officer",
+    "bio": "Finance expert ensuring prudent capital management and financial strategy. Oversees corporate finance, investor relations, and financial planning for all business segments."
+  },
+  {
+    "id": 7,
+    "name": "James Mitchell",
+    "title": "Head of Debt Strategies",
+    "bio": "Credit specialist managing $80B debt portfolio with focus on risk management and return optimization. Expertise in corporate debt, structured finance, and distressed opportunities."
+  },
+  {
+    "id": 8,
+    "name": "Lisa Wong",
+    "title": "Chief Risk Officer",
+    "bio": "Risk management professional establishing firm-wide risk framework and compliance protocols. Ensures regulatory adherence and protects capital across all investment activities."
+  },
+  {
+    "id": 9,
+    "name": "Robert Chen",
+    "title": "General Counsel",
+    "bio": "Legal expert leading corporate governance, legal matters, and regulatory compliance. Manages all legal aspects of investments and corporate transactions for the firm."
+  },
+  {
+    "id": 10,
+    "name": "Victoria Petrov",
+    "title": "Chief Operating Officer",
+    "bio": "Operations leader driving organizational efficiency and process optimization. Oversees infrastructure, technology, human resources, and operational excellence across all divisions."
+  }
+]

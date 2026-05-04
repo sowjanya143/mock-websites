@@ -1,0 +1,41 @@
+{
+  "global_aum": 450000000000,
+  "by_asset_class": {
+    "Real Estate": 180000000000,
+    "Private Equity": 140000000000,
+    "Debt": 80000000000,
+    "Opportunistic": 50000000000
+  },
+  "by_fund": [
+    {
+      "id": 1,
+      "name": "Heitman Global Real Estate Fund",
+      "aum": 150000000000,
+      "strategy": "Real Estate"
+    },
+    {
+      "id": 2,
+      "name": "Heitman Private Equity Fund",
+      "aum": 120000000000,
+      "strategy": "Private Equity"
+    },
+    {
+      "id": 3,
+      "name": "Heitman Debt Partners",
+      "aum": 80000000000,
+      "strategy": "Debt"
+    },
+    {
+      "id": 4,
+      "name": "Heitman Opportunities Fund",
+      "aum": 50000000000,
+      "strategy": "Opportunistic"
+    },
+    {
+      "id": 5,
+      "name": "Heitman Asia Investment Fund",
+      "aum": 50000000000,
+      "strategy": "Real Estate"
+    }
+  ]
+}
