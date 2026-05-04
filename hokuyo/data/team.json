@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Hiroshi Tanaka",
+    "title": "President & CEO",
+    "bio": "Visionary leader with over 25 years of banking experience in Japan and Asia. Built Hokuyo Bank's reputation for stability and customer service excellence across the region."
+  },
+  {
+    "id": 2,
+    "name": "Yuki Yamamoto",
+    "title": "Chief Operating Officer",
+    "bio": "Operations executive managing all business segments with focus on efficiency and customer satisfaction. Drives digital transformation initiatives across Hokuyo's operations."
+  },
+  {
+    "id": 3,
+    "name": "Takeshi Nakamura",
+    "title": "Chief Financial Officer",
+    "bio": "Finance expert managing capital allocation and financial strategy. Ensures prudent risk management and maintains the bank's strong financial position."
+  },
+  {
+    "id": 4,
+    "name": "Kenji Suzuki",
+    "title": "Chief Investment Officer",
+    "bio": "Leads investment decisions and portfolio strategy across all banking divisions. Responsible for maximizing returns while maintaining risk discipline."
+  },
+  {
+    "id": 5,
+    "name": "Akiko Sato",
+    "title": "Head of Retail Banking",
+    "bio": "Oversees Hokuyo's $85B retail banking portfolio. Focuses on innovative products and services for individual customers across Japan and beyond."
+  },
+  {
+    "id": 6,
+    "name": "Masao Kobayashi",
+    "title": "Head of Corporate Banking",
+    "bio": "Manages corporate banking relationships and enterprise lending strategy. Serves as trusted financial partner for Japan's leading corporations."
+  },
+  {
+    "id": 7,
+    "name": "Emi Watanabe",
+    "title": "Head of Investment Banking",
+    "bio": "Leads mergers and acquisitions, capital markets, and investment banking services. Facilitates strategic transactions for major institutional clients."
+  },
+  {
+    "id": 8,
+    "name": "Daichi Yamada",
+    "title": "Head of Wealth Management",
+    "bio": "Oversees premium wealth advisory and asset management services. Provides tailored financial solutions for high-net-worth individuals and families."
+  },
+  {
+    "id": 9,
+    "name": "Sakura Nakajima",
+    "title": "Chief Risk Officer",
+    "bio": "Establishes comprehensive risk management framework and ensures regulatory compliance. Protects the bank's capital and stakeholder interests."
+  },
+  {
+    "id": 10,
+    "name": "Toshiro Ishikawa",
+    "title": "General Counsel",
+    "bio": "Leads legal and compliance teams, manages corporate governance. Ensures adherence to banking regulations and facilitates strategic initiatives."
+  }
+]

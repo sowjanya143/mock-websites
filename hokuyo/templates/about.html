@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>About Hokuyo Bank</h1>
+
+<section class="about-content">
+    <div class="about-section">
+        <h2>Our Mission</h2>
+        <p>Hokuyo Bank is committed to providing exceptional financial services to individuals, businesses, and institutions throughout Japan and the Asia-Pacific region. We strive to be the trusted partner for our customers' financial success, delivering innovative solutions with integrity and excellence.</p>
+    </div>
+
+    <div class="about-section">
+        <h2>Our History</h2>
+        <p>Founded in 1952, Hokuyo Bank has grown from a regional institution to one of Japan's leading financial institutions. With over 70 years of experience, we have built a strong reputation for stability, customer service, and financial innovation. Our heritage of trust continues to guide our vision for the future.</p>
+    </div>
+
+    <div class="about-section">
+        <h2>Our Values</h2>
+        <ul>
+            <li><strong>Customer Focus:</strong> We put our customers' needs at the center of everything we do</li>
+            <li><strong>Integrity:</strong> We conduct business with the highest ethical standards</li>
+            <li><strong>Innovation:</strong> We embrace technology and new ideas to serve our customers better</li>
+            <li><strong>Community:</strong> We are committed to supporting the communities we serve</li>
+            <li><strong>Excellence:</strong> We pursue the highest quality in all our operations</li>
+        </ul>
+    </div>
+
+    <div class="about-section">
+        <h2>Global Presence</h2>
+        <p>With assets under management of $220 billion, Hokuyo Bank operates across Japan and has expanded presence in major Asian financial centers. Our international teams work to serve our global clients while maintaining our commitment to local communities.</p>
+    </div>
+</section>
+
+<style>
+    h1 {
+        color: #1e3a8a;
+        margin-bottom: 30px;
+        font-size: 40px;
+    }
+
+    .about-content {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section {
+        margin-bottom: 30px;
+    }
+
+    .about-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .about-section h2 {
+        color: #2563eb;
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .about-section p {
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .about-section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .about-section li {
+        padding: 8px 0;
+        padding-left: 20px;
+        position: relative;
+        color: #333;
+    }
+
+    .about-section li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #2563eb;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}

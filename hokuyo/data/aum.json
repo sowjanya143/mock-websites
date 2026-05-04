@@ -1,0 +1,35 @@
+{
+  "global_aum": 220000000000,
+  "by_asset_class": {
+    "Retail Banking": 85000000000,
+    "Corporate Banking": 65000000000,
+    "Investment Banking": 40000000000,
+    "Wealth Management": 30000000000
+  },
+  "by_fund": [
+    {
+      "id": 1,
+      "name": "Hokuyo Retail Banking Fund",
+      "aum": 85000000000,
+      "strategy": "Retail Banking"
+    },
+    {
+      "id": 2,
+      "name": "Hokuyo Corporate Banking Fund",
+      "aum": 65000000000,
+      "strategy": "Corporate Banking"
+    },
+    {
+      "id": 3,
+      "name": "Hokuyo Investment Banking Fund",
+      "aum": 40000000000,
+      "strategy": "Investment Banking"
+    },
+    {
+      "id": 4,
+      "name": "Hokuyo Wealth Management Fund",
+      "aum": 30000000000,
+      "strategy": "Wealth Management"
+    }
+  ]
+}
