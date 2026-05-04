@@ -1,6 +1,6 @@
-"""Heitman-specific behavior tests.
+"""Apex-specific behavior tests.
 
-Heitman characteristics:
+Apex characteristics:
 - CAPTCHA only on data pages (/strategies, /funds, etc)
 - Rate limiting: 5 requests per 60 seconds
 - Dismissible popups
@@ -21,7 +21,7 @@ project_dir = test_dir.parent
 os.chdir(project_dir)
 sys.path.insert(0, str(project_dir))
 
-from heitman.app import app
+from apex.app import app
 
 
 class TestHeitmanSelectiveCaptcha:

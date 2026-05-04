@@ -1,6 +1,6 @@
-"""Oaktree-specific behavior tests.
+"""Zenith-specific behavior tests.
 
-Oaktree characteristics (Most Complex):
+Zenith characteristics (Most Complex):
 - CAPTCHA on first visit + data pages
 - Strict rate limiting: 3 requests per 60 seconds
 - Artificial delay: 0.5 seconds
@@ -23,10 +23,10 @@ project_dir = test_dir.parent
 os.chdir(project_dir)
 sys.path.insert(0, str(project_dir))
 
-from oaktree.app import app
+from zenith.app import app
 
 
-class TestOaktreeFirstVisitCaptcha:
+class TestZenithFirstVisitCaptcha:
     """Test CAPTCHA on first visit."""
 
     def setup_method(self):

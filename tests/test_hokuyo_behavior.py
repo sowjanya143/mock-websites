@@ -1,6 +1,6 @@
-"""Hokuyo-specific behavior tests.
+"""Premier-specific behavior tests.
 
-Hokuyo characteristics (Control Site):
+Premier characteristics (Control Site):
 - NO CAPTCHA on any page
 - NO POPUPS
 - Instant responses (no artificial delay)
@@ -21,7 +21,7 @@ project_dir = test_dir.parent
 os.chdir(project_dir)
 sys.path.insert(0, str(project_dir))
 
-from hokuyo.app import app
+from premier.app import app
 
 
 class TestHokuyoNoCaptcha:

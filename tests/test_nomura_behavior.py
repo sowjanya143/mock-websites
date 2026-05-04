@@ -1,6 +1,6 @@
-"""Nomura-specific behavior tests.
+"""Meridian-specific behavior tests.
 
-Nomura characteristics:
+Meridian characteristics:
 - Random CAPTCHA: ~30% of requests
 - Artificial delay: ~1 second
 - Scattered AUM data (comment, table, attribute, JS)
@@ -21,7 +21,7 @@ project_dir = test_dir.parent
 os.chdir(project_dir)
 sys.path.insert(0, str(project_dir))
 
-from nomura.app import app
+from meridian.app import app
 
 
 class TestNomuraRandomCaptcha:
