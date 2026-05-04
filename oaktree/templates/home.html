@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ company_name }}</h1>
+    <p class="tagline">Global Alternative Asset Manager</p>
+    <p class="aum-display">Global AUM: {{ global_aum }}</p>
+</section>
+
+<section class="investment-strategies">
+    <h2>Investment Strategies</h2>
+    <div class="strategies-grid">
+        <div class="strategy-card">
+            <h3>Credit</h3>
+            <p>Opportunistic credit investments with deep expertise in distressed debt and corporate credit.</p>
+        </div>
+        <div class="strategy-card">
+            <h3>Private Equity</h3>
+            <p>Strategic investments in undervalued companies with significant value creation potential.</p>
+        </div>
+        <div class="strategy-card">
+            <h3>Real Assets</h3>
+            <p>Long-duration cash flow generating investments in infrastructure and natural resources.</p>
+        </div>
+        <div class="strategy-card">
+            <h3>Multi-Strategy</h3>
+            <p>Diversified approach combining multiple strategies for balanced risk-adjusted returns.</p>
+        </div>
+    </div>
+</section>
+
+<section class="ajax-content" id="ajaLoadedFunds">
+    <h2>Featured Funds (AJAX-Loaded)</h2>
+    <div class="loading-indicator">Loading fund data...</div>
+    <table class="data-table" id="fundsTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Fund Name</th>
+                <th>AUM</th>
+                <th>Strategy</th>
+            </tr>
+        </thead>
+        <tbody id="fundsList"></tbody>
+    </table>
+</section>
+
+<style>
+    .hero {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #1a472a 0%, #2d7a4a 100%);
+        color: white;
+        border-radius: 8px;
+        margin-bottom: 40px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .tagline {
+        font-size: 24px;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+
+    .aum-display {
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .investment-strategies {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .investment-strategies h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .strategies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .strategy-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #2d7a4a;
+    }
+
+    .strategy-card h3 {
+        color: #1a472a;
+        margin-bottom: 10px;
+    }
+
+    .strategy-card p {
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .ajax-content {
+        margin-top: 40px;
+    }
+
+    .ajax-content h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .loading-indicator {
+        text-align: center;
+        padding: 30px;
+        color: #999;
+        font-style: italic;
+    }
+
+    .data-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .data-table thead {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .data-table tbody tr:hover {
+        background: #fafafa;
+    }
+
+    .data-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Simulate AJAX-loaded content with a slight delay
+    setTimeout(function() {
+        fetch('/api/funds')
+            .then(response => response.json())
+            .then(data => {
+                const fundsList = document.getElementById('fundsList');
+                const fundsTable = document.getElementById('fundsTable');
+                const loadingIndicator = document.querySelector('.loading-indicator');
+
+                if (data.funds && data.funds.length > 0) {
+                    fundsList.innerHTML = data.funds.map(fund => `
+                        <tr>
+                            <td><a href="/fund/${fund.id}">${fund.name}</a></td>
+                            <td>$${(fund.aum / 1e9).toFixed(1)}B</td>
+                            <td>${fund.strategy}</td>
+                        </tr>
+                    `).join('');
+
+                    loadingIndicator.style.display = 'none';
+                    fundsTable.style.display = 'table';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading funds:', error);
+            });
+    }, 500);
+});
+</script>
+{% endblock %}

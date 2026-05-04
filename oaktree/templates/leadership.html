@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Leadership Team</h1>
+
+<section class="leadership-team">
+    <div class="team-grid">
+        {% for member in items %}
+        <div class="team-member">
+            <h3>{{ member.name }}</h3>
+            <p class="title">{{ member.title }}</p>
+            <p class="bio">{{ member.bio }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% if has_prev or has_next %}
+<div class="pagination">
+    {% if has_prev %}
+        <a href="/leadership?page={{ page - 1 }}" class="pagination-btn">Previous</a>
+    {% endif %}
+
+    <span class="page-info">Page {{ page }} of {{ total_pages }}</span>
+
+    {% if has_next %}
+        <a href="/leadership?page={{ page + 1 }}" class="pagination-btn">Next</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<style>
+    h1 {
+        font-size: 40px;
+        color: #1a472a;
+        margin-bottom: 30px;
+    }
+
+    .leadership-team {
+        margin-bottom: 40px;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .team-member {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #2d7a4a;
+    }
+
+    .team-member h3 {
+        font-size: 20px;
+        color: #1a472a;
+        margin-bottom: 5px;
+    }
+
+    .team-member .title {
+        color: #2d7a4a;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .team-member .bio {
+        color: #666;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .pagination-btn {
+        padding: 10px 20px;
+        background: #2d7a4a;
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background 0.3s;
+    }
+
+    .pagination-btn:hover {
+        background: #1a472a;
+    }
+
+    .page-info {
+        color: #666;
+    }
+</style>
+{% endblock %}

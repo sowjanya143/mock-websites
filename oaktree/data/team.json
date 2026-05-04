@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Sheldon M. Stone",
+    "title": "Founder & Chairman",
+    "bio": "Visionary founder of Oaktree Capital Management with over 40 years of experience in credit and distressed asset management. Founded the firm to pioneer opportunistic investing strategies."
+  },
+  {
+    "id": 2,
+    "name": "Jay Wintrob",
+    "title": "Chief Executive Officer",
+    "bio": "Strategic leader driving Oaktree's growth and innovation across all investment strategies. Oversees the entire organization and client relationships worldwide."
+  },
+  {
+    "id": 3,
+    "name": "Manu Bhaskaran",
+    "title": "President and Chief Operating Officer",
+    "bio": "Manages operational excellence, technology infrastructure, and supports business expansion. Drives organizational efficiency and strategic initiatives."
+  },
+  {
+    "id": 4,
+    "name": "Stéphane Cerutti",
+    "title": "Head of Credit",
+    "bio": "Leads the credit strategy team with deep expertise in distressed debt, corporate credit, and structured finance. Manages portfolio of over $120 billion in credit assets."
+  },
+  {
+    "id": 5,
+    "name": "Craig Farr",
+    "title": "Head of Equity & Special Situations",
+    "bio": "Oversees private equity and special situations investments. Focuses on value creation through operational improvements and strategic initiatives."
+  },
+  {
+    "id": 6,
+    "name": "Bruce Karsh",
+    "title": "Global Head of Client Relationships",
+    "bio": "Manages client relationships and investment solutions. Ensures client satisfaction and develops tailored investment strategies for institutional investors."
+  },
+  {
+    "id": 7,
+    "name": "Barbara Novick",
+    "title": "Head of Real Assets",
+    "bio": "Leads the real assets investment program including infrastructure, energy, and commodities. Focuses on resilient, long-duration cash flow generating investments."
+  },
+  {
+    "id": 8,
+    "name": "David Sorkin",
+    "title": "Global Head of Risk Management",
+    "bio": "Oversees risk management framework and compliance. Ensures all investments meet risk parameters and regulatory requirements."
+  },
+  {
+    "id": 9,
+    "name": "Jennifer Yoon",
+    "title": "Chief Financial Officer",
+    "bio": "Manages financial planning, capital allocation, and investor relations. Responsible for financial strategy and operational budgeting."
+  },
+  {
+    "id": 10,
+    "name": "John Frank",
+    "title": "General Counsel",
+    "bio": "Leads legal and compliance functions across the organization. Manages regulatory matters and ensures corporate governance best practices."
+  }
+]

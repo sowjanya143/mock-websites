@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Investment Strategies</h1>
+
+<section class="strategies-detail">
+    <div class="strategy">
+        <h2>Credit Strategies</h2>
+        <p>
+            Our credit team manages opportunistic credit investments with deep expertise in
+            distressed debt, corporate credit, and structured finance. The credit portfolio
+            represents a significant portion of our $290 billion in assets.
+        </p>
+        <ul>
+            <li>Distressed Debt</li>
+            <li>Corporate Credit</li>
+            <li>Structured Finance</li>
+            <li>Mezzanine Finance</li>
+        </ul>
+    </div>
+
+    <div class="strategy">
+        <h2>Private Equity</h2>
+        <p>
+            Our private equity team focuses on identifying undervalued companies and applying
+            operational expertise to create value. We partner with management teams to execute
+            strategic initiatives and drive growth.
+        </p>
+        <ul>
+            <li>LBO Investments</li>
+            <li>Growth Equity</li>
+            <li>Buyouts</li>
+            <li>Special Situations</li>
+        </ul>
+    </div>
+
+    <div class="strategy">
+        <h2>Real Assets</h2>
+        <p>
+            Our real assets program focuses on long-duration, cash-generating investments in
+            infrastructure, natural resources, and other tangible assets that provide
+            resilient returns.
+        </p>
+        <ul>
+            <li>Infrastructure</li>
+            <li>Energy</li>
+            <li>Natural Resources</li>
+            <li>Renewable Energy</li>
+        </ul>
+    </div>
+
+    <div class="strategy">
+        <h2>Multi-Strategy Approach</h2>
+        <p>
+            Our multi-strategy funds combine multiple investment approaches to provide
+            diversified risk-adjusted returns. This allows us to capitalize on opportunities
+            across different markets and sectors.
+        </p>
+        <ul>
+            <li>Balanced Portfolio Construction</li>
+            <li>Dynamic Asset Allocation</li>
+            <li>Opportunistic Deployment</li>
+            <li>Risk-Adjusted Returns</li>
+        </ul>
+    </div>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        color: #1a472a;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #2d7a4a;
+        margin-bottom: 15px;
+    }
+
+    .strategies-detail {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px;
+    }
+
+    .strategy {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-left: 4px solid #2d7a4a;
+    }
+
+    .strategy p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .strategy ul {
+        list-style-position: inside;
+        color: #333;
+    }
+
+    .strategy li {
+        padding: 5px 0;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,41 @@
+{
+  "global_aum": 290000000000,
+  "by_asset_class": {
+    "Credit": 120000000000,
+    "Private Equity": 80000000000,
+    "Real Assets": 50000000000,
+    "Oaktree Funds": 40000000000
+  },
+  "by_fund": [
+    {
+      "id": 1,
+      "name": "Oaktree Opportunities Fund",
+      "aum": 95000000000,
+      "strategy": "Credit"
+    },
+    {
+      "id": 2,
+      "name": "Oaktree Equity Fund",
+      "aum": 78000000000,
+      "strategy": "Private Equity"
+    },
+    {
+      "id": 3,
+      "name": "Oaktree Real Assets Fund",
+      "aum": 50000000000,
+      "strategy": "Real Assets"
+    },
+    {
+      "id": 4,
+      "name": "Oaktree Strategic Credit Fund",
+      "aum": 35000000000,
+      "strategy": "Credit"
+    },
+    {
+      "id": 5,
+      "name": "Oaktree Global Fund",
+      "aum": 32000000000,
+      "strategy": "Oaktree Funds"
+    }
+  ]
+}

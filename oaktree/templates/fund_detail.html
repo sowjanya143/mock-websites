@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Fund Details</h1>
+
+<section class="fund-detail">
+    <div class="fund-header">
+        <h2 id="fundName">Loading fund information...</h2>
+        <p class="fund-aum" id="fundAum"></p>
+        <p class="fund-strategy" id="fundStrategy"></p>
+    </div>
+
+    <div class="fund-info">
+        <div class="info-section">
+            <h3>Fund Overview</h3>
+            <p>
+                This fund represents a significant portion of Oaktree's investment portfolio,
+                managed by our experienced team with a focus on delivering risk-adjusted returns.
+            </p>
+        </div>
+
+        <div class="info-section">
+            <h3>Investment Objective</h3>
+            <p>
+                The fund's primary objective is to generate attractive returns through disciplined
+                capital deployment and active portfolio management across identified opportunities
+                in its target strategy.
+            </p>
+        </div>
+
+        <div class="info-section">
+            <h3>Risk Profile</h3>
+            <p>
+                This fund is suitable for institutional investors with a long-term investment
+                horizon who understand and accept the risks associated with alternative investments.
+            </p>
+        </div>
+
+        <div class="info-section">
+            <h3>Performance</h3>
+            <p>
+                For detailed performance information, historical returns, and risk metrics,
+                please contact our investor relations team or access the investor portal.
+            </p>
+        </div>
+    </div>
+
+    <div class="fund-actions">
+        <a href="/funds" class="btn-back">Back to Funds</a>
+        <a href="/contact" class="btn-contact">Contact Investor Relations</a>
+    </div>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        color: #1a472a;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 32px;
+        color: #1a472a;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        font-size: 20px;
+        color: #2d7a4a;
+        margin-bottom: 15px;
+    }
+
+    .fund-detail {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .fund-header {
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+
+    .fund-aum,
+    .fund-strategy {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .fund-aum strong,
+    .fund-strategy strong {
+        color: #2d7a4a;
+        font-weight: bold;
+    }
+
+    .fund-info {
+        margin-bottom: 30px;
+    }
+
+    .info-section {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .info-section:last-child {
+        border-bottom: none;
+    }
+
+    .info-section p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .fund-actions {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .btn-back,
+    .btn-contact {
+        padding: 12px 24px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+
+    .btn-back {
+        background: #e0e0e0;
+        color: #333;
+    }
+
+    .btn-back:hover {
+        background: #d0d0d0;
+    }
+
+    .btn-contact {
+        background: #2d7a4a;
+        color: white;
+    }
+
+    .btn-contact:hover {
+        background: #1a472a;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Extract fund ID from URL
+    const fundId = {{ fund_id }};
+
+    // Fetch funds data and find the matching one
+    fetch('/api/funds')
+        .then(response => response.json())
+        .then(data => {
+            const funds = data.funds;
+            const fund = funds.find(f => f.id === fundId);
+
+            if (fund) {
+                document.getElementById('fundName').textContent = fund.name;
+                document.getElementById('fundAum').innerHTML = `<strong>AUM:</strong> $${(fund.aum / 1e9).toFixed(1)}B`;
+                document.getElementById('fundStrategy').innerHTML = `<strong>Strategy:</strong> ${fund.strategy}`;
+            }
+        })
+        .catch(error => {
+            console.error('Error loading fund data:', error);
+            document.getElementById('fundName').textContent = 'Fund #' + fundId;
+        });
+});
+</script>
+{% endblock %}

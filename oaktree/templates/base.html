@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Oaktree Capital Management{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Sticky Footer Popup (Oaktree specific) -->
+    {% if popup_data and popup_type == 'sticky_footer' %}
+    <div class="sticky-footer-popup" id="stickyPopup" data-auto-dismiss="{{ popup_data.get('auto_dismiss', False)|lower }}" data-dismiss-delay="{{ popup_data.get('dismiss_delay', 5000) }}">
+        <div class="popup-content-wrapper">
+            <div class="popup-content">
+                <h3>{{ popup_data.get('title', 'Notification') }}</h3>
+                {{ popup_data.get('content', '') }}
+            </div>
+            <button class="close-button" onclick="dismissStickyPopup()">&times;</button>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Header/Navbar -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    {{ company_name }}
+                </div>
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/leadership">Leadership</a>
+                    <a href="/strategies">Strategies</a>
+                    <a href="/investor-resources">Investor Resources</a>
+                    <a href="/funds">Funds</a>
+                    <a href="/news">News</a>
+                    <a href="/contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 {{ company_name }}</p>
+            {% if global_aum %}
+            <p class="global-aum">Global AUM: {{ global_aum }}</p>
+            {% endif %}
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script>
+    /**
+     * Dismiss Sticky Popup Function (Oaktree specific)
+     * Hides the sticky footer popup and sends dismissal to server
+     */
+    function dismissStickyPopup() {
+        const popup = document.getElementById('stickyPopup');
+        if (popup) {
+            popup.style.display = 'none';
+
+            // Send AJAX POST to mark popup as dismissed server-side
+            fetch('/api/dismiss-popup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({})
+            }).catch(error => {
+                console.error('Error dismissing popup:', error);
+            });
+        }
+    }
+
+    /**
+     * Document Ready - Initialize Sticky Popup Auto-Dismiss
+     * Checks if sticky popup exists and auto-dismisses based on data attributes
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('stickyPopup');
+
+        if (popup) {
+            const autoDismiss = popup.getAttribute('data-auto-dismiss') === 'true';
+            const dismissDelay = parseInt(popup.getAttribute('data-dismiss-delay'), 10) || 5000;
+
+            if (autoDismiss) {
+                setTimeout(function() {
+                    dismissStickyPopup();
+                }, dismissDelay);
+            }
+        }
+    });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

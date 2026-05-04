@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>About Oaktree Capital Management</h1>
+
+<section class="about-intro">
+    <h2>Our Story</h2>
+    <p>
+        Oaktree Capital Management was founded in 1995 with the vision of bringing professional
+        capital to inefficient markets. With $290 billion in global assets under management,
+        Oaktree has grown into one of the world's leading global alternative asset managers.
+    </p>
+    <p>
+        Our investment philosophy emphasizes rigorous analysis, thorough due diligence, and
+        disciplined capital deployment. We focus on identifying opportunities where we can
+        apply our expertise to generate superior risk-adjusted returns for our investors.
+    </p>
+</section>
+
+<section class="core-values">
+    <h2>Core Values</h2>
+    <ul>
+        <li><strong>Integrity:</strong> We maintain the highest ethical standards in all our dealings.</li>
+        <li><strong>Expertise:</strong> Our team brings decades of experience in credit and distressed investing.</li>
+        <li><strong>Innovation:</strong> We continuously evolve our strategies to adapt to changing markets.</li>
+        <li><strong>Performance:</strong> We are focused on delivering superior returns for our investors.</li>
+        <li><strong>Responsibility:</strong> We emphasize strong governance and risk management.</li>
+    </ul>
+</section>
+
+<section class="global-presence">
+    <h2>Global Presence</h2>
+    <p>
+        Oaktree operates globally with offices in major financial centers across North America,
+        Europe, and Asia-Pacific. Our international presence enables us to identify and execute
+        on investment opportunities worldwide while maintaining close client relationships.
+    </p>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        color: #1a472a;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+        color: #2d7a4a;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .about-intro,
+    .core-values,
+    .global-presence {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-intro p,
+    .global-presence p {
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .core-values ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .core-values li {
+        padding: 10px 0;
+        border-bottom: 1px solid #e0e0e0;
+        line-height: 1.6;
+    }
+
+    .core-values li:last-child {
+        border-bottom: none;
+    }
+</style>
+{% endblock %}

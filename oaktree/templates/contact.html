@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Contact Us</h1>
+
+<section class="contact-section">
+    <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+            Have questions about our investment strategies or funds? Contact our team at
+            Oaktree Capital Management. We're here to help.
+        </p>
+
+        <div class="contact-details">
+            <div class="contact-item">
+                <h3>Investor Relations</h3>
+                <p>Email: <a href="mailto:investors@oaktree.com">investors@oaktree.com</a></p>
+                <p>Phone: +1 (888) OAKTREE</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>General Inquiries</h3>
+                <p>Email: <a href="mailto:info@oaktree.com">info@oaktree.com</a></p>
+                <p>Phone: +1 (310) 725-4600</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>Office Locations</h3>
+                <p><strong>Los Angeles:</strong> 333 South Hope Street, Los Angeles, CA 90071</p>
+                <p><strong>New York:</strong> 1301 Avenue of the Americas, New York, NY 10019</p>
+                <p><strong>London:</strong> 1 South Place, London EC2M 2AF, United Kingdom</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-form">
+        <h2>Send us a Message</h2>
+        <form id="contactForm" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        color: #1a472a;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+        color: #2d7a4a;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+        color: #1a472a;
+        margin-bottom: 10px;
+    }
+
+    .contact-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .contact-info,
+    .contact-form {
+        background: white;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .contact-details {
+        margin-top: 20px;
+    }
+
+    .contact-item {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .contact-item:last-child {
+        border-bottom: none;
+    }
+
+    .contact-item p {
+        margin-bottom: 8px;
+    }
+
+    .contact-item a {
+        color: #2d7a4a;
+        text-decoration: none;
+    }
+
+    .contact-item a:hover {
+        text-decoration: underline;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #1a472a;
+        font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #2d7a4a;
+        box-shadow: 0 0 5px rgba(45, 122, 74, 0.3);
+    }
+
+    .submit-btn {
+        background: #2d7a4a;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #1a472a;
+    }
+
+    @media (max-width: 768px) {
+        .contact-section {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}

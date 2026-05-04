@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Our Funds</h1>
+
+<section class="funds-section">
+    <p class="section-intro">
+        Explore our diverse range of investment funds, each designed to meet different
+        investor objectives and risk profiles.
+    </p>
+
+    <div class="ajax-funds-container">
+        <div class="loading-indicator">Loading fund information...</div>
+        <table class="funds-table" id="fundsTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Fund Name</th>
+                    <th>AUM</th>
+                    <th>Strategy</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="fundsList"></tbody>
+        </table>
+    </div>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        color: #1a472a;
+        margin-bottom: 30px;
+    }
+
+    .section-intro {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .ajax-funds-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .loading-indicator {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+        font-style: italic;
+    }
+
+    .funds-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .funds-table thead {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .funds-table th,
+    .funds-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .funds-table tbody tr:hover {
+        background: #fafafa;
+    }
+
+    .funds-table a {
+        color: #2d7a4a;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .funds-table a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Load funds via AJAX
+    setTimeout(function() {
+        fetch('/api/funds')
+            .then(response => response.json())
+            .then(data => {
+                const fundsList = document.getElementById('fundsList');
+                const fundsTable = document.getElementById('fundsTable');
+                const loadingIndicator = document.querySelector('.loading-indicator');
+
+                if (data.funds && data.funds.length > 0) {
+                    fundsList.innerHTML = data.funds.map(fund => `
+                        <tr>
+                            <td><strong>${fund.name}</strong></td>
+                            <td>$${(fund.aum / 1e9).toFixed(1)}B</td>
+                            <td>${fund.strategy}</td>
+                            <td><a href="/fund/${fund.id}">View Details</a></td>
+                        </tr>
+                    `).join('');
+
+                    loadingIndicator.style.display = 'none';
+                    fundsTable.style.display = 'table';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading funds:', error);
+                document.querySelector('.loading-indicator').textContent = 'Error loading funds.';
+            });
+    }, 500);
+});
+</script>
+{% endblock %}
