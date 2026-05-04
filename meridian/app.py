@@ -1,4 +1,4 @@
-"""Nomura Inc. Flask application."""
+"""Meridian Global Holdings Flask application."""
 
 import base64
 import json
@@ -26,14 +26,14 @@ from utils import (
 
 from config import Config
 
-# Create Flask app with template loaders for nomura and shared templates
+# Create Flask app with template loaders for meridian and shared templates
 from jinja2 import FileSystemLoader, ChoiceLoader
 
-nomura_dir = Path(__file__).parent
-shared_dir = nomura_dir.parent / 'shared'
+meridian_dir = Path(__file__).parent
+shared_dir = meridian_dir.parent / 'shared'
 
 loader = ChoiceLoader([
-    FileSystemLoader(str(nomura_dir / 'templates')),
+    FileSystemLoader(str(meridian_dir / 'templates')),
     FileSystemLoader(str(shared_dir / 'templates')),
 ])
 

@@ -1,17 +1,17 @@
-"""Oaktree Capital Management site configuration."""
+"""Zenith Asset Management site configuration."""
 
 import os
 
 
 class Config:
-    """Configuration for Oaktree Capital Management site - Most Complex."""
+    """Configuration for Zenith Asset Management site - Most Complex."""
 
     # Site identification
-    COMPANY_NAME = 'Oaktree Capital Management'
-    SITE_NAME = 'oaktree'
+    COMPANY_NAME = 'Zenith Asset Management'
+    SITE_NAME = 'zenith'
 
     # Security
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'oaktree-dev-key-99999')
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'zenith-dev-key-99999')
 
     # CAPTCHA configuration (most complex: first visit + data pages)
     CAPTCHA_FIRST_VISIT = True

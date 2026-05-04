@@ -1,15 +1,15 @@
-# Fortress Mock Financial Website - Render Deployment Guide
+# Mock Financial Services Websites - Render Deployment Guide
 
-This guide provides step-by-step instructions for deploying the Fortress mock financial website to Render.com.
+This guide provides step-by-step instructions for deploying all 5 mock financial services websites to Render.com.
 
 ## Table of Contents
+
 1. [Prerequisites](#prerequisites)
-2. [Prepare Fortress for Deployment](#step-1-prepare-fortress-for-deployment)
-3. [Create Render Web Service](#step-2-create-render-web-service)
-4. [Configure Environment Variables](#step-3-add-environment-variables)
-5. [Deploy](#step-4-deploy)
-6. [Verify Deployment](#step-5-verify)
-7. [Troubleshooting](#step-6-troubleshooting)
+2. [Sites Overview](#sites-overview)
+3. [General Deployment Setup](#general-deployment-setup)
+4. [Deploying Each Site](#deploying-each-site)
+5. [Verification](#verification)
+6. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -22,130 +22,175 @@ Before deploying to Render, ensure you have:
 - **Repository Pushed**: This repository must be pushed to GitHub (public or private)
 - **Git Bash or Terminal**: For running commands locally
 
-### Local Testing (Optional but Recommended)
+### Local Testing (Recommended)
 
-Before deploying, test the application locally:
+Before deploying, test the applications locally:
 
 ```bash
-cd fortress
+# Test each site
+cd sentinel
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
-```
+# Visit http://localhost:5000
 
-Visit http://localhost:5000 to verify the app works.
+# Repeat for other sites in separate terminal windows
+cd apex
+python app.py  # Port 5001
+
+cd meridian
+python app.py  # Port 5002
+
+cd premier
+python app.py  # Port 5003
+
+cd zenith
+python app.py  # Port 5004
+```
 
 ---
 
-## Step 1: Prepare Fortress for Deployment
+## Sites Overview
 
-The Fortress site has been configured for Render deployment. Verify the following files exist:
+| Site | Port | Key Features |
+|------|------|--------------|
+| **Sentinel Capital Partners** | 5000 | CAPTCHA on every page |
+| **Apex Investment Group** | 5001 | CAPTCHA on data pages, rate limiting |
+| **Meridian Global Holdings** | 5002 | Random CAPTCHA, scattered data, delays |
+| **Premier Financial Services** | 5003 | Clean baseline (no obstacles) |
+| **Zenith Asset Management** | 5004 | All obstacles combined |
 
-### Required Files
+---
 
-1. **`fortress/Procfile`** - Defines how to start the web process
+## General Deployment Setup
+
+### Required Files for Each Site
+
+Each site directory contains:
+
+1. **`{site}/Procfile`** - Defines how to start the web process
    ```
-   web: cd fortress && python app.py
+   web: cd {site} && python app.py
    ```
 
-2. **`fortress/runtime.txt`** - Specifies Python version
+2. **`{site}/runtime.txt`** - Specifies Python version (if applicable)
    ```
    python-3.11.7
    ```
 
-3. **`fortress/requirements.txt`** - Python dependencies
+3. **`{site}/requirements.txt`** - Python dependencies
    ```
    Flask==3.0.0
    Pillow==10.0.0
    Werkzeug==3.0.1
    ```
 
-4. **`fortress/.env.example`** - Environment variables template
-   - Copy this to set environment variables in Render dashboard
+4. **`{site}/.env.example`** - Environment variables template
 
 ### App Configuration
 
-The `fortress/app.py` has been updated to:
+Each `app.py` has been configured to:
 - Read the `PORT` environment variable (Render sets this dynamically)
 - Bind to `0.0.0.0` to accept external connections
-- Default to port 5000 if PORT is not set
+- Default to port 5000, 5001, 5002, 5003, or 5004 respectively
 
 ```python
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5000))  # Adjust per site
     app.run(debug=Config.DEBUG, host='0.0.0.0', port=port)
 ```
 
 ---
 
-## Step 2: Create Render Web Service
+## Deploying Each Site
 
-### 2.1 Log In to Render
+### Step 1: Log In to Render
 
 1. Go to https://render.com
 2. Click **Sign Up** or **Sign In**
 3. You can use your GitHub account for authentication
 
-### 2.2 Create a New Web Service
+### Step 2: Create a New Web Service for Each Site
+
+Repeat the following steps for each of the 5 sites (Sentinel, Apex, Meridian, Premier, Zenith):
+
+#### 2.1 Create Web Service
 
 1. Click the **"New +"** button in the top-right corner
 2. Select **"Web Service"**
 3. Click **"Connect a repository"**
 
-### 2.3 Connect Your GitHub Repository
+#### 2.2 Connect Your GitHub Repository
 
 1. Select your GitHub account or organization
 2. Search for the repository containing the mock-website
 3. Click **"Connect"** next to the correct repository
 
-### 2.4 Configure Web Service Settings
+#### 2.3 Configure Web Service Settings
 
-Fill in the following details on the deployment form:
+Fill in the deployment form with site-specific details:
+
+**For Sentinel Capital Partners (Port 5000):**
 
 | Field | Value |
 |-------|-------|
-| **Name** | `fortress-mock-website` (or your preferred name) |
+| **Name** | `sentinel-mock-website` |
 | **Environment** | `Python 3` |
-| **Region** | `Oregon (US West)` (or your preferred region) |
-| **Branch** | `main` (or your deployment branch) |
-| **Build Command** | `pip install -r fortress/requirements.txt` |
-| **Start Command** | `cd fortress && python app.py` |
-| **Plan** | `Free` (for testing and development) |
+| **Region** | `Oregon (US West)` (or your preferred) |
+| **Branch** | `main` |
+| **Build Command** | `pip install -r sentinel/requirements.txt` |
+| **Start Command** | `cd sentinel && python app.py` |
+| **Plan** | `Free` |
 
-### 2.5 Review Configuration
+**For Apex Investment Group (Port 5001):**
 
-The form should look like this:
-- **Name**: fortress-mock-website
-- **Environment**: Python 3
-- **Build Command**: pip install -r fortress/requirements.txt
-- **Start Command**: cd fortress && python app.py
-- **Auto-Deploy**: Yes (checked)
-- **Plan**: Free
+| Field | Value |
+|-------|-------|
+| **Name** | `apex-mock-website` |
+| **Build Command** | `pip install -r apex/requirements.txt` |
+| **Start Command** | `cd apex && python app.py` |
 
----
+**For Meridian Global Holdings (Port 5002):**
 
-## Step 3: Add Environment Variables
+| Field | Value |
+|-------|-------|
+| **Name** | `meridian-mock-website` |
+| **Build Command** | `pip install -r meridian/requirements.txt` |
+| **Start Command** | `cd meridian && python app.py` |
 
-After creating the web service, you need to configure environment variables.
+**For Premier Financial Services (Port 5003):**
 
-### 3.1 Access Environment Variables
+| Field | Value |
+|-------|-------|
+| **Name** | `premier-mock-website` |
+| **Build Command** | `pip install -r premier/requirements.txt` |
+| **Start Command** | `cd premier && python app.py` |
 
-1. Go to your Fortress web service dashboard on Render
+**For Zenith Asset Management (Port 5004):**
+
+| Field | Value |
+|-------|-------|
+| **Name** | `zenith-mock-website` |
+| **Build Command** | `pip install -r zenith/requirements.txt` |
+| **Start Command** | `cd zenith && python app.py` |
+
+### Step 3: Add Environment Variables
+
+After creating each web service:
+
+1. Go to the service dashboard on Render
 2. Click on the **"Environment"** tab (left sidebar)
-
-### 3.2 Add Environment Variables
-
-Click **"Add Environment Variable"** and add the following variables:
+3. Click **"Add Environment Variable"** and add:
 
 | Key | Value | Notes |
 |-----|-------|-------|
 | `FLASK_ENV` | `production` | Sets Flask to production mode |
 | `DEBUG` | `False` | Disables debug mode for security |
-| `SECRET_KEY` | `[generate-random-string]` | See below for generation instructions |
-| `PORT` | `5000` | Optional - Render assigns automatically |
+| `SECRET_KEY` | `[generate-random-string]` | See below |
+| `PORT` | `5000` | Render assigns automatically; optional |
 
-### 3.3 Generate SECRET_KEY
+#### Generate SECRET_KEY
 
 Generate a secure random secret key using Python:
 
@@ -153,67 +198,60 @@ Generate a secure random secret key using Python:
 python -c "import secrets; print(secrets.token_hex(32))"
 ```
 
-This will output something like: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e`
+Or use: https://www.randomkeygen.com/ (Fort Knox section)
 
-Copy this value and paste it into the `SECRET_KEY` environment variable in Render.
+### Step 4: Deploy
 
-Alternatively, use this quick generator:
-- Go to: https://www.randomkeygen.com/ (Fort Knox section)
-- Copy the generated key
+#### 4.1 Automatic Deployment
 
-### 3.4 Save Environment Variables
+After creating the web service, Render will automatically:
+1. Pull your code from GitHub
+2. Install dependencies
+3. Build and start the application
 
-Click **"Save"** to apply the environment variables. The service will redeploy automatically.
+**First deployment typically takes 5-10 minutes.**
 
----
-
-## Step 4: Deploy
-
-### 4.1 Manual Deployment (if needed)
+#### 4.2 Manual Deployment
 
 If auto-deploy is enabled and you've made changes:
 1. Push your code to GitHub
 2. Render will automatically detect the push and start building
-3. Check the **"Logs"** tab to monitor the deployment
+3. Check the **"Logs"** tab to monitor
 
-### 4.2 Initial Deployment
-
-After creating the web service, Render will automatically:
-1. Pull your code from GitHub
-2. Install dependencies from `requirements.txt`
-3. Build the application
-4. Start the application using the **Start Command**
-
-**First deployment typically takes 5-10 minutes.** Subsequent deployments are faster.
-
-### 4.3 Monitor Deployment
+#### 4.3 Monitor Deployment
 
 1. Go to your web service dashboard on Render
 2. Click the **"Logs"** tab
 3. Watch for build and startup messages
-4. Look for: `Running on http://0.0.0.0:PORT` (indicates successful startup)
+4. Look for: `Running on http://0.0.0.0:PORT`
 
 ---
 
-## Step 5: Verify Deployment
+## Verification
 
-Once the deployment is complete and the service is running, verify the application works correctly.
+### For Each Site
 
-### 5.1 Access the Application
+Once deployment is complete:
 
-1. Go to your web service dashboard on Render
-2. Copy the **URL** from the top (format: `https://fortress-mock-website.onrender.com`)
+#### 5.1 Access the Application
+
+1. Go to the web service dashboard on Render
+2. Copy the **URL** from the top
 3. Open this URL in your browser
 
-### 5.2 Verification Checklist
+#### 5.2 Verification Checklist
 
-- [ ] **Home page loads** - Visit the home page and verify the Fortress branding appears
-- [ ] **CAPTCHA displays** - Verify the CAPTCHA image appears on the first visit
-- [ ] **CAPTCHA submission** - Enter the CAPTCHA answer and verify access is granted
-- [ ] **AUM data loads** - Verify Assets Under Management data displays correctly
-- [ ] **Leadership page** - Navigate to /leadership and verify team member data loads
-- [ ] **Pagination works** - Verify pagination controls work on the leadership page
-- [ ] **All routes accessible** - Test key routes:
+- [ ] **Home page loads** - Verify site branding appears
+- [ ] **Site-specific features work**:
+  - **Sentinel**: CAPTCHA displays on every page
+  - **Apex**: CAPTCHA displays on data pages; rate limiting active
+  - **Meridian**: Random CAPTCHA may appear; scattered AUM data
+  - **Premier**: Clean interface loads; no security obstacles
+  - **Zenith**: All obstacles combined (CAPTCHA, pop-ups, rate limiting)
+- [ ] **AUM data loads** - Verify financial data displays
+- [ ] **Leadership page** - Navigate to /leadership and verify team data
+- [ ] **Pagination works** - Verify pagination controls
+- [ ] **All routes accessible**:
   - `/` (Home)
   - `/about` (About)
   - `/leadership` (Leadership)
@@ -223,86 +261,77 @@ Once the deployment is complete and the service is running, verify the applicati
   - `/news` (News)
   - `/contact` (Contact)
 
-### 5.3 Common Verification Issues
+#### 5.3 Common Verification Issues
 
 | Issue | Solution |
 |-------|----------|
-| CAPTCHA image doesn't display | Verify Pillow is installed (in requirements.txt) |
-| 502 Bad Gateway error | Check logs for errors; ensure PORT is configured |
-| Page loads but styling is off | Verify static files are being served correctly |
+| CAPTCHA image doesn't display | Verify Pillow in requirements.txt |
+| 502 Bad Gateway | Check logs for errors; verify PORT configuration |
+| Page styling off | Verify static files are served correctly |
 | Routes return 404 | Check Flask route definitions in app.py |
+| Rate limiting too strict | Adjust MAX_REQUESTS/TIME_WINDOW in config.py |
 
 ---
 
-## Step 6: Troubleshooting
+## Troubleshooting
 
-### 6.1 View Logs
+### View Logs
 
-The most useful troubleshooting tool is the application logs:
+1. Go to web service dashboard on Render
+2. Click **"Logs"** tab
+3. Look for error patterns
 
-1. Go to your web service dashboard on Render
-2. Click the **"Logs"** tab
-3. Scroll through logs to find errors or warnings
-4. Common log patterns:
-   - `Build started` - Initial build phase
-   - `Running on` - Application successfully started
-   - `ERROR` - Application errors (highlighted in red)
-   - `WARNING` - Application warnings (highlighted in yellow)
+### Common Issues
 
-### 6.2 Common Deployment Issues
-
-#### Issue: "ModuleNotFoundError: No module named 'flask'"
+#### "ModuleNotFoundError: No module named 'flask'"
 
 **Cause**: Dependencies not installed
 **Solution**:
-- Verify `fortress/requirements.txt` exists and has all dependencies
-- Check Build Command in Render: `pip install -r fortress/requirements.txt`
-- Manually trigger a redeploy by pushing a new commit
+- Verify `{site}/requirements.txt` exists with all dependencies
+- Check Build Command in Render: `pip install -r {site}/requirements.txt`
+- Trigger redeploy by pushing a new commit
 
-#### Issue: "Address already in use" or "Port 5000 already in use"
+#### "Address already in use"
 
 **Cause**: Port conflict
 **Solution**:
 - Verify app.py uses `os.environ.get('PORT', 5000)`
-- Ensure Start Command is: `cd fortress && python app.py`
-- Render will automatically assign an available PORT
+- Ensure Start Command is: `cd {site} && python app.py`
+- Render will automatically assign available PORT
 
-#### Issue: "502 Bad Gateway" error
+#### "502 Bad Gateway"
 
 **Cause**: Application crashed or not responding
 **Solution**:
 1. Check logs for errors
 2. Verify all routes and templates exist
-3. Verify environment variables are set correctly
-4. Trigger a manual redeploy: push a commit to GitHub
+3. Verify environment variables are set
+4. Push a new commit to trigger redeploy
 
-#### Issue: "CAPTCHA image won't display"
+#### "CAPTCHA image won't display"
 
-**Cause**: PIL/Pillow not installed or ImageDraw error
+**Cause**: Pillow not installed
 **Solution**:
-- Verify `Pillow==10.0.0` is in `fortress/requirements.txt`
+- Verify `Pillow==10.0.0` in `{site}/requirements.txt`
 - Check logs for PIL/ImageDraw errors
-- Trigger a rebuild: `pip install -r fortress/requirements.txt`
+- Trigger rebuild via redeploy
 
-#### Issue: "Template not found" error
+#### "Template not found"
 
-**Cause**: Templates in wrong location or jinja2 loader misconfigured
+**Cause**: Templates in wrong location
 **Solution**:
-- Verify `fortress/templates/` directory has all template files
-- Check that `app.py` has correct ChoiceLoader configuration
-- Verify shared templates are in `shared/templates/`
+- Verify `{site}/templates/` has all template files
+- Check app.py for correct template loader configuration
 
-#### Issue: "Static files not loading" (CSS/JS not displaying)
+#### "Static files not loading"
 
-**Cause**: Flask not serving static files correctly
+**Cause**: Flask not serving static files
 **Solution**:
-- Static files should be in `fortress/static/`
-- Verify paths in HTML templates are relative: `{{ url_for('static', filename='css/main.css') }}`
-- For Render, ensure static files are committed to Git (not in .gitignore)
+- Static files should be in `{site}/static/`
+- Use relative paths in HTML: `{{ url_for('static', filename='css/main.css') }}`
+- Ensure static files are committed to Git
 
-### 6.3 Rebuild and Redeploy
-
-If you make changes and want to force a redeploy:
+### Rebuild and Redeploy
 
 **Option 1: Push to GitHub**
 ```bash
@@ -316,87 +345,74 @@ git push origin main
 2. Click **"Manual Deploy"** button
 3. Select **"Deploy latest"**
 
-### 6.4 Check Python Version
+### Environment Variable Issues
 
-If you encounter version-specific issues:
-
-```bash
-# In Render logs, you'll see the Python version used
-# Verify it matches fortress/runtime.txt
-python-3.11.7
-```
-
-### 6.5 Environment Variable Issues
-
-If environment variables aren't being read:
-
-1. Verify variables are set in Render dashboard (Environment tab)
-2. Ensure variable names match exactly (case-sensitive):
-   - `FLASK_ENV` (not `Flask_Env` or `flask_env`)
-   - `DEBUG` (not `Debug` or `debug`)
-   - `SECRET_KEY` (not `SECRET_KEY_FORTRESS`)
-3. Redeploy after changing environment variables
-4. Check logs for confirmation that variables are loaded
+If variables aren't being read:
+1. Verify variables in Render dashboard (Environment tab)
+2. Ensure names match exactly (case-sensitive):
+   - `FLASK_ENV` (not `Flask_Env`)
+   - `DEBUG` (not `Debug`)
+   - `SECRET_KEY` (not `SECRET_KEY_SITE`)
+3. Redeploy after changing variables
+4. Check logs for confirmation
 
 ---
 
-## Next Steps
+## After Successful Deployment
 
-### After Successful Fortress Deployment
-
-1. **Document the URL** - Note your live URL for testing and sharing
+1. **Document URLs** - Note live URLs for all 5 sites
 2. **Run Integration Tests** - Test all features thoroughly
-3. **Monitor Performance** - Use Render's analytics to monitor CPU, memory, and requests
-4. **Set Up Custom Domain** (optional) - In Render settings, add a custom domain
+3. **Monitor Performance** - Use Render's analytics
+4. **Set Up Custom Domains** (optional) - Add custom domains per site
 5. **Enable Auto-Deploy** (recommended) - Automatic deployment on GitHub push
-
-### Deploying Other Sites
-
-Repeat this process for the other mock financial websites:
-- Heitman
-- Nomura
-- Hokuyo
-- Oaktree
-
-Each site has its own `requirements.txt`, templates, and data files. The deployment process is identical.
 
 ---
 
 ## Reference
 
-### Useful Render Documentation
+### Deployment Commands Quick Reference
+
+```bash
+# Deploy Sentinel
+Build: pip install -r sentinel/requirements.txt
+Start: cd sentinel && python app.py
+
+# Deploy Apex
+Build: pip install -r apex/requirements.txt
+Start: cd apex && python app.py
+
+# Deploy Meridian
+Build: pip install -r meridian/requirements.txt
+Start: cd meridian && python app.py
+
+# Deploy Premier
+Build: pip install -r premier/requirements.txt
+Start: cd premier && python app.py
+
+# Deploy Zenith
+Build: pip install -r zenith/requirements.txt
+Start: cd zenith && python app.py
+```
+
+### Site Configuration Files
+
+- **Sentinel**: `sentinel/config.py`
+- **Apex**: `apex/config.py`
+- **Meridian**: `meridian/config.py`
+- **Premier**: `premier/config.py`
+- **Zenith**: `zenith/config.py`
+
+### Useful Resources
+
 - [Render Python Deployment](https://render.com/docs/deploy-python)
 - [Environment Variables](https://render.com/docs/environment-variables)
 - [Static Files](https://render.com/docs/static-files)
 - [Custom Domains](https://render.com/docs/custom-domains)
-
-### Fortress Site Documentation
-- Configuration: `fortress/config.py`
-- Routes: `fortress/app.py`
-- Templates: `fortress/templates/`
-- Static files: `fortress/static/`
-- Data files: `fortress/data/`
-
-### Troubleshooting Resources
-- Check logs in Render dashboard
-- Review this DEPLOYMENT.md guide
-- Check Flask documentation: https://flask.palletsprojects.com
-- Render support: https://render.com/support
-
----
-
-## Support
-
-If you encounter issues not covered in this guide:
-
-1. **Check the logs** - Most issues are visible in Render logs
-2. **Review this guide** - Use the troubleshooting section
-3. **Check error messages** - Error messages often indicate the solution
-4. **Verify configuration** - Double-check settings match this guide
-5. **Contact Render support** - https://render.com/support
+- [Flask Documentation](https://flask.palletsprojects.com)
+- [Render Support](https://render.com/support)
 
 ---
 
 **Last Updated**: 2026-05-04
-**Fortress Version**: 1.0
+**Version**: 1.0
 **Python Version**: 3.11.7

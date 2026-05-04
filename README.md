@@ -6,40 +6,40 @@ A collection of 5 independent Flask-based mock financial services websites, each
 
 This project contains the following mock financial services sites:
 
-### 1. **Fortress Bank**
-A banking website with CAPTCHA protection on login attempts.
+### 1. **Sentinel Capital Partners** (Port 5000)
+CAPTCHA protection on every page for maximum security.
 
-### 2. **Heitman Investment Group**
-Investment services platform featuring interactive pop-ups and user engagement elements.
+### 2. **Apex Investment Group** (Port 5001)
+CAPTCHA on data pages, JSON endpoints, and rate limiting.
 
-### 3. **Nomura Trading**
-A trading platform with complex rate limiting and request throttling.
+### 3. **Meridian Global Holdings** (Port 5002)
+Random CAPTCHA, scattered AUM data, and artificial delays.
 
-### 4. **Hokuyo Bank**
-A Japanese-themed banking service with unique behavioral patterns.
+### 4. **Premier Financial Services** (Port 5003)
+Baseline clean site with no obstacles.
 
-### 5. **Oaktree Capital**
-A capital management firm with advanced anti-scraping features.
+### 5. **Zenith Asset Management** (Port 5004)
+All obstacles combined - comprehensive anti-scraping and security measures.
 
 ## Site-Specific Behaviors
 
 Each site is independently deployable and exhibits unique characteristics:
 
-- **Fortress Bank**: CAPTCHA verification system on authentication
-- **Heitman Investment Group**: Requires interaction with dynamic pop-ups before accessing content
-- **Nomura Trading**: Implements rate limiting to prevent high-frequency requests
-- **Hokuyo Bank**: Specialized behavioral patterns and data presentation
-- **Oaktree Capital**: Advanced anti-bot detection and anti-scraping measures
+- **Sentinel Capital Partners**: CAPTCHA verification on every page
+- **Apex Investment Group**: CAPTCHA on data pages, rate limiting enabled
+- **Meridian Global Holdings**: Random CAPTCHA, scattered AUM data, artificial delays
+- **Premier Financial Services**: Clean interface, no security obstacles (control site)
+- **Zenith Asset Management**: Maximum security - combined CAPTCHA, pop-ups, rate limiting, and delays
 
 ## Project Structure
 
 ```
 mock-website/
-├── fortress/              # Fortress Bank Flask app
-├── heitman/              # Heitman Investment Group Flask app
-├── nomura/               # Nomura Trading Flask app
-├── hokuyo/               # Hokuyo Bank Flask app
-├── oaktree/              # Oaktree Capital Flask app
+├── sentinel/             # Sentinel Capital Partners Flask app (port 5000)
+├── apex/                 # Apex Investment Group Flask app (port 5001)
+├── meridian/             # Meridian Global Holdings Flask app (port 5002)
+├── premier/              # Premier Financial Services Flask app (port 5003)
+├── zenith/               # Zenith Asset Management Flask app (port 5004)
 ├── shared/               # Shared utilities module
 │   ├── captcha.py        # CAPTCHA generation and validation
 │   ├── popups.py         # Pop-up management utilities
@@ -83,28 +83,28 @@ mock-website/
 Each site runs independently on its own port:
 
 ```bash
-# Fortress Bank (port 5001)
-python fortress/app.py
+# Sentinel Capital Partners (port 5000)
+python sentinel/app.py
 
-# Heitman Investment Group (port 5002)
-python heitman/app.py
+# Apex Investment Group (port 5001)
+python apex/app.py
 
-# Nomura Trading (port 5003)
-python nomura/app.py
+# Meridian Global Holdings (port 5002)
+python meridian/app.py
 
-# Hokuyo Bank (port 5004)
-python hokuyo/app.py
+# Premier Financial Services (port 5003)
+python premier/app.py
 
-# Oaktree Capital (port 5005)
-python oaktree/app.py
+# Zenith Asset Management (port 5004)
+python zenith/app.py
 ```
 
 Visit each site in your browser:
-- Fortress: http://localhost:5001
-- Heitman: http://localhost:5002
-- Nomura: http://localhost:5003
-- Hokuyo: http://localhost:5004
-- Oaktree: http://localhost:5005
+- Sentinel: http://localhost:5000
+- Apex: http://localhost:5001
+- Meridian: http://localhost:5002
+- Premier: http://localhost:5003
+- Zenith: http://localhost:5004
 
 ## Deployment to Render
 

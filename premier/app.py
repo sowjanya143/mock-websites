@@ -1,4 +1,4 @@
-"""Hokuyo Bank Flask application."""
+"""Premier Financial Services Flask application."""
 
 import json
 import os
@@ -20,14 +20,14 @@ from utils import (
 
 from config import Config
 
-# Create Flask app with template loaders for hokuyo and shared templates
+# Create Flask app with template loaders for premier and shared templates
 from jinja2 import FileSystemLoader, ChoiceLoader
 
-hokuyo_dir = Path(__file__).parent
-shared_dir = hokuyo_dir.parent / 'shared'
+premier_dir = Path(__file__).parent
+shared_dir = premier_dir.parent / 'shared'
 
 loader = ChoiceLoader([
-    FileSystemLoader(str(hokuyo_dir / 'templates')),
+    FileSystemLoader(str(premier_dir / 'templates')),
     FileSystemLoader(str(shared_dir / 'templates')),
 ])
 

@@ -1,19 +1,19 @@
-"""Heitman Capital Management site configuration."""
+"""Apex Investment Group site configuration."""
 
 import os
 
 
 class Config:
-    """Configuration for Heitman Capital Management site."""
+    """Configuration for Apex Investment Group site."""
 
     # Site identification
-    COMPANY_NAME = 'Heitman Capital Management'
-    SITE_NAME = 'heitman'
+    COMPANY_NAME = 'Apex Investment Group'
+    SITE_NAME = 'apex'
 
     # Security
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'heitman-dev-key-54321')
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'apex-dev-key-54321')
 
-    # CAPTCHA configuration (unique to Heitman: only on data pages)
+    # CAPTCHA configuration (unique to Apex: only on data pages)
     CAPTCHA_ON_EVERY_PAGE = False
     CAPTCHA_REQUIRED_PAGES = ['/strategies', '/investor-resources', '/funds', '/fund/<id>']
 

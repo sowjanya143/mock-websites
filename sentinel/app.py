@@ -1,4 +1,4 @@
-"""Fortress Investment Group Flask application."""
+"""Sentinel Capital Partners Flask application."""
 
 import base64
 import json
@@ -27,11 +27,11 @@ from config import Config
 # Create Flask app with template loaders for fortress and shared templates
 from jinja2 import FileSystemLoader, ChoiceLoader
 
-fortress_dir = Path(__file__).parent
-shared_dir = fortress_dir.parent / 'shared'
+sentinel_dir = Path(__file__).parent
+shared_dir = sentinel_dir.parent / 'shared'
 
 loader = ChoiceLoader([
-    FileSystemLoader(str(fortress_dir / 'templates')),
+    FileSystemLoader(str(sentinel_dir / 'templates')),
     FileSystemLoader(str(shared_dir / 'templates')),
 ])
 

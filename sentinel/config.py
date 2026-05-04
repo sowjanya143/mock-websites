@@ -1,17 +1,17 @@
-"""Fortress site configuration."""
+"""Sentinel Capital Partners site configuration."""
 
 import os
 
 
 class Config:
-    """Configuration for Fortress Investment Group site."""
+    """Configuration for Sentinel Capital Partners site."""
 
     # Site identification
-    COMPANY_NAME = 'Fortress Investment Group'
-    SITE_NAME = 'fortress'
+    COMPANY_NAME = 'Sentinel Capital Partners'
+    SITE_NAME = 'sentinel'
 
     # Security
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'fortress-dev-key-12345')
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'sentinel-dev-key-12345')
 
     # CAPTCHA configuration (unique to Fortress: on every page)
     CAPTCHA_ON_EVERY_PAGE = True

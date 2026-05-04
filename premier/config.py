@@ -1,17 +1,17 @@
-"""Hokuyo Bank site configuration."""
+"""Premier Financial Services site configuration."""
 
 import os
 
 
 class Config:
-    """Configuration for Hokuyo Bank site."""
+    """Configuration for Premier Financial Services site."""
 
     # Site identification
-    COMPANY_NAME = 'Hokuyo Bank'
-    SITE_NAME = 'hokuyo'
+    COMPANY_NAME = 'Premier Financial Services'
+    SITE_NAME = 'premier'
 
     # Security
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'hokuyo-dev-key-54321')
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'premier-dev-key-54321')
 
     # CAPTCHA configuration (NO CAPTCHA - this is the control site)
     CAPTCHA_ON_EVERY_PAGE = False

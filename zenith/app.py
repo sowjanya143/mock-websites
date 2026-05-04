@@ -1,4 +1,4 @@
-"""Oaktree Capital Management Flask application - Most Complex Site."""
+"""Zenith Asset Management Flask application - Most Complex Site."""
 
 import base64
 import json
@@ -26,16 +26,16 @@ from utils import (
     validate_captcha,
 )
 
-from oaktree.config import Config
+from config import Config
 
-# Create Flask app with template loaders for oaktree and shared templates
+# Create Flask app with template loaders for zenith and shared templates
 from jinja2 import FileSystemLoader, ChoiceLoader
 
-oaktree_dir = Path(__file__).parent
-shared_dir = oaktree_dir.parent / 'shared'
+zenith_dir = Path(__file__).parent
+shared_dir = zenith_dir.parent / 'shared'
 
 loader = ChoiceLoader([
-    FileSystemLoader(str(oaktree_dir / 'templates')),
+    FileSystemLoader(str(zenith_dir / 'templates')),
     FileSystemLoader(str(shared_dir / 'templates')),
 ])
 

@@ -1,19 +1,19 @@
-"""Nomura site configuration."""
+"""Meridian Global Holdings site configuration."""
 
 import os
 
 
 class Config:
-    """Configuration for Nomura Investment Bank site."""
+    """Configuration for Meridian Global Holdings site."""
 
     # Site identification
-    COMPANY_NAME = 'Nomura Inc.'
-    SITE_NAME = 'nomura'
+    COMPANY_NAME = 'Meridian Global Holdings'
+    SITE_NAME = 'meridian'
 
     # Security
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'nomura-dev-key-99999')
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'meridian-dev-key-99999')
 
-    # CAPTCHA configuration (unique to Nomura: random chance on every page)
+    # CAPTCHA configuration (unique to Meridian: random chance on every page)
     CAPTCHA_ON_EVERY_PAGE = False
     CAPTCHA_RANDOM_CHANCE = 0.30
 
