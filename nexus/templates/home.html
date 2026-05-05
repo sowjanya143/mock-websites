@@ -3,12 +3,12 @@
 {% block content %}
 <section class="hero">
     <h1>{{ company_name }}</h1>
-    <p class="tagline">Global Alternative Asset Manager</p>
-    <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "850B" }}</p>
+    <p class="tagline">Private Markets & Alternative Investments</p>
+    <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "420B" }}</p>
 </section>
 
-<section class="asset-classes">
-    <h2>Asset Classes</h2>
+<section>
+    <h2>Investment Portfolio</h2>
     <table class="data-table">
         <thead>
             <tr>
@@ -22,7 +22,7 @@
                 {% set total = aum_data.global_aum %}
                 {% for asset_class, value in aum_data.by_asset_class.items() %}
                 <tr>
-                    <td>{{ asset_class }}</td>
+                    <td><strong>{{ asset_class }}</strong></td>
                     <td>${{ "{:,.0f}B".format(value / 1e9) }}</td>
                     <td>{{ "{:.1f}%".format((value / total) * 100) }}</td>
                 </tr>
@@ -31,72 +31,4 @@
         </tbody>
     </table>
 </section>
-
-<style>
-    .hero {
-        text-align: center;
-        padding: 60px 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border-radius: 8px;
-        margin-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-
-    .tagline {
-        font-size: 24px;
-        margin-bottom: 20px;
-        opacity: 0.9;
-    }
-
-    .aum-display {
-        font-size: 28px;
-        font-weight: bold;
-        margin-top: 20px;
-    }
-
-    .asset-classes {
-        margin-top: 40px;
-    }
-
-    .asset-classes h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    .data-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .data-table thead {
-        background: #f5f5f5;
-        font-weight: bold;
-    }
-
-    .data-table th,
-    .data-table td {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .data-table tbody tr:hover {
-        background: #fafafa;
-    }
-
-    .data-table tbody tr:last-child td {
-        border-bottom: none;
-    }
-</style>
 {% endblock %}

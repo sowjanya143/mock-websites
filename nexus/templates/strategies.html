@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Investment Strategies</h1>
-
-<section class="strategies-section">
+<section>
+    <h2>Investment Strategies</h2>
     <table class="data-table">
         <thead>
             <tr>
@@ -14,78 +13,26 @@
         </thead>
         <tbody>
             <tr>
-                <td><strong>Real Estate</strong></td>
-                <td>${{ "{:,.0f}B".format(350) }}</td>
-                <td>Diversified real estate investments across commercial, residential, and industrial properties. Focus on value creation through property improvement and market timing.</td>
+                <td><strong>Private Equity</strong></td>
+                <td>${{ "{:,.0f}B".format(180) }}</td>
+                <td>Leveraged buyouts, growth equity, and direct investments in mid-market companies. Focus on operational improvements and strategic acquisitions.</td>
             </tr>
             <tr>
-                <td><strong>Credit</strong></td>
-                <td>${{ "{:,.0f}B".format(250) }}</td>
-                <td>Corporate credit and structured finance with emphasis on credit research and risk management. Includes investment-grade, high-yield, and distressed opportunities.</td>
+                <td><strong>Real Estate</strong></td>
+                <td>${{ "{:,.0f}B".format(140) }}</td>
+                <td>Core and value-add real estate investments across office, retail, industrial, and residential. International diversification with local expertise.</td>
             </tr>
             <tr>
                 <td><strong>Infrastructure</strong></td>
-                <td>${{ "{:,.0f}B".format(150) }}</td>
-                <td>Essential infrastructure assets including transportation, utilities, and communications. Long-term investments with stable cash flows and inflation protection.</td>
+                <td>${{ "{:,.0f}B".format(75) }}</td>
+                <td>Essential infrastructure assets with inflation-protected cash flows. Transportation, utilities, communications, and energy transition assets.</td>
             </tr>
             <tr>
-                <td><strong>Natural Resources</strong></td>
-                <td>${{ "{:,.0f}B".format(100) }}</td>
-                <td>Energy, commodities, and sustainable resource investments. Disciplined approach to managing commodity price volatility and operational risks.</td>
+                <td><strong>Credit Strategies</strong></td>
+                <td>${{ "{:,.0f}B".format(25) }}</td>
+                <td>Distressed debt, structured credit, and special situations. Deep research and active portfolio management.</td>
             </tr>
         </tbody>
     </table>
 </section>
-
-<style>
-    h1 {
-        font-size: 40px;
-        margin-bottom: 30px;
-        color: #333;
-    }
-
-    .strategies-section {
-        margin-top: 30px;
-    }
-
-    .data-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .data-table thead {
-        background: #f5f5f5;
-        font-weight: bold;
-    }
-
-    .data-table th {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 2px solid #e0e0e0;
-        color: #333;
-    }
-
-    .data-table td {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 1px solid #e0e0e0;
-        color: #555;
-    }
-
-    .data-table tbody tr:hover {
-        background: #fafafa;
-    }
-
-    .data-table tbody tr:last-child td {
-        border-bottom: none;
-    }
-
-    .data-table strong {
-        color: #333;
-    }
-</style>
 {% endblock %}

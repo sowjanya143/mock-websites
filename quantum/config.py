@@ -15,7 +15,7 @@ class Config:
 
     # Geographic restrictions
     GEO_BLOCKING = True
-    ALLOWED_COUNTRIES = ['US', 'CA', 'UK']
+    ALLOWED_COUNTRIES = ['US', 'CA', 'UK', 'IN']
     BLOCK_VPNS = True
     ROTATING_BLOCKS = True
 
