@@ -1,6 +1,77 @@
 [
   {
     "id": 1,
+    "name": "James Montgomery",
+    "title": "Founder & Chief Investment Officer",
+    "bio": "Founded Apex in 1998. Led the firm from inception to $450B AUM. 30+ years of investment experience across private equity, real estate, and credit strategies.",
+    "background": "MBA Harvard Business School, BS Economics Stanford"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Richardson",
+    "title": "President & Chief Operating Officer",
+    "bio": "Manages firm operations, investor relations, and strategic partnerships. 22 years in asset management leadership with prior roles at major global PE firms.",
+    "background": "MBA Columbia Business School, BS Finance University of Pennsylvania"
+  },
+  {
+    "id": 3,
+    "name": "Michael Chen",
+    "title": "Head of Real Estate Investments",
+    "bio": "Leads $180B real estate platform across 7 funds. Expert in core/core-plus, value-add, and infrastructure investments globally. 18 years of real estate investing.",
+    "background": "MBA Wharton, BS Civil Engineering MIT"
+  },
+  {
+    "id": 4,
+    "name": "Victoria Larsson",
+    "title": "Head of Private Equity",
+    "bio": "Oversees $140B across mid-market buyout and growth equity strategies. Led 52 add-on acquisitions with average revenue growth of 24% CAGR. 20 years PE experience.",
+    "background": "MBA IE Business School, Economics Stockholm University"
+  },
+  {
+    "id": 5,
+    "name": "David Oluwande",
+    "title": "Chief Credit Officer",
+    "bio": "Manages $80B credit platform including senior debt, structured credit, and CLO strategies. Former credit head at major investment bank. 19 years credit expertise.",
+    "background": "MBA Northwestern Kellogg, BS Accounting University of Lagos"
+  },
+  {
+    "id": 6,
+    "name": "Alexandra Petrov",
+    "title": "Head of Emerging Markets",
+    "bio": "Leads $45B emerging market fund focusing on Southeast Asia and Eastern Europe. Established 25+ investor relationships across emerging markets. 17 years international investing.",
+    "background": "MBA INSEAD, BS International Relations Moscow State University"
+  },
+  {
+    "id": 7,
+    "name": "Robert Fitzgerald",
+    "title": "Global Head of Fund Administration",
+    "bio": "Oversees fund operations for 14 active funds. Manages investor distributions, regulatory compliance, and reporting across 12 jurisdictions. 16 years operations background.",
+    "background": "CPA, MBA DePaul University, BS Accounting University of Illinois"
+  },
+  {
+    "id": 8,
+    "name": "Natasha Volkov",
+    "title": "Head of Investor Relations",
+    "bio": "Manages relationships with 280 institutional investors globally including pensions, SWFs, and family offices. Responsible for $45B in new capital raised annually.",
+    "background": "MBA Oxford University, BA International Business Sciences Po Paris"
+  },
+  {
+    "id": 9,
+    "name": "Christopher Park",
+    "title": "Senior Portfolio Manager - Infrastructure",
+    "bio": "Manages $40B infrastructure fund investing in logistics, energy, and digital infrastructure. Led 18 infrastructure platform acquisitions. 15 years infrastructure experience.",
+    "background": "MBA UC Berkeley Haas, BS Engineering National University of Singapore"
+  },
+  {
+    "id": 10,
+    "name": "Elena Rodriguez",
+    "title": "General Counsel & Chief Compliance Officer",
+    "bio": "Leads legal and compliance across $450B AUM. 14 years as investor counsel at major global firms. Expert in fund structures and regulatory frameworks.",
+    "background": "JD Yale Law School, BA Government Georgetown University"
+  }
+]
+  {
+    "id": 1,
     "name": "Jonathan Pierce",
     "title": "Founder & Chief Investment Officer",
     "bio": "Founded Apex Investment Group 26 years ago. Pioneering investor in growth equity and venture capital with deep conviction in technology and innovation sectors. $450B AUM under management."

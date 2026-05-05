@@ -1,53 +1,113 @@
 {
   "global_aum": 450000000000,
+  "currency": "USD",
+  "last_updated": "2026-04-30",
   "by_asset_class": {
     "Real Estate": 180000000000,
     "Private Equity": 140000000000,
-    "Debt": 80000000000,
+    "Credit & Debt": 80000000000,
     "Opportunistic": 50000000000
   },
   "performance_metrics": {
     "ytd_return": 8.7,
     "three_year_return": 12.3,
-    "fund_count": 5,
-    "active_investors": 280
+    "five_year_return": 11.8,
+    "fund_count": 14,
+    "active_investors": 280,
+    "portfolio_companies": 156
   },
   "by_fund": [
     {
       "id": 1,
-      "name": "Apex Global Real Estate Fund",
-      "aum": 150000000000,
+      "name": "Apex Global Real Estate Fund VIII",
+      "aum": 85000000000,
       "strategy": "Real Estate",
+      "focus": "Core and Core-Plus Properties",
+      "inception_date": "2018-03-15",
       "ytd_return": 9.2,
-      "inception_date": "2015"
+      "three_year_return": 13.1,
+      "status": "Active",
+      "portfolio_assets": 42,
+      "regions": ["North America", "Europe", "Asia Pacific"]
     },
     {
       "id": 2,
-      "name": "Apex Private Equity Fund",
-      "aum": 120000000000,
+      "name": "Apex Private Equity Partners VII",
+      "aum": 65000000000,
       "strategy": "Private Equity",
-      "ytd_return": 11.5,
-      "inception_date": "2012"
+      "focus": "Mid-Market Buyouts",
+      "inception_date": "2017-06-20",
+      "ytd_return": 7.8,
+      "three_year_return": 11.5,
+      "status": "Active",
+      "portfolio_companies": 28,
+      "avg_portfolio_size": 2300000000
     },
     {
       "id": 3,
-      "name": "Apex Debt Partners",
-      "aum": 80000000000,
-      "strategy": "Debt",
-      "ytd_return": 7.8,
-      "inception_date": "2018"
+      "name": "Apex Value Realization Fund",
+      "aum": 75000000000,
+      "strategy": "Private Equity",
+      "focus": "Growth & Value Enhancement",
+      "inception_date": "2019-01-10",
+      "ytd_return": 12.4,
+      "three_year_return": 14.2,
+      "status": "Active",
+      "portfolio_companies": 35,
+      "avg_portfolio_size": 2140000000
     },
     {
       "id": 4,
-      "name": "Apex Opportunities Fund",
-      "aum": 50000000000,
-      "strategy": "Opportunistic",
-      "ytd_return": 13.2,
-      "inception_date": "2016"
+      "name": "Apex Credit Strategies Fund V",
+      "aum": 55000000000,
+      "strategy": "Credit & Debt",
+      "focus": "Senior & Subordinated Debt",
+      "inception_date": "2016-09-05",
+      "ytd_return": 6.3,
+      "three_year_return": 7.9,
+      "status": "Active",
+      "portfolio_instruments": 156,
+      "avg_yield": "5.8%"
     },
     {
       "id": 5,
-      "name": "Apex Asia Investment Fund",
+      "name": "Apex Opportunistic Fund III",
+      "aum": 45000000000,
+      "strategy": "Opportunistic",
+      "focus": "Special Situations & Distressed",
+      "inception_date": "2020-02-14",
+      "ytd_return": 14.7,
+      "three_year_return": 18.3,
+      "status": "Active",
+      "portfolio_companies": 18,
+      "avg_portfolio_size": 2500000000
+    },
+    {
+      "id": 6,
+      "name": "Apex Global Infrastructure Fund II",
+      "aum": 40000000000,
+      "strategy": "Real Estate",
+      "focus": "Infrastructure & Logistics",
+      "inception_date": "2019-07-22",
+      "ytd_return": 8.1,
+      "three_year_return": 10.6,
+      "status": "Active",
+      "portfolio_assets": 34,
+      "regions": ["Europe", "Asia Pacific", "Middle East"]
+    },
+    {
+      "id": 7,
+      "name": "Apex Emerging Markets Fund VI",
+      "aum": 30000000000,
+      "strategy": "Private Equity",
+      "focus": "Growth Equity in Emerging Markets",
+      "inception_date": "2018-11-08",
+      "ytd_return": 15.2,
+      "three_year_return": 16.8,
+      "status": "Active",
+      "portfolio_companies": 24,
+      "primary_regions": ["Asia", "Latin America", "Eastern Europe"]
+    }
       "aum": 50000000000,
       "strategy": "Real Estate",
       "ytd_return": 6.4,
