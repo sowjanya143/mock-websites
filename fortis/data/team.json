@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Michael S. Novogratz",
-    "title": "Founder & CEO",
-    "bio": "Visionary leader with over 20 years of experience in alternative asset management and investment strategy. Founded Fortress Investment Group and transformed it into one of the world's leading global alternative investors."
+    "name": "William Hartley",
+    "title": "Chief Executive Officer & Chief Investment Officer",
+    "bio": "Founded Fortis Banking Group 24 years ago with focus on institutional asset management. Transformed firm into leading $185B alternative investment manager across credit, real estate, and infrastructure."
   },
   {
     "id": 2,
-    "name": "Samantha Novogratz",
-    "title": "Chief Operating Officer",
-    "bio": "Strategic executive overseeing operational excellence across all business segments. Drives efficiency, risk management, and culture initiatives that fuel organizational growth and innovation."
+    "name": "Rebecca Thompson",
+    "title": "Head of Credit Investments",
+    "bio": "Leads $78B credit platform managing corporate bonds, leveraged loans, and structured credit. 23 years credit investing expertise with deep relationships across investment banking community."
   },
   {
     "id": 3,
-    "name": "David Schachter",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert managing capital allocation, corporate finance, and financial strategy. Ensures prudent financial management and maximizes returns for all stakeholders."
+    "name": "James O'Connor",
+    "title": "Senior Portfolio Manager - Leveraged Loans",
+    "bio": "Manages $45B leveraged loan fund with focus on middle-market corporate debt. 19 years debt market experience with exceptional track record in covenant analysis and credit selection."
   },
   {
     "id": 4,
-    "name": "James Lebenthal",
-    "title": "Chief Investment Officer",
-    "bio": "Leads all investment decisions and portfolio strategy across real estate, credit, infrastructure, and natural resources. Responsible for achieving superior risk-adjusted returns."
+    "name": "Daniela Schmidt",
+    "title": "Head of Private Equity & Co-Investments",
+    "bio": "Leads private equity platform with $52B in committed capital. 21 years PE investing experience with expertise in LBO structuring and operational value creation."
   },
   {
     "id": 5,
-    "name": "Rachel Jackson",
-    "title": "Global Head of Real Estate",
-    "bio": "Oversees the $350B real estate portfolio with a focus on value creation and sustainable returns. Expertly navigates complex property markets across multiple geographies."
+    "name": "Singapore Tan",
+    "title": "Portfolio Manager - Real Estate Debt",
+    "bio": "Manages $35B real estate debt strategy across commercial and residential properties. 17 years real estate finance expertise with deep property market knowledge across major geographies."
   },
   {
     "id": 6,
-    "name": "Thomas Mitchell",
-    "title": "Head of Credit Strategies",
-    "bio": "Manages credit investments with a disciplined approach to risk management. Seeks opportunities in corporate credit, structured finance, and emerging debt markets."
+    "name": "Caroline Durand",
+    "title": "Credit Analyst - Structured Products",
+    "bio": "Specializes in complex structured credit analysis including CLOs, RMBS, and CMBS. 13 years structured credit expertise with proprietary valuation models for complex securities."
   },
   {
     "id": 7,
-    "name": "Elena Rodriguez",
-    "title": "Global Head of Infrastructure",
-    "bio": "Builds and manages world-class infrastructure investments that support economic growth. Focus on sustainable, long-term value creation in essential assets."
+    "name": "Michael Okonkwo",
+    "title": "Trader - Credit Markets",
+    "bio": "Executes multi-billion dollar credit trading operations globally. 16 years trading experience with focus on execution excellence and best execution practices across credit markets."
   },
   {
     "id": 8,
-    "name": "Alexander Chen",
-    "title": "Head of Natural Resources",
-    "bio": "Leads natural resources investment strategy with deep expertise in energy, commodities, and sustainable resource management. Seeks attractive risk-adjusted returns."
+    "name": "Sophia Papadopoulos",
+    "title": "Strategist - Credit Markets",
+    "bio": "Provides strategic guidance on credit markets and economic outlooks. 18 years research and strategy experience with publications in leading financial journals."
   },
   {
     "id": 9,
-    "name": "Sarah Williams",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes risk management framework and ensures regulatory compliance across all operations. Works to protect capital and mitigate downside risks."
+    "name": "Tony Lin",
+    "title": "Analyst - Distressed Debt & Restructuring",
+    "bio": "Identifies distressed credit opportunities and restructuring situations. 12 years distressed investing with track record of identifying value in undervalued credit positions."
   },
   {
     "id": 10,
-    "name": "Peter Fitzgerald",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance teams, manages corporate governance, and ensures regulatory adherence. Protects the firm's interests and facilitates strategic transactions."
+    "name": "Ariana Rossi",
+    "title": "Risk Manager",
+    "bio": "Manages credit risk framework across $185B portfolio. 14 years risk management with expertise in credit risk modeling, portfolio stress testing, and recovery rate estimation."
   }
 ]

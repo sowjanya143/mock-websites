@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Sheldon M. Stone",
-    "title": "Founder & Chairman",
-    "bio": "Visionary founder of Oaktree Capital Management with over 40 years of experience in credit and distressed asset management. Founded the firm to pioneer opportunistic investing strategies."
+    "name": "Andrew Mackenzie",
+    "title": "Founder & Chief Investment Officer",
+    "bio": "Visionary founder of Zenith Asset Management with 31 years in alternative asset management. Built Zenith into $290B multi-strategy platform focused on absolute return generation."
   },
   {
     "id": 2,
-    "name": "Jay Wintrob",
-    "title": "Chief Executive Officer",
-    "bio": "Strategic leader driving Oaktree's growth and innovation across all investment strategies. Oversees the entire organization and client relationships worldwide."
+    "name": "Patricia Morrison",
+    "title": "Head of Equity Strategies",
+    "bio": "Leads $95B equity portfolio across long/short and market-neutral strategies. 26 years equity market experience with expertise in both quantitative and fundamental approaches."
   },
   {
     "id": 3,
-    "name": "Manu Bhaskaran",
-    "title": "President and Chief Operating Officer",
-    "bio": "Manages operational excellence, technology infrastructure, and supports business expansion. Drives organizational efficiency and strategic initiatives."
+    "name": "Vladimir Petrov",
+    "title": "Chief Economist & Strategist",
+    "bio": "Provides macroeconomic forecasting driving portfolio positioning. PhD Economics from Oxford with 23 years institutional research experience and publications in leading journals."
   },
   {
     "id": 4,
-    "name": "Stéphane Cerutti",
-    "title": "Head of Credit",
-    "bio": "Leads the credit strategy team with deep expertise in distressed debt, corporate credit, and structured finance. Manages portfolio of over $120 billion in credit assets."
+    "name": "Lisa Chen",
+    "title": "Senior Portfolio Manager - Credit Opportunities",
+    "bio": "Manages $68B credit investment strategy identifying distressed and special situation opportunities. 20 years credit expertise with exceptional track record in high-yield recovery positions."
   },
   {
     "id": 5,
-    "name": "Craig Farr",
-    "title": "Head of Equity & Special Situations",
-    "bio": "Oversees private equity and special situations investments. Focuses on value creation through operational improvements and strategic initiatives."
+    "name": "Henrik Svensson",
+    "title": "Head of Quantitative Research",
+    "bio": "Leads team developing proprietary quantitative models for trading and portfolio construction. 18 years quantitative research with PhDs in Mathematics and Physics on team."
   },
   {
     "id": 6,
-    "name": "Bruce Karsh",
-    "title": "Global Head of Client Relationships",
-    "bio": "Manages client relationships and investment solutions. Ensures client satisfaction and develops tailored investment strategies for institutional investors."
+    "name": "Monica Bergstrom",
+    "title": "Portfolio Manager - Derivative Strategies",
+    "bio": "Manages $52B in sophisticated derivatives and volatility strategies. 19 years derivatives markets expertise with focus on relative value and volatility trading opportunities."
   },
   {
     "id": 7,
-    "name": "Barbara Novick",
-    "title": "Head of Real Assets",
-    "bio": "Leads the real assets investment program including infrastructure, energy, and commodities. Focuses on resilient, long-duration cash flow generating investments."
+    "name": "Rajesh Kapoor",
+    "title": "Equity Analyst - India & Emerging Asia",
+    "bio": "Senior analyst with deep expertise in Indian and Southeast Asian markets. 14 years emerging markets investing with strong on-ground networks and proprietary intelligence gathering."
   },
   {
     "id": 8,
-    "name": "David Sorkin",
-    "title": "Global Head of Risk Management",
-    "bio": "Oversees risk management framework and compliance. Ensures all investments meet risk parameters and regulatory requirements."
+    "name": "Francoise Moreau",
+    "title": "Trader - Multi-Asset",
+    "bio": "Executes $290B in trading operations across equities, fixed income, and derivatives. 17 years trading expertise with focus on liquidity provision and execution optimization."
   },
   {
     "id": 9,
-    "name": "Jennifer Yoon",
-    "title": "Chief Financial Officer",
-    "bio": "Manages financial planning, capital allocation, and investor relations. Responsible for financial strategy and operational budgeting."
+    "name": "Geoffrey Walsh",
+    "title": "Fixed Income Analyst - Corporate Credit",
+    "bio": "Leads corporate credit research team analyzing 800+ investment-grade and high-yield issuers. 16 years credit analysis with exceptional ability to forecast credit events."
   },
   {
     "id": 10,
-    "name": "John Frank",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance functions across the organization. Manages regulatory matters and ensures corporate governance best practices."
+    "name": "Yuki Nakamoto",
+    "title": "Risk Manager",
+    "bio": "Manages comprehensive risk framework for $290B portfolio including stress testing and scenario analysis. 15 years risk management with expertise in risk factor decomposition and attribution."
   }
 ]

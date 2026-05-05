@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Dr. Richard Heitman",
-    "title": "Founder & Executive Chairman",
-    "bio": "Pioneering real estate investor and visionary founder of Heitman Capital Management. With over 30 years of experience, has built one of the most successful real estate and alternative investment firms globally."
+    "name": "Jonathan Pierce",
+    "title": "Founder & Chief Investment Officer",
+    "bio": "Founded Apex Investment Group 26 years ago. Pioneering investor in growth equity and venture capital with deep conviction in technology and innovation sectors. $450B AUM under management."
   },
   {
     "id": 2,
-    "name": "Jennifer Chapman",
-    "title": "Chief Executive Officer",
-    "bio": "Dynamic leader overseeing all business operations and strategic initiatives. Drives innovation, operational excellence, and sustained growth across all investment platforms and geographic regions."
+    "name": "Michelle Wong",
+    "title": "Head of Equity Investments",
+    "bio": "Directs $280B in equity portfolio across growth, value, and emerging markets. 23 years of equity market experience with exceptional track record in stock selection and portfolio construction."
   },
   {
     "id": 3,
-    "name": "Michael Torres",
-    "title": "Chief Investment Officer",
-    "bio": "Senior investment strategist with extensive expertise in real estate, private equity, and alternative assets. Leads investment decisions and portfolio management across all asset classes and fund strategies."
+    "name": "Christopher Martinez",
+    "title": "Senior Portfolio Manager - Growth Equity",
+    "bio": "Manages $110B in growth equity investments with focus on high-potential technology and life sciences companies. Identified and invested in 15 companies that achieved unicorn status."
   },
   {
     "id": 4,
-    "name": "Sarah Anderson",
-    "title": "Global Head of Real Estate",
-    "bio": "Seasoned real estate professional managing the $180B real estate portfolio. Specializes in commercial, residential, and industrial properties across major markets worldwide."
+    "name": "Isabella Rossi",
+    "title": "Head of Fixed Income & Credit",
+    "bio": "Leads $85B fixed income platform investing in investment-grade and high-yield credit. 20 years of credit expertise with specialization in credit selection and duration management."
   },
   {
     "id": 5,
-    "name": "David Kumar",
-    "title": "Head of Private Equity",
-    "bio": "Experienced private equity executive leading acquisition strategy and portfolio company management. Focuses on value creation through operational improvements and strategic growth initiatives."
+    "name": "David Lee",
+    "title": "Portfolio Manager - Emerging Markets",
+    "bio": "Oversees $75B emerging market equity fund with extensive on-ground research network across Asia, Latin America, and Eastern Europe. 18 years of emerging market investing experience."
   },
   {
     "id": 6,
-    "name": "Elizabeth Foster",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert ensuring prudent capital management and financial strategy. Oversees corporate finance, investor relations, and financial planning for all business segments."
+    "name": "Laura Gunnarsson",
+    "title": "Equity Analyst - Healthcare & Life Sciences",
+    "bio": "Senior analyst with 14 years in biotech and pharmaceutical investments. Deep understanding of clinical trial pipelines and regulatory processes drives sector-leading investment recommendations."
   },
   {
     "id": 7,
-    "name": "James Mitchell",
-    "title": "Head of Debt Strategies",
-    "bio": "Credit specialist managing $80B debt portfolio with focus on risk management and return optimization. Expertise in corporate debt, structured finance, and distressed opportunities."
+    "name": "Ahmed Hassan",
+    "title": "Trader - Fixed Income",
+    "bio": "Executes $85B in fixed income trades with expertise in execution, pricing, and market making. 17 years experience in credit and rates trading with consistent P&L generation."
   },
   {
     "id": 8,
-    "name": "Lisa Wong",
-    "title": "Chief Risk Officer",
-    "bio": "Risk management professional establishing firm-wide risk framework and compliance protocols. Ensures regulatory adherence and protects capital across all investment activities."
+    "name": "Elena Sokolov",
+    "title": "Strategist & Chief Economist",
+    "bio": "Provides macroeconomic forecasting and strategic guidance for portfolio construction. PhD in Economics with 19 years in institutional investing and research analysis."
   },
   {
     "id": 9,
-    "name": "Robert Chen",
-    "title": "General Counsel",
-    "bio": "Legal expert leading corporate governance, legal matters, and regulatory compliance. Manages all legal aspects of investments and corporate transactions for the firm."
+    "name": "Michael Kowalski",
+    "title": "Equity Analyst - Technology Sector",
+    "bio": "Covers software, hardware, and semiconductor investments with deep technical expertise. Specializes in disruption analysis and identifying secular growth trends in technology."
   },
   {
     "id": 10,
-    "name": "Victoria Petrov",
-    "title": "Chief Operating Officer",
-    "bio": "Operations leader driving organizational efficiency and process optimization. Oversees infrastructure, technology, human resources, and operational excellence across all divisions."
+    "name": "Sarah Johnson",
+    "title": "Director of Investments - Private Markets",
+    "bio": "Directs private equity and venture capital investment strategy for Apex. 16 years in M&A, leveraged buyouts, and venture capital with $65B deployed in private investments."
   }
 ]

@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Michael S. Novogratz",
-    "title": "Founder & CEO",
-    "bio": "Visionary leader with over 20 years of experience in alternative asset management and investment strategy. Founded Fortress Investment Group and transformed it into one of the world's leading global alternative investors."
+    "name": "Dr. David Hirsch",
+    "title": "Founder & Chief Investment Officer",
+    "bio": "Founded Quantum Funds 20 years ago pioneering derivatives-based investing strategies. Manages $155B in absolute return funds with sophisticated risk management and market timing expertise."
   },
   {
     "id": 2,
-    "name": "Samantha Novogratz",
-    "title": "Chief Operating Officer",
-    "bio": "Strategic executive overseeing operational excellence across all business segments. Drives efficiency, risk management, and culture initiatives that fuel organizational growth and innovation."
+    "name": "Elizabeth Barker",
+    "title": "Head of Derivatives Trading",
+    "bio": "Leads derivatives trading team generating consistent returns through options strategies. 25 years derivatives expertise with deep expertise in volatility trading and exotic options."
   },
   {
     "id": 3,
-    "name": "David Schachter",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert managing capital allocation, corporate finance, and financial strategy. Ensures prudent financial management and maximizes returns for all stakeholders."
+    "name": "Professor Richard Kim",
+    "title": "Chief Strategist & Head of Research",
+    "bio": "PhD Mathematics from MIT leading research team. 22 years derivatives strategy with publications on exotic option pricing and volatility modeling in leading finance journals."
   },
   {
     "id": 4,
-    "name": "James Lebenthal",
-    "title": "Chief Investment Officer",
-    "bio": "Leads all investment decisions and portfolio strategy across real estate, credit, infrastructure, and natural resources. Responsible for achieving superior risk-adjusted returns."
+    "name": "Amanda Cross",
+    "title": "Senior Portfolio Manager - Volatility Strategies",
+    "bio": "Manages $65B volatility fund exploiting volatility term structure and skew. 18 years volatility investing with consistent alpha generation across market regimes."
   },
   {
     "id": 5,
-    "name": "Rachel Jackson",
-    "title": "Global Head of Real Estate",
-    "bio": "Oversees the $350B real estate portfolio with a focus on value creation and sustainable returns. Expertly navigates complex property markets across multiple geographies."
+    "name": "George Papadakis",
+    "title": "Head of Equity Derivatives",
+    "bio": "Leads equity derivatives investment platform managing $48B in positions. 21 years equity derivatives expertise with specialization in dividend arbitrage and skew trading."
   },
   {
     "id": 6,
-    "name": "Thomas Mitchell",
-    "title": "Head of Credit Strategies",
-    "bio": "Manages credit investments with a disciplined approach to risk management. Seeks opportunities in corporate credit, structured finance, and emerging debt markets."
+    "name": "Laura Bergman",
+    "title": "Options Analyst - Interest Rate Derivatives",
+    "bio": "Specializes in interest rate swaption and cap/floor strategies. 14 years rates derivatives expertise with deep understanding of yield curve dynamics and option pricing."
   },
   {
     "id": 7,
-    "name": "Elena Rodriguez",
-    "title": "Global Head of Infrastructure",
-    "bio": "Builds and manages world-class infrastructure investments that support economic growth. Focus on sustainable, long-term value creation in essential assets."
+    "name": "Chen Wu",
+    "title": "Trader - Exotic Derivatives",
+    "bio": "Executes complex exotic derivatives trading including barriers, lookbacks, and autocallables. 17 years trading exotic products with focus on structuring and execution excellence."
   },
   {
     "id": 8,
-    "name": "Alexander Chen",
-    "title": "Head of Natural Resources",
-    "bio": "Leads natural resources investment strategy with deep expertise in energy, commodities, and sustainable resource management. Seeks attractive risk-adjusted returns."
+    "name": "Petra von Neumann",
+    "title": "Strategist - Fixed Income Derivatives",
+    "bio": "Provides strategic guidance on credit derivatives and structured credit products. 19 years credit derivatives research with expertise in CDS pricing and credit spread dynamics."
   },
   {
     "id": 9,
-    "name": "Sarah Williams",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes risk management framework and ensures regulatory compliance across all operations. Works to protect capital and mitigate downside risks."
+    "name": "Antonio Vitale",
+    "title": "Analyst - Commodity Derivatives",
+    "bio": "Identifies opportunities in commodity derivatives and energy futures. 12 years commodity derivatives expertise with specialization in crude oil and natural gas markets."
   },
   {
     "id": 10,
-    "name": "Peter Fitzgerald",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance teams, manages corporate governance, and ensures regulatory adherence. Protects the firm's interests and facilitates strategic transactions."
+    "name": "Hana Okonkwo",
+    "title": "Risk Manager - Derivatives Risk",
+    "bio": "Manages Greeks-based risk framework for $155B derivatives portfolio. 15 years derivatives risk with expertise in Greeks hedging and counterparty risk management."
   }
 ]

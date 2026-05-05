@@ -2,61 +2,61 @@
   {
     "id": 1,
     "name": "Tetsuya Masuda",
-    "title": "Chief Executive Officer",
-    "bio": "Leading Nomura's global strategy with over 25 years of experience in investment banking, trading, and asset management. Committed to driving sustainable growth and innovation across all business segments."
+    "title": "Chief Executive Officer & Head of Investments",
+    "bio": "Seasoned investment executive with 27 years managing institutional capital. Co-founder of Meridian Global Holdings, overseeing $280B across multiple investment strategies with focus on long-term value creation."
   },
   {
     "id": 2,
     "name": "Yuki Tanaka",
-    "title": "Chief Financial Officer",
-    "bio": "Manages financial strategy and capital allocation with expertise in financial planning, risk management, and corporate governance. Ensures optimal resource allocation across the organization."
+    "title": "Chief Investment Officer",
+    "bio": "Leads all investment decisions across equities, fixed income, and alternatives. 24 years of institutional investment experience with track record of outperformance across market cycles."
   },
   {
     "id": 3,
     "name": "Hiroshi Yamamoto",
-    "title": "Chief Investment Officer",
-    "bio": "Oversees all investment strategy and portfolio management across equities, fixed income, derivatives, and alternatives. Drives superior risk-adjusted returns for all stakeholders."
+    "title": "Head of Equity Research",
+    "bio": "Directs 28-person equity research team covering fundamental analysis across 40+ sectors. Pioneered proprietary quantitative models for stock selection and portfolio optimization."
   },
   {
     "id": 4,
     "name": "Akira Suzuki",
-    "title": "Global Head of Equities",
-    "bio": "Leads equity investment strategy and execution with deep expertise in global markets. Focuses on identifying value opportunities and building resilient portfolios."
+    "title": "Senior Portfolio Manager - Global Equities",
+    "bio": "Manages $95B global equity portfolio with expertise in developed and emerging markets. 19 years track record of consistent alpha generation through disciplined value investing."
   },
   {
     "id": 5,
     "name": "Kenji Nakamura",
     "title": "Head of Fixed Income",
-    "bio": "Manages fixed income portfolio with disciplined approach to credit analysis and yield optimization. Seeks attractive opportunities in corporate bonds and government securities."
+    "bio": "Oversees $65B fixed income platform including corporate bonds, government securities, and structured credit. 21 years credit analysis expertise with deep issuer relationships globally."
   },
   {
     "id": 6,
     "name": "Masako Yamada",
-    "title": "Global Head of Derivatives",
-    "bio": "Leads derivatives strategy and risk management across global markets. Utilizes sophisticated models and expertise to optimize portfolio returns and manage risk exposure."
+    "title": "Portfolio Manager - Derivatives & Alternatives",
+    "bio": "Manages $45B in derivative strategies and hedge funds. Expert in complex structured products, volatility trading, and absolute return strategies with 17 years experience."
   },
   {
     "id": 7,
     "name": "Takeshi Harada",
     "title": "Head of Alternative Investments",
-    "bio": "Drives alternative investment strategy including private equity, hedge funds, and structured products. Seeks uncorrelated returns and portfolio diversification benefits."
+    "bio": "Leads private equity and hedge fund investments generating $35B in uncorrelated returns. 20 years in alternative asset allocation with strong track record in fund selection and sourcing."
   },
   {
     "id": 8,
     "name": "Sakura Kimura",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes comprehensive risk framework and ensures compliance with regulatory requirements. Protects the firm's capital and maintains strong risk culture across all operations."
+    "title": "Equity Analyst - Technology & Growth",
+    "bio": "Senior technology analyst with 12 years identifying disruptive innovation opportunities. Specialized expertise in software, semiconductors, and digital transformation investment themes."
   },
   {
     "id": 9,
     "name": "Noboru Ito",
-    "title": "General Counsel",
-    "bio": "Leads legal affairs and compliance initiatives, manages corporate governance, and facilitates regulatory relationships. Protects the firm's interests in all legal matters."
+    "title": "Fixed Income Analyst - Credit Research",
+    "bio": "Leads credit research team analyzing 500+ corporate and emerging market credit issuers. 15 years credit analysis expertise with focus on identifying distressed and high-yield opportunities."
   },
   {
     "id": 10,
     "name": "Yuki Saito",
-    "title": "Chief Operating Officer",
-    "bio": "Oversees operational efficiency and technology infrastructure across all business units. Drives process improvement and innovation to support business growth."
+    "title": "Risk Manager",
+    "bio": "Manages enterprise risk framework for $280B portfolio. PhD in Financial Engineering with expertise in portfolio risk modeling, stress testing, and regulatory capital management."
   }
 ]

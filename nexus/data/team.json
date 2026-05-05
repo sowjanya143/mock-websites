@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Michael S. Novogratz",
-    "title": "Founder & CEO",
-    "bio": "Visionary leader with over 20 years of experience in alternative asset management and investment strategy. Founded Fortress Investment Group and transformed it into one of the world's leading global alternative investors."
+    "name": "Nicholas Sterling",
+    "title": "Founder & Chief Investment Officer",
+    "bio": "Founded Nexus Capital 22 years ago pioneering systematic investment approaches. Manages $210B leveraging proprietary research and technology-driven investment strategies across multiple asset classes."
   },
   {
     "id": 2,
-    "name": "Samantha Novogratz",
-    "title": "Chief Operating Officer",
-    "bio": "Strategic executive overseeing operational excellence across all business segments. Drives efficiency, risk management, and culture initiatives that fuel organizational growth and innovation."
+    "name": "Amelia Thornton",
+    "title": "Head of Systematic Strategies",
+    "bio": "Leads quantitative investment team driving $120B in systematic equity and fixed income strategies. 24 years systematic investing with track record of consistent alpha generation through disciplined processes."
   },
   {
     "id": 3,
-    "name": "David Schachter",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert managing capital allocation, corporate finance, and financial strategy. Ensures prudent financial management and maximizes returns for all stakeholders."
+    "name": "Dr. Steven Chiu",
+    "title": "Chief Scientist & Head of Research",
+    "bio": "PhD Physics leading research team of 45 scientists and engineers. Develops proprietary machine learning models for investment decision making with 19 years AI/ML investing experience."
   },
   {
     "id": 4,
-    "name": "James Lebenthal",
-    "title": "Chief Investment Officer",
-    "bio": "Leads all investment decisions and portfolio strategy across real estate, credit, infrastructure, and natural resources. Responsible for achieving superior risk-adjusted returns."
+    "name": "Sophia Kowalski",
+    "title": "Senior Portfolio Manager - Equity Strategies",
+    "bio": "Manages $85B equity fund applying machine learning to stock selection and portfolio optimization. 17 years quantitative equity investing with publications in peer-reviewed journals."
   },
   {
     "id": 5,
-    "name": "Rachel Jackson",
-    "title": "Global Head of Real Estate",
-    "bio": "Oversees the $350B real estate portfolio with a focus on value creation and sustainable returns. Expertly navigates complex property markets across multiple geographies."
+    "name": "Marcus Wellington",
+    "title": "Head of Fixed Income Analytics",
+    "bio": "Leads fixed income team applying advanced analytics to credit and rates investing. 20 years fixed income expertise with specialization in yield curve positioning and credit modeling."
   },
   {
     "id": 6,
-    "name": "Thomas Mitchell",
-    "title": "Head of Credit Strategies",
-    "bio": "Manages credit investments with a disciplined approach to risk management. Seeks opportunities in corporate credit, structured finance, and emerging debt markets."
+    "name": "Chloe Bisset",
+    "title": "Equity Analyst - AI & Machine Learning Stocks",
+    "bio": "Senior analyst identifying investment opportunities in AI transformation. 11 years technology investing with deep expertise in machine learning applications across industries."
   },
   {
     "id": 7,
-    "name": "Elena Rodriguez",
-    "title": "Global Head of Infrastructure",
-    "bio": "Builds and manages world-class infrastructure investments that support economic growth. Focus on sustainable, long-term value creation in essential assets."
+    "name": "Rafael Mendez",
+    "title": "Trader - Systematic Execution",
+    "bio": "Manages algorithmic trading operations executing $210B in transactions. 16 years trading systems expertise with focus on minimizing market impact and execution costs."
   },
   {
     "id": 8,
-    "name": "Alexander Chen",
-    "title": "Head of Natural Resources",
-    "bio": "Leads natural resources investment strategy with deep expertise in energy, commodities, and sustainable resource management. Seeks attractive risk-adjusted returns."
+    "name": "Natasha Kozlov",
+    "title": "Strategist - Quantitative Markets",
+    "bio": "Provides strategic guidance on market dynamics and positioning. 18 years quantitative research with expertise in factor models and systematic portfolio construction."
   },
   {
     "id": 9,
-    "name": "Sarah Williams",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes risk management framework and ensures regulatory compliance across all operations. Works to protect capital and mitigate downside risks."
+    "name": "Liam Murphy",
+    "title": "Analyst - Factor Research",
+    "bio": "Conducts research on market factors and behavioral anomalies. 9 years academic and industry research on factor premiums and systematic alpha sources."
   },
   {
     "id": 10,
-    "name": "Peter Fitzgerald",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance teams, manages corporate governance, and ensures regulatory adherence. Protects the firm's interests and facilitates strategic transactions."
+    "name": "Vivian Chen",
+    "title": "Risk Manager - Quantitative Risk",
+    "bio": "Develops risk models for systematic strategies including factor risk and tail risk analysis. 13 years quantitative risk with expertise in Monte Carlo simulation and copula methods."
   }
 ]

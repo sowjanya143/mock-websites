@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Michael S. Novogratz",
-    "title": "Founder & CEO",
-    "bio": "Visionary leader with over 20 years of experience in alternative asset management and investment strategy. Founded Fortress Investment Group and transformed it into one of the world's leading global alternative investors."
+    "name": "Marcus Wellington",
+    "title": "Chief Executive Officer & Head of Investments",
+    "bio": "Visionary leader with 28 years in alternative asset management. Co-founded Sentinel and transformed it into a premier global alternative investor managing $850B in AUM across multiple asset classes. Expert in long-term value creation strategies."
   },
   {
     "id": 2,
-    "name": "Samantha Novogratz",
-    "title": "Chief Operating Officer",
-    "bio": "Strategic executive overseeing operational excellence across all business segments. Drives efficiency, risk management, and culture initiatives that fuel organizational growth and innovation."
+    "name": "Victoria Chen",
+    "title": "Chief Investment Officer",
+    "bio": "Leads all investment strategy and portfolio decisions across real estate, credit, and infrastructure. 22 years of investment experience with track record of delivering superior risk-adjusted returns."
   },
   {
     "id": 3,
-    "name": "David Schachter",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert managing capital allocation, corporate finance, and financial strategy. Ensures prudent financial management and maximizes returns for all stakeholders."
+    "name": "Richard Pembroke",
+    "title": "Head of Equity Research",
+    "bio": "Directs equity research team of 35+ analysts covering 2,000+ global companies. Drives fundamental research that informs portfolio construction and identifies compelling investment opportunities."
   },
   {
     "id": 4,
-    "name": "James Lebenthal",
-    "title": "Chief Investment Officer",
-    "bio": "Leads all investment decisions and portfolio strategy across real estate, credit, infrastructure, and natural resources. Responsible for achieving superior risk-adjusted returns."
+    "name": "Amelia Rodriguez",
+    "title": "Senior Portfolio Manager - Fixed Income",
+    "bio": "Manages $120B fixed income portfolio with focus on corporate credit and emerging market bonds. 19 years of credit analysis expertise and consistent alpha generation."
   },
   {
     "id": 5,
-    "name": "Rachel Jackson",
-    "title": "Global Head of Real Estate",
-    "bio": "Oversees the $350B real estate portfolio with a focus on value creation and sustainable returns. Expertly navigates complex property markets across multiple geographies."
+    "name": "James Nakamura",
+    "title": "Portfolio Manager - Equities",
+    "bio": "Oversees $95B in equity investments with concentration in European and Asian markets. Known for disciplined value-focused approach and multi-decade track record of outperformance."
   },
   {
     "id": 6,
-    "name": "Thomas Mitchell",
-    "title": "Head of Credit Strategies",
-    "bio": "Manages credit investments with a disciplined approach to risk management. Seeks opportunities in corporate credit, structured finance, and emerging debt markets."
+    "name": "Sophie Bergström",
+    "title": "Head of Alternative Strategies",
+    "bio": "Leads hedge fund and derivative strategy teams. 24 years experience in structured finance and alternative investments. Responsible for $180B in AUM across alternative platforms."
   },
   {
     "id": 7,
-    "name": "Elena Rodriguez",
-    "title": "Global Head of Infrastructure",
-    "bio": "Builds and manages world-class infrastructure investments that support economic growth. Focus on sustainable, long-term value creation in essential assets."
+    "name": "Daniel O'Brien",
+    "title": "Managing Director - Private Equity",
+    "bio": "Directs private equity investment team with focus on mid-market buyouts and growth capital. Engineered portfolio returns averaging 18% IRR over 15-year tenure."
   },
   {
     "id": 8,
-    "name": "Alexander Chen",
-    "title": "Head of Natural Resources",
-    "bio": "Leads natural resources investment strategy with deep expertise in energy, commodities, and sustainable resource management. Seeks attractive risk-adjusted returns."
+    "name": "Priya Patel",
+    "title": "Equity Analyst - Technology Sector",
+    "bio": "Senior analyst covering technology and digital transformation investments. Deep expertise in software, semiconductors, and cloud infrastructure with proprietary research capabilities."
   },
   {
     "id": 9,
-    "name": "Sarah Williams",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes risk management framework and ensures regulatory compliance across all operations. Works to protect capital and mitigate downside risks."
+    "name": "Thomas Harris",
+    "title": "Fixed Income Analyst - Structured Credit",
+    "bio": "Specializes in complex structured credit and distressed debt analysis. 16 years of experience identifying opportunities in high-yield and distressed credit markets."
   },
   {
     "id": 10,
-    "name": "Peter Fitzgerald",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance teams, manages corporate governance, and ensures regulatory adherence. Protects the firm's interests and facilitates strategic transactions."
+    "name": "Katarina Novak",
+    "title": "Risk Manager",
+    "bio": "Oversees enterprise risk management and portfolio risk metrics across all strategies. PhD in Financial Engineering with expertise in VaR, stress testing, and derivative pricing."
   }
 ]

@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Michael S. Novogratz",
-    "title": "Founder & CEO",
-    "bio": "Visionary leader with over 20 years of experience in alternative asset management and investment strategy. Founded Fortress Investment Group and transformed it into one of the world's leading global alternative investors."
+    "name": "Alexandra Frost",
+    "title": "Founder & Chief Investment Officer",
+    "bio": "Founded Cipher Wealth Management 19 years ago with focus on global macro investing. Manages $175B applying macroeconomic analysis and global trend identification for absolute returns."
   },
   {
     "id": 2,
-    "name": "Samantha Novogratz",
-    "title": "Chief Operating Officer",
-    "bio": "Strategic executive overseeing operational excellence across all business segments. Drives efficiency, risk management, and culture initiatives that fuel organizational growth and innovation."
+    "name": "Marcus Beaumont",
+    "title": "Chief Economist & Head of Research",
+    "bio": "Leads macroeconomic research team providing strategic direction. PhD Economics from Cambridge with 26 years macro research experience and numerous published papers."
   },
   {
     "id": 3,
-    "name": "David Schachter",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert managing capital allocation, corporate finance, and financial strategy. Ensures prudent financial management and maximizes returns for all stakeholders."
+    "name": "Susan Tang",
+    "title": "Head of Global Macro Strategies",
+    "bio": "Leads $95B global macro fund investing across currencies, commodities, and fixed income. 23 years global macro investing with track record of outperformance in diverse market environments."
   },
   {
     "id": 4,
-    "name": "James Lebenthal",
-    "title": "Chief Investment Officer",
-    "bio": "Leads all investment decisions and portfolio strategy across real estate, credit, infrastructure, and natural resources. Responsible for achieving superior risk-adjusted returns."
+    "name": "Philippe Arnould",
+    "title": "Senior Portfolio Manager - Currency Trading",
+    "bio": "Manages $42B currency trading fund exploiting FX cycles and interest rate differentials. 20 years forex expertise with specialization in carry trades and central bank analysis."
   },
   {
     "id": 5,
-    "name": "Rachel Jackson",
-    "title": "Global Head of Real Estate",
-    "bio": "Oversees the $350B real estate portfolio with a focus on value creation and sustainable returns. Expertly navigates complex property markets across multiple geographies."
+    "name": "Rajesh Sharma",
+    "title": "Head of Emerging Markets Macro",
+    "bio": "Leads emerging markets macroeconomic investing team managing $38B. 19 years emerging markets expertise with deep relationships and proprietary intelligence across Asia, Latin America, and Africa."
   },
   {
     "id": 6,
-    "name": "Thomas Mitchell",
-    "title": "Head of Credit Strategies",
-    "bio": "Manages credit investments with a disciplined approach to risk management. Seeks opportunities in corporate credit, structured finance, and emerging debt markets."
+    "name": "Nathalie Giroux",
+    "title": "Economist - Central Bank Policy",
+    "bio": "Analyzes central bank policies and monetary framework changes impacting markets. 15 years policy research with strong track record predicting policy shifts and their market implications."
   },
   {
     "id": 7,
-    "name": "Elena Rodriguez",
-    "title": "Global Head of Infrastructure",
-    "bio": "Builds and manages world-class infrastructure investments that support economic growth. Focus on sustainable, long-term value creation in essential assets."
+    "name": "Rashid Al-Mansoori",
+    "title": "Trader - Commodity Futures",
+    "bio": "Executes commodity trading strategy across oil, metals, and agriculture. 18 years commodities trading expertise with focus on geopolitical event trading and supply disruption analysis."
   },
   {
     "id": 8,
-    "name": "Alexander Chen",
-    "title": "Head of Natural Resources",
-    "bio": "Leads natural resources investment strategy with deep expertise in energy, commodities, and sustainable resource management. Seeks attractive risk-adjusted returns."
+    "name": "Elena Kovacs",
+    "title": "Strategist - Rates & Fixed Income Macro",
+    "bio": "Provides strategic guidance on interest rate trends and fixed income positioning. 17 years rates strategy expertise with specialization in yield curve steepener/flattener positioning."
   },
   {
     "id": 9,
-    "name": "Sarah Williams",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes risk management framework and ensures regulatory compliance across all operations. Works to protect capital and mitigate downside risks."
+    "name": "Christopher Okonkwo",
+    "title": "Analyst - Geopolitical Risk",
+    "bio": "Monitors geopolitical events and analyzes market implications. 11 years geopolitical analysis with networks in major financial centers for on-ground intelligence gathering."
   },
   {
     "id": 10,
-    "name": "Peter Fitzgerald",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance teams, manages corporate governance, and ensures regulatory adherence. Protects the firm's interests and facilitates strategic transactions."
+    "name": "Dr. Yuki Matsuda",
+    "title": "Risk Manager - Macro Risk",
+    "bio": "Manages macro risk framework for $175B global macro portfolio. 14 years macro risk with expertise in scenario analysis and correlation forecasting across asset classes."
   }
 ]

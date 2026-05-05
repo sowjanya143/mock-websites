@@ -1,62 +1,62 @@
 [
   {
     "id": 1,
-    "name": "Hiroshi Tanaka",
-    "title": "President & CEO",
-    "bio": "Visionary leader with over 25 years of banking experience in Japan and Asia. Built Hokuyo Bank's reputation for stability and customer service excellence across the region."
+    "name": "Robert Ashton",
+    "title": "Chief Executive Officer & Head of Equities",
+    "bio": "Dynamic leader with 29 years in financial services. Founded Premier Financial Services with focus on institutional equity management. Manages $325B across global markets with emphasis on long-term capital appreciation."
   },
   {
     "id": 2,
-    "name": "Yuki Yamamoto",
-    "title": "Chief Operating Officer",
-    "bio": "Operations executive managing all business segments with focus on efficiency and customer satisfaction. Drives digital transformation initiatives across Hokuyo's operations."
+    "name": "Catherine Liu",
+    "title": "Chief Investment Officer",
+    "bio": "Senior investment strategist overseeing all portfolio decisions across asset classes. 25 years institutional investing experience with demonstrated skill in multi-asset class management."
   },
   {
     "id": 3,
-    "name": "Takeshi Nakamura",
-    "title": "Chief Financial Officer",
-    "bio": "Finance expert managing capital allocation and financial strategy. Ensures prudent risk management and maintains the bank's strong financial position."
+    "name": "Marcus Blackwell",
+    "title": "Head of Equity Research",
+    "bio": "Leads 35-person research team conducting in-depth fundamental analysis of 1,500+ companies. Pioneered proprietary ESG integration framework for sustainable equity investing."
   },
   {
     "id": 4,
-    "name": "Kenji Suzuki",
-    "title": "Chief Investment Officer",
-    "bio": "Leads investment decisions and portfolio strategy across all banking divisions. Responsible for maximizing returns while maintaining risk discipline."
+    "name": "Natasha Volkov",
+    "title": "Senior Portfolio Manager - Value Equities",
+    "bio": "Manages $105B value-focused equity fund with 18-year track record of consistent outperformance. Expert in deep value opportunities and activist engagement strategies."
   },
   {
     "id": 5,
-    "name": "Akiko Sato",
-    "title": "Head of Retail Banking",
-    "bio": "Oversees Hokuyo's $85B retail banking portfolio. Focuses on innovative products and services for individual customers across Japan and beyond."
+    "name": "Sung Park",
+    "title": "Head of Fixed Income",
+    "bio": "Oversees $78B in fixed income investments across credit quality spectrum. 22 years fixed income expertise with specialization in credit selection and yield enhancement strategies."
   },
   {
     "id": 6,
-    "name": "Masao Kobayashi",
-    "title": "Head of Corporate Banking",
-    "bio": "Manages corporate banking relationships and enterprise lending strategy. Serves as trusted financial partner for Japan's leading corporations."
+    "name": "Jennifer White",
+    "title": "Portfolio Manager - Small Cap Equities",
+    "bio": "Manages $52B in small and mid-cap equity fund. 16 years experience identifying underfollowed opportunities with strong pattern of alpha generation."
   },
   {
     "id": 7,
-    "name": "Emi Watanabe",
-    "title": "Head of Investment Banking",
-    "bio": "Leads mergers and acquisitions, capital markets, and investment banking services. Facilitates strategic transactions for major institutional clients."
+    "name": "Giovanni Rossi",
+    "title": "Equity Analyst - Financial Services",
+    "bio": "Senior analyst specializing in banking, insurance, and asset management companies. 13 years sector expertise with deep regulatory and competitive landscape knowledge."
   },
   {
     "id": 8,
-    "name": "Daichi Yamada",
-    "title": "Head of Wealth Management",
-    "bio": "Oversees premium wealth advisory and asset management services. Provides tailored financial solutions for high-net-worth individuals and families."
+    "name": "Priya Menon",
+    "title": "Trader - Equities",
+    "bio": "Executes multi-billion dollar equity trading operations globally. 15 years trading experience with expertise in algorithmic execution and market microstructure optimization."
   },
   {
     "id": 9,
-    "name": "Sakura Nakajima",
-    "title": "Chief Risk Officer",
-    "bio": "Establishes comprehensive risk management framework and ensures regulatory compliance. Protects the bank's capital and stakeholder interests."
+    "name": "Klaus Bergmann",
+    "title": "Strategist - Macroeconomic Research",
+    "bio": "Provides macroeconomic analysis and asset allocation guidance. PhD in Economics with 18 years researching business cycle dynamics and monetary policy impacts on markets."
   },
   {
     "id": 10,
-    "name": "Toshiro Ishikawa",
-    "title": "General Counsel",
-    "bio": "Leads legal and compliance teams, manages corporate governance. Ensures adherence to banking regulations and facilitates strategic initiatives."
+    "name": "Maria Santos",
+    "title": "Director of Investments - Emerging Markets",
+    "bio": "Directs emerging market equity investing strategy across Asia, Latin America, and Africa. 17 years emerging markets experience with strong track record in frontier market discoveries."
   }
 ]
