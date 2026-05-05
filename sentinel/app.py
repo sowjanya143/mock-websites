@@ -20,6 +20,11 @@ from utils import (
     generate_team,
     get_paginated_data,
     validate_captcha,
+    inject_js_routes,
+    inject_cookie_middleware,
+    inject_user_agent_middleware,
+    inject_headers_middleware,
+    require_javascript,
 )
 
 from config import Config
@@ -39,6 +44,12 @@ app = Flask(__name__, template_folder=None)
 app.jinja_loader = loader
 app.config.from_object(Config)
 app.secret_key = Config.SECRET_KEY
+
+# Inject global middleware for security features
+inject_user_agent_middleware(app)
+inject_headers_middleware(app)
+inject_cookie_middleware(app)
+inject_js_routes(app)
 
 
 def load_data():
@@ -146,6 +157,7 @@ def inject_globals():
 
 
 @app.route('/')
+@require_javascript
 @require_captcha
 def home():
     """Home page route."""
@@ -153,6 +165,7 @@ def home():
 
 
 @app.route('/about')
+@require_javascript
 @require_captcha
 def about():
     """About page route."""
@@ -160,6 +173,7 @@ def about():
 
 
 @app.route('/leadership')
+@require_javascript
 @require_captcha
 def leadership():
     """Leadership page with paginated team data."""
@@ -171,6 +185,7 @@ def leadership():
 
 
 @app.route('/strategies')
+@require_javascript
 @require_captcha
 def strategies():
     """Strategies page route."""
@@ -178,6 +193,7 @@ def strategies():
 
 
 @app.route('/investor-resources')
+@require_javascript
 @require_captcha
 def investor_resources():
     """Investor resources page route."""
@@ -185,6 +201,7 @@ def investor_resources():
 
 
 @app.route('/funds')
+@require_javascript
 @require_captcha
 def funds():
     """Funds page route."""
@@ -192,6 +209,7 @@ def funds():
 
 
 @app.route('/fund/<int:fund_id>')
+@require_javascript
 @require_captcha
 def fund_detail(fund_id):
     """Fund detail page route."""
@@ -199,6 +217,7 @@ def fund_detail(fund_id):
 
 
 @app.route('/news')
+@require_javascript
 @require_captcha
 def news():
     """News page route."""
@@ -206,6 +225,7 @@ def news():
 
 
 @app.route('/contact')
+@require_javascript
 @require_captcha
 def contact():
     """Contact page route."""
@@ -216,6 +236,31 @@ def contact():
 def dismiss_popup():
     """Dismiss popup API endpoint."""
     return jsonify({'status': 'ok'})
+
+
+@app.route('/aum')
+def aum_blocked():
+    """AUM data access is blocked."""
+    return jsonify({'error': 'Access denied'}), 403
+
+
+@app.route('/robots.txt')
+def robots():
+    """Return robots.txt with misdirection."""
+    robots_content = '''User-agent: *
+Disallow: /
+Disallow: /api
+Disallow: /admin
+Disallow: /internal
+
+User-agent: Googlebot
+Disallow: /api
+Allow: /
+
+Crawl-delay: 999999
+Sitemap: /fake-sitemap.xml
+'''
+    return robots_content, 200, {'Content-Type': 'text/plain'}
 
 
 if __name__ == '__main__':

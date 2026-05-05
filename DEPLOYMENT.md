@@ -1,6 +1,6 @@
 # Mock Financial Services Websites - Render Deployment Guide
 
-This guide provides step-by-step instructions for deploying all 5 mock financial services websites to Render.com.
+This guide provides step-by-step instructions for deploying all 9 mock financial services websites to Render.com.
 
 ## Table of Contents
 
@@ -27,31 +27,23 @@ Before deploying to Render, ensure you have:
 Before deploying, test the applications locally:
 
 ```bash
-# Test each site
-cd sentinel
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
-# Visit http://localhost:5000
-
-# Repeat for other sites in separate terminal windows
-cd apex
-python app.py  # Port 5001
-
-cd meridian
-python app.py  # Port 5002
-
-cd premier
-python app.py  # Port 5003
-
-cd zenith
-python app.py  # Port 5004
+# Test each site in separate terminal windows
+cd sentinel && python app.py  # Port 5000
+cd apex && python app.py      # Port 5001
+cd meridian && python app.py  # Port 5002
+cd premier && python app.py   # Port 5003
+cd zenith && python app.py    # Port 5004
+cd fortis && python app.py    # Port 5005
+cd nexus && python app.py     # Port 5006
+cd quantum && python app.py   # Port 5007
+cd cipher && python app.py    # Port 5008
 ```
 
 ---
 
 ## Sites Overview
+
+### Original 5 Sites
 
 | Site | Port | Key Features |
 |------|------|--------------|
@@ -60,6 +52,23 @@ python app.py  # Port 5004
 | **Meridian Global Holdings** | 5002 | Random CAPTCHA, scattered data, delays |
 | **Premier Financial Services** | 5003 | Clean baseline (no obstacles) |
 | **Zenith Asset Management** | 5004 | All obstacles combined |
+
+### New Advanced Anti-Scraping Sites
+
+| Site | Port | Key Features |
+|------|------|--------------|
+| **Fortis Banking Group** | 5005 | JWT authentication, login required, session timeout |
+| **Nexus Capital** | 5006 | Honeypot detection, bot fingerprinting, fragmented data |
+| **Quantum Funds** | 5007 | Geographic blocking, VPN detection, IP-based restrictions |
+| **Cipher Wealth Management** | 5008 | API key requirement, encrypted responses, HMAC signing |
+
+### Global Features (All 9 Sites)
+- JavaScript requirement (client-side validation)
+- Cookie enforcement
+- User-agent blocking (scraper detection)
+- STRICT_HEADERS validation
+- /aum endpoint blocked (403)
+- robots.txt with misdirection
 
 ---
 
@@ -76,14 +85,15 @@ Each site directory contains:
 
 2. **`{site}/runtime.txt`** - Specifies Python version (if applicable)
    ```
-   python-3.11.7
+   python-3.14.3
    ```
 
 3. **`{site}/requirements.txt`** - Python dependencies
    ```
    Flask==3.0.0
-   Pillow==10.0.0
+   Pillow==11.1.0
    Werkzeug==3.0.1
+   PyJWT==2.8.1
    ```
 
 4. **`{site}/.env.example`** - Environment variables template
@@ -174,6 +184,38 @@ Fill in the deployment form with site-specific details:
 | **Name** | `zenith-mock-website` |
 | **Build Command** | `pip install -r zenith/requirements.txt` |
 | **Start Command** | `cd zenith && python app.py` |
+
+**For Fortis Banking Group (Port 5005):**
+
+| Field | Value |
+|-------|-------|
+| **Name** | `fortis-mock-website` |
+| **Build Command** | `pip install -r fortis/requirements.txt` |
+| **Start Command** | `cd fortis && python app.py` |
+
+**For Nexus Capital (Port 5006):**
+
+| Field | Value |
+|-------|-------|
+| **Name** | `nexus-mock-website` |
+| **Build Command** | `pip install -r nexus/requirements.txt` |
+| **Start Command** | `cd nexus && python app.py` |
+
+**For Quantum Funds (Port 5007):**
+
+| Field | Value |
+|-------|-------|
+| **Name** | `quantum-mock-website` |
+| **Build Command** | `pip install -r quantum/requirements.txt` |
+| **Start Command** | `cd quantum && python app.py` |
+
+**For Cipher Wealth Management (Port 5008):**
+
+| Field | Value |
+|-------|-------|
+| **Name** | `cipher-mock-website` |
+| **Build Command** | `pip install -r cipher/requirements.txt` |
+| **Start Command** | `cd cipher && python app.py` |
 
 ### Step 3: Add Environment Variables
 

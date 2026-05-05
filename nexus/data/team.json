@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Michael S. Novogratz",
+    "title": "Founder & CEO",
+    "bio": "Visionary leader with over 20 years of experience in alternative asset management and investment strategy. Founded Fortress Investment Group and transformed it into one of the world's leading global alternative investors."
+  },
+  {
+    "id": 2,
+    "name": "Samantha Novogratz",
+    "title": "Chief Operating Officer",
+    "bio": "Strategic executive overseeing operational excellence across all business segments. Drives efficiency, risk management, and culture initiatives that fuel organizational growth and innovation."
+  },
+  {
+    "id": 3,
+    "name": "David Schachter",
+    "title": "Chief Financial Officer",
+    "bio": "Finance expert managing capital allocation, corporate finance, and financial strategy. Ensures prudent financial management and maximizes returns for all stakeholders."
+  },
+  {
+    "id": 4,
+    "name": "James Lebenthal",
+    "title": "Chief Investment Officer",
+    "bio": "Leads all investment decisions and portfolio strategy across real estate, credit, infrastructure, and natural resources. Responsible for achieving superior risk-adjusted returns."
+  },
+  {
+    "id": 5,
+    "name": "Rachel Jackson",
+    "title": "Global Head of Real Estate",
+    "bio": "Oversees the $350B real estate portfolio with a focus on value creation and sustainable returns. Expertly navigates complex property markets across multiple geographies."
+  },
+  {
+    "id": 6,
+    "name": "Thomas Mitchell",
+    "title": "Head of Credit Strategies",
+    "bio": "Manages credit investments with a disciplined approach to risk management. Seeks opportunities in corporate credit, structured finance, and emerging debt markets."
+  },
+  {
+    "id": 7,
+    "name": "Elena Rodriguez",
+    "title": "Global Head of Infrastructure",
+    "bio": "Builds and manages world-class infrastructure investments that support economic growth. Focus on sustainable, long-term value creation in essential assets."
+  },
+  {
+    "id": 8,
+    "name": "Alexander Chen",
+    "title": "Head of Natural Resources",
+    "bio": "Leads natural resources investment strategy with deep expertise in energy, commodities, and sustainable resource management. Seeks attractive risk-adjusted returns."
+  },
+  {
+    "id": 9,
+    "name": "Sarah Williams",
+    "title": "Chief Risk Officer",
+    "bio": "Establishes risk management framework and ensures regulatory compliance across all operations. Works to protect capital and mitigate downside risks."
+  },
+  {
+    "id": 10,
+    "name": "Peter Fitzgerald",
+    "title": "General Counsel",
+    "bio": "Leads legal and compliance teams, manages corporate governance, and ensures regulatory adherence. Protects the firm's interests and facilitates strategic transactions."
+  }
+]

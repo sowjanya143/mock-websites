@@ -1,0 +1,41 @@
+{
+  "global_aum": 850000000000,
+  "by_asset_class": {
+    "Real Estate": 350000000000,
+    "Credit": 250000000000,
+    "Infrastructure": 150000000000,
+    "Natural Resources": 100000000000
+  },
+  "by_fund": [
+    {
+      "id": 1,
+      "name": "Fortress Global Opportunities Fund",
+      "aum": 200000000000,
+      "strategy": "Real Estate"
+    },
+    {
+      "id": 2,
+      "name": "Fortress Credit Fund",
+      "aum": 180000000000,
+      "strategy": "Credit"
+    },
+    {
+      "id": 3,
+      "name": "Fortress Infrastructure Fund",
+      "aum": 150000000000,
+      "strategy": "Infrastructure"
+    },
+    {
+      "id": 4,
+      "name": "Fortress Resources Fund",
+      "aum": 100000000000,
+      "strategy": "Natural Resources"
+    },
+    {
+      "id": 5,
+      "name": "Fortress Emerging Markets Fund",
+      "aum": 120000000000,
+      "strategy": "Real Estate"
+    }
+  ]
+}

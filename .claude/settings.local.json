@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(python *)",
-      "Bash(Get-ChildItem *)"
+      "Bash(Get-ChildItem *)",
+      "Bash(cp -r sentinel/templates/* fortis/templates/)",
+      "Bash(cp -r sentinel/templates/*.html nexus/templates/)",
+      "Bash(cp -r sentinel/templates/*.html quantum/templates/)",
+      "Bash(cp -r sentinel/templates/*.html cipher/templates/)",
+      "Bash(cat)"
     ]
   }
 }

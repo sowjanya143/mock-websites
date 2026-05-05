@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>About Fortress Investment Group</h1>
+
+<section class="about-content">
+    <div class="about-section">
+        <h2>Company History</h2>
+        <p>
+            Fortress Investment Group was founded in 1998 to provide innovative solutions for alternative asset management. Over the past two decades, we have grown into one of the world's leading global alternative investors, managing approximately $850 billion in assets across multiple asset classes and geographies.
+        </p>
+        <p>
+            Our journey has been marked by a commitment to identifying unique investment opportunities, developing specialized expertise, and delivering superior risk-adjusted returns to our investors. Through market cycles and evolving economic conditions, we have maintained our core philosophy of disciplined investing and prudent risk management.
+        </p>
+    </div>
+
+    <div class="about-section">
+        <h2>Our Mission</h2>
+        <p>
+            To be the leading global alternative asset manager by delivering exceptional returns to our investors while maintaining the highest standards of integrity, transparency, and operational excellence.
+        </p>
+    </div>
+
+    <div class="about-section">
+        <h2>Business Overview</h2>
+        <p>
+            Fortress operates across four principal asset classes:
+        </p>
+        <ul class="business-segments">
+            <li><strong>Real Estate:</strong> $350B in commercial and residential properties across multiple markets</li>
+            <li><strong>Credit:</strong> $250B in corporate credit, structured finance, and distressed securities</li>
+            <li><strong>Infrastructure:</strong> $150B in essential infrastructure assets globally</li>
+            <li><strong>Natural Resources:</strong> $100B in energy, commodities, and sustainable resource investments</li>
+        </ul>
+        <p>
+            Our diversified platform allows us to capitalize on unique market opportunities while maintaining disciplined risk management across all investments.
+        </p>
+    </div>
+
+    <div class="about-section">
+        <h2>Our Values</h2>
+        <ul class="values-list">
+            <li><strong>Integrity:</strong> We conduct business with the highest ethical standards</li>
+            <li><strong>Excellence:</strong> We pursue exceptional outcomes in all endeavors</li>
+            <li><strong>Innovation:</strong> We continuously seek new approaches and solutions</li>
+            <li><strong>Transparency:</strong> We maintain open and honest communication with all stakeholders</li>
+            <li><strong>Accountability:</strong> We take responsibility for our actions and results</li>
+        </ul>
+    </div>
+</section>
+
+<style>
+    h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .about-content {
+        margin-top: 30px;
+    }
+
+    .about-section {
+        margin-bottom: 40px;
+        line-height: 1.8;
+    }
+
+    .about-section h2 {
+        font-size: 24px;
+        color: #667eea;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .about-section p {
+        color: #555;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .business-segments,
+    .values-list {
+        margin-left: 20px;
+        list-style: disc;
+    }
+
+    .business-segments li,
+    .values-list li {
+        margin-bottom: 12px;
+        color: #555;
+    }
+
+    .business-segments strong,
+    .values-list strong {
+        color: #333;
+    }
+</style>
+{% endblock %}

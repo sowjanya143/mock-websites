@@ -23,6 +23,11 @@ from utils import (
     render_popup,
     should_show_popup,
     validate_captcha,
+    inject_js_routes,
+    inject_cookie_middleware,
+    inject_user_agent_middleware,
+    inject_headers_middleware,
+    require_javascript,
 )
 
 from config import Config
@@ -42,6 +47,12 @@ app = Flask(__name__, template_folder=None)
 app.jinja_loader = loader
 app.config.from_object(Config)
 app.secret_key = Config.SECRET_KEY
+
+# Inject global middleware for security features
+inject_user_agent_middleware(app)
+inject_headers_middleware(app)
+inject_cookie_middleware(app)
+inject_js_routes(app)
 
 
 def load_data():
@@ -178,6 +189,7 @@ def inject_globals():
 
 @app.route('/')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
 def home():
     """Home page route."""
     return render_template('home.html')
@@ -185,6 +197,7 @@ def home():
 
 @app.route('/about')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
 def about():
     """About page route."""
     return render_template('about.html')
@@ -192,6 +205,7 @@ def about():
 
 @app.route('/leadership')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
 def leadership():
     """Leadership page with paginated team data."""
     data = load_data()
@@ -204,6 +218,7 @@ def leadership():
 @app.route('/strategies')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 @require_captcha
+@require_javascript
 def strategies():
     """Strategies page route."""
     return render_template('strategies.html')
@@ -212,6 +227,7 @@ def strategies():
 @app.route('/investor-resources')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 @require_captcha
+@require_javascript
 def investor_resources():
     """Investor resources page route."""
     return render_template('investor_resources.html')
@@ -220,6 +236,7 @@ def investor_resources():
 @app.route('/funds')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 @require_captcha
+@require_javascript
 def funds():
     """Funds page route."""
     return render_template('funds.html')
@@ -228,6 +245,7 @@ def funds():
 @app.route('/fund/<int:fund_id>')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 @require_captcha
+@require_javascript
 def fund_detail(fund_id):
     """Fund detail page route."""
     return render_template('fund_detail.html', fund_id=fund_id)
@@ -235,6 +253,7 @@ def fund_detail(fund_id):
 
 @app.route('/news')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
 def news():
     """News page route."""
     return render_template('news.html')
@@ -242,6 +261,7 @@ def news():
 
 @app.route('/contact')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
 def contact():
     """Contact page route."""
     return render_template('contact.html')
@@ -249,6 +269,7 @@ def contact():
 
 @app.route('/api/aum', methods=['GET'])
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
 def api_aum():
     """
     API endpoint for AUM data in JSON format.
@@ -266,6 +287,7 @@ def api_aum():
 
 
 @app.route('/api/dismiss-popup', methods=['POST'])
+@require_javascript
 def dismiss_popup():
     """Dismiss popup API endpoint."""
     from utils import mark_popup_dismissed
@@ -273,5 +295,24 @@ def dismiss_popup():
     return jsonify({'status': 'ok'})
 
 
+
+@app.route('/aum')
+def aum_blocked():
+    """AUM data access is blocked."""
+    return jsonify({'error': 'Access denied'}), 403
+
+
+@app.route('/robots.txt')
+def robots():
+    """Return robots.txt with misdirection."""
+    robots_content = '''User-agent: *
+Disallow: /
+Disallow: /api
+Crawl-delay: 999999
+Sitemap: /fake-sitemap.xml
+'''
+    return robots_content, 200, {'Content-Type': 'text/plain'}
+
+
 if __name__ == '__main__':
-    app.run(debug=Config.DEBUG, port=5001)
+    app.run(debug=Config.DEBUG, host='0.0.0.0', port=int(os.environ.get('PORT', 5001)))

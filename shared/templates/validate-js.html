@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validating Request</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; }
+        .container { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #333; margin-bottom: 20px; font-size: 24px; }
+        p { color: #666; margin-bottom: 20px; }
+        .spinner { display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Validating Request</h1>
+            <p>Please wait while we verify your browser...</p>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        const jsToken = "{{ js_token }}";
+
+        // Post token back to prove JS executed
+        fetch('/set-js-cookie', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ token: jsToken })
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.status === 'ok') {
+                // Redirect to original requested path
+                window.location.href = data.redirect || '/';
+            } else {
+                document.body.innerHTML = '<p>Validation failed. Please refresh and try again.</p>';
+            }
+        })
+        .catch(e => {
+            console.error('Validation error:', e);
+            document.body.innerHTML = '<p>Validation error. Please refresh.</p>';
+        });
+    </script>
+</body>
+</html>
