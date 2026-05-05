@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "mandate": "Wholesale Funds",
+    "description": "Pre-defined investment programs with established track records",
+    "count": 5,
+    "minimums": "$5M minimum investment"
+  },
+  {
+    "id": 2,
+    "mandate": "Customized Mandates",
+    "description": "Tailored investment strategies aligned with specific client objectives",
+    "count": 12,
+    "minimums": "$25M minimum investment"
+  },
+  {
+    "id": 3,
+    "mandate": "Institutional Partnerships",
+    "description": "Strategic co-investment and partnership arrangements",
+    "count": 8,
+    "minimums": "Negotiated on case-by-case basis"
+  },
+  {
+    "id": 4,
+    "mandate": "Advisory Services",
+    "description": "Investment advisory and portfolio consulting services",
+    "count": 15,
+    "minimums": "Based on service scope"
+  }
+]

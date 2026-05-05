@@ -1,41 +1,50 @@
 {
-  "global_aum": 850000000000,
-  "by_asset_class": {
-    "Real Estate": 350000000000,
-    "Credit": 250000000000,
-    "Infrastructure": 150000000000,
-    "Natural Resources": 100000000000
+  "global_aum": 420000000000,
+  "by_philosophy": {
+    "Time-Tested Value Investing": 180000000000,
+    "Catalytically-Driven Philosophy": 150000000000,
+    "Risk-Based Approach": 90000000000
+  },
+  "investment_products": {
+    "wholesale_funds": 5,
+    "customized_mandates": 12,
+    "strategic_partnerships": 8
   },
   "by_fund": [
     {
       "id": 1,
-      "name": "Fortress Global Opportunities Fund",
-      "aum": 200000000000,
-      "strategy": "Real Estate"
+      "name": "Nexus Value Investing Fund",
+      "aum": 180000000000,
+      "philosophy": "Time-Tested Value Investing",
+      "inception": "2008"
     },
     {
       "id": 2,
-      "name": "Fortress Credit Fund",
-      "aum": 180000000000,
-      "strategy": "Credit"
+      "name": "Nexus Catalyst Fund",
+      "aum": 150000000000,
+      "philosophy": "Catalytically-Driven Philosophy",
+      "inception": "2010"
     },
     {
       "id": 3,
-      "name": "Fortress Infrastructure Fund",
-      "aum": 150000000000,
-      "strategy": "Infrastructure"
+      "name": "Nexus Risk Management Fund",
+      "aum": 90000000000,
+      "philosophy": "Risk-Based Approach",
+      "inception": "2012"
     },
     {
       "id": 4,
-      "name": "Fortress Resources Fund",
-      "aum": 100000000000,
-      "strategy": "Natural Resources"
+      "name": "Nexus Asia Value Fund",
+      "aum": 55000000000,
+      "philosophy": "Time-Tested Value Investing",
+      "inception": "2014"
     },
     {
       "id": 5,
-      "name": "Fortress Emerging Markets Fund",
-      "aum": 120000000000,
-      "strategy": "Real Estate"
+      "name": "Nexus Custom Mandates Program",
+      "aum": 40000000000,
+      "philosophy": "Risk-Based Approach",
+      "inception": "2016"
     }
   ]
 }

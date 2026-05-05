@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Investment Partners - Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0051ba;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #0051ba;
+        }
+
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border: 1px solid #e0e0e0;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 13px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f0f0f0;
+            color: #0051ba;
+        }
+
+        .nav-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(0, 81, 186, 0.95) 0%, rgba(0, 61, 136, 0.95) 100%), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><rect width="80" height="80" fill="none"/><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="1200" height="400" fill="%23003d88"/><rect width="1200" height="400" fill="url(%23grid)"/><circle cx="1050" cy="80" r="120" fill="rgba(255,255,255,0.06)"/><circle cx="100" cy="350" r="150" fill="rgba(255,255,255,0.04)"/><path d="M 0 250 Q 300 150 600 250 T 1200 250" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        /* Contact Information Section */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .office {
+            padding: 20px;
+            border-left: 4px solid #0051ba;
+        }
+
+        .office h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #0051ba;
+        }
+
+        .office p {
+            margin-bottom: 12px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .office .address {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .phone-link {
+            color: #0051ba;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .phone-link:hover {
+            color: #003d88;
+            text-decoration: underline;
+        }
+
+        /* Form Section */
+        .form-section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+
+        .form-section h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0051ba;
+            box-shadow: 0 0 0 3px rgba(0, 81, 186, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            background-color: #0051ba;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 200px;
+        }
+
+        .submit-btn:hover {
+            background-color: #003d88;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Accordion for Legal Sections */
+        .legal-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .legal-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .accordion {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: #f5f5f5;
+            padding: 16px;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .accordion-header:hover {
+            background-color: #efefef;
+        }
+
+        .accordion-header.active {
+            background-color: #e8f0ff;
+        }
+
+        .accordion-title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .accordion-toggle {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            color: #0051ba;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .accordion-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 20px 16px;
+            background-color: #fafafa;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .agree-btn {
+            background-color: #0051ba;
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .agree-btn:hover {
+            background-color: #003d88;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #bbb;
+            padding: 40px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            color: white;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #0051ba;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #1a8cff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-text {
+            flex: 1;
+        }
+
+        .cookie-text a {
+            color: #0051ba;
+            text-decoration: none;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 12px;
+            white-space: nowrap;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cookie-accept {
+            background-color: #0051ba;
+            color: white;
+        }
+
+        .cookie-accept:hover {
+            background-color: #003d88;
+        }
+
+        .cookie-decline {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #666;
+        }
+
+        .cookie-decline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Modal for Terms */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 40px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 700px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #0051ba;
+            padding-right: 30px;
+        }
+
+        .modal-body {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .modal-body p {
+            margin-bottom: 12px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-btn-primary {
+            background-color: #0051ba;
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            background-color: #003d88;
+        }
+
+        .modal-btn-secondary {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            .page-header {
+                padding: 40px 20px;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
+            }
+
+            .modal-content {
+                margin: 20px;
+                max-height: 90vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-top">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="80" height="80" fill="none" stroke="#0051ba" stroke-width="3"/>
+                    <circle cx="50" cy="50" r="30" fill="none" stroke="#0051ba" stroke-width="2"/>
+                    <path d="M 50 30 L 60 50 L 50 70 L 40 50 Z" fill="#0051ba" opacity="0.7"/>
+                </svg>
+                <span>GIP</span>
+            </a>
+            <nav>
+                <div class="nav-dropdown">
+                    <a>About Us</a>
+                    <div class="dropdown-content">
+                        <a href="#">Our Story</a>
+                        <a href="#">Our Team</a>
+                        <a href="#">Our Values</a>
+                        <a href="#">Careers</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a>Services</a>
+                    <div class="dropdown-content">
+                        <a href="#">Portfolio Management</a>
+                        <a href="#">Consulting</a>
+                        <a href="#">Risk Analysis</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a>Resources</a>
+                    <div class="dropdown-content">
+                        <a href="#">Reports</a>
+                        <a href="#">Market Data</a>
+                        <a href="#">Insights</a>
+                        <a href="#">Fund Centre</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a>News</a>
+                    <div class="dropdown-content">
+                        <a href="#">Press Releases</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Videos</a>
+                    </div>
+                </div>
+                <a href="#contact-info">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header with Background Image -->
+    <div class="page-header">
+        <h1>Contact Us</h1>
+        <p>Get in touch with our team. We're here to help.</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Contact Information -->
+        <div class="contact-section" id="contact-info">
+            <div class="office">
+                <h3>Dublin Office</h3>
+                <p class="address">4th Floor, 3 Maritime Centre<br>Cork Docklands<br>Dublin 3, Ireland</p>
+                <p><span class="phone-link" onclick="alert('Phone number for testing purposes')">+353 (1) 555 4400</span></p>
+                <p><a href="mailto:contact@gip-test.com" class="phone-link">contact@gip-test.com</a></p>
+            </div>
+
+            <div class="office">
+                <h3>Boston Office</h3>
+                <p class="address">Suite 500, 150 Federal Street<br>Financial District<br>Boston, MA 02108, USA</p>
+                <p><span class="phone-link" onclick="alert('Phone number for testing purposes')">+1 617 555 7141</span></p>
+                <p><a href="mailto:boston@gip-test.com" class="phone-link">boston@gip-test.com</a></p>
+            </div>
+        </div>
+
+
+        <!-- Legal Sections -->
+        <div class="legal-section">
+            <h2>Important Information</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Terms and Conditions</span>
+                        <span class="accordion-toggle">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>This document contains important legal information regarding the use of our services and website. Users must comply with all applicable laws and regulations. Global Investment Partners (GIP) reserves the right to modify these terms at any time.</p>
+                        <p>By accessing this website, you acknowledge that you have read, understood, and agree to be bound by these terms. Our services are provided on an "as-is" basis without warranties of any kind.</p>
+                        <p>These terms are subject to and governed by applicable international law. Any disputes arising from these terms shall be resolved through binding arbitration.</p>
+                        <button class="agree-btn" onclick="agreeToTerms('Terms')">I Agree</button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Risk Warnings</span>
+                        <span class="accordion-toggle">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Investment in financial markets carries substantial risk of loss. Past performance does not guarantee future results. Market conditions are subject to rapid change and volatility.</p>
+                        <p>All investment strategies carry risk. Diversification does not ensure profit or protect against loss. Before investing, carefully review all relevant documentation and consult with qualified financial advisors.</p>
+                        <p>Leverage and derivative instruments may amplify losses. Foreign currency exposure introduces additional exchange rate risk. Liquidity risk may prevent timely exit from positions.</p>
+                        <button class="agree-btn" onclick="agreeToTerms('Risk')">I Acknowledge</button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Regional Compliance - Europe</span>
+                        <span class="accordion-toggle">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Services in the European Union are subject to ESMA directives and local regulatory requirements. MiFID II protections apply to eligible clients. Data protection follows GDPR compliance standards.</p>
+                        <p>Clients are classified as either professional or retail investors with corresponding protection levels. Inducements and conflicts of interest are properly disclosed.</p>
+                        <button class="agree-btn" onclick="agreeToTerms('Europe')">I Accept</button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Regional Compliance - North America</span>
+                        <span class="accordion-toggle">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>US-based services comply with SEC, FINRA, and CFTC regulations. Canadian services are registered with provincial securities regulators. Suitability and know-your-client requirements apply to all advisory relationships.</p>
+                        <p>Form ADV and other regulatory filings are available upon request. Investment advisory agreements must be reviewed and acknowledged by all clients.</p>
+                        <button class="agree-btn" onclick="agreeToTerms('NorthAmerica')">I Accept</button>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span class="accordion-title">Privacy Policy</span>
+                        <span class="accordion-toggle">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <p>We collect and process personal data in accordance with privacy regulations. Your information is used solely for service provision, client support, and regulatory compliance.</p>
+                        <p>Data is stored securely and not shared with unauthorized third parties except as required by law. You may request access, correction, or deletion of personal data as permitted by applicable regulations.</p>
+                        <p>Cookies and tracking technologies may be used to enhance website functionality. Marketing communications may be customized based on your interactions with our website.</p>
+                        <button class="agree-btn" onclick="agreeToTerms('Privacy')">I Acknowledge</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                    <svg style="width: 40px; height: 40px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="80" height="80" fill="none" stroke="#0051ba" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="#0051ba" stroke-width="2"/>
+                        <path d="M 50 30 L 60 50 L 50 70 L 40 50 Z" fill="#0051ba" opacity="0.7"/>
+                    </svg>
+                    <h4 style="margin: 0;">Global Investment Partners</h4>
+                </div>
+                <p>A leading provider of innovative investment solutions and comprehensive financial services worldwide.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="#">About Us</a> | <a href="#">Services</a> | <a href="#">Fund Centre</a> | <a href="#">Careers</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Regulatory Information</h4>
+                <p>Global Investment Partners is registered with relevant financial regulatory authorities. Registration details are available upon request.</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Global Investment Partners. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#" onclick="openCookieSettings(); return false;">Cookie Settings</a> | <a href="#">Disclaimer</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            We use cookies to enhance your experience and analyze site usage. By continuing, you consent to our use of cookies. Review our <a href="#" onclick="openPrivacyModal(); return false;">privacy policy</a> for details.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+            <div class="modal-header">Terms and Conditions</div>
+            <div class="modal-body">
+                <p><strong>1. Acceptance of Terms</strong></p>
+                <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. These terms apply to all users of the website.</p>
+
+                <p><strong>2. Use License</strong></p>
+                <p>Permission is granted to temporarily download one copy of the materials (information or software) on our website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                <p>- Modify the materials<br>- Use the materials for any commercial purpose or for any public display<br>- Attempt to reverse engineer or decompile any software on the website</p>
+
+                <p><strong>3. Disclaimer</strong></p>
+                <p>The materials on our website are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+
+                <p><strong>4. Limitations</strong></p>
+                <p>In no event shall Global Investment Partners or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on the website.</p>
+
+                <p><strong>5. Accuracy of Materials</strong></p>
+                <p>The materials appearing on our website could include technical, typographical, or photographic errors. We do not warrant that any of the materials on our website are accurate, complete, or current.</p>
+
+                <p><strong>6. Links</strong></p>
+                <p>We have not reviewed all of the sites linked to our website and are not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by us of the site. Use of any such linked website is at the user's own risk.</p>
+
+                <p><strong>7. Modifications</strong></p>
+                <p>We may revise these terms of service for our website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.</p>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal('termsModal')">Cancel</button>
+                <button class="modal-btn modal-btn-primary" onclick="acceptTerms()">I Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div class="modal" id="privacyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+            <div class="modal-header">Privacy Policy</div>
+            <div class="modal-body">
+                <p><strong>1. Information We Collect</strong></p>
+                <p>We may collect information about you in various ways. The information we may collect on the site includes:</p>
+                <p>- Name, email address, phone number<br>- Company and job title<br>- IP address and browsing information<br>- Information provided through contact forms</p>
+
+                <p><strong>2. Use of Information</strong></p>
+                <p>We use the information we collect in the following ways:</p>
+                <p>- To respond to inquiries and provide customer service<br>- To send periodic emails regarding new services or updates<br>- To improve our website and services<br>- For compliance and legal requirements</p>
+
+                <p><strong>3. Protection of Information</strong></p>
+                <p>We implement security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+
+                <p><strong>4. Third-Party Disclosure</strong></p>
+                <p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties except as required by law.</p>
+
+                <p><strong>5. Cookies and Tracking</strong></p>
+                <p>We use cookies to understand and save user preferences for future visits. Users may set their browser to refuse cookies, but some website functionality may be affected.</p>
+
+                <p><strong>6. Children's Privacy</strong></p>
+                <p>Our website is not intended for users under the age of 18, and we do not knowingly collect information from children under 18.</p>
+
+                <p><strong>7. Contact Us</strong></p>
+                <p>If you have questions about this privacy policy, please contact us at privacy@gip-test.com</p>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-primary" onclick="closeModal('privacyModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Cookie Banner
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function openCookieSettings() {
+            localStorage.removeItem('cookieConsent');
+            document.getElementById('cookieBanner').classList.remove('hidden');
+        }
+
+        // Check cookie consent on page load
+        window.addEventListener('load', function() {
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            if (cookieConsent) {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        });
+
+        // Modal Functions
+        function openPrivacyModal() {
+            document.getElementById('privacyModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function acceptTerms() {
+            localStorage.setItem('termsAccepted', 'true');
+            closeModal('termsModal');
+        }
+
+        window.addEventListener('load', function() {
+            const termsAccepted = localStorage.getItem('termsAccepted');
+            if (!termsAccepted) {
+                document.getElementById('termsModal').classList.add('active');
+            }
+        });
+
+        // Accordion Functions
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const toggle = header.querySelector('.accordion-toggle');
+
+            const isActive = content.classList.contains('active');
+
+            // Close all other items
+            document.querySelectorAll('.accordion-content.active').forEach(el => {
+                el.classList.remove('active');
+                el.previousElementSibling.classList.remove('active');
+                el.previousElementSibling.querySelector('.accordion-toggle').classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                content.classList.add('active');
+                header.classList.add('active');
+                toggle.classList.add('active');
+            }
+        }
+
+        function agreeToTerms(section) {
+            localStorage.setItem(`agree_${section}`, 'true');
+            alert(`You have agreed to the ${section} terms.`);
+        }
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            alert(`Thank you for your message, ${firstName}! We will get back to you shortly.`);
+            this.reset();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const termsModal = document.getElementById('termsModal');
+            const privacyModal = document.getElementById('privacyModal');
+
+            if (event.target === termsModal) {
+                closeModal('termsModal');
+            }
+            if (event.target === privacyModal) {
+                closeModal('privacyModal');
+            }
+        });
+    </script>
+</body>
+</html>

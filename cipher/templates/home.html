@@ -4,31 +4,108 @@
 <section class="hero">
     <h1>{{ company_name }}</h1>
     <p class="tagline">Premium Property & Growth Investment Manager</p>
-    <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "95B" }}</p>
+    <div class="featured-announcement">
+        <p>FY26 Results Released</p>
+        <p class="announcement-subtitle">Download latest interim results and investor updates</p>
+    </div>
 </section>
 
-<section>
-    <h2>Investment Portfolio</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Asset Class</th>
-                <th>AUM</th>
-                <th>% of Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if aum_data.by_asset_class %}
-                {% set total = aum_data.global_aum %}
-                {% for asset_class, value in aum_data.by_asset_class.items() %}
-                <tr>
-                    <td><strong>{{ asset_class }}</strong></td>
-                    <td>${{ "{:,.0f}B".format(value / 1e9) }}</td>
-                    <td>{{ "{:.1f}%".format((value / total) * 100) }}</td>
-                </tr>
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+<section class="company-overview">
+    <h2>Creating Value Beyond Real Estate</h2>
+    <p>Since 2009, Cipher Wealth Management has focused on delivering superior risk-adjusted returns through quality property investments and strategic growth initiatives.</p>
+</section>
+
+<section class="portfolio-metrics">
+    <h2>Portfolio Performance Metrics</h2>
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-number">${{ "{:.1f}B".format(5.4) }}</div>
+            <div class="metric-label">Direct Portfolio Assets</div>
+            <div class="metric-detail">As of latest valuation</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">{{ aum_data.portfolio_metrics.get('wacr', '6.7%') }}</div>
+            <div class="metric-label">WACR</div>
+            <div class="metric-detail">Weighted Average Capitalization Rate</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">{{ aum_data.portfolio_metrics.get('wale_years', 5.6) }}</div>
+            <div class="metric-label">Years WALE</div>
+            <div class="metric-detail">Weighted Average Lease Expiry</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">{{ aum_data.portfolio_metrics.get('occupancy_rate', '95%') }}</div>
+            <div class="metric-label">Occupancy Rate</div>
+            <div class="metric-detail">Direct portfolio occupancy</div>
+        </div>
+    </div>
+</section>
+
+<section class="property-portfolio">
+    <h2>Featured Properties</h2>
+    <div class="properties-grid">
+        {% if aum_data.property_portfolio %}
+            {% for prop in aum_data.property_portfolio %}
+            <div class="property-card">
+                <div class="property-header">
+                    <h3>{{ prop.name }}</h3>
+                    <span class="property-type">{{ prop.type }}</span>
+                </div>
+                <div class="property-location">{{ prop.location }}</div>
+                <div class="property-metrics">
+                    <div class="prop-metric">
+                        <span class="prop-label">Value:</span>
+                        <span class="prop-value">${{ "{:.2f}B".format(prop.value / 1e9) }}</span>
+                    </div>
+                    <div class="prop-metric">
+                        <span class="prop-label">Occupancy:</span>
+                        <span class="prop-value">{{ prop.occupancy }}</span>
+                    </div>
+                    <div class="prop-metric">
+                        <span class="prop-label">WALE:</span>
+                        <span class="prop-value">{{ prop.wale }} yrs</span>
+                    </div>
+                </div>
+                <p class="property-description">{{ prop.highlights | truncate(85) }}</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="investor-centre">
+    <h2>Investor Centre</h2>
+    <div class="investor-links">
+        <div class="investor-link-card">
+            <h3>Latest Results</h3>
+            <p>Download FY26 interim results, ASX announcements, and financial reports</p>
+            <a href="#" class="link-button">View Results</a>
+        </div>
+        <div class="investor-link-card">
+            <h3>Investor Information</h3>
+            <p>Access corporate governance documents and sustainability reports</p>
+            <a href="#" class="link-button">View Information</a>
+        </div>
+        <div class="investor-link-card">
+            <h3>Property Details</h3>
+            <p>Detailed information on our portfolio of premium properties</p>
+            <a href="#" class="link-button">View Properties</a>
+        </div>
+    </div>
+</section>
+
+<section class="news-feed">
+    <h2>Latest News</h2>
+    {% if news_data %}
+        <div class="news-grid">
+            {% for article in news_data[:3] %}
+            <div class="news-item">
+                <h3>{{ article.title }}</h3>
+                <p class="news-date">{{ article.date }}</p>
+                <p class="news-content">{{ article.content | truncate(150) }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </section>
 {% endblock %}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ZXQP Partners</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>
+                <span>Financial Adviser</span>
+            </div>
+            <div class="top-bar-links">
+                <a href="#" onclick="showAlert('Region: Global Markets')">Global Markets</a>
+                <a href="#" onclick="showAlert('Region: Asia Pacific')">Asia Pacific</a>
+                <a href="#" onclick="showAlert('Login functionality')">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="{{ url_for('index') }}" class="logo">ZXQP Partners</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="#" onclick="showAlert('Why ZXQP')">Why ZXQP</a>
+                <a href="#" onclick="showAlert('Our Portfolios')">Our Portfolios</a>
+                <a href="{{ url_for('about') }}" class="active">About Us</a>
+                <a href="#" onclick="showAlert('Resources')">Resources</a>
+                <a href="#" onclick="showAlert('Contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About Us</h1>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-section">
+            <p class="intro-text">
+                Zephyr Quantum Partners (ZXQP) is a specialized investment management firm focused on 
+                managing portfolios in international equity markets. The organization was established in 
+                2009 by Jennifer Thornwood in collaboration with <a href="#" onclick="showAlert('Meridian Capital Management')">Meridian Capital Management</a>, 
+                and has earned recognition as a distinguished portfolio management entity.
+            </p>
+            <p class="intro-text">
+                As Principal Investment Director, Jennifer Thornwood oversees the <a href="#" onclick="showAlert('Seven Investment Strategies')">seven investment strategies</a> 
+                ZXQP administers for its diverse client base including high-net-worth individuals and 
+                institutional partners. Jennifer is complemented by a seasoned team of portfolio specialists 
+                and principal research analysts.
+            </p>
+            <p class="intro-text">
+                As dynamic market participants, ZXQP strives to exceed benchmark performance through a 
+                research-driven and concentrated portfolio approach, providing clients with enhanced 
+                return opportunities.
+            </p>
+        </div>
+    </main>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="awards-container">
+            <h2>Recognition & Awards</h2>
+
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Trophy Cup -->
+                        <ellipse cx="50" cy="30" rx="25" ry="8" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <path d="M 25 30 L 30 55 Q 35 70 50 70 Q 65 70 70 55 L 75 30 Z" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <rect x="45" y="70" width="10" height="15" fill="#C0A000" stroke="#FFA500" stroke-width="1.5"/>
+                        <rect x="35" y="85" width="30" height="8" rx="2" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <!-- Handles -->
+                        <path d="M 25 35 Q 15 35 15 45 Q 15 55 25 55" fill="none" stroke="#FFD700" stroke-width="3"/>
+                        <path d="M 75 35 Q 85 35 85 45 Q 85 55 75 55" fill="none" stroke="#FFD700" stroke-width="3"/>
+                        <!-- Star on cup -->
+                        <polygon points="50,40 52,46 58,46 53,50 55,56 50,52 45,56 47,50 42,46 48,46" fill="#FFA500"/>
+                    </svg>
+                </div>
+                <h3>Stellar Investment Awards, International</h3>
+                <p>Portfolio Manager of the Year – Global Equities, Large Holdings (Winner: 2022 | Finalist: 2021)</p>
+                <p>Portfolio Manager of the Year – Global Equities, Small Holdings (Finalist: 2022, 2021)</p>
+            </div>
+
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Medal Circle -->
+                        <circle cx="50" cy="60" r="28" fill="#C0C0C0" stroke="#A0A0A0" stroke-width="3"/>
+                        <circle cx="50" cy="60" r="22" fill="#E8E8E8" stroke="#A0A0A0" stroke-width="2"/>
+                        <!-- Ribbon -->
+                        <rect x="42" y="10" width="7" height="38" fill="#003d7a" stroke="#002850" stroke-width="1"/>
+                        <rect x="51" y="10" width="7" height="38" fill="#0066cc" stroke="#004499" stroke-width="1"/>
+                        <polygon points="42,10 49,10 45.5,2" fill="#003d7a"/>
+                        <polygon points="51,10 58,10 54.5,2" fill="#0066cc"/>
+                        <!-- Excellence Symbol -->
+                        <text x="50" y="68" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#003d7a" text-anchor="middle">E</text>
+                        <!-- Inner circle detail -->
+                        <circle cx="50" cy="60" r="18" fill="none" stroke="#FFD700" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Financial Excellence Portfolio Manager Recognition</h3>
+                <p>International Large Cap Equities (Highly Commended 2021, 2020 | Finalist: 2021, 2020, 2019)</p>
+                <p>Individually Managed Portfolios – Global Equities (Highly Commended: 2021, 2020)</p>
+            </div>
+
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Star Badge -->
+                        <defs>
+                            <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer star points -->
+                        <polygon points="50,5 58,38 92,38 65,58 75,92 50,70 25,92 35,58 8,38 42,38" fill="url(#starGradient)" stroke="#FF8C00" stroke-width="2"/>
+                        <!-- Inner star -->
+                        <polygon points="50,25 54,42 72,42 58,52 63,70 50,58 37,70 42,52 28,42 46,42" fill="#FFF8DC" stroke="#FFD700" stroke-width="1.5"/>
+                        <!-- Center circle -->
+                        <circle cx="50" cy="50" r="12" fill="#FF8C00" stroke="#FF6347" stroke-width="2"/>
+                        <text x="50" y="56" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">1</text>
+                    </svg>
+                </div>
+                <h3>Apex Portfolio Recognition</h3>
+                <p>Global Equities – Large Cap (Winner: 2021 | Finalist: 2020)</p>
+                <p>Global Equities – Small Cap (Finalist: 2020)</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
+                For award disclaimers <a href="#" onclick="showAlert('Award disclaimers')" style="color: #0066cc; cursor: pointer;">click here</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Looking for More Section -->
+    <section class="links-section">
+        <div class="links-container">
+            <h2>Exploring Further?</h2>
+            <div class="links-grid">
+                <a href="#" onclick="showAlert('Why ZXQP')">Why ZXQP</a>
+                <a href="#" onclick="showAlert('Our Portfolios')">Our Portfolios</a>
+                <a href="#" onclick="showAlert('Investment Approach')">Investment Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#" onclick="showAlert('About Us')">About Us</a>
+                    <a href="#" onclick="showAlert('Our Team')">Our Team</a>
+                    <a href="#" onclick="showAlert('Careers')">Careers</a>
+                    <a href="#" onclick="showAlert('Contact')">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Investment</h4>
+                    <a href="#" onclick="showAlert('Our Portfolios')">Our Portfolios</a>
+                    <a href="#" onclick="showAlert('Investment Philosophy')">Investment Philosophy</a>
+                    <a href="#" onclick="showAlert('Performance')">Performance</a>
+                    <a href="#" onclick="showAlert('Reports')">Reports</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#" onclick="showAlert('Market Insights')">Market Insights</a>
+                    <a href="#" onclick="showAlert('Research Papers')">Research Papers</a>
+                    <a href="#" onclick="showAlert('News')">News</a>
+                    <a href="#" onclick="showAlert('Events')">Events</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#" onclick="showAlert('Disclaimer')">Disclaimer</a>
+                    <a href="#" onclick="showAlert('Important Info')">Important Info</a>
+                    <a href="#" onclick="showAlert('Privacy Policy')">Privacy</a>
+                    <a href="#" onclick="showAlert('Whistleblowing')">Whistleblowing</a>
+                    <a href="#" onclick="showAlert('Complaints')">Complaints</a>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" onclick="showAlert('LinkedIn')">in</a>
+                <a href="#" onclick="showAlert('Twitter')">𝕏</a>
+            </div>
+
+            <div class="acknowledgment">
+                <p>
+                    Zephyr Quantum Partners acknowledges the traditional custodians of the land where we 
+                    operate and conduct business, and we extend our respects to community leaders past and 
+                    present. We honor the stories, heritage and traditions of diverse communities who live 
+                    and work on this land, and commit to an ongoing journey of mutual understanding and respect.
+                </p>
+                <p style="margin-top: 15px;">
+                    Zephyr Quantum Partners is a Meridian specialized division. Meridian is part of the 
+                    Global Finance Consortium, privately held by the Phoenix Investment Group.
+                </p>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Global Finance Consortium. All rights reserved.</p>
+                <p><a href="{{ url_for('index') }}" style="color: #999; cursor: pointer;">Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

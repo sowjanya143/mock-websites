@@ -3,28 +3,98 @@
 {% block content %}
 <section class="hero">
     <h1>{{ company_name }}</h1>
-    <p class="tagline">Institutional Real Asset Manager</p>
-    <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "185B" }}</p>
+    <p class="tagline">Guided by intuition. Grounded by expertise</p>
 </section>
 
-<section>
-    <h2>Asset Classes</h2>
+<section class="value-proposition">
+    <h2>Our Investment Verticals</h2>
+    <div class="verticals-grid">
+        <div class="vertical-card">
+            <h3>Investments</h3>
+            <div class="vertical-metrics">
+                <div class="metric">
+                    <span class="metric-value">${{ "{:.1f}B".format(2.4) }}</span>
+                    <span class="metric-name">Acquisitions</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">104</span>
+                    <span class="metric-name">Total Deals</span>
+                </div>
+            </div>
+            <p>Core and value-add real estate investments, strategic acquisitions, and market timing excellence.</p>
+        </div>
+        <div class="vertical-card">
+            <h3>Credit & Lending</h3>
+            <div class="vertical-metrics">
+                <div class="metric">
+                    <span class="metric-value">${{ "{:.1f}B".format(10.6) }}</span>
+                    <span class="metric-name">Lending Volume</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">703</span>
+                    <span class="metric-name">Transactions</span>
+                </div>
+            </div>
+            <p>Comprehensive credit solutions including C-PACE lending, EB-5 programs, and custom financing structures.</p>
+        </div>
+        <div class="vertical-card">
+            <h3>Investment Services</h3>
+            <div class="vertical-metrics">
+                <div class="metric">
+                    <span class="metric-value">1,200+</span>
+                    <span class="metric-name">Properties Managed</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">Multi</span>
+                    <span class="metric-name">Service Platforms</span>
+                </div>
+            </div>
+            <p>Dedicated platforms for property management, investor services, and operational excellence.</p>
+        </div>
+    </div>
+</section>
+
+<section class="track-record">
+    <h2>Track Record & Recognition</h2>
+    <div class="recognition-grid">
+        <div class="recognition-item">
+            <div class="recognition-badge">INC 5000</div>
+            <p>Recognized as one of America's fastest-growing private companies</p>
+        </div>
+        <div class="recognition-item">
+            <div class="recognition-badge">Developer Award</div>
+            <p>Hilton Developer of the Year - Excellence in hospitality real estate</p>
+        </div>
+        <div class="recognition-item">
+            <div class="recognition-badge">Workplace Leader</div>
+            <p>Best Workplace for Real Estate - Outstanding culture and employee satisfaction</p>
+        </div>
+        <div class="recognition-item">
+            <div class="recognition-badge">Media Featured</div>
+            <p>Bloomberg & CNBC - Regular features for market insights and leadership</p>
+        </div>
+    </div>
+</section>
+
+<section class="featured-funds">
+    <h2>Featured Investment Programs</h2>
     <table class="data-table">
         <thead>
             <tr>
-                <th>Asset Class</th>
+                <th>Fund Name</th>
                 <th>AUM</th>
-                <th>% of Total</th>
+                <th>Vertical</th>
+                <th>Deals</th>
             </tr>
         </thead>
         <tbody>
-            {% if aum_data.by_asset_class %}
-                {% set total = aum_data.global_aum %}
-                {% for asset_class, value in aum_data.by_asset_class.items() %}
+            {% if aum_data.by_fund %}
+                {% for fund in aum_data.by_fund[:3] %}
                 <tr>
-                    <td><strong>{{ asset_class }}</strong></td>
-                    <td>${{ "{:,.0f}B".format(value / 1e9) }}</td>
-                    <td>{{ "{:.1f}%".format((value / total) * 100) }}</td>
+                    <td><strong>{{ fund.name }}</strong></td>
+                    <td>${{ "{:.1f}B".format(fund.aum / 1e9) }}</td>
+                    <td>{{ fund.vertical }}</td>
+                    <td>{{ fund.deals }}</td>
                 </tr>
                 {% endfor %}
             {% endif %}

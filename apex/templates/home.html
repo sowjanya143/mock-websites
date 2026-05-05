@@ -3,12 +3,67 @@
 {% block content %}
 <section class="hero">
     <h1>{{ company_name }}</h1>
-    <p class="tagline">Global Alternative Asset Manager</p>
+    <p class="tagline">Global Premium Investment Manager</p>
     <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "450B" }}</p>
 </section>
 
-<section class="asset-classes">
-    <h2>Asset Classes</h2>
+<section class="performance-highlights">
+    <h2>Fund Performance Highlights</h2>
+    <div class="performance-grid">
+        <div class="performance-card">
+            <div class="perf-metric">{{ aum_data.performance_metrics.get('ytd_return', 8.7) }}%</div>
+            <div class="perf-label">YTD Return</div>
+            <p>Year-to-date portfolio performance across all strategies</p>
+        </div>
+        <div class="performance-card">
+            <div class="perf-metric">{{ aum_data.performance_metrics.get('three_year_return', 12.3) }}%</div>
+            <div class="perf-label">3-Year Return</div>
+            <p>Cumulative annual growth rate over three years</p>
+        </div>
+        <div class="performance-card">
+            <div class="perf-metric">{{ aum_data.performance_metrics.get('fund_count', 5) }}</div>
+            <div class="perf-label">Active Funds</div>
+            <p>Diversified portfolio of investment vehicles</p>
+        </div>
+        <div class="performance-card">
+            <div class="perf-metric">{{ aum_data.performance_metrics.get('active_investors', 280) }}</div>
+            <div class="perf-label">Active Investors</div>
+            <p>Global institutional and accredited investors</p>
+        </div>
+    </div>
+</section>
+
+<section class="fund-showcase">
+    <h2>Featured Investment Funds</h2>
+    <div class="fund-cards">
+        {% if aum_data.by_fund %}
+            {% for fund in aum_data.by_fund %}
+            <div class="fund-card">
+                <h3>{{ fund.name }}</h3>
+                <div class="fund-strategy">{{ fund.strategy }}</div>
+                <div class="fund-aum">${{ "{:.1f}B".format(fund.aum / 1e9) }}</div>
+                <table class="fund-details">
+                    <tr>
+                        <td>YTD Return:</td>
+                        <td class="fund-return">{{ fund.get('ytd_return', 'N/A') }}%</td>
+                    </tr>
+                    <tr>
+                        <td>Inception:</td>
+                        <td>{{ fund.get('inception_date', 'N/A') }}</td>
+                    </tr>
+                    <tr>
+                        <td>Status:</td>
+                        <td class="fund-status">Active</td>
+                    </tr>
+                </table>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="market-insights">
+    <h2>Asset Class Breakdown</h2>
     <table class="data-table">
         <thead>
             <tr>
@@ -22,8 +77,8 @@
                 {% set total = aum_data.global_aum %}
                 {% for asset_class, value in aum_data.by_asset_class.items() %}
                 <tr>
-                    <td>{{ asset_class }}</td>
-                    <td>${{ "{:,.0f}B".format(value / 1e9) }}</td>
+                    <td><strong>{{ asset_class }}</strong></td>
+                    <td>${{ "{:.1f}B".format(value / 1e9) }}</td>
                     <td>{{ "{:.1f}%".format((value / total) * 100) }}</td>
                 </tr>
                 {% endfor %}

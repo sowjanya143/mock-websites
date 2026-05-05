@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "name": "Sydney Industrial Complex",
+    "type": "Industrial",
+    "location": "Sydney, NSW",
+    "address": "45 Logistics Drive, Sydney NSW 2015",
+    "value": 850000000,
+    "occupancy": "98%",
+    "wale": 6.2,
+    "tenants": 12,
+    "size_sqm": 125000,
+    "highlights": "Modern logistics facility with strategic location near major transport hubs"
+  },
+  {
+    "id": 2,
+    "name": "Melbourne Office Hub",
+    "type": "Office",
+    "location": "Melbourne, VIC",
+    "address": "320 Collins Street, Melbourne VIC 3000",
+    "value": 650000000,
+    "occupancy": "92%",
+    "wale": 4.8,
+    "tenants": 18,
+    "size_sqm": 85000,
+    "highlights": "Premium CBD office space with excellent connectivity and amenities"
+  },
+  {
+    "id": 3,
+    "name": "Brisbane Industrial Park",
+    "type": "Industrial",
+    "location": "Brisbane, QLD",
+    "address": "200 Corporate Boulevard, Brisbane QLD 4014",
+    "value": 720000000,
+    "occupancy": "97%",
+    "wale": 5.9,
+    "tenants": 9,
+    "size_sqm": 110000,
+    "highlights": "Purpose-built industrial park serving growing Brisbane market"
+  },
+  {
+    "id": 4,
+    "name": "Perth Office Tower",
+    "type": "Office",
+    "location": "Perth, WA",
+    "address": "100 St Georges Terrace, Perth WA 6000",
+    "value": 580000000,
+    "occupancy": "88%",
+    "wale": 4.2,
+    "tenants": 22,
+    "size_sqm": 70000,
+    "highlights": "Premier CBD office with recent refurbishment and sustainability upgrades"
+  },
+  {
+    "id": 5,
+    "name": "Adelaide Distribution Centre",
+    "type": "Industrial",
+    "location": "Adelaide, SA",
+    "address": "150 Industrial Road, Adelaide SA 5015",
+    "value": 650000000,
+    "occupancy": "96%",
+    "wale": 6.5,
+    "tenants": 8,
+    "size_sqm": 95000,
+    "highlights": "State-of-the-art distribution facility supporting South Australian supply chain"
+  }
+]

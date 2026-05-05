@@ -1,41 +1,52 @@
 {
-  "global_aum": 850000000000,
-  "by_asset_class": {
-    "Real Estate": 350000000000,
-    "Credit": 250000000000,
-    "Infrastructure": 150000000000,
-    "Natural Resources": 100000000000
+  "global_aum": 6000000000,
+  "by_vertical": {
+    "Investments": 2400000000,
+    "Credit & Lending": 1200000000,
+    "Investment Services": 600000000
+  },
+  "track_record": {
+    "total_acquisitions": 2400000000,
+    "total_deals": 104,
+    "total_lending": 10600000000,
+    "credit_transactions": 703,
+    "managed_assets": "1,200+ properties"
   },
   "by_fund": [
     {
       "id": 1,
-      "name": "Fortress Global Opportunities Fund",
-      "aum": 200000000000,
-      "strategy": "Real Estate"
+      "name": "Fortis Core Real Estate Fund",
+      "aum": 2400000000,
+      "vertical": "Investments",
+      "deals": 32
     },
     {
       "id": 2,
-      "name": "Fortress Credit Fund",
-      "aum": 180000000000,
-      "strategy": "Credit"
+      "name": "Fortis Value-Add Real Estate Fund",
+      "aum": 1800000000,
+      "vertical": "Investments",
+      "deals": 22
     },
     {
       "id": 3,
-      "name": "Fortress Infrastructure Fund",
-      "aum": 150000000000,
-      "strategy": "Infrastructure"
+      "name": "Fortis Credit & Lending Fund",
+      "aum": 1200000000,
+      "vertical": "Credit & Lending",
+      "deals": 50
     },
     {
       "id": 4,
-      "name": "Fortress Resources Fund",
-      "aum": 100000000000,
-      "strategy": "Natural Resources"
+      "name": "Fortis Investment Services Platform",
+      "aum": 600000000,
+      "vertical": "Investment Services",
+      "deals": 25
     },
     {
       "id": 5,
-      "name": "Fortress Emerging Markets Fund",
-      "aum": 120000000000,
-      "strategy": "Real Estate"
+      "name": "Fortis International Portfolio",
+      "aum": 500000000,
+      "vertical": "Investments",
+      "deals": 18
     }
   ]
 }

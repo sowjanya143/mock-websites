@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Global Investment Partners{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% include 'components/header.html' %}
+    
+    {% block content %}{% endblock %}
+    
+    {% include 'components/footer.html' %}
+    {% include 'components/modals.html' %}
+    
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-text">
+            We use cookies to enhance your experience and analyze site usage. By continuing, you consent to our use of cookies. Review our <a href="#" onclick="openPrivacyModal(); return false;">privacy policy</a> for details.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

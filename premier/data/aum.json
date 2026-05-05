@@ -6,30 +6,40 @@
     "Investment Banking": 40000000000,
     "Wealth Management": 30000000000
   },
+  "business_metrics": {
+    "total_deposits": 125000000000,
+    "customer_segments": 520000,
+    "lending_volume": 95000000000,
+    "fee_income": 1200000000
+  },
   "by_fund": [
     {
       "id": 1,
-      "name": "Hokuyo Retail Banking Fund",
+      "name": "Premier Retail Banking",
       "aum": 85000000000,
-      "strategy": "Retail Banking"
+      "strategy": "Retail Banking",
+      "customer_base": 420000
     },
     {
       "id": 2,
-      "name": "Hokuyo Corporate Banking Fund",
+      "name": "Premier Corporate Banking",
       "aum": 65000000000,
-      "strategy": "Corporate Banking"
+      "strategy": "Corporate Banking",
+      "customer_base": 1800
     },
     {
       "id": 3,
-      "name": "Hokuyo Investment Banking Fund",
+      "name": "Premier Investment Banking",
       "aum": 40000000000,
-      "strategy": "Investment Banking"
+      "strategy": "Investment Banking",
+      "customer_base": 250
     },
     {
       "id": 4,
-      "name": "Hokuyo Wealth Management Fund",
+      "name": "Premier Wealth Management",
       "aum": 30000000000,
-      "strategy": "Wealth Management"
+      "strategy": "Wealth Management",
+      "customer_base": 2100
     }
   ]
 }

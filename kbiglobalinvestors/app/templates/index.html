@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block title %}Global Investment Partners - Contact{% endblock %}
+
+{% block content %}
+<!-- Page Header with Background Image -->
+<div class="page-header">
+    <h1>Contact Us</h1>
+    <p>Get in touch with our team. We're here to help.</p>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Contact Information -->
+    <div class="contact-section" id="contact-info">
+        <div class="office">
+            <h3>Dublin Office</h3>
+            <p class="address">4th Floor, 3 Maritime Centre<br>Cork Docklands<br>Dublin 3, Ireland</p>
+            <p><span class="phone-link" onclick="alert('Phone number for testing purposes')">+353 (1) 555 4400</span></p>
+            <p><a href="mailto:contact@gip-test.com" class="phone-link">contact@gip-test.com</a></p>
+        </div>
+
+        <div class="office">
+            <h3>Boston Office</h3>
+            <p class="address">Suite 500, 150 Federal Street<br>Financial District<br>Boston, MA 02108, USA</p>
+            <p><span class="phone-link" onclick="alert('Phone number for testing purposes')">+1 617 555 7141</span></p>
+            <p><a href="mailto:boston@gip-test.com" class="phone-link">boston@gip-test.com</a></p>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="form-section">
+        <h2>Send Us a Message</h2>
+        <form id="contactForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Legal Sections -->
+    <div class="legal-section">
+        <h2>Important Information</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Terms and Conditions</span>
+                    <span class="accordion-toggle">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p>This document contains important legal information regarding the use of our services and website. Users must comply with all applicable laws and regulations. Global Investment Partners (GIP) reserves the right to modify these terms at any time.</p>
+                    <p>By accessing this website, you acknowledge that you have read, understood, and agree to be bound by these terms. Our services are provided on an "as-is" basis without warranties of any kind.</p>
+                    <p>These terms are subject to and governed by applicable international law. Any disputes arising from these terms shall be resolved through binding arbitration.</p>
+                    <button class="agree-btn" onclick="agreeToTerms('Terms')">I Agree</button>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Risk Warnings</span>
+                    <span class="accordion-toggle">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p>Investment in financial markets carries substantial risk of loss. Past performance does not guarantee future results. Market conditions are subject to rapid change and volatility.</p>
+                    <p>All investment strategies carry risk. Diversification does not ensure profit or protect against loss. Before investing, carefully review all relevant documentation and consult with qualified financial advisors.</p>
+                    <p>Leverage and derivative instruments may amplify losses. Foreign currency exposure introduces additional exchange rate risk. Liquidity risk may prevent timely exit from positions.</p>
+                    <button class="agree-btn" onclick="agreeToTerms('Risk')">I Acknowledge</button>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Regional Compliance - Europe</span>
+                    <span class="accordion-toggle">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p>Services in the European Union are subject to ESMA directives and local regulatory requirements. MiFID II protections apply to eligible clients. Data protection follows GDPR compliance standards.</p>
+                    <p>Clients are classified as either professional or retail investors with corresponding protection levels. Inducements and conflicts of interest are properly disclosed.</p>
+                    <button class="agree-btn" onclick="agreeToTerms('Europe')">I Accept</button>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Regional Compliance - North America</span>
+                    <span class="accordion-toggle">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p>US-based services comply with SEC, FINRA, and CFTC regulations. Canadian services are registered with provincial securities regulators. Suitability and know-your-client requirements apply to all advisory relationships.</p>
+                    <p>Form ADV and other regulatory filings are available upon request. Investment advisory agreements must be reviewed and acknowledged by all clients.</p>
+                    <button class="agree-btn" onclick="agreeToTerms('NorthAmerica')">I Accept</button>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span class="accordion-title">Privacy Policy</span>
+                    <span class="accordion-toggle">▼</span>
+                </div>
+                <div class="accordion-content">
+                    <p>We collect and process personal data in accordance with privacy regulations. Your information is used solely for service provision, client support, and regulatory compliance.</p>
+                    <p>Data is stored securely and not shared with unauthorized third parties except as required by law. You may request access, correction, or deletion of personal data as permitted by applicable regulations.</p>
+                    <p>Cookies and tracking technologies may be used to enhance website functionality. Marketing communications may be customized based on your interactions with our website.</p>
+                    <button class="agree-btn" onclick="agreeToTerms('Privacy')">I Acknowledge</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

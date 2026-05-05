@@ -6,36 +6,52 @@
     "Debt": 80000000000,
     "Opportunistic": 50000000000
   },
+  "performance_metrics": {
+    "ytd_return": 8.7,
+    "three_year_return": 12.3,
+    "fund_count": 5,
+    "active_investors": 280
+  },
   "by_fund": [
     {
       "id": 1,
-      "name": "Heitman Global Real Estate Fund",
+      "name": "Apex Global Real Estate Fund",
       "aum": 150000000000,
-      "strategy": "Real Estate"
+      "strategy": "Real Estate",
+      "ytd_return": 9.2,
+      "inception_date": "2015"
     },
     {
       "id": 2,
-      "name": "Heitman Private Equity Fund",
+      "name": "Apex Private Equity Fund",
       "aum": 120000000000,
-      "strategy": "Private Equity"
+      "strategy": "Private Equity",
+      "ytd_return": 11.5,
+      "inception_date": "2012"
     },
     {
       "id": 3,
-      "name": "Heitman Debt Partners",
+      "name": "Apex Debt Partners",
       "aum": 80000000000,
-      "strategy": "Debt"
+      "strategy": "Debt",
+      "ytd_return": 7.8,
+      "inception_date": "2018"
     },
     {
       "id": 4,
-      "name": "Heitman Opportunities Fund",
+      "name": "Apex Opportunities Fund",
       "aum": 50000000000,
-      "strategy": "Opportunistic"
+      "strategy": "Opportunistic",
+      "ytd_return": 13.2,
+      "inception_date": "2016"
     },
     {
       "id": 5,
-      "name": "Heitman Asia Investment Fund",
+      "name": "Apex Asia Investment Fund",
       "aum": 50000000000,
-      "strategy": "Real Estate"
+      "strategy": "Real Estate",
+      "ytd_return": 6.4,
+      "inception_date": "2017"
     }
   ]
 }

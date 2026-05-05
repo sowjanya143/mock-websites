@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ZXQP Partners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .top-bar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-bar-links a {
+            color: #555;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .top-bar-links a:hover {
+            color: #0066cc;
+        }
+
+        .main-header {
+            background-color: #003d7a;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .main-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #003d7a 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .content-section h2 {
+            font-size: 36px;
+            color: #003d7a;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            background-color: #f8f9fa;
+            padding: 60px 20px;
+            margin: 60px -20px;
+        }
+
+        .awards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .awards-section h2 {
+            font-size: 36px;
+            color: #003d7a;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .award-icon {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .award-icon svg {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .award-item {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .award-item h3 {
+            color: #003d7a;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .award-item p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Links Section */
+        .links-section {
+            background-color: #003d7a;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .links-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .links-section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+            color: white;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .links-grid a {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            padding: 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .links-grid a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 40px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .acknowledgment {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            margin-top: 30px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        .social-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #999;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .social-links a:hover {
+            color: #0066cc;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .main-nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #003d7a;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            .main-nav.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-content {
+                position: relative;
+            }
+
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .intro-text {
+                font-size: 18px;
+            }
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #0052a3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div>
+                <span>Financial Adviser</span>
+            </div>
+            <div class="top-bar-links">
+                <a href="#" onclick="showAlert('Region: Global Markets')">Global Markets</a>
+                <a href="#" onclick="showAlert('Region: Asia Pacific')">Asia Pacific</a>
+                <a href="#" onclick="showAlert('Login functionality')">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#" class="logo" onclick="showAlert('Home')">ZXQP Partners</a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="#" onclick="showAlert('Why ZXQP')">Why ZXQP</a>
+                <a href="#" onclick="showAlert('Our Portfolios')">Our Portfolios</a>
+                <a href="#about" class="active">About Us</a>
+                <a href="#" onclick="showAlert('Resources')">Resources</a>
+                <a href="#" onclick="showAlert('Contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>About Us</h1>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-section">
+            <p class="intro-text">
+                Zephyr Quantum Partners (ZXQP) is a specialized investment management firm focused on 
+                managing portfolios in international equity markets. The organization was established in 
+                2009 by Jennifer Thornwood in collaboration with <a href="#" onclick="showAlert('Meridian Capital Management')">Meridian Capital Management</a>, 
+                and has earned recognition as a distinguished portfolio management entity.
+            </p>
+            <p class="intro-text">
+                As Principal Investment Director, Jennifer Thornwood oversees the <a href="#" onclick="showAlert('Seven Investment Strategies')">seven investment strategies</a> 
+                ZXQP administers for its diverse client base including high-net-worth individuals and 
+                institutional partners. Jennifer is complemented by a seasoned team of portfolio specialists 
+                and principal research analysts.
+            </p>
+            <p class="intro-text">
+                As dynamic market participants, ZXQP strives to exceed benchmark performance through a 
+                research-driven and concentrated portfolio approach, providing clients with enhanced 
+                return opportunities.
+            </p>
+        </div>
+    </main>
+
+    <!-- Awards Section -->
+    <section class="awards-section">
+        <div class="awards-container">
+            <h2>Recognition & Awards</h2>
+
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Trophy Cup -->
+                        <ellipse cx="50" cy="30" rx="25" ry="8" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <path d="M 25 30 L 30 55 Q 35 70 50 70 Q 65 70 70 55 L 75 30 Z" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <rect x="45" y="70" width="10" height="15" fill="#C0A000" stroke="#FFA500" stroke-width="1.5"/>
+                        <rect x="35" y="85" width="30" height="8" rx="2" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <!-- Handles -->
+                        <path d="M 25 35 Q 15 35 15 45 Q 15 55 25 55" fill="none" stroke="#FFD700" stroke-width="3"/>
+                        <path d="M 75 35 Q 85 35 85 45 Q 85 55 75 55" fill="none" stroke="#FFD700" stroke-width="3"/>
+                        <!-- Star on cup -->
+                        <polygon points="50,40 52,46 58,46 53,50 55,56 50,52 45,56 47,50 42,46 48,46" fill="#FFA500"/>
+                    </svg>
+                </div>
+                <h3>Stellar Investment Awards, International</h3>
+                <p>Portfolio Manager of the Year – Global Equities, Large Holdings (Winner: 2022 | Finalist: 2021)</p>
+                <p>Portfolio Manager of the Year – Global Equities, Small Holdings (Finalist: 2022, 2021)</p>
+            </div>
+
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Medal Circle -->
+                        <circle cx="50" cy="60" r="28" fill="#C0C0C0" stroke="#A0A0A0" stroke-width="3"/>
+                        <circle cx="50" cy="60" r="22" fill="#E8E8E8" stroke="#A0A0A0" stroke-width="2"/>
+                        <!-- Ribbon -->
+                        <rect x="42" y="10" width="7" height="38" fill="#003d7a" stroke="#002850" stroke-width="1"/>
+                        <rect x="51" y="10" width="7" height="38" fill="#0066cc" stroke="#004499" stroke-width="1"/>
+                        <polygon points="42,10 49,10 45.5,2" fill="#003d7a"/>
+                        <polygon points="51,10 58,10 54.5,2" fill="#0066cc"/>
+                        <!-- Excellence Symbol -->
+                        <text x="50" y="68" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#003d7a" text-anchor="middle">E</text>
+                        <!-- Inner circle detail -->
+                        <circle cx="50" cy="60" r="18" fill="none" stroke="#FFD700" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Financial Excellence Portfolio Manager Recognition</h3>
+                <p>International Large Cap Equities (Highly Commended 2021, 2020 | Finalist: 2021, 2020, 2019)</p>
+                <p>Individually Managed Portfolios – Global Equities (Highly Commended: 2021, 2020)</p>
+            </div>
+
+            <div class="award-item">
+                <div class="award-icon">
+                    <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Star Badge -->
+                        <defs>
+                            <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Outer star points -->
+                        <polygon points="50,5 58,38 92,38 65,58 75,92 50,70 25,92 35,58 8,38 42,38" fill="url(#starGradient)" stroke="#FF8C00" stroke-width="2"/>
+                        <!-- Inner star -->
+                        <polygon points="50,25 54,42 72,42 58,52 63,70 50,58 37,70 42,52 28,42 46,42" fill="#FFF8DC" stroke="#FFD700" stroke-width="1.5"/>
+                        <!-- Center circle -->
+                        <circle cx="50" cy="50" r="12" fill="#FF8C00" stroke="#FF6347" stroke-width="2"/>
+                        <text x="50" y="56" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">1</text>
+                    </svg>
+                </div>
+                <h3>Apex Portfolio Recognition</h3>
+                <p>Global Equities – Large Cap (Winner: 2021 | Finalist: 2020)</p>
+                <p>Global Equities – Small Cap (Finalist: 2020)</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; font-size: 14px; color: #666;">
+                For award disclaimers <a href="#" onclick="showAlert('Award disclaimers')" style="color: #0066cc; cursor: pointer;">click here</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Looking for More Section -->
+    <section class="links-section">
+        <div class="links-container">
+            <h2>Exploring Further?</h2>
+            <div class="links-grid">
+                <a href="#" onclick="showAlert('Why ZXQP')">Why ZXQP</a>
+                <a href="#" onclick="showAlert('Our Portfolios')">Our Portfolios</a>
+                <a href="#" onclick="showAlert('Investment Approach')">Investment Approach</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#" onclick="showAlert('About Us')">About Us</a>
+                    <a href="#" onclick="showAlert('Our Team')">Our Team</a>
+                    <a href="#" onclick="showAlert('Careers')">Careers</a>
+                    <a href="#" onclick="showAlert('Contact')">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Investment</h4>
+                    <a href="#" onclick="showAlert('Our Portfolios')">Our Portfolios</a>
+                    <a href="#" onclick="showAlert('Investment Philosophy')">Investment Philosophy</a>
+                    <a href="#" onclick="showAlert('Performance')">Performance</a>
+                    <a href="#" onclick="showAlert('Reports')">Reports</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#" onclick="showAlert('Market Insights')">Market Insights</a>
+                    <a href="#" onclick="showAlert('Research Papers')">Research Papers</a>
+                    <a href="#" onclick="showAlert('News')">News</a>
+                    <a href="#" onclick="showAlert('Events')">Events</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#" onclick="showAlert('Disclaimer')">Disclaimer</a>
+                    <a href="#" onclick="showAlert('Important Info')">Important Info</a>
+                    <a href="#" onclick="showAlert('Privacy Policy')">Privacy</a>
+                    <a href="#" onclick="showAlert('Whistleblowing')">Whistleblowing</a>
+                    <a href="#" onclick="showAlert('Complaints')">Complaints</a>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" onclick="showAlert('LinkedIn')">in</a>
+                <a href="#" onclick="showAlert('Twitter')">𝕏</a>
+            </div>
+
+            <div class="acknowledgment">
+                <p>
+                    Zephyr Quantum Partners acknowledges the traditional custodians of the land where we 
+                    operate and conduct business, and we extend our respects to community leaders past and 
+                    present. We honor the stories, heritage and traditions of diverse communities who live 
+                    and work on this land, and commit to an ongoing journey of mutual understanding and respect.
+                </p>
+                <p style="margin-top: 15px;">
+                    Zephyr Quantum Partners is a Meridian specialized division. Meridian is part of the 
+                    Global Finance Consortium, privately held by the Phoenix Investment Group.
+                </p>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Global Finance Consortium. All rights reserved.</p>
+                <p><a href="#" onclick="showAlert('Home')" style="color: #999; cursor: pointer;">Home</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Simulate link clicks with alerts
+        function showAlert(page) {
+            alert('Navigating to: ' + page);
+            return false;
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const toggle = document.querySelector('.menu-toggle');
+            
+            if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

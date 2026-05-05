@@ -7,28 +7,69 @@
     <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "420B" }}</p>
 </section>
 
-<section>
-    <h2>Investment Portfolio</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Asset Class</th>
-                <th>AUM</th>
-                <th>% of Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if aum_data.by_asset_class %}
-                {% set total = aum_data.global_aum %}
-                {% for asset_class, value in aum_data.by_asset_class.items() %}
-                <tr>
-                    <td><strong>{{ asset_class }}</strong></td>
-                    <td>${{ "{:,.0f}B".format(value / 1e9) }}</td>
-                    <td>{{ "{:.1f}%".format((value / total) * 100) }}</td>
-                </tr>
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+<section class="investment-philosophy">
+    <h2>Our Investment Philosophies</h2>
+    <div class="philosophy-grid">
+        <div class="philosophy-card">
+            <h3>Time-Tested Value Investing</h3>
+            <div class="philosophy-aum">${{ "{:.1f}B".format(aum_data.by_philosophy.get('Time-Tested Value Investing', 0) / 1e9) }}</div>
+            <p>Disciplined approach to identifying undervalued opportunities through rigorous fundamental analysis and deep market insights.</p>
+            <div class="philosophy-funds">Inception: 2008 | Active Funds: 2</div>
+        </div>
+        <div class="philosophy-card">
+            <h3>Catalytically-Driven Philosophy</h3>
+            <div class="philosophy-aum">${{ "{:.1f}B".format(aum_data.by_philosophy.get('Catalytically-Driven Philosophy', 0) / 1e9) }}</div>
+            <p>Capturing value through catalytic events, strategic interventions, and management improvements across portfolio companies.</p>
+            <div class="philosophy-funds">Inception: 2010 | Active Funds: 1</div>
+        </div>
+        <div class="philosophy-card">
+            <h3>Risk-Based Approach</h3>
+            <div class="philosophy-aum">${{{ "{:.1f}B".format(aum_data.by_philosophy.get('Risk-Based Approach', 0) / 1e9) }}</div>
+            <p>Sophisticated risk management framework balancing opportunistic investments with downside protection and volatility hedging.</p>
+            <div class="philosophy-funds">Inception: 2012 | Active Funds: 2</div>
+        </div>
+    </div>
+</section>
+
+<section class="investment-products">
+    <h2>Investment Products</h2>
+    <div class="products-showcase">
+        <div class="product-type">
+            <h3>Wholesale Funds</h3>
+            <p class="product-count">5 Funds Available</p>
+            <p>Pre-defined investment programs with established track records and transparent fee structures.</p>
+            <p class="product-detail">Minimum: $5M investment</p>
+        </div>
+        <div class="product-type">
+            <h3>Customized Mandates</h3>
+            <p class="product-count">12 Active Programs</p>
+            <p>Tailored investment strategies aligned with specific client objectives, timelines, and risk profiles.</p>
+            <p class="product-detail">Minimum: $25M investment</p>
+        </div>
+        <div class="product-type">
+            <h3>Strategic Partnerships</h3>
+            <p class="product-count">8 Partnerships</p>
+            <p>Co-investment opportunities and strategic arrangements with institutional partners worldwide.</p>
+            <p class="product-detail">Negotiated on case-by-case basis</p>
+        </div>
+    </div>
+</section>
+
+<section class="differentiators">
+    <h2>Why Choose Nexus</h2>
+    <div class="differentiators-grid">
+        <div class="differentiator">
+            <h3>Low Fees</h3>
+            <p>Competitive fee structures that maximize returns for our investors</p>
+        </div>
+        <div class="differentiator">
+            <h3>Top Service</h3>
+            <p>Dedicated relationship managers and transparent communication</p>
+        </div>
+        <div class="differentiator">
+            <h3>Full Accountability</h3>
+            <p>Rigorous reporting, governance, and regulatory compliance standards</p>
+        </div>
+    </div>
 </section>
 {% endblock %}

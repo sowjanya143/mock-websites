@@ -3,28 +3,70 @@
 {% block content %}
 <section class="hero">
     <h1>{{ company_name }}</h1>
-    <p class="tagline">Global Alternative Asset Manager</p>
-    <p class="aum-display">Global AUM: ${{ "{:,.0f}B".format(aum_data.global_aum / 1e9) if aum_data.get('global_aum') else "850B" }}</p>
+    <p class="tagline">Truly Global. Solutions Driven.</p>
+    <p class="mission">Providing Financial Security for pensioners, educators, and stakeholders worldwide</p>
 </section>
 
-<section>
-    <h2>Asset Classes</h2>
+<section class="capital-metrics">
+    <h2>Capital Management Track Record</h2>
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-number">${{ "{:.1f}B".format(15.8) }}</div>
+            <div class="metric-label">Total Capital Raised</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">${{ "{:.1f}B".format(17.1) }}</div>
+            <div class="metric-label">Total Capital Deployed</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">${{ "{:.1f}B".format(10.4) }}</div>
+            <div class="metric-label">Amount Returned</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">${{ "{:.1f}B".format(aum_data.by_business_line.get('Firm AUM', 0) / 1e9) }}</div>
+            <div class="metric-label">Firm AUM</div>
+        </div>
+    </div>
+</section>
+
+<section class="business-lines">
+    <h2>Our Investment Strategies</h2>
+    <div class="lines-grid">
+        <div class="line-card">
+            <h3>Transformational Capital</h3>
+            <p class="line-aum">${{ "{:.1f}B".format(aum_data.by_asset_class.get('Transformational Capital', 0) / 1e9) }}</p>
+            <p>Complex challenges require creative solutions. We solve transformational capital needs for global financial institutions.</p>
+        </div>
+        <div class="line-card">
+            <h3>Private Credit</h3>
+            <p class="line-aum">${{ "{:.1f}B".format(aum_data.by_asset_class.get('Private Credit', 0) / 1e9) }}</p>
+            <p>Regulatory capital, special opportunities lending, and structured credit solutions for sophisticated borrowers.</p>
+        </div>
+        <div class="line-card">
+            <h3>Public Credit</h3>
+            <p class="line-aum">${{ "{:.1f}B".format(aum_data.by_asset_class.get('Public Credit', 0) / 1e9) }}</p>
+            <p>CLOs, long-short credit strategies, and public market opportunities with institutional-grade risk management.</p>
+        </div>
+    </div>
+</section>
+
+<section class="featured-funds">
+    <h2>Featured Funds</h2>
     <table class="data-table">
         <thead>
             <tr>
-                <th>Asset Class</th>
+                <th>Fund Name</th>
                 <th>AUM</th>
-                <th>% of Total</th>
+                <th>Strategy</th>
             </tr>
         </thead>
         <tbody>
-            {% if aum_data.by_asset_class %}
-                {% set total = aum_data.global_aum %}
-                {% for asset_class, value in aum_data.by_asset_class.items() %}
+            {% if aum_data.by_fund %}
+                {% for fund in aum_data.by_fund %}
                 <tr>
-                    <td><strong>{{ asset_class }}</strong></td>
-                    <td>${{ "{:,.0f}B".format(value / 1e9) }}</td>
-                    <td>{{ "{:.1f}%".format((value / total) * 100) }}</td>
+                    <td><strong>{{ fund.name }}</strong></td>
+                    <td>${{ "{:.1f}B".format(fund.aum / 1e9) }}</td>
+                    <td>{{ fund.strategy }}</td>
                 </tr>
                 {% endfor %}
             {% endif %}

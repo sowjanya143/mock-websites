@@ -1,41 +1,46 @@
 {
-  "global_aum": 850000000000,
+  "global_aum": 51900000000,
+  "by_business_line": {
+    "Total Capital Raised": 15800000000,
+    "Total Capital Deployed": 17100000000,
+    "Amount Returned": 10400000000,
+    "Firm AUM": 9100000000
+  },
   "by_asset_class": {
-    "Real Estate": 350000000000,
-    "Credit": 250000000000,
-    "Infrastructure": 150000000000,
-    "Natural Resources": 100000000000
+    "Transformational Capital": 4200000000,
+    "Private Credit": 3100000000,
+    "Public Credit": 1800000000
   },
   "by_fund": [
     {
       "id": 1,
-      "name": "Fortress Global Opportunities Fund",
-      "aum": 200000000000,
-      "strategy": "Real Estate"
+      "name": "Sentinel Transformational Capital Fund",
+      "aum": 4200000000,
+      "strategy": "Transformational Capital"
     },
     {
       "id": 2,
-      "name": "Fortress Credit Fund",
-      "aum": 180000000000,
-      "strategy": "Credit"
+      "name": "Sentinel Private Credit Fund",
+      "aum": 3100000000,
+      "strategy": "Private Credit"
     },
     {
       "id": 3,
-      "name": "Fortress Infrastructure Fund",
-      "aum": 150000000000,
-      "strategy": "Infrastructure"
+      "name": "Sentinel Public Credit Fund",
+      "aum": 1800000000,
+      "strategy": "Public Credit"
     },
     {
       "id": 4,
-      "name": "Fortress Resources Fund",
-      "aum": 100000000000,
-      "strategy": "Natural Resources"
+      "name": "Sentinel Regulatory Capital Fund",
+      "aum": 900000000,
+      "strategy": "Private Credit"
     },
     {
       "id": 5,
-      "name": "Fortress Emerging Markets Fund",
-      "aum": 120000000000,
-      "strategy": "Real Estate"
+      "name": "Sentinel Special Opportunities Fund",
+      "aum": 700000000,
+      "strategy": "Private Credit"
     }
   ]
 }
