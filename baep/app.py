@@ -2,12 +2,14 @@
 ZXQP Partners Website - Flask Application
 A professional investment management firm website built with Flask.
 """
+import os
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
 # Configuration
-app.config['SECRET_KEY'] = 'your-secret-key-here'  # Change this in production
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
+app.config['DEBUG'] = os.environ.get('DEBUG', 'True') == 'True'
 
 
 @app.route('/')
@@ -35,4 +37,5 @@ def internal_server_error(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port)
