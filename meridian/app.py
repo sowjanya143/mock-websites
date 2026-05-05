@@ -243,4 +243,4 @@ def dismiss_popup():
 
 
 if __name__ == '__main__':
-    app.run(debug=Config.DEBUG, port=5002)
+    app.run(debug=Config.DEBUG, host='0.0.0.0', port=int(os.environ.get('PORT', 5002)))
