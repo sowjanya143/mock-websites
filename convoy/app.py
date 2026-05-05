@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template
 
 app = Flask(__name__)
-app.config['DEBUG'] = os.environ.get('DEBUG', 'True') == 'True'
+app.config['DEBUG'] = os.environ.get('DEBUG', 'False') == 'True'
 
 @app.route('/')
 def index():
@@ -31,4 +31,4 @@ def contact():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port)
+    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port, use_reloader=False)

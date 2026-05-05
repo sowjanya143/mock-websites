@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # Configuration
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your-secret-key-here')
-app.config['DEBUG'] = os.environ.get('DEBUG', 'True') == 'True'
+app.config['DEBUG'] = os.environ.get('DEBUG', 'False') == 'True'
 
 
 @app.route('/')
@@ -38,4 +38,4 @@ def internal_server_error(e):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port)
+    app.run(debug=app.config['DEBUG'], host='0.0.0.0', port=port, use_reloader=False)
