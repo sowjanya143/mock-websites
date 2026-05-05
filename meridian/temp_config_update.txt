@@ -1,0 +1,2 @@
+    # Cookie banner (optional - user can dismiss and still access)
+    COOKIE_BANNER_MODE = 'optional'  # Show banner but data accessible

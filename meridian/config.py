@@ -18,6 +18,9 @@ class Config:
     CAPTCHA_RANDOM_CHANCE = 0.30
 
     # Feature flags
+    # Cookie banner (optional - user can dismiss and still access)
+    COOKIE_BANNER_MODE = 'optional'  # Show banner but data accessible
+
     SHOW_POPUPS = True
     POPUP_TYPE = 'modal_after_scroll'
     RATE_LIMIT_ENABLED = False

@@ -28,6 +28,8 @@ from utils import (
     inject_user_agent_middleware,
     inject_headers_middleware,
     require_javascript,
+    require_cookie_acceptance,
+    inject_cookie_banner_routes,
 )
 
 from config import Config
@@ -53,6 +55,7 @@ inject_user_agent_middleware(app)
 inject_headers_middleware(app)
 inject_cookie_middleware(app)
 inject_js_routes(app)
+inject_cookie_banner_routes(app, mode=Config.COOKIE_BANNER_MODE)
 
 
 def load_data():

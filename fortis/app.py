@@ -1,5 +1,6 @@
-"""Fortis Banking Group Flask application - Authentication required."""
+"""Fortis Banking Group Flask application - CAPTCHA on data pages."""
 
+import base64
 import json
 import os
 import sys
@@ -16,13 +17,11 @@ if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
 from utils import (
+    generate_captcha,
     generate_dynamic_aum,
     generate_team,
     get_paginated_data,
-    generate_jwt_token,
-    verify_jwt_token,
-    authenticate_user,
-    require_login,
+    validate_captcha,
     inject_js_routes,
     inject_cookie_middleware,
     inject_user_agent_middleware,
@@ -89,6 +88,43 @@ def load_data():
     }
 
 
+def require_captcha_for_page(current_path):
+    """Check if current path requires CAPTCHA."""
+    if current_path in Config.CAPTCHA_REQUIRED_PAGES:
+        return True
+    for page in Config.CAPTCHA_REQUIRED_PAGES:
+        if page.endswith('<id>'):
+            base_path = page.replace('/<id>', '').replace('/<int:fund_id>', '')
+            if current_path.startswith(base_path):
+                return True
+    return False
+
+
+def require_captcha(f):
+    """Decorator to require CAPTCHA validation before accessing route."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if require_captcha_for_page(request.path) and 'captcha_passed' not in session:
+            captcha_image = generate_captcha()
+            captcha_base64 = base64.b64encode(captcha_image).decode('utf-8')
+            return render_template('captcha.html', captcha_image=captcha_base64)
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+@app.before_request
+def check_captcha():
+    """Check CAPTCHA submission."""
+    if request.method == 'POST' and 'captcha_answer' in request.form:
+        user_answer = request.form.get('captcha_answer', '').strip()
+        if validate_captcha(user_answer):
+            session['captcha_passed'] = True
+            referrer = request.referrer or url_for('home')
+            return redirect(referrer)
+        else:
+            return jsonify({'status': 'error', 'message': 'Invalid CAPTCHA'}), 403
+
+
 @app.context_processor
 def inject_globals():
     """Inject global data into all templates."""
@@ -102,35 +138,8 @@ def inject_globals():
     }
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    """Login route - JWT issuance."""
-    if request.method == 'POST':
-        username = request.form.get('username', '')
-        password = request.form.get('password', '')
-
-        if authenticate_user(username, password):
-            token = generate_jwt_token(username, username, expiry_minutes=Config.SESSION_EXPIRY // 60)
-            session['auth_token'] = token
-            session['username'] = username
-            return redirect(url_for('home'))
-        else:
-            return render_template('login.html', error='Invalid credentials'), 401
-
-    return render_template('login.html')
-
-
-@app.route('/logout')
-def logout():
-    """Logout route - clear JWT."""
-    session.pop('auth_token', None)
-    session.pop('username', None)
-    return redirect(url_for('login'))
-
-
 @app.route('/')
 @require_javascript
-@require_login
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def home():
     """Home page route."""
@@ -139,7 +148,6 @@ def home():
 
 @app.route('/about')
 @require_javascript
-@require_login
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def about():
     """About page route."""
@@ -148,7 +156,6 @@ def about():
 
 @app.route('/leadership')
 @require_javascript
-@require_login
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def leadership():
     """Leadership page with paginated team data."""
@@ -160,7 +167,7 @@ def leadership():
 
 @app.route('/strategies')
 @require_javascript
-@require_login
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def strategies():
     """Strategies page route."""
@@ -169,7 +176,7 @@ def strategies():
 
 @app.route('/investor-resources')
 @require_javascript
-@require_login
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def investor_resources():
     """Investor resources page route."""
@@ -178,7 +185,7 @@ def investor_resources():
 
 @app.route('/funds')
 @require_javascript
-@require_login
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def funds():
     """Funds page route."""
@@ -187,7 +194,7 @@ def funds():
 
 @app.route('/fund/<int:fund_id>')
 @require_javascript
-@require_login
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def fund_detail(fund_id):
     """Fund detail page route."""
@@ -196,7 +203,6 @@ def fund_detail(fund_id):
 
 @app.route('/news')
 @require_javascript
-@require_login
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def news():
     """News page route."""
@@ -205,7 +211,6 @@ def news():
 
 @app.route('/contact')
 @require_javascript
-@require_login
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def contact():
     """Contact page route."""

@@ -18,6 +18,9 @@ class Config:
     CAPTCHA_DATA_PAGES = True
     CAPTCHA_REQUIRED_PAGES = ['/strategies', '/investor-resources', '/funds', '/fund/<id>']
 
+    # Cookie banner (optional - user can dismiss and still access)
+    COOKIE_BANNER_MODE = 'optional'  # Show banner but data accessible
+
     # Feature flags
     SHOW_POPUPS = True
     POPUP_TYPE = 'sticky_footer'

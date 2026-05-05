@@ -17,6 +17,9 @@ class Config:
     CAPTCHA_ON_EVERY_PAGE = False
     CAPTCHA_REQUIRED_PAGES = []
 
+    # Cookie banner (optional - user can dismiss and still access)
+    COOKIE_BANNER_MODE = 'optional'  # Show banner but data accessible
+
     # Feature flags
     SHOW_POPUPS = False
     RATE_LIMIT_ENABLED = False

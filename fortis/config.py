@@ -4,7 +4,7 @@ import os
 
 
 class Config:
-    """Configuration for Fortis Banking Group site - Authentication required."""
+    """Configuration for Fortis Banking Group site - CAPTCHA on data pages."""
 
     # Site identification
     COMPANY_NAME = 'Fortis Banking Group'
@@ -13,29 +13,23 @@ class Config:
     # Security
     SECRET_KEY = os.environ.get('SECRET_KEY', 'fortis-dev-key-12345')
 
-    # Authentication
-    LOGIN_REQUIRED = True
-    REQUIRE_JWT = True
-    SESSION_EXPIRY = 300  # 5 minutes
-    RATE_LIMIT_LOGIN = True  # Rate limit login attempts
+    # CAPTCHA configuration (like Apex - data pages only)
+    CAPTCHA_ON_EVERY_PAGE = False
+    CAPTCHA_REQUIRED_PAGES = ['/strategies', '/investor-resources', '/funds', '/fund/<id>']
 
     # Feature flags
     SHOW_POPUPS = False
     RATE_LIMIT_ENABLED = True
 
-    # Rate limiting (general)
-    MAX_REQUESTS = 10
+    # Rate limiting
+    MAX_REQUESTS = 7
     TIME_WINDOW = 60
-
-    # Rate limiting (login - stricter)
-    LOGIN_MAX_REQUESTS = 5
-    LOGIN_TIME_WINDOW = 300
 
     # Performance
     ARTIFICIAL_DELAY = 0
 
     # Data presentation
-    DATA_LAYOUT = 'secure_tables'
+    DATA_LAYOUT = 'clean_tables'
 
     # Financial data
     GLOBAL_AUM = '$650,000,000,000'

@@ -17,6 +17,9 @@ class Config:
     CAPTCHA_ON_EVERY_PAGE = False
     CAPTCHA_REQUIRED_PAGES = ['/strategies', '/investor-resources', '/funds', '/fund/<id>']
 
+    # Cookie banner (mandatory acceptance required)
+    COOKIE_BANNER_MODE = 'mandatory'  # Block data until Accept clicked
+
     # Feature flags
     SHOW_POPUPS = True
     POPUP_TYPE = 'dismissible'

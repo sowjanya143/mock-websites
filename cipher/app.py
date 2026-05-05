@@ -1,14 +1,14 @@
-"""Cipher Wealth Management Flask application - Encrypted API."""
+"""Cipher Wealth Management Flask application - Image CAPTCHA with OCR difficulty."""
 
+import base64
 import json
 import os
 import sys
-import base64
-import hmac
-import hashlib
+import time
 from pathlib import Path
+from functools import wraps
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, session, redirect, url_for
 
 parent_dir = str(Path(__file__).parent.parent)
 current_dir = str(Path(__file__).parent)
@@ -18,9 +18,11 @@ if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
 from utils import (
+    generate_captcha,
     generate_dynamic_aum,
     generate_team,
     get_paginated_data,
+    validate_captcha,
     inject_js_routes,
     inject_cookie_middleware,
     inject_user_agent_middleware,
@@ -52,29 +54,33 @@ inject_headers_middleware(app)
 inject_cookie_middleware(app)
 inject_js_routes(app)
 
-# API keys store (demo)
-API_KEYS = {
-    'demo_key_1': 'user1',
-    'demo_key_2': 'user2',
-}
+
+def require_captcha(f):
+    """Decorator to require CAPTCHA validation before accessing route."""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if Config.CAPTCHA_ON_EVERY_PAGE and 'captcha_passed' not in session:
+            captcha_image = generate_captcha()
+            captcha_base64 = base64.b64encode(captcha_image).decode('utf-8')
+            return render_template('captcha.html', captcha_image=captcha_base64)
+        return f(*args, **kwargs)
+    return decorated_function
 
 
-def validate_api_key(key):
-    """Validate API key."""
-    return key in API_KEYS
+@app.before_request
+def apply_delay_and_check_captcha():
+    """Apply delay and check CAPTCHA submission."""
+    if Config.ARTIFICIAL_DELAY > 0:
+        time.sleep(Config.ARTIFICIAL_DELAY)
 
-
-def sign_response(data, secret):
-    """Sign response with HMAC-SHA256."""
-    message = json.dumps(data, sort_keys=True)
-    signature = hmac.new(secret.encode(), message.encode(), hashlib.sha256).hexdigest()
-    return signature
-
-
-def encode_response(data):
-    """Encode response in base64 (simple obfuscation)."""
-    message = json.dumps(data)
-    return base64.b64encode(message.encode()).decode()
+    if request.method == 'POST' and 'captcha_answer' in request.form:
+        user_answer = request.form.get('captcha_answer', '').strip()
+        if validate_captcha(user_answer):
+            session['captcha_passed'] = True
+            referrer = request.referrer or url_for('home')
+            return redirect(referrer)
+        else:
+            return jsonify({'status': 'error', 'message': 'Invalid CAPTCHA'}), 403
 
 
 def load_data():
@@ -126,6 +132,7 @@ def inject_globals():
 
 @app.route('/')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def home():
     """Home page route."""
@@ -134,6 +141,7 @@ def home():
 
 @app.route('/about')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def about():
     """About page route."""
@@ -142,6 +150,7 @@ def about():
 
 @app.route('/leadership')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def leadership():
     """Leadership page with paginated team data."""
@@ -153,6 +162,7 @@ def leadership():
 
 @app.route('/strategies')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def strategies():
     """Strategies page route."""
@@ -161,6 +171,7 @@ def strategies():
 
 @app.route('/investor-resources')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def investor_resources():
     """Investor resources page route."""
@@ -169,6 +180,7 @@ def investor_resources():
 
 @app.route('/funds')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def funds():
     """Funds page route."""
@@ -177,6 +189,7 @@ def funds():
 
 @app.route('/fund/<int:fund_id>')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def fund_detail(fund_id):
     """Fund detail page route."""
@@ -185,6 +198,7 @@ def fund_detail(fund_id):
 
 @app.route('/news')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def news():
     """News page route."""
@@ -193,6 +207,7 @@ def news():
 
 @app.route('/contact')
 @require_javascript
+@require_captcha
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def contact():
     """Contact page route."""
@@ -205,62 +220,13 @@ def aum_blocked():
     return jsonify({'error': 'Access denied'}), 403
 
 
-@app.route('/api/auth', methods=['POST'])
-def api_auth():
-    """Get API key (demo endpoint)."""
-    data = request.get_json() or {}
-    username = data.get('username', '')
-
-    if username in ['user1', 'user2']:
-        api_key = 'demo_key_1' if username == 'user1' else 'demo_key_2'
-        return jsonify({'api_key': api_key}), 200
-
-    return jsonify({'error': 'Invalid credentials'}), 401
-
-
-@app.route('/api/aum', methods=['GET'])
-@rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
-def api_aum():
-    """Encrypted AUM endpoint - requires API key."""
-    api_key = request.headers.get('X-API-Key', '')
-
-    if not validate_api_key(api_key):
-        return jsonify({'error': 'Invalid API key'}), 401
-
-    data = load_data()
-    response = {'aum': data['aum'], 'total_aum': Config.GLOBAL_AUM}
-
-    # Encode response
-    encoded = encode_response(response)
-    signature = sign_response(response, api_key)
-
-    return jsonify({'data': encoded, 'signature': signature}), 200
-
-
-@app.route('/api/team', methods=['GET'])
-@rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
-def api_team():
-    """Encrypted team endpoint - requires API key."""
-    api_key = request.headers.get('X-API-Key', '')
-
-    if not validate_api_key(api_key):
-        return jsonify({'error': 'Invalid API key'}), 401
-
-    data = load_data()
-    response = {'team': data['team']}
-
-    encoded = encode_response(response)
-    signature = sign_response(response, api_key)
-
-    return jsonify({'data': encoded, 'signature': signature}), 200
-
-
 @app.route('/robots.txt')
 def robots():
     """Return robots.txt with misdirection."""
     robots_content = '''User-agent: *
-Disallow: /api
 Disallow: /
+Crawl-delay: 999999
+Sitemap: /fake-sitemap.xml
 '''
     return robots_content, 200, {'Content-Type': 'text/plain'}
 

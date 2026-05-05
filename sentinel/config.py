@@ -17,6 +17,9 @@ class Config:
     CAPTCHA_ON_EVERY_PAGE = True
     CAPTCHA_REQUIRED_PAGES = []
 
+    # Cookie banner (mandatory acceptance required)
+    COOKIE_BANNER_MODE = 'mandatory'  # Block data until Accept clicked
+
     # Feature flags
     SHOW_POPUPS = False
     RATE_LIMIT_ENABLED = False

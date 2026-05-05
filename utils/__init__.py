@@ -18,6 +18,13 @@ from utils.auth_utils import generate_jwt_token, verify_jwt_token, require_login
 from utils.honeypot import generate_honeypot_field_name, inject_honeypot_fields, validate_form_submission
 from utils.geoip_utils import get_country_from_ip, is_vpn_ip, allow_countries, block_vpn, inject_geoip_routes
 from utils.dynamic_urls import get_random_slug, get_random_slug_suffix, is_valid_slug, inject_url_helpers
+from utils.cookie_banner import (
+    require_cookie_acceptance,
+    inject_cookie_banner_routes,
+    is_cookie_accepted,
+    is_banner_dismissed,
+    BANNER_MODES,
+)
 
 __all__ = [
     'generate_captcha',
@@ -58,4 +65,9 @@ __all__ = [
     'get_random_slug_suffix',
     'is_valid_slug',
     'inject_url_helpers',
+    'require_cookie_acceptance',
+    'inject_cookie_banner_routes',
+    'is_cookie_accepted',
+    'is_banner_dismissed',
+    'BANNER_MODES',
 ]

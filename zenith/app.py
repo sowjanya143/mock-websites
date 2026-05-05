@@ -29,6 +29,8 @@ from utils import (
     inject_user_agent_middleware,
     inject_headers_middleware,
     require_javascript,
+    require_cookie_acceptance,
+    inject_cookie_banner_routes,
 )
 
 from config import Config
