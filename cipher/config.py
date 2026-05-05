@@ -10,6 +10,9 @@ class Config:
     SITE_NAME = 'cipher'
     SECRET_KEY = os.environ.get('SECRET_KEY', 'cipher-dev-key-11111')
 
+    # Cookie banner (mandatory acceptance required)
+    COOKIE_BANNER_MODE = 'mandatory'
+
     # CAPTCHA configuration - Image-based with distortion
     CAPTCHA_ON_EVERY_PAGE = True
     CAPTCHA_TYPE = 'image_ocr'  # Image-based CAPTCHA with OCR difficulty

@@ -10,6 +10,9 @@ class Config:
     SITE_NAME = 'quantum'
     SECRET_KEY = os.environ.get('SECRET_KEY', 'quantum-dev-key-99999')
 
+    # Cookie banner (optional - data accessible but banner shown)
+    COOKIE_BANNER_MODE = 'optional'
+
     # Geographic restrictions
     GEO_BLOCKING = True
     ALLOWED_COUNTRIES = ['US', 'CA', 'UK']

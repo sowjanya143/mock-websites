@@ -13,6 +13,9 @@ class Config:
     # Security
     SECRET_KEY = os.environ.get('SECRET_KEY', 'fortis-dev-key-12345')
 
+    # Cookie banner (mandatory acceptance required)
+    COOKIE_BANNER_MODE = 'mandatory'
+
     # CAPTCHA configuration (like Apex - data pages only)
     CAPTCHA_ON_EVERY_PAGE = False
     CAPTCHA_REQUIRED_PAGES = ['/strategies', '/investor-resources', '/funds', '/fund/<id>']

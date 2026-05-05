@@ -20,10 +20,11 @@ from utils import (
     generate_team,
     get_paginated_data,
     inject_js_routes,
-    inject_cookie_middleware,
     inject_user_agent_middleware,
     inject_headers_middleware,
     require_javascript,
+    require_cookie_acceptance,
+    inject_cookie_banner_routes,
     rate_limit,
     inject_honeypot_fields,
     validate_form_submission,
@@ -49,8 +50,8 @@ app.secret_key = Config.SECRET_KEY
 # Inject global middleware for security features
 inject_user_agent_middleware(app)
 inject_headers_middleware(app)
-inject_cookie_middleware(app)
 inject_js_routes(app)
+inject_cookie_banner_routes(app, mode=Config.COOKIE_BANNER_MODE)
 
 
 def load_data():
@@ -110,6 +111,7 @@ def inject_globals():
 
 @app.route('/')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def home():
     """Home page route."""
@@ -118,6 +120,7 @@ def home():
 
 @app.route('/about')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def about():
     """About page route."""
@@ -126,6 +129,7 @@ def about():
 
 @app.route('/leadership')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def leadership():
     """Leadership page with paginated team data."""
@@ -137,6 +141,7 @@ def leadership():
 
 @app.route('/strategies')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def strategies():
     """Strategies page route."""
@@ -145,6 +150,7 @@ def strategies():
 
 @app.route('/investor-resources')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def investor_resources():
     """Investor resources page route."""
@@ -153,6 +159,7 @@ def investor_resources():
 
 @app.route('/funds')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def funds():
     """Funds page route."""
@@ -161,6 +168,7 @@ def funds():
 
 @app.route('/fund/<int:fund_id>')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def fund_detail(fund_id):
     """Fund detail page route."""
@@ -169,6 +177,7 @@ def fund_detail(fund_id):
 
 @app.route('/news')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def news():
     """News page route."""
@@ -177,6 +186,7 @@ def news():
 
 @app.route('/contact', methods=['GET', 'POST'])
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def contact():
     """Contact page route with honeypot detection."""

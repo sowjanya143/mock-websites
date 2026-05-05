@@ -19,10 +19,11 @@ from utils import (
     generate_team,
     get_paginated_data,
     inject_js_routes,
-    inject_cookie_middleware,
     inject_user_agent_middleware,
     inject_headers_middleware,
     require_javascript,
+    require_cookie_acceptance,
+    inject_cookie_banner_routes,
     rate_limit,
     allow_countries,
     block_vpn,
@@ -50,8 +51,8 @@ app.secret_key = Config.SECRET_KEY
 # Inject global middleware
 inject_user_agent_middleware(app)
 inject_headers_middleware(app)
-inject_cookie_middleware(app)
 inject_js_routes(app)
+inject_cookie_banner_routes(app, mode=Config.COOKIE_BANNER_MODE)
 inject_geoip_routes(app)
 
 
@@ -107,6 +108,7 @@ def inject_globals():
 
 @app.route('/')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @block_vpn
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
@@ -117,6 +119,7 @@ def home():
 
 @app.route('/about')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def about():
@@ -126,6 +129,7 @@ def about():
 
 @app.route('/leadership')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def leadership():
@@ -138,6 +142,7 @@ def leadership():
 
 @app.route('/strategies')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def strategies():
@@ -147,6 +152,7 @@ def strategies():
 
 @app.route('/investor-resources')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def investor_resources():
@@ -156,6 +162,7 @@ def investor_resources():
 
 @app.route('/funds')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def funds():
@@ -165,6 +172,7 @@ def funds():
 
 @app.route('/fund/<int:fund_id>')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def fund_detail(fund_id):
@@ -174,6 +182,7 @@ def fund_detail(fund_id):
 
 @app.route('/news')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def news():
@@ -183,6 +192,7 @@ def news():
 
 @app.route('/contact')
 @require_javascript
+@require_cookie_acceptance(mode='optional')
 @allow_countries(Config.ALLOWED_COUNTRIES)
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 def contact():

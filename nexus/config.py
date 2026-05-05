@@ -10,6 +10,9 @@ class Config:
     SITE_NAME = 'nexus'
     SECRET_KEY = os.environ.get('SECRET_KEY', 'nexus-dev-key-54321')
 
+    # Cookie banner (optional - data accessible but banner shown)
+    COOKIE_BANNER_MODE = 'optional'
+
     # Bot detection
     HONEYPOT_ENABLED = True
     HIDDEN_LINKS = True
