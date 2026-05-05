@@ -12,7 +12,7 @@
     "ytd_return": 8.7,
     "three_year_return": 12.3,
     "five_year_return": 11.8,
-    "fund_count": 14,
+    "fund_count": 7,
     "active_investors": 280,
     "portfolio_companies": 156
   },
@@ -108,10 +108,21 @@
       "portfolio_companies": 24,
       "primary_regions": ["Asia", "Latin America", "Eastern Europe"]
     }
-      "aum": 50000000000,
-      "strategy": "Real Estate",
-      "ytd_return": 6.4,
-      "inception_date": "2017"
-    }
-  ]
+  ],
+  "firm_metrics": {
+    "employees": 420,
+    "offices_worldwide": 12,
+    "investment_professionals": 185,
+    "years_operating": 28,
+    "founded": 1998,
+    "headquarters": "New York, USA"
+  },
+  "investor_base": {
+    "institutional_investors": 185,
+    "pension_funds": 45,
+    "sovereign_wealth_funds": 12,
+    "family_offices": 78,
+    "insurance_companies": 32,
+    "foundations_endowments": 18
+  }
 }
