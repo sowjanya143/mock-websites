@@ -9,7 +9,7 @@ import time
 from functools import wraps
 from pathlib import Path
 
-from flask import Flask, jsonify, render_template, request, session
+from flask import Flask, jsonify, render_template, request, session, redirect, url_for
 
 # Add parent directory to path to import utils
 parent_dir = str(Path(__file__).parent.parent)
@@ -147,7 +147,8 @@ def check_captcha():
         if validate_captcha(user_answer):
             session['captcha_passed'] = True
             # Redirect to referrer or home after successful CAPTCHA
-            return None
+            referrer = request.referrer or url_for('home')
+            return redirect(referrer)
         else:
             # CAPTCHA validation failed
             return jsonify({'status': 'error', 'message': 'Invalid CAPTCHA'}), 403
