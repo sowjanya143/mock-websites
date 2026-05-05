@@ -23,6 +23,7 @@ class Config:
     # Feature flags
     SHOW_POPUPS = True
     POPUP_TYPE = 'dismissible'
+    POPUP_ON_HOME = True  # Show newsletter popup on home page
     RATE_LIMIT_ENABLED = True
 
     # Rate limiting

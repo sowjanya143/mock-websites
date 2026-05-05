@@ -172,14 +172,18 @@ def inject_globals():
     Inject global data into all templates.
 
     Provides company name, AUM data, team data, and news data.
-    Also injects popup data for data pages.
+    Also injects popup data for home page and data pages.
     """
     data = load_data()
 
-    # Generate popup for data pages if enabled
+    # Generate popup on home page or data pages if enabled
     popup_data = None
-    if Config.SHOW_POPUPS and should_show_popup('data_page'):
-        popup_data = render_popup('newsletter', auto_dismiss=False, dismiss_delay=0)
+    if Config.SHOW_POPUPS:
+        is_home = request.path == '/'
+        if is_home and getattr(Config, 'POPUP_ON_HOME', False):
+            popup_data = render_popup('newsletter', auto_dismiss=False, dismiss_delay=0)
+        elif should_show_popup('data_page'):
+            popup_data = render_popup('newsletter', auto_dismiss=False, dismiss_delay=0)
 
     return {
         'company_name': Config.COMPANY_NAME,
