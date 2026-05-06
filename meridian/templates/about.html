@@ -1,179 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>About Nomura</h1>
-
-<section class="about-intro">
-    <p>Nomura Inc. is one of the world's leading global investment banks with deep expertise in equities, fixed income, derivatives, and alternative investments. With a heritage spanning over a century, Nomura serves institutional clients worldwide with sophisticated financial solutions and market insights.</p>
+<section class="hero">
+  <div style="text-align: center;">
+    <h2>About Meridian</h2>
+    <p>Your trusted partner for 25 years</p>
+  </div>
 </section>
 
-<section class="company-overview">
-    <h2>Company Overview</h2>
-    <div class="overview-grid">
-        <div class="overview-item">
-            <h3>Global Presence</h3>
-            <p>Operating in 30+ countries with offices across major financial centers including Tokyo, New York, London, Hong Kong, and Singapore.</p>
-        </div>
-        <div class="overview-item">
-            <h3>Expertise</h3>
-            <p>Comprehensive capabilities spanning equities, fixed income, derivatives, FX, and alternative investments with specialized teams in each area.</p>
-        </div>
-        <div class="overview-item">
-            <h3>Client Focus</h3>
-            <p>Serving institutional investors, pension funds, endowments, corporations, and governments with tailored solutions and advisory services.</p>
-        </div>
-        <div class="overview-item">
-            <h3>Innovation</h3>
-            <p>Leveraging technology and innovation to develop cutting-edge financial solutions and enhance client experiences continuously.</p>
-        </div>
+<section style="padding: 3rem 2rem; background: white; max-width: 1200px; margin: 0 auto;">
+  <h2 style="color: #003366; margin-bottom: 2rem;">Our Mission</h2>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+    <div>
+      <p style="margin-bottom: 1rem; line-height: 1.8;">At Meridian, we believe that everyone deserves access to quality financial protection and investment opportunities. For over 25 years, we've been committed to helping families and businesses secure their financial futures.</p>
+      <p style="margin-bottom: 1rem; line-height: 1.8;">Our team of financial experts works tirelessly to develop innovative solutions that meet the evolving needs of our customers. We pride ourselves on our transparency, reliability, and customer-first approach.</p>
     </div>
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80" alt="About Meridian" style="border-radius: 8px; width: 100%; height: 400px; object-fit: cover;">
+  </div>
 </section>
 
-<section class="company-values">
-    <h2>Our Values</h2>
-    <div class="values-container">
-        <div class="value">
-            <h3>Integrity</h3>
-            <p>We conduct business with the highest ethical standards and transparency, maintaining trust with all stakeholders.</p>
-        </div>
-        <div class="value">
-            <h3>Excellence</h3>
-            <p>We pursue excellence in all aspects of our business, from client service to investment performance and operational efficiency.</p>
-        </div>
-        <div class="value">
-            <h3>Innovation</h3>
-            <p>We embrace innovation and technology to deliver better solutions and adapt to changing market dynamics.</p>
-        </div>
-        <div class="value">
-            <h3>Responsibility</h3>
-            <p>We operate responsibly, managing risks effectively and considering our impact on society and the environment.</p>
-        </div>
+<section style="padding: 3rem 2rem; background: #f9f9f9;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="text-align: center; color: #003366; margin-bottom: 3rem;">Our Commitment</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div style="background: white; padding: 2rem; border-radius: 8px; border-top: 4px solid #ff6b35; text-align: center;">
+        <h3 style="color: #003366; margin-bottom: 0.5rem;">Transparency</h3>
+        <p>We believe in clear communication and honest dealing with all our stakeholders.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border-top: 4px solid #ff6b35; text-align: center;">
+        <h3 style="color: #003366; margin-bottom: 0.5rem;">Innovation</h3>
+        <p>We continuously develop new products and services to meet customer needs.</p>
+      </div>
+      <div style="background: white; padding: 2rem; border-radius: 8px; border-top: 4px solid #ff6b35; text-align: center;">
+        <h3 style="color: #003366; margin-bottom: 0.5rem;">Service Excellence</h3>
+        <p>Our dedicated team is always ready to support you with your insurance and investment needs.</p>
+      </div>
     </div>
+  </div>
 </section>
-
-<section class="company-highlights">
-    <h2>Key Highlights</h2>
-    <ul class="highlights-list">
-        <li>Over 100 years of investment banking experience</li>
-        <li>More than 8,000 employees worldwide</li>
-        <li>Trading operations across all major time zones</li>
-        <li>Strong relationships with institutional clients globally</li>
-        <li>Commitment to sustainable and responsible investing</li>
-        <li>Continuous investment in technology and talent development</li>
-    </ul>
-</section>
-
-<style>
-    h1 {
-        color: #003366;
-        margin-bottom: 30px;
-        font-size: 36px;
-    }
-
-    h2 {
-        color: #003366;
-        margin-top: 40px;
-        margin-bottom: 25px;
-        font-size: 28px;
-    }
-
-    .about-intro {
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 40px;
-    }
-
-    .about-intro p {
-        color: #666;
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
-    .company-overview {
-        margin-bottom: 40px;
-    }
-
-    .overview-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    .overview-item {
-        background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        border-left: 4px solid #003366;
-    }
-
-    .overview-item h3 {
-        color: #003366;
-        margin-bottom: 12px;
-        font-size: 18px;
-    }
-
-    .overview-item p {
-        color: #666;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .company-values {
-        margin-bottom: 40px;
-    }
-
-    .values-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-    }
-
-    .value {
-        background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    .value h3 {
-        color: #003366;
-        margin-bottom: 12px;
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .value p {
-        color: #666;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .company-highlights {
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .highlights-list {
-        list-style: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 15px;
-    }
-
-    .highlights-list li {
-        padding: 15px 20px;
-        background: #f5f5f5;
-        border-left: 4px solid #003366;
-        color: #666;
-        font-size: 14px;
-        border-radius: 4px;
-    }
-</style>
 {% endblock %}
