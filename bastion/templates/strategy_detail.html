@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Strategy Detail</h1>
+    <p class="page-subtitle">Deep dive into investment strategy and approach</p>
+</section>
+
+<section class="strategy-detail-content">
+    {% set strategy_slug = slug %}
+    {% set strategy_name = strategy_slug|title|replace('-', ' ') %}
+
+    <div class="detail-header">
+        <h2>{{ strategy_name }}</h2>
+        {% if aum_data.by_strategy[strategy_name] %}
+        <p class="aum-highlight">{{ aum_data.by_strategy[strategy_name] }} AUM</p>
+        {% endif %}
+    </div>
+
+    <div class="detail-sections">
+        <section class="detail-section">
+            <h3>Strategy Overview</h3>
+            <p>This specialized investment strategy represents a core component of Bastion's diversified alternative asset management platform. Our dedicated team brings decades of combined expertise in identifying, evaluating, and executing investments within this asset class.</p>
+            <p>Our approach combines rigorous fundamental research, quantitative analysis, and active management to deliver superior risk-adjusted returns across market cycles and economic environments.</p>
+        </section>
+
+        <section class="detail-section">
+            <h3>Investment Approach</h3>
+            <p>We employ a disciplined, systematic investment process designed to identify the most compelling opportunities while managing downside risk. Key components include:</p>
+            <ul>
+                <li>Comprehensive market and sector analysis</li>
+                <li>Deep fundamental due diligence</li>
+                <li>Rigorous risk assessment and stress testing</li>
+                <li>Active portfolio management and monitoring</li>
+                <li>Strategic value creation initiatives</li>
+            </ul>
+        </section>
+
+        <section class="detail-section">
+            <h3>Key Strengths</h3>
+            <ul>
+                <li>Experienced investment team with proven track record</li>
+                <li>Proprietary research and analytical frameworks</li>
+                <li>Global market reach and local expertise</li>
+                <li>Disciplined risk management processes</li>
+                <li>Strong investor relationships and capital sources</li>
+            </ul>
+        </section>
+
+        <section class="detail-section">
+            <h3>Performance Track Record</h3>
+            <p>Bastion has consistently delivered attractive returns for investors in this strategy across various market conditions. Our focus on fundamental value creation and disciplined risk management has enabled us to outperform peer benchmarks and generate sustainable long-term performance.</p>
+        </section>
+
+        <section class="detail-section">
+            <h3>Get More Information</h3>
+            <p>For detailed performance information, fund documentation, or to discuss how this strategy might fit your investment objectives, please <a href="/contact" class="inline-link">contact our investor relations team</a>.</p>
+        </section>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Contact Us</h1>
+    <p class="page-subtitle">Get in touch with Bastion Investment Group</p>
+</section>
+
+<section class="contact-section">
+    <div class="contact-wrapper">
+        <div class="contact-form">
+            <h2>Send us a Message</h2>
+            <form method="POST" action="/contact" class="contact-form-element">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="investor">Investor Inquiry</option>
+                        <option value="advisor">Advisor Inquiry</option>
+                        <option value="employment">Employment Opportunity</option>
+                        <option value="media">Media Inquiry</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+
+            <div class="contact-item">
+                <h3>Investor Relations</h3>
+                <p><strong>Email:</strong> investors@bastion.com</p>
+                <p><strong>Phone:</strong> +1 (212) 555-0100</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>Advisor Relations</h3>
+                <p><strong>Email:</strong> advisors@bastion.com</p>
+                <p><strong>Phone:</strong> +1 (212) 555-0101</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>Media Relations</h3>
+                <p><strong>Email:</strong> press@bastion.com</p>
+                <p><strong>Phone:</strong> +1 (212) 555-0102</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>Human Resources</h3>
+                <p><strong>Email:</strong> careers@bastion.com</p>
+                <p><strong>Phone:</strong> +1 (212) 555-0103</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>General Inquiries</h3>
+                <p><strong>Email:</strong> info@bastion.com</p>
+                <p><strong>Phone:</strong> +1 (212) 555-0100</p>
+            </div>
+
+            <div class="office-info">
+                <h3>Headquarters</h3>
+                <p>Bastion Investment Group<br>
+                   New York, NY<br>
+                   United States</p>
+            </div>
+
+            <div class="office-info">
+                <h3>Regional Offices</h3>
+                <p>London, UK<br>
+                   Singapore<br>
+                   Hong Kong</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Leadership Team</h1>
+    <p class="page-subtitle">Experienced investment professionals dedicated to excellence</p>
+</section>
+
+<section class="team-grid">
+    {% for member in items %}
+    <div class="team-card">
+        <h3>{{ member.name }}</h3>
+        <p class="title">{{ member.title }}</p>
+        <p class="bio">{{ member.bio }}</p>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Pagination -->
+{% if total_pages > 1 %}
+<nav class="pagination">
+    <ul>
+        {% if page > 1 %}
+            <li><a href="?page=1">First</a></li>
+            <li><a href="?page={{ page - 1 }}">Previous</a></li>
+        {% else %}
+            <li><span class="disabled">First</span></li>
+            <li><span class="disabled">Previous</span></li>
+        {% endif %}
+
+        {% for p in range(1, total_pages + 1) %}
+            {% if p == page %}
+                <li><span class="current">{{ p }}</span></li>
+            {% else %}
+                <li><a href="?page={{ p }}">{{ p }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < total_pages %}
+            <li><a href="?page={{ page + 1 }}">Next</a></li>
+            <li><a href="?page={{ total_pages }}">Last</a></li>
+        {% else %}
+            <li><span class="disabled">Next</span></li>
+            <li><span class="disabled">Last</span></li>
+        {% endif %}
+    </ul>
+    <p class="pagination-info">Page {{ page }} of {{ total_pages }}</p>
+</nav>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <h1>What We Do</h1>
+    <p class="page-subtitle">Specialized investment strategies across alternative asset classes</p>
+</section>
+
+<section class="strategies-detailed">
+    <h2>Our Investment Strategies</h2>
+    <div class="strategies-grid">
+        {% if aum_data.by_strategy %}
+        {% for strategy_name, aum_value in aum_data.by_strategy.items() %}
+        <div class="strategy-card">
+            <h3>{{ strategy_name }}</h3>
+            <p class="aum">{{ aum_value }} AUM</p>
+
+            {% if strategy_name == 'Corporate Credit' %}
+            <p>Investment-grade and high-yield corporate bond strategies with focus on fundamental credit analysis, market timing, and active portfolio management. Deep sector expertise and relationships with corporate issuers globally.</p>
+            {% elif strategy_name == 'Asset-Based Finance' %}
+            <p>Equipment financing, infrastructure lending, and asset-backed securities strategies. Leverages proprietary analytics and operational expertise to identify undervalued assets and financing opportunities.</p>
+            {% elif strategy_name == 'Real Estate' %}
+            <p>Value-add real estate acquisitions, development partnerships, and opportunistic real estate debt investments. Focus on strategic markets with strong fundamentals and sustainable growth drivers.</p>
+            {% elif strategy_name == 'Private Equity' %}
+            <p>Mid-market buyouts, growth capital, and secondary investments with disciplined underwriting and operational value creation. Strong track record of generating attractive risk-adjusted returns for investors.</p>
+            {% elif strategy_name == 'Insurance Solutions' %}
+            <p>Insurance-linked securities, catastrophe bonds, and structured insurance investment vehicles. Diversified approach to capturing insurance market opportunities with sophisticated risk management.</p>
+            {% elif strategy_name == 'Multi-Manager' %}
+            <p>Curated portfolio of leading external managers across alternative asset classes. Rigorous selection process and ongoing performance monitoring ensure consistent access to best-in-class investment vehicles.</p>
+            {% else %}
+            <p>Specialized investment approach delivering superior risk-adjusted returns through disciplined analysis and active management.</p>
+            {% endif %}
+
+            <a href="/what-we-do/{{ strategy_name|lower|replace(' ', '-') }}" class="card-link">View Details</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="investment-process">
+    <h2>Our Investment Process</h2>
+    <div class="process-steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Research & Analysis</h3>
+            <p>Comprehensive fundamental and quantitative analysis to identify compelling investment opportunities.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Due Diligence</h3>
+            <p>Rigorous diligence process evaluating operational, financial, and strategic factors before investment.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Active Management</h3>
+            <p>Ongoing monitoring and proactive engagement to enhance value and manage risk throughout holding period.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Exit Strategy</h3>
+            <p>Disciplined realization of investments through strategic sales, refinancings, or other value-maximizing exits.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

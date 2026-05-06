@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ company_name }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Popup Overlay -->
+    {% if popup_data %}
+    <div class="popup-overlay" id="popupOverlay" data-auto-dismiss="{{ popup_data.get('auto_dismiss', False)|lower }}" data-dismiss-delay="{{ popup_data.get('dismiss_delay', 5000) }}">
+        <div class="popup-modal">
+            <div class="popup-header">
+                <h2>{{ popup_data.get('title', 'Notification') }}</h2>
+                <button class="close-button" onclick="dismissPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                {{ popup_data.get('content', '') }}
+            </div>
+            <div class="popup-footer">
+                <button class="popup-button" onclick="dismissPopup()">{{ popup_data.get('button_text', 'Close') }}</button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Header/Navbar -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    {{ company_name }}
+                </div>
+                <nav class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/what-we-do">What We Do</a>
+                    <a href="/who-we-are">Who We Are</a>
+                    <a href="/investors">Investors</a>
+                    <a href="/financial-advisors">Financial Advisors</a>
+                    <a href="/media">Media</a>
+                    <a href="/careers">Careers</a>
+                    <a href="/contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 {{ company_name }}</p>
+            {% if global_aum %}
+            <p class="global-aum">Global AUM: {{ global_aum }}</p>
+            {% endif %}
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    {% include 'cookie_banner.html' %}
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

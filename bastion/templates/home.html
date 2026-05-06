@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ company_name }}</h1>
+    <p class="tagline">Global Alternative Investment Manager</p>
+    <p class="aum-display">Global AUM: {{ global_aum }}</p>
+</section>
+
+<section class="strategies-overview">
+    <h2>Our Investment Strategies</h2>
+    <div class="strategies-grid">
+        {% if aum_data.by_strategy %}
+        {% for strategy_name, aum_value in aum_data.by_strategy.items() %}
+        <div class="strategy-card">
+            <h3>{{ strategy_name }}</h3>
+            <p class="aum">{{ aum_value }} AUM</p>
+            <p>Specialized investment strategy focused on delivering superior risk-adjusted returns through disciplined analysis and active management across global markets.</p>
+            <a href="/what-we-do/{{ strategy_name|lower|replace(' ', '-') }}" class="card-link">Learn More</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="featured-funds">
+    <h2>Featured Funds</h2>
+    <div class="funds-grid">
+        {% if aum_data.by_fund %}
+            {% for fund in aum_data.by_fund[:4] %}
+            <div class="fund-card">
+                <h3>{{ fund.name }}</h3>
+                <p class="fund-strategy">{{ fund.strategy }}</p>
+                <div class="fund-aum">
+                    <p><strong>{{ fund.aum }} AUM</strong></p>
+                </div>
+                <p class="fund-description">Dedicated fund focusing on {{ fund.strategy|lower }} with proven track record of consistent outperformance and disciplined risk management.</p>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="capabilities">
+    <h2>Why Choose Bastion</h2>
+    <div class="capabilities-grid">
+        <div class="capability-item">
+            <h3>Deep Expertise</h3>
+            <p>Industry-leading team with decades of combined experience across alternative asset classes and global markets.</p>
+        </div>
+        <div class="capability-item">
+            <h3>Disciplined Approach</h3>
+            <p>Rigorous investment process combining fundamental research, quantitative analysis, and active portfolio management.</p>
+        </div>
+        <div class="capability-item">
+            <h3>Global Reach</h3>
+            <p>Strategic presence across major financial centers with deep local market knowledge and investment networks.</p>
+        </div>
+        <div class="capability-item">
+            <h3>Consistent Returns</h3>
+            <p>Long-term track record of delivering superior risk-adjusted returns across market cycles and economic environments.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

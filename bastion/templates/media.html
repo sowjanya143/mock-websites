@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Media & News</h1>
+    <p class="page-subtitle">Latest news, press releases, and company updates</p>
+</section>
+
+<section class="news-intro">
+    <p>Stay up-to-date with Bastion Investment Group's latest announcements, market insights, and company news.</p>
+</section>
+
+<section class="news-section">
+    <div class="news-items">
+        {% if news_data %}
+            {% for article in news_data %}
+            <article class="news-item">
+                <div class="news-date">{{ article.date }}</div>
+                <h3>{{ article.title }}</h3>
+                <p class="news-excerpt">{{ article.content[:300] }}...</p>
+                <a href="#" class="read-more">Read Full Article</a>
+            </article>
+            {% endfor %}
+        {% else %}
+            <p>No news articles available at this time.</p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="media-contact">
+    <h2>Media Inquiries</h2>
+    <div class="media-box">
+        <p>For press inquiries, interview requests, or media relations, please contact our Communications team:</p>
+        <div class="contact-info">
+            <p><strong>Email:</strong> press@bastion.com</p>
+            <p><strong>Phone:</strong> +1 (212) 555-0102</p>
+        </div>
+    </div>
+</section>
+
+<section class="press-resources">
+    <h2>Press Resources</h2>
+    <div class="resources">
+        <div class="resource-item">
+            <h3>Company Information</h3>
+            <p>Overview, history, and key facts about Bastion Investment Group</p>
+            <a href="#" class="resource-link">Download Fact Sheet</a>
+        </div>
+        <div class="resource-item">
+            <h3>Executive Bios</h3>
+            <p>Biographical information on Bastion's leadership team and executives</p>
+            <a href="#" class="resource-link">View Bios</a>
+        </div>
+        <div class="resource-item">
+            <h3>Logo & Images</h3>
+            <p>High-resolution Bastion logos and brand assets for media use</p>
+            <a href="#" class="resource-link">Download Assets</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
