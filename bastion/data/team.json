@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Marcus Wellington",
+    "title": "Chief Executive Officer & Head of Investments",
+    "bio": "Visionary leader with 28 years in alternative asset management. Co-founded Bastion and transformed it into a premier global alternative investor managing $55B in AUM across multiple asset classes. Expert in long-term value creation strategies."
+  },
+  {
+    "id": 2,
+    "name": "Victoria Chen",
+    "title": "Chief Investment Officer",
+    "bio": "Leads all investment strategy and portfolio decisions across corporate credit, asset-based finance, and real estate. 22 years of investment experience with track record of delivering superior risk-adjusted returns."
+  },
+  {
+    "id": 3,
+    "name": "Richard Pembroke",
+    "title": "Head of Equity Research",
+    "bio": "Directs equity research team of 35+ analysts covering 2,000+ global companies. Drives fundamental research that informs portfolio construction and identifies compelling investment opportunities."
+  },
+  {
+    "id": 4,
+    "name": "Amelia Rodriguez",
+    "title": "Senior Portfolio Manager - Fixed Income",
+    "bio": "Manages $12B corporate credit portfolio with focus on investment-grade and high-yield bonds. 19 years of credit analysis expertise and consistent alpha generation for Bastion investors."
+  },
+  {
+    "id": 5,
+    "name": "James Nakamura",
+    "title": "Portfolio Manager - Asset Finance",
+    "bio": "Oversees $10B in asset-based finance investments with concentration in infrastructure and equipment leasing. Known for disciplined value-focused approach and multi-decade track record of outperformance."
+  },
+  {
+    "id": 6,
+    "name": "Sophie Bergström",
+    "title": "Head of Alternative Strategies",
+    "bio": "Leads hedge fund and structured finance strategy teams. 24 years experience in complex securities and alternative investments. Responsible for $17B in AUM across Bastion's alternative platforms."
+  },
+  {
+    "id": 7,
+    "name": "Daniel O'Brien",
+    "title": "Managing Director - Private Equity",
+    "bio": "Directs private equity investment team with focus on mid-market buyouts and growth capital. Engineered portfolio returns averaging 18% IRR over 15-year tenure at Bastion."
+  },
+  {
+    "id": 8,
+    "name": "Priya Patel",
+    "title": "Equity Analyst - Technology Sector",
+    "bio": "Senior analyst covering technology and digital transformation investments. Deep expertise in software, semiconductors, and cloud infrastructure with proprietary research capabilities at Bastion."
+  },
+  {
+    "id": 9,
+    "name": "Thomas Harris",
+    "title": "Fixed Income Analyst - Structured Credit",
+    "bio": "Specializes in complex structured credit and distressed debt analysis. 16 years of experience identifying opportunities in high-yield and distressed credit markets for Bastion strategies."
+  },
+  {
+    "id": 10,
+    "name": "Katarina Novak",
+    "title": "Risk Manager",
+    "bio": "Oversees enterprise risk management and portfolio risk metrics across all Bastion strategies. PhD in Financial Engineering with expertise in VaR, stress testing, and derivative pricing."
+  }
+]

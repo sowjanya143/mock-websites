@@ -1,0 +1,19 @@
+{
+  "global_aum": "$55,000,000,000",
+  "by_strategy": {
+    "Corporate Credit": "$12,000,000,000",
+    "Asset-Based Finance": "$10,000,000,000",
+    "Real Estate": "$9,000,000,000",
+    "Private Equity": "$11,000,000,000",
+    "Insurance Solutions": "$7,000,000,000",
+    "Multi-Manager": "$6,000,000,000"
+  },
+  "by_fund": [
+    {"id": 1, "name": "Bastion Credit Opportunities Fund", "aum": "$8,000,000,000", "strategy": "Corporate Credit"},
+    {"id": 2, "name": "Bastion Asset Finance Fund II", "aum": "$6,500,000,000", "strategy": "Asset-Based Finance"},
+    {"id": 3, "name": "Bastion Real Estate Partners", "aum": "$5,000,000,000", "strategy": "Real Estate"},
+    {"id": 4, "name": "Bastion Private Equity Fund V", "aum": "$7,000,000,000", "strategy": "Private Equity"},
+    {"id": 5, "name": "Bastion Insurance Linked Fund", "aum": "$4,500,000,000", "strategy": "Insurance Solutions"},
+    {"id": 6, "name": "Bastion Multi-Strategy Fund", "aum": "$4,000,000,000", "strategy": "Multi-Manager"}
+  ]
+}
