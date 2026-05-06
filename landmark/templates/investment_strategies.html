@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Investment Strategies - {{ company_name }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Investment Strategies</h1>
+    <p>Three complementary real estate investment platforms</p>
+</div>
+
+<!-- Strategies Overview -->
+<section class="strategies-overview">
+    <div class="strategies-list">
+        <div class="strategy-item">
+            <div class="strategy-header">
+                <h2>Private Equity Real Estate</h2>
+                <div class="strategy-aum">$18.5B AUM</div>
+            </div>
+            <p class="strategy-description">Our flagship private equity platform acquires, develops, and repositions premium commercial properties with focus on long-term value creation and superior risk-adjusted returns.</p>
+
+            <div class="strategy-metrics">
+                <div class="metric-box">
+                    <div class="metric-label">Target IRR</div>
+                    <div class="metric-value">14.2%</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Vintage Years</div>
+                    <div class="metric-value">2015-2019</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Funds Active</div>
+                    <div class="metric-value">2</div>
+                </div>
+            </div>
+
+            <a href="/investment-strategies/private-equity" class="btn btn-secondary">View Details</a>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-header">
+                <h2>Private Debt Real Estate</h2>
+                <div class="strategy-aum">$16.2B AUM</div>
+            </div>
+            <p class="strategy-description">Strategic real estate lending platform providing construction financing, mezzanine capital, and long-term mortgage debt to institutional sponsors and developers across major markets.</p>
+
+            <div class="strategy-metrics">
+                <div class="metric-box">
+                    <div class="metric-label">Target Yield</div>
+                    <div class="metric-value">7.2%</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Vintage Years</div>
+                    <div class="metric-value">2017-2020</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Funds Active</div>
+                    <div class="metric-value">2</div>
+                </div>
+            </div>
+
+            <a href="/investment-strategies/private-debt" class="btn btn-secondary">View Details</a>
+        </div>
+
+        <div class="strategy-item">
+            <div class="strategy-header">
+                <h2>Public Equity Real Estate</h2>
+                <div class="strategy-aum">$12.3B AUM</div>
+            </div>
+            <p class="strategy-description">Public market real estate securities strategy including REIT investments, real estate stocks, and publicly traded real estate vehicles with focus on dividend income and capital appreciation.</p>
+
+            <div class="strategy-metrics">
+                <div class="metric-box">
+                    <div class="metric-label">Avg. Yield</div>
+                    <div class="metric-value">5.1%</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Vintage Years</div>
+                    <div class="metric-value">2018-2021</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label">Funds Active</div>
+                    <div class="metric-value">2</div>
+                </div>
+            </div>
+
+            <a href="/investment-strategies/public-equity" class="btn btn-secondary">View Details</a>
+        </div>
+    </div>
+</section>
+
+<!-- Funds Summary -->
+<section class="funds-summary">
+    <h2>Our Fund Complex</h2>
+    <p class="section-subtitle">Six active funds managing real estate across the strategy spectrum</p>
+
+    <div class="funds-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fund Name</th>
+                    <th>Strategy</th>
+                    <th>AUM</th>
+                    <th>Vintage</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fund in aum_data.by_fund %}
+                <tr>
+                    <td>{{ fund.name }}</td>
+                    <td>{{ fund.strategy }}</td>
+                    <td>${{ (fund.aum / 1000000000) | round(1) }}B</td>
+                    <td>{{ fund.vintage_year }}</td>
+                    <td><span class="status-badge status-{{ fund.status }}">{{ fund.status }}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Comparison Section -->
+<section class="strategy-comparison">
+    <h2>Strategy Comparison</h2>
+    <div class="comparison-matrix">
+        <div class="comparison-row">
+            <div class="comparison-label">Risk Profile</div>
+            <div class="comparison-cell">Moderate</div>
+            <div class="comparison-cell">Low</div>
+            <div class="comparison-cell">Low-Moderate</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Return Profile</div>
+            <div class="comparison-cell">High (14%+ IRR)</div>
+            <div class="comparison-cell">Moderate (7%+ Yield)</div>
+            <div class="comparison-cell">Moderate (5%+ Yield)</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Liquidity</div>
+            <div class="comparison-cell">Long-term</div>
+            <div class="comparison-cell">Long-term</div>
+            <div class="comparison-cell">Daily</div>
+        </div>
+        <div class="comparison-row">
+            <div class="comparison-label">Investment Horizon</div>
+            <div class="comparison-cell">6-10 years</div>
+            <div class="comparison-cell">5-8 years</div>
+            <div class="comparison-cell">Flexible</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

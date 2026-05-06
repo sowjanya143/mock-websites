@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Robert Heitman",
+    "title": "Founder & Chief Executive Officer",
+    "bio": "Visionary real estate pioneer with 35 years transforming commercial real estate portfolios. Founded Landmark in 1989 and has guided the firm to become a preeminent global property advisor managing $47B in real estate assets across 10 continents."
+  },
+  {
+    "id": 2,
+    "name": "Elizabeth Ashford",
+    "title": "Chief Investment Officer",
+    "bio": "Leads all investment strategy across commercial, retail, and industrial properties. 27 years of real estate expertise with proven track record of identifying undervalued assets and executing value-add repositioning strategies."
+  },
+  {
+    "id": 3,
+    "name": "Michael Chen",
+    "title": "Head of Private Equity Real Estate",
+    "bio": "Directs private equity fund complex with $18.5B AUM focused on acquisition and development of premium properties. 19 years closing large-scale transactions with average IRR of 14.2% across fund portfolio."
+  },
+  {
+    "id": 4,
+    "name": "Catherine Morrison",
+    "title": "Senior Managing Director - Asset Management",
+    "bio": "Oversees active asset management of 847 properties globally. Expert in lease negotiations, capital planning, and operational efficiency with focus on maximizing investor returns."
+  },
+  {
+    "id": 5,
+    "name": "James Whitmore",
+    "title": "Head of Private Debt Strategies",
+    "bio": "Manages $16.2B in private lending platforms providing construction and long-term financing. Specialist in complex real estate credit structures with 22 years of underwriting expertise."
+  },
+  {
+    "id": 6,
+    "name": "Priya Kapoor",
+    "title": "Director of Research & Analytics",
+    "bio": "Leads market research team analyzing global real estate trends and investment opportunities. Proprietary analytics platform tracks 50,000+ properties across major markets providing institutional investors with actionable insights."
+  },
+  {
+    "id": 7,
+    "name": "David Richardson",
+    "title": "Managing Director - Sustainability & ESG",
+    "bio": "Champions environmental, social, and governance initiatives across Landmark portfolio. 16 years leading green building certification and sustainable property initiatives, achieving 35% carbon reduction across holdings."
+  },
+  {
+    "id": 8,
+    "name": "Maria Gonzalez",
+    "title": "Senior Portfolio Manager - Retail Properties",
+    "bio": "Specializes in retail real estate portfolio management across 150+ shopping centers and retail destinations. Expertise in omnichannel retail strategies and adaptive real estate repositioning for evolving consumer behaviors."
+  },
+  {
+    "id": 9,
+    "name": "Thomas Bergström",
+    "title": "Managing Director - Industrial & Logistics",
+    "bio": "Directs industrial and logistics real estate strategy with focus on supply chain infrastructure. Engineered portfolio of 280+ facilities generating consistent 6.8% yields through long-term tenant relationships."
+  },
+  {
+    "id": 10,
+    "name": "Yuki Tanaka",
+    "title": "Head of International Expansion",
+    "bio": "Leads global market entry strategy across emerging and developed markets. Successfully established Landmark operations in 18 countries with local partnerships and regional expertise in real estate fundamentals."
+  },
+  {
+    "id": 11,
+    "name": "Sarah Mitchell",
+    "title": "Managing Director - Office Properties",
+    "bio": "Manages premium office portfolio across major metropolitan centers with focus on adaptable workspace solutions. Leading adaptation of office properties for post-pandemic tenant requirements and flexible work environments."
+  },
+  {
+    "id": 12,
+    "name": "Andreas Hoffmann",
+    "title": "Chief Financial Officer",
+    "bio": "Manages financial operations, investor relations, and capital deployment strategies. 25 years in real estate finance with expertise in complex capital structures and investor reporting frameworks."
+  }
+]

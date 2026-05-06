@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}News - {{ company_name }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>News & Press</h1>
+    <p>Latest updates from Landmark Property Advisors</p>
+</div>
+
+<!-- News List -->
+<section class="news-listing">
+    {% for news in news_data %}
+    <article class="news-article">
+        <div class="news-header">
+            <div class="news-meta">
+                <span class="news-date">{{ news.date }}</span>
+                <span class="news-category">{{ news.category }}</span>
+            </div>
+            <h2>{{ news.title }}</h2>
+        </div>
+        <p class="news-excerpt">{{ news.excerpt }}</p>
+        <p class="news-content">{{ news.content }}</p>
+    </article>
+    {% endfor %}
+</section>
+
+<!-- Contact for Press -->
+<section class="press-contact">
+    <h2>Media Inquiries</h2>
+    <p>For press inquiries or interview requests, please contact our communications team.</p>
+    <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+</section>
+{% endblock %}

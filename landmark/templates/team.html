@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Leadership Team - {{ company_name }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Leadership Team</h1>
+    <p>Experienced real estate professionals leading global investment platform</p>
+</div>
+
+<!-- Team Members -->
+<section class="team-members">
+    <div class="team-grid">
+        {% for member in data %}
+        <div class="team-card">
+            <div class="team-member-header">
+                <h3>{{ member.name }}</h3>
+                <p class="member-title">{{ member.title }}</p>
+            </div>
+            <p class="member-bio">{{ member.bio }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Pagination -->
+{% if total_pages > 1 %}
+<section class="pagination-section">
+    <nav class="pagination">
+        {% if current_page > 1 %}
+            <a href="?page=1" class="pagination-link">First</a>
+            <a href="?page={{ current_page - 1 }}" class="pagination-link">Previous</a>
+        {% endif %}
+
+        {% for page_num in range(1, total_pages + 1) %}
+            {% if page_num == current_page %}
+                <span class="pagination-current">{{ page_num }}</span>
+            {% else %}
+                <a href="?page={{ page_num }}" class="pagination-link">{{ page_num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if current_page < total_pages %}
+            <a href="?page={{ current_page + 1 }}" class="pagination-link">Next</a>
+            <a href="?page={{ total_pages }}" class="pagination-link">Last</a>
+        {% endif %}
+    </nav>
+</section>
+{% endif %}
+
+<!-- Team Culture -->
+<section class="team-culture">
+    <h2>Our Team Culture</h2>
+    <p>At Landmark, we believe our team is our greatest asset. Our leadership brings together deep real estate expertise, global market knowledge, and shared commitment to investor returns and sustainable value creation.</p>
+
+    <div class="culture-points">
+        <div class="culture-point">
+            <h3>Diversity of Expertise</h3>
+            <p>Teams spanning property acquisition, asset management, credit analysis, sustainability, and investor relations.</p>
+        </div>
+        <div class="culture-point">
+            <h3>Global Perspective</h3>
+            <p>Professionals with experience across multiple continents and real estate markets worldwide.</p>
+        </div>
+        <div class="culture-point">
+            <h3>Collaborative Environment</h3>
+            <p>Cross-functional teams working together on investment evaluation and portfolio optimization.</p>
+        </div>
+        <div class="culture-point">
+            <h3>Continuous Learning</h3>
+            <p>Investment in professional development and market expertise to maintain competitive advantage.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Careers CTA -->
+<section class="careers-cta">
+    <h2>Join Our Team</h2>
+    <p>We're always looking for talented real estate professionals to join Landmark.</p>
+    <a href="/careers" class="btn btn-primary btn-lg">View Open Positions</a>
+</section>
+{% endblock %}

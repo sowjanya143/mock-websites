@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+
+{% block title %}{{ slug|title }} Strategy - {{ company_name }}{% endblock %}
+
+{% block content %}
+{% if slug == 'private-equity' %}
+    <div class="page-header">
+        <h1>Private Equity Real Estate</h1>
+        <p>Acquisition and development of premium commercial properties</p>
+    </div>
+
+    <section class="strategy-detail">
+        <div class="detail-overview">
+            <div class="overview-stat">
+                <div class="stat-value">$18.5B</div>
+                <div class="stat-label">Total AUM</div>
+            </div>
+            <div class="overview-stat">
+                <div class="stat-value">14.2%</div>
+                <div class="stat-label">Target IRR</div>
+            </div>
+            <div class="overview-stat">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Active Funds</div>
+            </div>
+        </div>
+
+        <h2>Strategy Overview</h2>
+        <p>Our flagship private equity real estate platform acquires, develops, and repositions premium commercial properties with focus on long-term value creation. We target office, retail, industrial, and mixed-use properties in primary and secondary markets globally.</p>
+
+        <h2>Investment Approach</h2>
+        <ul class="approach-list">
+            <li><strong>Core Plus Strategy:</strong> Stabilized properties with moderate value-add opportunities</li>
+            <li><strong>Value-Add Strategy:</strong> Properties requiring operational improvements and capital deployment</li>
+            <li><strong>Development Strategy:</strong> Ground-up development projects with long-term lease commitments</li>
+            <li><strong>Market Expansion:</strong> Entry into emerging real estate markets with high growth potential</li>
+        </ul>
+
+        <h2>Fund Details</h2>
+        <div class="fund-cards">
+            <div class="fund-card">
+                <h3>Landmark Private Equity Fund I</h3>
+                <p class="fund-vintage">Vintage: 2015</p>
+                <div class="fund-metrics">
+                    <div class="metric"><span>AUM:</span> $8.9B</div>
+                    <div class="metric"><span>IRR:</span> 14.2%</div>
+                    <div class="metric"><span>Status:</span> Active</div>
+                </div>
+            </div>
+            <div class="fund-card">
+                <h3>Landmark Private Equity Fund II</h3>
+                <p class="fund-vintage">Vintage: 2019</p>
+                <div class="fund-metrics">
+                    <div class="metric"><span>AUM:</span> $9.6B</div>
+                    <div class="metric"><span>IRR:</span> 12.8%</div>
+                    <div class="metric"><span>Status:</span> Active</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Portfolio Characteristics</h2>
+        <div class="characteristics">
+            <div class="char-item">
+                <h3>Property Types</h3>
+                <p>Office (45%), Industrial (35%), Retail (20%)</p>
+            </div>
+            <div class="char-item">
+                <h3>Geography</h3>
+                <p>North America (60%), Europe (25%), Asia-Pacific (15%)</p>
+            </div>
+            <div class="char-item">
+                <h3>Average Holding Period</h3>
+                <p>6-8 years</p>
+            </div>
+            <div class="char-item">
+                <h3>Value Creation</h3>
+                <p>Operational improvements, market repositioning, lease optimization</p>
+            </div>
+        </div>
+    </section>
+
+{% elif slug == 'private-debt' %}
+    <div class="page-header">
+        <h1>Private Debt Real Estate</h1>
+        <p>Strategic real estate lending and mezzanine financing</p>
+    </div>
+
+    <section class="strategy-detail">
+        <div class="detail-overview">
+            <div class="overview-stat">
+                <div class="stat-value">$16.2B</div>
+                <div class="stat-label">Total AUM</div>
+            </div>
+            <div class="overview-stat">
+                <div class="stat-value">7.2%</div>
+                <div class="stat-label">Target Yield</div>
+            </div>
+            <div class="overview-stat">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Active Funds</div>
+            </div>
+        </div>
+
+        <h2>Strategy Overview</h2>
+        <p>Our private debt platform provides strategic financing solutions to institutional sponsors, developers, and operators. We specialize in construction loans, mezzanine capital, preferred equity, and long-term permanent mortgage debt across diverse real estate properties.</p>
+
+        <h2>Financing Products</h2>
+        <ul class="approach-list">
+            <li><strong>Construction Financing:</strong> Bridge loans for ground-up development and major renovations</li>
+            <li><strong>Mezzanine Capital:</strong> Subordinated debt structures bridging equity and senior financing</li>
+            <li><strong>Permanent Mortgage Debt:</strong> Long-term fixed-rate financing for stabilized properties</li>
+            <li><strong>Preferred Equity:</strong> Quasi-debt instruments with preferred return structures</li>
+        </ul>
+
+        <h2>Fund Details</h2>
+        <div class="fund-cards">
+            <div class="fund-card">
+                <h3>Landmark Private Debt Fund I</h3>
+                <p class="fund-vintage">Vintage: 2017</p>
+                <div class="fund-metrics">
+                    <div class="metric"><span>AUM:</span> $8.1B</div>
+                    <div class="metric"><span>Yield:</span> 6.5%</div>
+                    <div class="metric"><span>Status:</span> Active</div>
+                </div>
+            </div>
+            <div class="fund-card">
+                <h3>Landmark Private Debt Opportunities</h3>
+                <p class="fund-vintage">Vintage: 2020</p>
+                <div class="fund-metrics">
+                    <div class="metric"><span>AUM:</span> $8.1B</div>
+                    <div class="metric"><span>Yield:</span> 7.2%</div>
+                    <div class="metric"><span>Status:</span> Active</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Portfolio Characteristics</h2>
+        <div class="characteristics">
+            <div class="char-item">
+                <h3>Loan Portfolio</h3>
+                <p>Average loan size: $125M | 60+ active loans</p>
+            </div>
+            <div class="char-item">
+                <h3>Interest Rate Environment</h3>
+                <p>Fixed-rate (70%) | Floating-rate (30%)</p>
+            </div>
+            <div class="char-item">
+                <h3>Loan-to-Value</h3>
+                <p>Average LTV: 65% | Range: 50%-75%</p>
+            </div>
+            <div class="char-item">
+                <h3>Default History</h3>
+                <p>Cumulative default rate: <1% | Recovery rate: 95%+</p>
+            </div>
+        </div>
+    </section>
+
+{% elif slug == 'public-equity' %}
+    <div class="page-header">
+        <h1>Public Equity Real Estate</h1>
+        <p>Real estate securities and REIT investments</p>
+    </div>
+
+    <section class="strategy-detail">
+        <div class="detail-overview">
+            <div class="overview-stat">
+                <div class="stat-value">$12.3B</div>
+                <div class="stat-label">Total AUM</div>
+            </div>
+            <div class="overview-stat">
+                <div class="stat-value">5.1%</div>
+                <div class="stat-label">Average Yield</div>
+            </div>
+            <div class="overview-stat">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Active Funds</div>
+            </div>
+        </div>
+
+        <h2>Strategy Overview</h2>
+        <p>Our public equity real estate strategy invests in publicly traded real estate securities, including REITs, real estate operating companies, and related infrastructure equities. We focus on dividend income, capital appreciation, and portfolio diversification through liquid real estate exposure.</p>
+
+        <h2>Investment Focus</h2>
+        <ul class="approach-list">
+            <li><strong>Core REITs:</strong> Established REITs with stable cash flows and dividend histories</li>
+            <li><strong>Specialty REITs:</strong> Focused investment in niche real estate sectors (data centers, cell towers, life sciences)</li>
+            <li><strong>Real Estate Operators:</strong> Public companies with significant real estate operations and development platforms</li>
+            <li><strong>Infrastructure REITs:</strong> Real estate infrastructure including logistics, transportation, and utilities</li>
+        </ul>
+
+        <h2>Fund Details</h2>
+        <div class="fund-cards">
+            <div class="fund-card">
+                <h3>Landmark Public Equity Fund</h3>
+                <p class="fund-vintage">Vintage: 2018</p>
+                <div class="fund-metrics">
+                    <div class="metric"><span>AUM:</span> $7.2B</div>
+                    <div class="metric"><span>Yield:</span> 5.1%</div>
+                    <div class="metric"><span>Status:</span> Active</div>
+                </div>
+            </div>
+            <div class="fund-card">
+                <h3>Landmark Market Opportunities</h3>
+                <p class="fund-vintage">Vintage: 2021</p>
+                <div class="fund-metrics">
+                    <div class="metric"><span>AUM:</span> $5.1B</div>
+                    <div class="metric"><span>Status:</span> Fundraising</div>
+                    <div class="metric"><span>Target:</span> $7.5B</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Portfolio Characteristics</h2>
+        <div class="characteristics">
+            <div class="char-item">
+                <h3>Asset Classes</h3>
+                <p>Office (25%), Industrial (30%), Retail (15%), Specialty (30%)</p>
+            </div>
+            <div class="char-item">
+                <h3>Geographic Diversification</h3>
+                <p>US (70%) | International (30%)</p>
+            </div>
+            <div class="char-item">
+                <h3>Dividend Income</h3>
+                <p>Target yield: 4-6% annually</p>
+            </div>
+            <div class="char-item">
+                <h3>Liquidity</h3>
+                <p>Daily trading | High daily volume</p>
+            </div>
+        </div>
+    </section>
+
+{% else %}
+    <div class="page-header">
+        <h1>Strategy Not Found</h1>
+    </div>
+    <p><a href="/investment-strategies">Return to Investment Strategies</a></p>
+{% endif %}
+{% endblock %}

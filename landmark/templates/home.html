@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Home - {{ company_name }}{% endblock %}
+
+{% block content %}
+<div class="hero-section stat-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Global Real Estate Investment Leadership</h1>
+        <p>Transforming properties into premium investment vehicles across continents</p>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">$47B</div>
+            <div class="stat-label">Assets Under Management</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">10</div>
+            <div class="stat-label">Global Offices</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Solutions & Strategies</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">847</div>
+            <div class="stat-label">Properties Managed</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">60</div>
+            <div class="stat-label">Years of Excellence</div>
+        </div>
+    </div>
+</section>
+
+<!-- Strategies Section -->
+<section class="strategies-preview">
+    <h2>Our Investment Strategies</h2>
+    <p class="section-subtitle">Three core real estate investment platforms</p>
+
+    <div class="strategies-grid">
+        <div class="strategy-card">
+            <div class="strategy-icon">PE</div>
+            <h3>Private Equity Real Estate</h3>
+            <div class="strategy-aum">$18.5B AUM</div>
+            <p>Acquisition and development of premium commercial properties with focus on value creation and long-term appreciation.</p>
+            <a href="/investment-strategies/private-equity" class="btn btn-secondary">Learn More</a>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-icon">PD</div>
+            <h3>Private Debt Real Estate</h3>
+            <div class="strategy-aum">$16.2B AUM</div>
+            <p>Strategic real estate lending including construction financing and long-term property debt structures.</p>
+            <a href="/investment-strategies/private-debt" class="btn btn-secondary">Learn More</a>
+        </div>
+
+        <div class="strategy-card">
+            <div class="strategy-icon">PE+</div>
+            <h3>Public Equity Real Estate</h3>
+            <div class="strategy-aum">$12.3B AUM</div>
+            <p>Public market real estate securities and REIT investments with emphasis on dividend income and capital appreciation.</p>
+            <a href="/investment-strategies/public-equity" class="btn btn-secondary">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured News Section -->
+<section class="featured-news">
+    <h2>Recent News</h2>
+    <div class="news-grid">
+        {% for news in news_data[:3] %}
+        <div class="news-card">
+            <div class="news-date">{{ news.date }}</div>
+            <h3>{{ news.title }}</h3>
+            <p>{{ news.excerpt }}</p>
+            <a href="/news" class="news-link">Read More →</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <h2>Ready to Explore Landmark?</h2>
+    <p>Discover how our global real estate expertise can drive your portfolio performance</p>
+    <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
+</section>
+{% endblock %}
