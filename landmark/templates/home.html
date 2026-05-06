@@ -2,35 +2,271 @@
 
 {% block title %}Home - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    /* Hero Section */
+    .hero-section {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 80px 0;
+        color: white;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 44px;
+        margin-bottom: 15px;
+        font-family: Georgia, serif;
+        font-weight: 600;
+    }
+    .hero-content p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    /* Stat Cards - Clickable stats hero */
+    .stats-section {
+        padding: 60px 0;
+        background: white;
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+    }
+    .stat-card {
+        background: white;
+        padding: 35px 20px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #1e4d3b;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .stat-card:hover {
+        background: #f5f3f0;
+        box-shadow: 0 8px 16px rgba(30, 77, 59, 0.15);
+        transform: translateY(-3px);
+    }
+    .stat-number {
+        font-size: 36px;
+        font-weight: bold;
+        color: #1e4d3b;
+        margin-bottom: 12px;
+        font-family: Georgia, serif;
+    }
+    .stat-label {
+        font-size: 13px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Divider */
+    .section-divider {
+        height: 2px;
+        background: #a8c86f;
+        margin: 50px 0;
+    }
+
+    /* Strategies Section */
+    .strategies-preview {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .strategies-preview h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    .strategies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    .strategy-card {
+        background: white;
+        padding: 35px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #a8c86f;
+        position: relative;
+    }
+    .strategy-icon {
+        font-size: 28px;
+        font-weight: bold;
+        color: #1e4d3b;
+        background: #f5f3f0;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+    .strategy-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .strategy-aum {
+        font-size: 13px;
+        color: #a8c86f;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+    .strategy-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+    .btn {
+        display: inline-block;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        font-size: 12px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-secondary {
+        background: white;
+        color: #1e4d3b;
+        border: 2px solid #1e4d3b;
+    }
+    .btn-secondary:hover {
+        background: #1e4d3b;
+        color: white;
+    }
+
+    /* Featured News */
+    .featured-news {
+        padding: 60px 0;
+        background: white;
+    }
+    .featured-news h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .news-card {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #1e4d3b;
+    }
+    .news-date {
+        font-size: 12px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .news-card h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .news-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .news-link {
+        color: #1e4d3b;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 12px;
+        transition: color 0.3s;
+    }
+    .news-link:hover {
+        color: #a8c86f;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        color: white;
+        text-align: center;
+    }
+    .cta-section h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        font-family: Georgia, serif;
+    }
+    .cta-section p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #a8c86f;
+    }
+    .btn-primary {
+        background: #a8c86f;
+        color: #1e4d3b;
+    }
+    .btn-primary:hover {
+        background: #b8d882;
+    }
+    .btn-lg {
+        padding: 15px 40px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<div class="hero-section stat-hero">
-    <div class="hero-overlay"></div>
+<div class="hero-section">
     <div class="hero-content">
         <h1>Global Real Estate Investment Leadership</h1>
         <p>Transforming properties into premium investment vehicles across continents</p>
     </div>
 </div>
 
-<!-- Stats Section -->
+<!-- Stats Section - Clickable stat cards -->
 <section class="stats-section">
     <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card" onclick="location.href='/investment-strategies';">
             <div class="stat-number">$47B</div>
             <div class="stat-label">Assets Under Management</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="location.href='/about';">
             <div class="stat-number">10</div>
             <div class="stat-label">Global Offices</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="location.href='/investment-strategies';">
             <div class="stat-number">15+</div>
             <div class="stat-label">Solutions & Strategies</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="location.href='/about';">
             <div class="stat-number">847</div>
             <div class="stat-label">Properties Managed</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" onclick="location.href='/about';">
             <div class="stat-number">60</div>
             <div class="stat-label">Years of Excellence</div>
         </div>
@@ -48,7 +284,7 @@
             <h3>Private Equity Real Estate</h3>
             <div class="strategy-aum">$18.5B AUM</div>
             <p>Acquisition and development of premium commercial properties with focus on value creation and long-term appreciation.</p>
-            <a href="/investment-strategies/private-equity" class="btn btn-secondary">Learn More</a>
+            <a href="/investment-strategies" class="btn btn-secondary">Learn More</a>
         </div>
 
         <div class="strategy-card">
@@ -56,7 +292,7 @@
             <h3>Private Debt Real Estate</h3>
             <div class="strategy-aum">$16.2B AUM</div>
             <p>Strategic real estate lending including construction financing and long-term property debt structures.</p>
-            <a href="/investment-strategies/private-debt" class="btn btn-secondary">Learn More</a>
+            <a href="/investment-strategies" class="btn btn-secondary">Learn More</a>
         </div>
 
         <div class="strategy-card">
@@ -64,7 +300,7 @@
             <h3>Public Equity Real Estate</h3>
             <div class="strategy-aum">$12.3B AUM</div>
             <p>Public market real estate securities and REIT investments with emphasis on dividend income and capital appreciation.</p>
-            <a href="/investment-strategies/public-equity" class="btn btn-secondary">Learn More</a>
+            <a href="/investment-strategies" class="btn btn-secondary">Learn More</a>
         </div>
     </div>
 </section>
@@ -77,7 +313,7 @@
         <div class="news-card">
             <div class="news-date">{{ news.date }}</div>
             <h3>{{ news.title }}</h3>
-            <p>{{ news.excerpt }}</p>
+            <p>{{ news.content[:150] if news.content else news.excerpt or 'Latest updates from Landmark.' }}...</p>
             <a href="/news" class="news-link">Read More →</a>
         </div>
         {% endfor %}

@@ -1,9 +1,178 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    .page-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 60px 0;
+        color: white;
+        border-left: 8px solid #d4a574;
+    }
+    .page-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    .page-hero p {
+        font-size: 18px;
+        color: #d4a574;
+    }
+
+    .advisor-intro {
+        padding: 50px 0;
+        background-color: white;
+    }
+    .intro-content h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .intro-content p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .advisor-resources {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .advisor-resources h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .resources-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .resource-card {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .resource-card h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .resource-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .resource-link {
+        color: #d4a574;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+    .resource-link:hover {
+        color: #1a1a1a;
+    }
+
+    .advisor-benefits {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .advisor-benefits h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .benefits-list {
+        background: #f9f7f4;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .benefits-list ul {
+        list-style: none;
+        column-count: 2;
+        column-gap: 40px;
+    }
+    .benefits-list li {
+        font-size: 14px;
+        color: #666;
+        padding: 12px 0;
+        padding-left: 25px;
+        position: relative;
+    }
+    .benefits-list li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #d4a574;
+        font-weight: bold;
+    }
+
+    .advisor-contact {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .advisor-contact h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .contact-box {
+        background: white;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .contact-box p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    .contact-details {
+        margin-bottom: 25px;
+    }
+    .contact-details p {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #d4a574;
+        color: #1a1a1a;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+        background-color: #e5b88a;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-header">
+<section class="page-hero">
     <h1>Financial Advisors</h1>
-    <p class="page-subtitle">Resources and support for wealth advisors and financial professionals</p>
+    <p>Resources and support for financial professionals</p>
 </section>
 
 <section class="advisor-intro">
@@ -15,7 +184,7 @@
 </section>
 
 <section class="advisor-resources">
-    <h2>Advisor Resources</h2>
+    <h2>Knowledge Center</h2>
     <div class="resources-grid">
         <div class="resource-card">
             <h3>Strategy Briefings</h3>
@@ -56,7 +225,7 @@
 </section>
 
 <section class="advisor-benefits">
-    <h2>Why Choose Bastion for Your Clients</h2>
+    <h2>Why Choose Bastion</h2>
     <div class="benefits-list">
         <ul>
             <li>Proven track record of consistent, superior risk-adjusted returns</li>
@@ -70,14 +239,14 @@
 </section>
 
 <section class="advisor-contact">
-    <h2>Advisor Relations Contact</h2>
+    <h2>Advisor Relations</h2>
     <div class="contact-box">
         <p>For advisor inquiries, training requests, or to discuss investment opportunities for your clients, please contact our Advisor Relations team:</p>
         <div class="contact-details">
             <p><strong>Email:</strong> advisors@bastion.com</p>
             <p><strong>Phone:</strong> +1 (212) 555-0101</p>
         </div>
-        <a href="/contact" class="cta-button">Schedule a Consultation</a>
+        <a href="/contact" class="cta-button">Schedule Consultation</a>
     </div>
 </section>
 {% endblock %}

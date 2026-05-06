@@ -1,37 +1,166 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    .page-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 60px 0;
+        color: white;
+        border-left: 8px solid #d4a574;
+        text-align: center;
+    }
+    .page-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .page-hero p {
+        font-size: 18px;
+        color: #d4a574;
+    }
+
+    .strategies-section {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .strategies-section h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+
+    .strategies-detailed-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    .strategy-detail-card {
+        background: #f9f7f4;
+        padding: 35px;
+        border-left: 5px solid #d4a574;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .strategy-detail-card h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .strategy-detail-card .aum-badge {
+        display: inline-block;
+        background-color: #d4a574;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 3px;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .strategy-detail-card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+    .strategy-detail-card ul {
+        list-style: none;
+        margin: 15px 0;
+    }
+    .strategy-detail-card ul li {
+        font-size: 14px;
+        color: #666;
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+    }
+    .strategy-detail-card ul li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #d4a574;
+        font-weight: bold;
+    }
+
+    .investment-process {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .investment-process h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .step {
+        background: white;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #d4a574;
+        position: relative;
+    }
+    .step-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: #d4a574;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .step h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .step p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-header">
+<section class="page-hero">
     <h1>What We Do</h1>
-    <p class="page-subtitle">Specialized investment strategies across alternative asset classes</p>
+    <p>Comprehensive alternative investment strategies</p>
 </section>
 
-<section class="strategies-detailed">
-    <h2>Our Investment Strategies</h2>
-    <div class="strategies-grid">
+<section class="strategies-section">
+    <h2>Investment Strategies</h2>
+    <div class="strategies-detailed-grid">
         {% if aum_data.by_strategy %}
         {% for strategy_name, aum_value in aum_data.by_strategy.items() %}
-        <div class="strategy-card">
+        <div class="strategy-detail-card">
             <h3>{{ strategy_name }}</h3>
-            <p class="aum">{{ aum_value }} AUM</p>
-
-            {% if strategy_name == 'Corporate Credit' %}
-            <p>Investment-grade and high-yield corporate bond strategies with focus on fundamental credit analysis, market timing, and active portfolio management. Deep sector expertise and relationships with corporate issuers globally.</p>
-            {% elif strategy_name == 'Asset-Based Finance' %}
-            <p>Equipment financing, infrastructure lending, and asset-backed securities strategies. Leverages proprietary analytics and operational expertise to identify undervalued assets and financing opportunities.</p>
-            {% elif strategy_name == 'Real Estate' %}
-            <p>Value-add real estate acquisitions, development partnerships, and opportunistic real estate debt investments. Focus on strategic markets with strong fundamentals and sustainable growth drivers.</p>
-            {% elif strategy_name == 'Private Equity' %}
-            <p>Mid-market buyouts, growth capital, and secondary investments with disciplined underwriting and operational value creation. Strong track record of generating attractive risk-adjusted returns for investors.</p>
-            {% elif strategy_name == 'Insurance Solutions' %}
-            <p>Insurance-linked securities, catastrophe bonds, and structured insurance investment vehicles. Diversified approach to capturing insurance market opportunities with sophisticated risk management.</p>
-            {% elif strategy_name == 'Multi-Manager' %}
-            <p>Curated portfolio of leading external managers across alternative asset classes. Rigorous selection process and ongoing performance monitoring ensure consistent access to best-in-class investment vehicles.</p>
-            {% else %}
-            <p>Specialized investment approach delivering superior risk-adjusted returns through disciplined analysis and active management.</p>
-            {% endif %}
-
-            <a href="/what-we-do/{{ strategy_name|lower|replace(' ', '-') }}" class="card-link">View Details</a>
+            <div class="aum-badge">{{ aum_value }} AUM</div>
+            <p>Our {{ strategy_name|lower }} team leverages deep market expertise and proprietary analysis to identify compelling investment opportunities.</p>
+            <ul>
+                <li>Rigorous fundamental research and analysis</li>
+                <li>Active portfolio management and monitoring</li>
+                <li>Risk-adjusted return optimization</li>
+                <li>Global market insights and execution</li>
+            </ul>
         </div>
         {% endfor %}
         {% endif %}
@@ -39,7 +168,7 @@
 </section>
 
 <section class="investment-process">
-    <h2>Our Investment Process</h2>
+    <h2>Investment Process</h2>
     <div class="process-steps">
         <div class="step">
             <div class="step-number">1</div>

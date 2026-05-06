@@ -1,12 +1,200 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    /* Hero Section - Fortress style */
+    .hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 80px 0;
+        position: relative;
+        border-left: 8px solid #d4a574;
+        color: white;
+        text-align: center;
+    }
+    .hero h1 {
+        font-size: 48px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    .hero .tagline {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #d4a574;
+        font-weight: 300;
+    }
+    .hero .aum-display {
+        font-size: 18px;
+        color: #ccc;
+    }
+
+    /* Strategies Grid - Asymmetric layout */
+    .strategies-overview {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .strategies-overview h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        letter-spacing: 1px;
+    }
+    .strategies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .strategy-card {
+        background: white;
+        padding: 30px;
+        border-left: 5px solid #d4a574;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .strategy-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    .strategy-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .strategy-card .aum {
+        font-size: 14px;
+        color: #d4a574;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .strategy-card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+    .card-link {
+        color: #d4a574;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+    .card-link:hover {
+        color: #1a1a1a;
+    }
+
+    /* Section divider */
+    .section-divider {
+        height: 3px;
+        background-color: #d4a574;
+        margin: 40px 0;
+    }
+
+    /* Featured Funds */
+    .featured-funds {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .featured-funds h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .funds-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .fund-card {
+        background: #f9f7f4;
+        padding: 40px;
+        border-left: 5px solid #d4a574;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        position: relative;
+    }
+    .fund-card h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .fund-strategy {
+        font-size: 13px;
+        color: #d4a574;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .fund-aum p {
+        font-size: 18px;
+        color: #1a1a1a;
+        margin-bottom: 15px;
+    }
+    .fund-description {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Capabilities Grid */
+    .capabilities {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .capabilities h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .capabilities-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .capability-item {
+        background: white;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        border-top: 5px solid #d4a574;
+    }
+    .capability-item h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .capability-item p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
+<!-- Hero Section -->
 <section class="hero">
     <h1>{{ company_name }}</h1>
     <p class="tagline">Global Alternative Investment Manager</p>
     <p class="aum-display">Global AUM: {{ global_aum }}</p>
 </section>
 
+<!-- Strategies Overview -->
 <section class="strategies-overview">
     <h2>Our Investment Strategies</h2>
     <div class="strategies-grid">
@@ -23,6 +211,10 @@
     </div>
 </section>
 
+<!-- Section Divider -->
+<div class="section-divider"></div>
+
+<!-- Featured Funds -->
 <section class="featured-funds">
     <h2>Featured Funds</h2>
     <div class="funds-grid">
@@ -41,6 +233,7 @@
     </div>
 </section>
 
+<!-- Capabilities Grid -->
 <section class="capabilities">
     <h2>Why Choose Bastion</h2>
     <div class="capabilities-grid">

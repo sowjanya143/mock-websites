@@ -1,50 +1,150 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    .page-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 60px 0;
+        color: white;
+        border-left: 8px solid #d4a574;
+    }
+    .page-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .team-section {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+    .team-card {
+        background: #f9f7f4;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .team-card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .team-card .title {
+        font-size: 13px;
+        color: #d4a574;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .team-card .bio {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .pagination {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .pagination ul {
+        list-style: none;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .pagination a {
+        display: block;
+        padding: 10px 15px;
+        background: white;
+        color: #d4a574;
+        text-decoration: none;
+        border: 2px solid #d4a574;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+    .pagination a:hover {
+        background: #d4a574;
+        color: white;
+    }
+    .pagination .current {
+        display: block;
+        padding: 10px 15px;
+        background: #d4a574;
+        color: white;
+        font-weight: bold;
+        border: 2px solid #d4a574;
+    }
+    .pagination .disabled {
+        display: block;
+        padding: 10px 15px;
+        background: #e5e5e5;
+        color: #999;
+        border: 2px solid #e5e5e5;
+        font-weight: bold;
+    }
+    .pagination-info {
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-header">
+<section class="page-hero">
     <h1>Leadership Team</h1>
-    <p class="page-subtitle">Experienced investment professionals dedicated to excellence</p>
 </section>
 
-<section class="team-grid">
-    {% for member in items %}
-    <div class="team-card">
-        <h3>{{ member.name }}</h3>
-        <p class="title">{{ member.title }}</p>
-        <p class="bio">{{ member.bio }}</p>
-    </div>
-    {% endfor %}
-</section>
-
-<!-- Pagination -->
-{% if total_pages > 1 %}
-<nav class="pagination">
-    <ul>
-        {% if page > 1 %}
-            <li><a href="?page=1">First</a></li>
-            <li><a href="?page={{ page - 1 }}">Previous</a></li>
-        {% else %}
-            <li><span class="disabled">First</span></li>
-            <li><span class="disabled">Previous</span></li>
-        {% endif %}
-
-        {% for p in range(1, total_pages + 1) %}
-            {% if p == page %}
-                <li><span class="current">{{ p }}</span></li>
-            {% else %}
-                <li><a href="?page={{ p }}">{{ p }}</a></li>
-            {% endif %}
+<section class="team-section">
+    <div class="team-grid">
+        {% for member in items %}
+        <div class="team-card">
+            <h3>{{ member.name }}</h3>
+            <p class="title">{{ member.title }}</p>
+            <p class="bio">{{ member.bio }}</p>
+        </div>
         {% endfor %}
+    </div>
 
-        {% if page < total_pages %}
-            <li><a href="?page={{ page + 1 }}">Next</a></li>
-            <li><a href="?page={{ total_pages }}">Last</a></li>
-        {% else %}
-            <li><span class="disabled">Next</span></li>
-            <li><span class="disabled">Last</span></li>
-        {% endif %}
-    </ul>
-    <p class="pagination-info">Page {{ page }} of {{ total_pages }}</p>
-</nav>
-{% endif %}
+    <!-- Pagination -->
+    {% if total_pages > 1 %}
+    <nav class="pagination">
+        <ul>
+            {% if page > 1 %}
+                <li><a href="?page=1">First</a></li>
+                <li><a href="?page={{ page - 1 }}">Previous</a></li>
+            {% else %}
+                <li><span class="disabled">First</span></li>
+                <li><span class="disabled">Previous</span></li>
+            {% endif %}
+
+            {% for p in range(1, total_pages + 1) %}
+                {% if p == page %}
+                    <li><span class="current">{{ p }}</span></li>
+                {% else %}
+                    <li><a href="?page={{ p }}">{{ p }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page < total_pages %}
+                <li><a href="?page={{ page + 1 }}">Next</a></li>
+                <li><a href="?page={{ total_pages }}">Last</a></li>
+            {% else %}
+                <li><span class="disabled">Next</span></li>
+                <li><span class="disabled">Last</span></li>
+            {% endif %}
+        </ul>
+        <p class="pagination-info">Page {{ page }} of {{ total_pages }}</p>
+    </nav>
+    {% endif %}
+</section>
 {% endblock %}

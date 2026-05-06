@@ -1,9 +1,165 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    .page-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 60px 0;
+        color: white;
+        border-left: 8px solid #d4a574;
+    }
+    .page-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    .page-hero p {
+        font-size: 18px;
+        color: #d4a574;
+    }
+
+    .news-intro {
+        padding: 40px 0;
+        background-color: white;
+        text-align: center;
+        font-size: 16px;
+        color: #666;
+    }
+
+    .news-section {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .news-items {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .news-item {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .news-date {
+        font-size: 12px;
+        color: #d4a574;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .news-item h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .news-excerpt {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+    .read-more {
+        color: #d4a574;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+    .read-more:hover {
+        color: #1a1a1a;
+    }
+
+    .media-contact {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .media-contact h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .media-box {
+        background: #f9f7f4;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .media-box p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    .contact-info {
+        margin-top: 20px;
+    }
+    .contact-info p {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .press-resources {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .press-resources h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .resources {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .resource-item {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #d4a574;
+    }
+    .resource-item h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .resource-item p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    .resource-link {
+        color: #d4a574;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+    .resource-link:hover {
+        color: #1a1a1a;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-header">
+<section class="page-hero">
     <h1>Media & News</h1>
-    <p class="page-subtitle">Latest news, press releases, and company updates</p>
+    <p>Latest news and press releases</p>
 </section>
 
 <section class="news-intro">
@@ -18,7 +174,7 @@
                 <div class="news-date">{{ article.date }}</div>
                 <h3>{{ article.title }}</h3>
                 <p class="news-excerpt">{{ article.content[:300] }}...</p>
-                <a href="#" class="read-more">Read Full Article</a>
+                <a href="#" class="read-more">Read Article</a>
             </article>
             {% endfor %}
         {% else %}

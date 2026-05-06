@@ -2,6 +2,201 @@
 
 {% block title %}The Landmark Difference - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .philosophy-section {
+        padding: 60px 0;
+        background: white;
+    }
+    .philosophy-section h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .philosophy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .differentiators {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .differentiators h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .differentiators-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .differentiator-card {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #1e4d3b;
+    }
+    .differentiator-card h3 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .differentiator-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .global-presence {
+        padding: 60px 0;
+        background: white;
+    }
+    .global-presence h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .presence-map {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .region-item {
+        background: #f5f3f0;
+        padding: 25px;
+        border-left: 5px solid #a8c86f;
+        text-align: center;
+    }
+    .region-item h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .region-item p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .investment-thesis {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .investment-thesis h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .thesis-points {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .thesis-point {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .point-number {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: #1e4d3b;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .thesis-point h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .thesis-point p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .track-record {
+        padding: 60px 0;
+        background: white;
+    }
+    .track-record h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .record-metrics {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+    }
+    .metric {
+        text-align: center;
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .metric-value {
+        font-size: 28px;
+        font-weight: bold;
+        color: #1e4d3b;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .metric-label {
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>The Landmark Difference</h1>

@@ -1,9 +1,205 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    .page-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 60px 0;
+        color: white;
+        border-left: 8px solid #d4a574;
+    }
+    .page-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .company-overview {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .overview-content {
+        margin-bottom: 50px;
+    }
+    .overview-content h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .overview-content p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .company-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding: 30px;
+        background-color: #f9f7f4;
+    }
+    .stat-item {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #d4a574;
+    }
+    .stat-number {
+        font-size: 28px;
+        font-weight: bold;
+        color: #d4a574;
+        margin-bottom: 10px;
+    }
+    .stat-label {
+        font-size: 13px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .mission-vision {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    .mission-section, .vision-section {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .mission-section h3, .vision-section h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .mission-section p, .vision-section p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+    }
+
+    .core-values {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .core-values h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .value-card {
+        background: #f9f7f4;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #d4a574;
+    }
+    .value-card h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+    }
+    .value-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .impact-section {
+        padding: 60px 0;
+        background-color: #f9f7f4;
+    }
+    .impact-section h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .impact-content {
+        background: white;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #d4a574;
+    }
+    .impact-content p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    .impact-content ul {
+        list-style: none;
+    }
+    .impact-content li {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+        padding-left: 25px;
+        position: relative;
+    }
+    .impact-content li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #d4a574;
+        font-weight: bold;
+    }
+
+    .cta-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        color: white;
+        text-align: center;
+        border-left: 8px solid #d4a574;
+    }
+    .cta-section h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    .cta-section p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #d4a574;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: #d4a574;
+        color: #1a1a1a;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: background-color 0.3s;
+    }
+    .cta-button:hover {
+        background-color: #e5b88a;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-header">
+<section class="page-hero">
     <h1>Who We Are</h1>
-    <p class="page-subtitle">A leading global alternative investment manager</p>
 </section>
 
 <section class="company-overview">
@@ -82,7 +278,7 @@
 
 <section class="cta-section">
     <h2>Meet Our Leadership Team</h2>
-    <p>Learn more about the experienced investment professionals leading Bastion's growth and investment strategy.</p>
-    <a href="/who-we-are/team" class="cta-button">View Leadership Team</a>
+    <p>Learn more about the experienced investment professionals leading Bastion</p>
+    <a href="/who-we-are/team" class="cta-button">View Team</a>
 </section>
 {% endblock %}

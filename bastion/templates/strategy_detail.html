@@ -1,19 +1,102 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<style>
+    .page-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        padding: 60px 0;
+        color: white;
+        border-left: 8px solid #d4a574;
+    }
+    .page-hero h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+    .page-hero p {
+        font-size: 18px;
+        color: #d4a574;
+    }
+
+    .detail-content {
+        padding: 60px 0;
+        background-color: white;
+    }
+    .detail-header {
+        margin-bottom: 50px;
+        padding-bottom: 30px;
+        border-bottom: 3px solid #d4a574;
+    }
+    .detail-header h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .aum-highlight {
+        font-size: 18px;
+        color: #d4a574;
+        font-weight: bold;
+    }
+
+    .detail-sections {
+        background-color: #f9f7f4;
+        padding: 40px;
+    }
+    .detail-section {
+        margin-bottom: 40px;
+    }
+    .detail-section:last-child {
+        margin-bottom: 0;
+    }
+    .detail-section h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+        color: #1a1a1a;
+        font-weight: 600;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #d4a574;
+    }
+    .detail-section p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+    .detail-section ul {
+        list-style: none;
+        margin: 15px 0;
+    }
+    .detail-section ul li {
+        font-size: 14px;
+        color: #666;
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+    }
+    .detail-section ul li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #d4a574;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="page-header">
-    <h1>Strategy Detail</h1>
-    <p class="page-subtitle">Deep dive into investment strategy and approach</p>
+<section class="page-hero">
+    <h1>Investment Strategy</h1>
 </section>
 
-<section class="strategy-detail-content">
+<section class="detail-content">
     {% set strategy_slug = slug %}
     {% set strategy_name = strategy_slug|title|replace('-', ' ') %}
 
     <div class="detail-header">
         <h2>{{ strategy_name }}</h2>
         {% if aum_data.by_strategy[strategy_name] %}
-        <p class="aum-highlight">{{ aum_data.by_strategy[strategy_name] }} AUM</p>
+        <p class="aum-highlight">{{ aum_data.by_strategy[strategy_name] }} Assets Under Management</p>
         {% endif %}
     </div>
 
@@ -50,11 +133,6 @@
         <section class="detail-section">
             <h3>Performance Track Record</h3>
             <p>Bastion has consistently delivered attractive returns for investors in this strategy across various market conditions. Our focus on fundamental value creation and disciplined risk management has enabled us to outperform peer benchmarks and generate sustainable long-term performance.</p>
-        </section>
-
-        <section class="detail-section">
-            <h3>Get More Information</h3>
-            <p>For detailed performance information, fund documentation, or to discuss how this strategy might fit your investment objectives, please <a href="/contact" class="inline-link">contact our investor relations team</a>.</p>
         </section>
     </div>
 </section>
