@@ -1,67 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>News & Updates</h1>
-
-<section class="news-section">
-    {% if news_data %}
-        {% for article in news_data %}
-        <article class="news-item">
-            <h2>{{ article.title }}</h2>
-            <p class="news-date">{{ article.date }}</p>
-            <p class="news-content">{{ article.content }}</p>
-        </article>
-        {% endfor %}
-    {% else %}
-        <p>No news articles available.</p>
-    {% endif %}
+<section class="hero" style="padding: 60px 40px; text-align: center;">
+    <h1 style="color: white; font-size: 48px; margin-bottom: 15px;">News & Insights</h1>
+    <p style="color: rgba(255,255,255,0.9); font-size: 18px;">Latest updates and market insights from Apex</p>
 </section>
 
-<style>
-    h1 {
-        font-size: 40px;
-        margin-bottom: 30px;
-        color: #333;
-    }
-
-    .news-section {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .news-item {
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        padding: 25px;
-        background: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-    }
-
-    .news-item:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-color: #667eea;
-    }
-
-    .news-item h2 {
-        font-size: 24px;
-        color: #333;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-
-    .news-date {
-        font-size: 14px;
-        color: #999;
-        margin-bottom: 15px;
-        font-weight: 500;
-    }
-
-    .news-content {
-        font-size: 16px;
-        color: #555;
-        line-height: 1.8;
-    }
-</style>
+<section style="padding: 80px 40px;">
+    <div class="container">
+        <h2>Latest News</h2>
+        <ul class="news-list">
+            {% if news_data %}
+                {% for item in news_data %}
+                <li class="news-item">
+                    <p class="news-date">{{ item.date }}</p>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.content }}</p>
+                </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</section>
 {% endblock %}

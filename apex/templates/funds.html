@@ -1,86 +1,49 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Our Funds</h1>
-
-<section class="funds-section">
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Fund Name</th>
-                <th>Strategy</th>
-                <th>AUM</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if aum_data.by_fund %}
-                {% for fund in aum_data.by_fund %}
-                <tr>
-                    <td><a href="/fund/{{ fund.id }}">{{ fund.name }}</a></td>
-                    <td>{{ fund.strategy }}</td>
-                    <td>${{ "{:,.0f}B".format(fund.aum / 1e9) }}</td>
-                </tr>
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+<section class="hero" style="padding: 60px 40px; text-align: center;">
+    <h1 style="color: white; font-size: 48px; margin-bottom: 15px;">Investment Funds</h1>
+    <p style="color: rgba(255,255,255,0.9); font-size: 18px;">Comprehensive suite of multi-asset investment solutions</p>
 </section>
 
-<style>
-    h1 {
-        font-size: 40px;
-        margin-bottom: 30px;
-        color: #333;
-    }
+<section style="padding: 80px 40px;">
+    <div class="container">
+        <h2>Our Fund Portfolio</h2>
+        <div class="funds-grid">
+            {% if aum_data.by_fund %}
+                {% for fund in aum_data.by_fund %}
+                <div class="fund-card">
+                    <h3>{{ fund.name }}</h3>
+                    <p class="asset-class">{{ fund.asset_class if fund.asset_class else fund.strategy }}</p>
+                    <div style="margin: 20px 0; padding: 20px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                        <p><strong>${{ "{:.1f}B".format(fund.aum / 1e9) }} AUM</strong></p>
+                        <p style="font-size: 13px; color: #666; margin-top: 10px;">{{ fund.get('focus', fund.strategy) }}</p>
+                    </div>
+                    <table class="data-table" style="font-size: 13px; margin-top: 15px;">
+                        <tbody>
+                            <tr>
+                                <td><strong>YTD Return:</strong></td>
+                                <td>{{ fund.get('ytd_return', 'N/A') }}%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3-Year Return:</strong></td>
+                                <td>{{ fund.get('three_year_return', 'N/A') }}%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inception:</strong></td>
+                                <td>{{ fund.inception_date }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Holdings:</strong></td>
+                                <td>{{ fund.get('holdings', fund.get('portfolio_companies', 'N/A')) }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
 
-    .funds-section {
-        margin-top: 30px;
-    }
-
-    .data-table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .data-table thead {
-        background: #f5f5f5;
-        font-weight: bold;
-    }
-
-    .data-table th {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 2px solid #e0e0e0;
-        color: #333;
-    }
-
-    .data-table td {
-        padding: 15px;
-        text-align: left;
-        border-bottom: 1px solid #e0e0e0;
-        color: #555;
-    }
-
-    .data-table tbody tr:hover {
-        background: #fafafa;
-    }
-
-    .data-table tbody tr:last-child td {
-        border-bottom: none;
-    }
-
-    .data-table a {
-        color: #667eea;
-        text-decoration: none;
-        font-weight: 600;
-    }
-
-    .data-table a:hover {
-        text-decoration: underline;
-    }
-</style>
 {% endblock %}

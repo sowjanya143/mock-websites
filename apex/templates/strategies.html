@@ -1,39 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Investment Strategies</h2>
+<section class="hero" style="padding: 60px 40px; text-align: center;">
+    <h1 style="color: white; font-size: 48px; margin-bottom: 15px;">Investment Strategies</h1>
+    <p style="color: rgba(255,255,255,0.9); font-size: 18px;">Comprehensive multi-asset investment approaches</p>
+</section>
 
-<section class="strategies-section">
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Strategy</th>
-                <th>AUM</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Real Estate</strong></td>
-                <td>${{ "{:,.0f}B".format(180) }}</td>
-                <td>Global commercial real estate investments including office, retail, hospitality, and industrial properties. Focus on value creation and strategic asset management across core and opportunistic markets.</td>
-            </tr>
-            <tr>
-                <td><strong>Private Equity</strong></td>
-                <td>${{ "{:,.0f}B".format(140) }}</td>
-                <td>Leveraged buyouts and growth equity investments in middle-market companies. Emphasis on operational improvements, strategic growth, and creating sustainable competitive advantages.</td>
-            </tr>
-            <tr>
-                <td><strong>Debt</strong></td>
-                <td>${{ "{:,.0f}B".format(80) }}</td>
-                <td>Corporate credit, structured finance, and specialty lending across the capital structure. Active credit selection and risk management to optimize risk-adjusted returns.</td>
-            </tr>
-            <tr>
-                <td><strong>Opportunistic</strong></td>
-                <td>${{ "{:,.0f}B".format(50) }}</td>
-                <td>Cross-asset class investments seeking exceptional value in special situations. Flexible approach to capitalize on market dislocations and unique opportunities worldwide.</td>
-            </tr>
-        </tbody>
-    </table>
+<section style="padding: 80px 40px;">
+    <div class="container">
+        <h2>Our Strategies by Asset Class</h2>
+        <div class="strategies-grid">
+            {% if aum_data.by_asset_class %}
+                {% for asset_class, value in aum_data.by_asset_class.items() %}
+                <div class="strategy-card">
+                    <h3>{{ asset_class }}</h3>
+                    <p class="asset-class">${{ "{:.0f}B".format(value / 1e9) }} AUM</p>
+                    <div style="margin: 20px 0; padding: 20px 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                        {% if asset_class == 'Equities' %}
+                            <p><strong>Asia-focused and global equity strategies</strong></p>
+                            <p style="font-size: 13px; color: #666; margin-top: 10px;">Growth and income focused strategies targeting companies with strong fundamentals across developed and emerging markets.</p>
+                        {% elif asset_class == 'Fixed Income' %}
+                            <p><strong>Multi-sector bond investing</strong></p>
+                            <p style="font-size: 13px; color: #666; margin-top: 10px;">Government, corporate, and high-yield credit solutions with active duration and credit management.</p>
+                        {% elif asset_class == 'Alternatives' %}
+                            <p><strong>Real assets & infrastructure</strong></p>
+                            <p style="font-size: 13px; color: #666; margin-top: 10px;">Real estate, infrastructure, and private equity opportunities delivering stable, long-term returns.</p>
+                        {% else %}
+                            <p><strong>Diversified multi-asset solutions</strong></p>
+                            <p style="font-size: 13px; color: #666; margin-top: 10px;">Balanced allocation strategies combining multiple asset classes for risk-adjusted returns.</p>
+                        {% endif %}
+                    </div>
+                    <button class="btn" style="width: 100%; margin-top: 15px;">Learn More</button>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 </section>
 {% endblock %}
