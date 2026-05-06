@@ -4,145 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ company_name }}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #fff;
             color: #333;
         }
+
+        /* Header */
+        header {
+            background: #1a1a1a;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #c8a96e;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #c8a96e;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer .footer-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #333;
+        }
+
+        footer .footer-section h4 {
+            font-size: 14px;
+            color: #c8a96e;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer .footer-section ul {
+            list-style: none;
+        }
+
+        footer .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+
+        footer .footer-section ul li a:hover {
+            color: #c8a96e;
+        }
+
+        /* Newsletter */
+        footer .newsletter {
+            margin-bottom: 40px;
+        }
+
+        footer .newsletter h4 {
+            font-size: 14px;
+            color: #c8a96e;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer .newsletter form {
+            display: flex;
+            gap: 10px;
+        }
+
+        footer .newsletter input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: #333;
+            color: white;
+        }
+
+        footer .newsletter input::placeholder {
+            color: #999;
+        }
+
+        footer .newsletter button {
+            padding: 12px 24px;
+            background: #c8a96e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        footer .newsletter button:hover {
+            background: #b39860;
+        }
+
+        footer .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* Header/Navigation - Fortress style */
-        header {
-            background-color: #1a1a1a;
-            border-bottom: 3px solid #d4a574;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            letter-spacing: 2px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #d4a574;
-        }
-        /* Main content */
-        .main-content {
-            min-height: calc(100vh - 300px);
-        }
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 40px 0;
-            border-top: 3px solid #d4a574;
-            margin-top: 60px;
-            text-align: center;
-        }
-        footer p {
-            margin: 10px 0;
-            font-size: 14px;
-        }
-        .global-aum {
-            font-weight: bold;
-            color: #d4a574;
+
+        @media (max-width: 768px) {
+            header nav {
+                gap: 20px;
+                font-size: 12px;
+            }
+
+            footer .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            footer .newsletter form {
+                flex-direction: column;
+            }
         }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- Popup Overlay -->
-    {% if popup_data %}
-    <div class="popup-overlay" id="popupOverlay" data-auto-dismiss="{{ popup_data.get('auto_dismiss', False)|lower }}" data-dismiss-delay="{{ popup_data.get('dismiss_delay', 5000) }}">
-        <div class="popup-modal">
-            <div class="popup-header">
-                <h2>{{ popup_data.get('title', 'Notification') }}</h2>
-                <button class="close-button" onclick="dismissPopup()">&times;</button>
-            </div>
-            <div class="popup-content">
-                {{ popup_data.get('content', '') }}
-            </div>
-            <div class="popup-footer">
-                <button class="popup-button" onclick="dismissPopup()">{{ popup_data.get('button_text', 'Close') }}</button>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-
-    <!-- Header/Navbar -->
     <header>
         <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    {{ company_name }}
-                </div>
-                <nav class="nav-links">
-                    <a href="/">Home</a>
-                    <a href="/what-we-do">What We Do</a>
-                    <a href="/who-we-are">Who We Are</a>
-                    <a href="/investors">Investors</a>
-                    <a href="/financial-advisors">Financial Advisors</a>
-                    <a href="/media">Media</a>
-                    <a href="/careers">Careers</a>
-                    <a href="/contact">Contact</a>
-                </nav>
-            </div>
+            <a href="/" class="logo">{{ company_name }}</a>
+            <nav>
+                <a href="/what-we-do">What We Do</a>
+                <a href="/who-we-are">Who We Are</a>
+                <a href="/investors">Investors</a>
+                <a href="/media">Media</a>
+                <a href="/careers">Careers</a>
+                <a href="/contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
-    </main>
+    {% block content %}{% endblock %}
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 {{ company_name }}</p>
-            {% if global_aum %}
-            <p class="global-aum">Global AUM: {{ global_aum }}</p>
-            {% endif %}
+            <div class="footer-top">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/who-we-are">About Us</a></li>
+                        <li><a href="/who-we-are/team">Team</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Investments</h4>
+                    <ul>
+                        <li><a href="/what-we-do">Strategies</a></li>
+                        <li><a href="/investors">For Investors</a></li>
+                        <li><a href="/financial-advisors">For Advisors</a></li>
+                        <li><a href="/media">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section newsletter">
+                    <h4>Subscribe</h4>
+                    <form method="POST" action="/subscribe">
+                        <input type="email" placeholder="Your email" name="email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 {{ company_name }}. All rights reserved. | <a href="/privacy" style="color: #999;">Privacy</a> | <a href="/disclaimer" style="color: #999;">Disclaimer</a></p>
+            </div>
         </div>
     </footer>
-
-    <!-- Cookie Banner -->
-    {% include 'cookie_banner.html' %}
-
-    <!-- Scripts -->
-    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
-    {% block extra_js %}{% endblock %}
 </body>
 </html>
