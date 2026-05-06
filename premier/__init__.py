@@ -1,1 +1,0 @@
-"""Hokuyo Bank site package."""

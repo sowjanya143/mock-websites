@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash /tmp/template_check.sh)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:5010/)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0\" http://localhost:5009/validate-js)",
+      "Bash(pkill -f \"python bastion/app.py\")",
+      "WebFetch(domain:images.unsplash.com)",
+      "PowerShell(Stop-Process -Name \"python\" -Force -ErrorAction SilentlyContinue)",
+      "Bash(curl -v http://localhost:5001/)",
+      "Bash(PORT=5001 python sentinel/app.py)",
+      "Bash(rm /tmp/headers_debug.log)",
+      "Bash(curl -s http://localhost:5001/)",
+      "Bash(cat /tmp/headers_debug.log)",
+      "Bash(netstat -tuln)",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(curl -s http://localhost:5008/)",
+      "Bash(curl -s -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\)\" http://localhost:5008/)",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\)\" http://localhost:5008/)",
+      "Bash(curl -s -I -H \"User-Agent: Mozilla/5.0\" http://localhost:5008/)",
+      "Bash(curl -s -I -H \"User-Agent: Mozilla/5.0\" http://localhost:5006/)",
+      "Bash(curl -s -I -H \"User-Agent: Mozilla/5.0\" http://localhost:5007/)",
+      "Bash(curl -s -I -H \"User-Agent: Mozilla/5.0\" http://localhost:5004/)",
+      "Bash(pkill -f \"python.*app.py\")",
+      "Bash(python cipher/app.py)",
+      "Bash(echo \"Cipher started \\(PID: $!\\)\")",
+      "Bash(python nexus/app.py)",
+      "Bash(echo \"Nexus started \\(PID: $!\\)\")",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0\" http://localhost:5008/)",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0\" http://localhost:5006/)",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0\" http://localhost:5007/)",
+      "Bash(curl -s -L -H \"User-Agent: Mozilla/5.0\" http://localhost:5004/)"
+    ]
+  }
+}

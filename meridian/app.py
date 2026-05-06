@@ -23,7 +23,6 @@ from utils import (
     get_paginated_data,
     validate_captcha,
     inject_js_routes,
-    inject_cookie_middleware,
     inject_user_agent_middleware,
     inject_headers_middleware,
     require_javascript,
@@ -52,7 +51,6 @@ app.secret_key = Config.SECRET_KEY
 # Inject global middleware for security features
 inject_user_agent_middleware(app)
 inject_headers_middleware(app)
-inject_cookie_middleware(app)
 inject_js_routes(app)
 
 

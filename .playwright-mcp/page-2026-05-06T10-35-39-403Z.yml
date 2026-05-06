@@ -1,0 +1,150 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]: FIVE DECADES SERVING CLIENTS
+    - generic [ref=e5]:
+      - link "LANDMARK" [ref=e6] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e7]:
+        - link "The Landmark Difference" [ref=e8] [cursor=pointer]:
+          - /url: /landmark-difference
+        - link "Investment Strategies" [ref=e9] [cursor=pointer]:
+          - /url: /investment-strategies
+        - link "About" [ref=e10] [cursor=pointer]:
+          - /url: /about
+        - link "Careers" [ref=e11] [cursor=pointer]:
+          - /url: /careers
+        - link "Contact" [ref=e12] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e13]:
+    - 'heading "Investment focus: real estate" [level=1] [ref=e15]'
+    - generic [ref=e17]:
+      - link "$47B Global AUM" [ref=e18] [cursor=pointer]:
+        - /url: /investment-strategies
+        - generic [ref=e19]:
+          - generic [ref=e20]: $47B
+          - generic [ref=e21]: Global AUM
+      - link "50+ Years" [ref=e22] [cursor=pointer]:
+        - /url: /about
+        - generic [ref=e23]:
+          - generic [ref=e24]: 50+
+          - generic [ref=e25]: Years
+      - link "Global Presence" [ref=e26] [cursor=pointer]:
+        - /url: /about
+        - generic [ref=e27]:
+          - generic [ref=e28]: Global
+          - generic [ref=e29]: Presence
+      - link "3 Strategies" [ref=e30] [cursor=pointer]:
+        - /url: /investment-strategies
+        - generic [ref=e31]:
+          - generic [ref=e32]: "3"
+          - generic [ref=e33]: Strategies
+      - link "500+ Team" [ref=e34] [cursor=pointer]:
+        - /url: /about/team
+        - generic [ref=e35]:
+          - generic [ref=e36]: 500+
+          - generic [ref=e37]: Team
+    - generic [ref=e39]:
+      - heading "Investment Strategies" [level=2] [ref=e40]
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - img "Private Equity Real Estate" [ref=e43]
+          - generic [ref=e44]:
+            - generic [ref=e45]: Private Equity Real Estate
+            - generic [ref=e46]:
+              - generic [ref=e47]: $18.5B AUM
+              - generic [ref=e48]: 14.2% IRR
+            - link "Learn More →" [ref=e49] [cursor=pointer]:
+              - /url: /investment-strategies/private-equity-re
+        - generic [ref=e50]:
+          - img "Private Debt Real Estate" [ref=e51]
+          - generic [ref=e52]:
+            - generic [ref=e53]: Private Debt Real Estate
+            - generic [ref=e54]:
+              - generic [ref=e55]: $16.2B AUM
+              - generic [ref=e56]: 6.8% Yield
+            - link "Learn More →" [ref=e57] [cursor=pointer]:
+              - /url: /investment-strategies/private-debt-re
+        - generic [ref=e58]:
+          - img "Public Equity Real Estate" [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]: Public Equity Real Estate
+            - generic [ref=e62]:
+              - generic [ref=e63]: $12.3B AUM
+              - generic [ref=e64]: 5.1% Yield
+            - link "Learn More →" [ref=e65] [cursor=pointer]:
+              - /url: /investment-strategies/public-equity-re
+    - generic [ref=e67]:
+      - heading "Latest News" [level=2] [ref=e68]
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - img "Landmark Closes $2.1B Acquisition of Premium European Office Portfolio" [ref=e71]
+          - generic [ref=e72]:
+            - generic [ref=e73]: 2026-04-28
+            - generic [ref=e74]: Landmark Closes $2.1B Acquisition of Premium European Office Portfolio
+            - generic [ref=e75]: Landmark Property Advisors completes acquisition of 34 office properties across London, Frankfurt, and Paris for â‚¬1.9B, expanding European footprint to 127 properties.
+        - generic [ref=e76]:
+          - 'img "Landmark Reports Record Q1 2026 Performance: $1.7B Capital Deployment" [ref=e77]'
+          - generic [ref=e78]:
+            - generic [ref=e79]: 2026-04-15
+            - generic [ref=e80]: "Landmark Reports Record Q1 2026 Performance: $1.7B Capital Deployment"
+            - generic [ref=e81]: Q1 2026 represents strongest capital deployment quarter in firm history, with $1.7B invested across 47 acquisitions and 12 major property renovations.
+        - generic [ref=e82]:
+          - img "Landmark Launches $3.5B Sustainability-Focused Real Estate Fund" [ref=e83]
+          - generic [ref=e84]:
+            - generic [ref=e85]: 2026-03-22
+            - generic [ref=e86]: Landmark Launches $3.5B Sustainability-Focused Real Estate Fund
+            - generic [ref=e87]: New Landmark Green Properties Fund targets LEED Platinum and carbon-neutral real estate investments, committing $500M capital to environmental initiatives.
+        - generic [ref=e88]:
+          - img "Landmark Expands Asia-Pacific Operations with New Singapore Hub" [ref=e89]
+          - generic [ref=e90]:
+            - generic [ref=e91]: 2026-02-18
+            - generic [ref=e92]: Landmark Expands Asia-Pacific Operations with New Singapore Hub
+            - generic [ref=e93]: Strategic expansion establishes Landmark's 11th regional office and 8th Asia-Pacific location, covering $4.2B in regional property holdings.
+    - generic [ref=e95]:
+      - heading "Ready to Partner with Us?" [level=2] [ref=e96]
+      - button "Speak with an Advisor" [ref=e97] [cursor=pointer]
+  - contentinfo [ref=e98]:
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - heading "Company" [level=4] [ref=e102]
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "About Us" [ref=e105] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e106]:
+              - link "Team" [ref=e107] [cursor=pointer]:
+                - /url: /about/team
+            - listitem [ref=e108]:
+              - link "Careers" [ref=e109] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=e110]:
+              - link "Contact" [ref=e111] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e112]:
+          - heading "Investments" [level=4] [ref=e113]
+          - list [ref=e114]:
+            - listitem [ref=e115]:
+              - link "Strategies" [ref=e116] [cursor=pointer]:
+                - /url: /investment-strategies
+            - listitem [ref=e117]:
+              - link "Our Difference" [ref=e118] [cursor=pointer]:
+                - /url: /landmark-difference
+            - listitem [ref=e119]:
+              - link "Sustainability" [ref=e120] [cursor=pointer]:
+                - /url: /about/sustainability
+            - listitem [ref=e121]:
+              - link "News" [ref=e122] [cursor=pointer]:
+                - /url: /news
+        - generic [ref=e123]:
+          - heading "Subscribe" [level=4] [ref=e124]
+          - generic [ref=e125]:
+            - textbox "Your email" [ref=e126]
+            - button "Subscribe" [ref=e127] [cursor=pointer]
+      - paragraph [ref=e129]:
+        - text: © 2024 Landmark Property Advisors. All rights reserved. |
+        - link "Privacy" [ref=e130] [cursor=pointer]:
+          - /url: /privacy
+        - text: "|"
+        - link "Disclaimer" [ref=e131] [cursor=pointer]:
+          - /url: /disclaimer

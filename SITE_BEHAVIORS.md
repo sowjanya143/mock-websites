@@ -42,49 +42,7 @@ def check_captcha():
 
 ---
 
-### 2. Apex Investment Group (Port 5001)
-**Primary Obstacles: Rate Limiting + Selective CAPTCHA + Popups**
-
-#### Specific Behaviors:
-- **CAPTCHA on Data Pages Only**: `CAPTCHA_ON_EVERY_PAGE = False`
-  - Protected routes: `/strategies`, `/investor-resources`, `/funds`, `/fund/<id>`
-  - Home, about, leadership, contact: NO CAPTCHA
-  - Helper function checks route against `CAPTCHA_REQUIRED_PAGES`
-  
-- **Rate Limiting**: 5 requests per 60 seconds per IP
-  - `@rate_limit(5, 60)` decorator on all routes
-  - Uses `_request_times` dict tracking per-IP timestamps
-  - Sliding window algorithm (cleans old entries)
-  - Returns 429 (TooManyRequests) on breach
-  
-- **Pop-ups**: Dismissible newsletter popup
-  - Type: `'dismissible'` with no auto-dismiss
-  - Trigger: `should_show_popup('data_page')` - only on data pages
-  - Popup button: "Not Interested" dismissal
-  - Session tracking: `session['popup_dismissed']`
-  - `POST /api/dismiss-popup` endpoint
-  
-- **JSON API Endpoint**: `/api/aum`
-  - Returns: `global_aum`, `by_asset_class`, `by_fund`
-  - Used for AJAX-loaded data
-  - `Config.DATA_LAYOUT = 'json_endpoint'`
-
-#### Rate Limiting Storage:
-```python
-_request_times = {}  # {ip: [timestamp1, timestamp2, ...]}
-# Sliding window: removes timestamps > time_window old
-# If count > max_requests: raise TooManyRequests (429)
-```
-
-#### Popup Conditional:
-```python
-if Config.SHOW_POPUPS and should_show_popup('data_page'):
-    render_popup('newsletter', auto_dismiss=False)
-```
-
----
-
-### 3. Meridian Global Holdings (Port 5002)
+### 2. Meridian Global Holdings (Port 5002)
 **Primary Obstacles: Random CAPTCHA + Artificial Delay + Modal Popups**
 
 #### Specific Behaviors:
@@ -130,41 +88,7 @@ def check_random_captcha():
 
 ---
 
-### 4. Premier Financial Services (Port 5003)
-**Primary Obstacle: None - Baseline Control Site**
-
-#### Specific Behaviors:
-- **No CAPTCHA**: `CAPTCHA_ON_EVERY_PAGE = False`, `CAPTCHA_REQUIRED_PAGES = []`
-  - All routes accessible without barriers
-  - Used as performance/baseline comparison
-  
-- **No Rate Limiting**: `RATE_LIMIT_ENABLED = False`
-  - Can make unlimited requests
-  
-- **No Popups**: `SHOW_POPUPS = False`
-  
-- **No Delays**: `ARTIFICIAL_DELAY = 0`
-  
-- **Clean Data Layout**: `DATA_LAYOUT = 'clean_tables'`
-  - Static AUM data (no variance)
-  - Consistent across all requests
-  - Easy to scrape without obstacles
-  
-- **Uses Shared Base Template**
-  - Standard HTML rendering
-  - No custom styling or JavaScript
-
-#### Routes:
-```python
-# All routes are bare @app.route() with no decorators
-@app.route('/')
-def home():
-    return render_template('home.html')
-```
-
----
-
-### 5. Zenith Asset Management (Port 5004)
+### 3. Zenith Asset Management (Port 5004)
 **Primary Obstacles: Dual CAPTCHA + Rate Limiting + Delays + Popups + AJAX**
 
 #### Specific Behaviors:
@@ -238,62 +162,7 @@ def route():
 
 ## NEW 4 ADVANCED SITES
 
-### 6. Fortis Banking Group (Port 5005)
-**Primary Obstacles: CAPTCHA on Data Pages + Rate Limiting**
-
-#### Specific Behaviors:
-- **CAPTCHA on Data Pages Only**: `CAPTCHA_ON_EVERY_PAGE = False`
-  - Protected routes: `/strategies`, `/investor-resources`, `/funds`, `/fund/<id>`
-  - Home, about, leadership, contact, news: NO CAPTCHA
-  - Allows unauthenticated browsing of basic pages
-  - CAPTCHA required only for sensitive financial data
-  
-- **CAPTCHA Validation**:
-  - 4-character random string image (PIL generated)
-  - Noise lines and visual distortion
-  - Case-insensitive answer validation
-  - Stored in `session['captcha_answer']`
-  - Session flag: `session['captcha_passed'] = True`
-  
-- **Route Protection**:
-  - `@require_captcha` decorator on data pages
-  - Checks: if on protected route AND captcha_passed not in session → show CAPTCHA
-  - Helper function: `require_captcha_for_page(current_path)`
-  - After CAPTCHA success: redirects to referrer or home
-  
-- **Rate Limiting**: 7 requests per 60 seconds
-  - `@rate_limit(7, 60)` on all routes
-  - Moderate restriction (between Apex 5/60s and Quantum 6/60s)
-  - Returns 429 on breach
-  
-- **Clean Data Layout**: `DATA_LAYOUT = 'clean_tables'`
-  - Static AUM data (no variance)
-  - Consistent across requests
-  - Unlike dynamic sites
-
-#### CAPTCHA Detection Logic:
-```python
-def require_captcha_for_page(current_path):
-    """Check if current path requires CAPTCHA."""
-    if current_path in Config.CAPTCHA_REQUIRED_PAGES:
-        return True
-    for page in Config.CAPTCHA_REQUIRED_PAGES:
-        if page.endswith('<id>'):
-            base_path = page.replace('/<id>', '')
-            if current_path.startswith(base_path):
-                return True
-    return False
-
-@require_captcha
-@app.route('/strategies')
-def strategies():
-    # CAPTCHA validated by decorator
-    return render_template('strategies.html')
-```
-
----
-
-### 7. Nexus Capital (Port 5006)
+### 4. Nexus Capital (Port 5006)
 **Primary Obstacles: Honeypot Detection + Bot Fingerprinting + Fragmented Data**
 
 #### Specific Behaviors:
@@ -371,7 +240,7 @@ def validate_form_submission(form_data, session):
 
 ---
 
-### 8. Quantum Funds (Port 5007)
+### 5. Quantum Funds (Port 5007)
 **Primary Obstacles: Geographic Blocking + VPN Detection + IP-Based Rate Limiting**
 
 #### Specific Behaviors:
@@ -462,7 +331,7 @@ def get_country_from_ip(ip):
 
 ---
 
-### 9. Cipher Wealth Management (Port 5008)
+### 6. Cipher Wealth Management (Port 5008)
 **Primary Obstacles: CAPTCHA on Every Page + Artificial Delay**
 
 #### Specific Behaviors:
@@ -537,7 +406,7 @@ def home():
 
 ---
 
-### 10. Bastion Investment Group (Port 5009)
+### 7. Bastion Investment Group (Port 5009)
 **Primary Obstacles: Dynamic DOM Obfuscation + Timed CAPTCHA**
 
 #### Specific Behaviors:
@@ -574,7 +443,7 @@ GLOBAL_AUM = '$55,000,000,000'
 
 ---
 
-### 11. Landmark Property Advisors (Port 5010)
+### 8. Landmark Property Advisors (Port 5010)
 **Primary Obstacles: Rotating Session Tokens + Canvas/WebGL Fingerprint Blocking**
 
 #### Specific Behaviors:
@@ -733,7 +602,7 @@ Sitemap: /fake-sitemap.xml
 ```
 
 **Variations by Site**:
-- **Sentinel, Apex, Meridian, Premier, Zenith, Fortis**: Standard disallow all
+- **Sentinel, Apex, Meridian, Zenith**: Standard disallow all
 - **Nexus, Quantum**: Very strict (Disallow: /)
 - **Cipher**: API-specific (Disallow: /api, Disallow: /)
 
@@ -747,51 +616,46 @@ Sitemap: /fake-sitemap.xml
 
 ## Summary Table: Behaviors by Site
 
-| Behavior | Sentinel | Apex | Meridian | Premier | Zenith | Fortis | Nexus | Quantum | Cipher | Bastion | Landmark |
-|----------|----------|------|----------|---------|--------|--------|-------|---------|--------|---------|----------|
+| Behavior | Sentinel | Meridian | Zenith | Nexus | Quantum | Cipher | Bastion | Landmark |
+|----------|----------|----------|--------|-------|---------|--------|---------|----------|
 | **CAPTCHA Strategies** |
-| Every Page CAPTCHA | ✓ | - | - | - | - | - | - | - | ✓ | - | - |
-| Data Pages CAPTCHA | - | ✓ | - | - | ✓ | ✓ | - | - | - | ✓ | - |
-| Random CAPTCHA (30%) | - | - | ✓ | - | - | - | - | - | - | - | - |
-| First-Visit + Data | - | - | - | - | ✓ | - | - | - | - | - | - |
-| Timed CAPTCHA (30s) | - | - | - | - | - | - | - | - | - | ✓ | - |
+| Every Page CAPTCHA | ✓ | - | - | - | - | ✓ | - | - |
+| Data Pages CAPTCHA | - | - | ✓ | - | - | - | ✓ | - |
+| Random CAPTCHA (30%) | - | ✓ | - | - | - | - | - | - |
+| First-Visit + Data | - | - | ✓ | - | - | - | - | - |
+| Timed CAPTCHA (30s) | - | - | - | - | - | - | ✓ | - |
 | **Rate Limiting** |
-| 3 req/60s | - | - | - | - | ✓ | - | - | - | - | - | - |
-| 4 req/60s | - | - | - | - | - | - | - | - | - | - | ✓ |
-| 5 req/60s | - | ✓ | - | - | - | - | - | - | - | - | - |
-| 6 req/60s | - | - | - | - | - | - | - | ✓ | ✓ | - | - |
-| 7 req/60s | - | - | - | - | - | ✓ | - | - | - | - | - |
-| 8 req/60s | - | - | - | - | - | - | ✓ | - | - | - | - |
-| 10 req/60s | - | - | - | - | - | - | - | - | - | ✓ | - |
+| 3 req/60s | - | - | ✓ | - | - | - | - | - |
+| 4 req/60s | - | - | - | - | - | - | - | ✓ |
+| 6 req/60s | - | - | - | - | ✓ | ✓ | - | - |
+| 8 req/60s | - | - | - | ✓ | - | - | - | - |
+| 10 req/60s | - | - | - | - | - | - | - | ✓ |
 | **Delays & Popups** |
-| Artificial Delay | - | - | 1.0s | - | 0.5s | - | 0.2s | - | 0.1s | - | - |
-| Dismissible Popup | - | ✓ | - | - | - | - | - | - | - | - | - |
-| Modal Popup | - | - | ✓ | - | - | - | - | - | - | - | - |
-| Sticky Auto-Dismiss | - | - | - | - | ✓ | - | - | - | - | - | - |
+| Artificial Delay | - | 1.0s | 0.5s | 0.2s | - | 0.1s | - | - |
+| Modal Popup | - | ✓ | - | - | - | - | - | - |
+| Sticky Auto-Dismiss | - | - | ✓ | - | - | - | - | - |
 | **Auth & Detection** |
-| Honeypot Forms | - | - | - | - | - | - | ✓ | - | - | - | - |
-| DOM Obfuscation | - | - | - | - | - | - | - | - | - | ✓ | - |
-| Rotating Tokens | - | - | - | - | - | - | - | - | - | - | ✓ |
-| Canvas Fingerprint | - | - | - | - | - | - | - | - | - | - | ✓ |
-| GeoIP Blocking | - | - | - | - | - | - | - | ✓ | - | - | - |
-| VPN Detection | - | - | - | - | - | - | - | ✓ | - | - | - |
+| Honeypot Forms | - | - | - | ✓ | - | - | - | - |
+| DOM Obfuscation | - | - | - | - | - | - | ✓ | - |
+| Rotating Tokens | - | - | - | - | - | - | - | ✓ |
+| Canvas Fingerprint | - | - | - | - | - | - | - | ✓ |
+| GeoIP Blocking | - | - | - | - | ✓ | - | - | - |
+| VPN Detection | - | - | - | - | ✓ | - | - | - |
 | **Data Presentation** |
-| JSON Endpoint | - | ✓ | - | - | - | - | - | - | - | - | - |
-| AJAX Loading | - | - | - | - | ✓ | - | - | - | - | - | - |
-| Scattered Layout | - | - | ✓ | - | - | - | - | - | - | - | - |
-| Fragmented Layout | - | - | - | - | - | - | ✓ | - | - | - | - |
-| Geofenced Data | - | - | - | - | - | - | - | ✓ | - | - | - |
-| Protected Tables | - | - | - | - | - | - | - | - | ✓ | - | - |
+| AJAX Loading | - | - | ✓ | - | - | - | - | - |
+| Scattered Layout | - | ✓ | - | - | - | - | - | - |
+| Fragmented Layout | - | - | - | ✓ | - | - | - | - |
+| Geofenced Data | - | - | - | - | ✓ | - | - | - |
+| Protected Tables | - | - | - | - | - | ✓ | - | - |
 | **Cookie Banner** |
-| Optional | - | - | - | - | - | - | - | - | - | ✓ | - |
-| Mandatory | - | - | - | - | - | - | - | - | - | - | ✓ |
+| Optional | - | - | - | - | - | - | ✓ | - |
+| Mandatory | - | - | - | - | - | - | - | ✓ |
 | **Global Features** |
-| JS Validation | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Cookie Enforcement | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| UA Blocking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Strict Headers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| /aum Blocked | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| robots.txt | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| JS Validation | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| UA Blocking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Strict Headers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| /aum Blocked | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| robots.txt | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ---
 
@@ -813,16 +677,13 @@ Sitemap: /fake-sitemap.xml
 
 ### Layer 3: Site-Specific Obstacles
 1. **Sentinel**: CAPTCHA on every page
-2. **Apex**: Rate limiting + selective CAPTCHA + popups
-3. **Meridian**: Random CAPTCHA + delays
-4. **Premier**: None (baseline)
-5. **Zenith**: Multi-gate CAPTCHA + delays + AJAX
-6. **Fortis**: CAPTCHA on data pages + rate limiting
-7. **Nexus**: Honeypot detection
-8. **Quantum**: GeoIP blocking + VPN detection
-9. **Cipher**: CAPTCHA on every page + artificial delay
-10. **Bastion**: DOM obfuscation + timed CAPTCHA + rate limiting
-11. **Landmark**: Rotating tokens + canvas fingerprint blocking + strict rate limiting
+2. **Meridian**: Random CAPTCHA + delays
+3. **Zenith**: Multi-gate CAPTCHA + delays + AJAX
+4. **Nexus**: Honeypot detection
+5. **Quantum**: GeoIP blocking + VPN detection
+6. **Cipher**: CAPTCHA on every page + artificial delay
+7. **Bastion**: DOM obfuscation + timed CAPTCHA + rate limiting
+8. **Landmark**: Rotating tokens + canvas fingerprint blocking + strict rate limiting
 
 **Bypass difficulty**: Hard to Very Hard (varies by site)
 

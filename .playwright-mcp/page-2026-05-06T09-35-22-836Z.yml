@@ -1,0 +1,273 @@
+- generic [active] [ref=e1]:
+  - region "Quick Accessibility Options":
+    - button "Skip to main content" [ref=e2] [cursor=pointer]:
+      - generic [ref=e3]:
+        - img [ref=e5]
+        - generic [ref=e9]: Skip to main content
+      - img [ref=e11]
+    - button "Enable accessibility for low vision" [ref=e16] [cursor=pointer]:
+      - generic [ref=e17]:
+        - img [ref=e19]
+        - generic [ref=e26]: Enable accessibility for low vision
+      - img [ref=e28]
+    - button "Open the accessibility menu" [ref=e33] [cursor=pointer]:
+      - generic [ref=e34]:
+        - img [ref=e36]
+        - generic [ref=e38]: Open the accessibility menu
+      - img [ref=e40]
+  - banner [ref=e45]:
+    - navigation [ref=e46]:
+      - generic [ref=e47]:
+        - link [ref=e48] [cursor=pointer]:
+          - /url: /
+          - img [ref=e49]
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "What We Do" [ref=e53] [cursor=pointer]:
+              - /url: "#what-we-do"
+            - text:   
+          - listitem [ref=e54]:
+            - link "Who We Are" [ref=e55] [cursor=pointer]:
+              - /url: "#who-we-are"
+            - text: 
+          - listitem [ref=e56]:
+            - link "Investors" [ref=e57] [cursor=pointer]:
+              - /url: "#investors"
+          - listitem [ref=e58]:
+            - link "Financial Advisors" [ref=e59] [cursor=pointer]:
+              - /url: "#pws"
+            - text: 
+          - listitem [ref=e60]:
+            - link "Media" [ref=e61] [cursor=pointer]:
+              - /url: /media
+          - listitem [ref=e62]:
+            - link "Careers" [ref=e63] [cursor=pointer]:
+              - /url: /careers
+          - listitem [ref=e64]:
+            - link "Contact" [ref=e65] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e66]:
+            - button "Login" [ref=e67] [cursor=pointer]
+          - listitem [ref=e68]:
+            - link "" [ref=e69] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e70]: 
+  - main [ref=e71]:
+    - generic [ref=e72]:
+      - generic [ref=e75]:
+        - heading "A Pioneer and Leader in Alternative Assets" [level=1] [ref=e76]:
+          - text: A Pioneer and Leader
+          - generic [ref=e77]: in Alternative Assets
+        - heading "Our overriding objective is to protect and grow our investors’ capital" [level=2] [ref=e78]:
+          - text: Our overriding objective is to protect
+          - generic [ref=e79]: and grow our investors’ capital
+        - paragraph [ref=e80]:
+          - link "Learn More" [ref=e81] [cursor=pointer]:
+            - /url: /what-we-do
+      - paragraph [ref=e82]:
+        - button "" [ref=e83] [cursor=pointer]:
+          - generic [ref=e84]: 
+    - generic [ref=e86]:
+      - generic [ref=e87]:
+        - generic [ref=e89]:
+          - generic [ref=e90]: $55 billion
+          - generic [ref=e91]:
+            - text: In Managed
+            - text: Assets
+          - link "Who We Are" [ref=e92] [cursor=pointer]:
+            - /url: /who-we-are
+        - generic [ref=e94]:
+          - generic [ref=e95]: ">$200 billion"
+          - generic [ref=e96]: Invested
+          - link "Investment Approach" [ref=e97] [cursor=pointer]:
+            - /url: /what-we-do
+        - generic [ref=e99]:
+          - generic [ref=e100]: 2,000+
+          - generic [ref=e101]:
+            - text: Institutional and
+            - text: private investors
+          - link "Investors" [ref=e102] [cursor=pointer]:
+            - /url: /investors
+      - paragraph [ref=e103]: As of December 31, 2025.
+    - generic [ref=e105]:
+      - paragraph [ref=e108]: Featured News
+      - generic [ref=e109]:
+        - generic [ref=e111]:
+          - paragraph [ref=e112]:
+            - link "Press Release" [ref=e113] [cursor=pointer]:
+              - /url: /media/search-results?category=Press Release
+            - text: "| April, 2026"
+          - link "Mammoth Freighters Receives FAA Certification for 777-200LRMF Freighter" [ref=e114] [cursor=pointer]:
+            - /url: /media/2026-04-08-mammoth-freighters-receives-faa-certification-for-777-200lrmf-freighter
+            - img "Mammoth Freighters Receives FAA Certification for 777-200LRMF Freighter" [ref=e115]
+          - paragraph [ref=e116]:
+            - link "Mammoth Freighters Receives FAA Certification for 777-200LRMF Freighter" [ref=e117] [cursor=pointer]:
+              - /url: /media/2026-04-08-mammoth-freighters-receives-faa-certification-for-777-200lrmf-freighter
+        - generic [ref=e119]:
+          - paragraph [ref=e120]:
+            - link "Press Release" [ref=e121] [cursor=pointer]:
+              - /url: /media/search-results?category=Press Release
+            - text: "| March, 2026"
+          - link "Fortress Investment Group Appoints Elizabeth Burton as Chief Strategist" [ref=e122] [cursor=pointer]:
+            - /url: /media/2026-03-16-fortress-investment-group-appoints-elizabeth-burton-as-chief-strategist
+            - img "Fortress Investment Group Appoints Elizabeth Burton as Chief Strategist" [ref=e123]
+          - paragraph [ref=e124]:
+            - link "Fortress Investment Group Appoints Elizabeth Burton as Chief Strategist" [ref=e125] [cursor=pointer]:
+              - /url: /media/2026-03-16-fortress-investment-group-appoints-elizabeth-burton-as-chief-strategist
+        - generic [ref=e127]:
+          - paragraph [ref=e128]:
+            - link "Press Release" [ref=e129] [cursor=pointer]:
+              - /url: /media/search-results?category=Press Release
+            - text: "| March, 2026"
+          - link "Fortress Investment Group Launches New 1031 Real Estate Exchange Investment Platform" [ref=e130] [cursor=pointer]:
+            - /url: /media/2026-03-16-fortress-investment-group-launches-new-1031-real-estate-exchange-investment-platform
+            - img "Fortress Investment Group Launches New 1031 Real Estate Exchange Investment Platform" [ref=e131]
+          - paragraph [ref=e132]:
+            - link "Fortress Investment Group Launches New 1031 Real Estate Exchange Investment Platform" [ref=e133] [cursor=pointer]:
+              - /url: /media/2026-03-16-fortress-investment-group-launches-new-1031-real-estate-exchange-investment-platform
+      - generic [ref=e134]:
+        - generic [ref=e136]:
+          - paragraph [ref=e137]:
+            - link "Press Release" [ref=e138] [cursor=pointer]:
+              - /url: /media/search-results?category=Press Release
+            - text: "| February, 2026"
+          - link "Fortress Provides Bridge Loan to Support Recapitalization of Construction Financing for Phase I of The Crossings at Brick Church Station" [ref=e139] [cursor=pointer]:
+            - /url: /media/2026-02-03-fortress-provides-bridge-loan-to-support-recapitalization-of-construction-financing-for-phase-i-of-the-crossings-at-brick-church-station
+            - img "Fortress Provides Bridge Loan to Support Recapitalization of Construction Financing for Phase I of The Crossings at Brick Church Station" [ref=e140]
+          - paragraph [ref=e141]:
+            - link "Fortress Provides Bridge Loan to Support Recapitalization of Construction Financing for Phase I of The Crossings at Brick Church Station" [ref=e142] [cursor=pointer]:
+              - /url: /media/2026-02-03-fortress-provides-bridge-loan-to-support-recapitalization-of-construction-financing-for-phase-i-of-the-crossings-at-brick-church-station
+        - generic [ref=e144]:
+          - paragraph [ref=e145]:
+            - link "Press Release" [ref=e146] [cursor=pointer]:
+              - /url: /media/search-results?category=Press Release
+            - text: "| January, 2026"
+          - link "Fortress Investment Group Leads $500 Million Senior Secured Credit Facility for Blue Raven Solutions" [ref=e147] [cursor=pointer]:
+            - /url: /media/2026-01-21-fortress-investment-group-leads-500-million-senior-secured-credit-facility-for-blue-raven-solutions
+            - img "Fortress Investment Group Leads $500 Million Senior Secured Credit Facility for Blue Raven Solutions" [ref=e148]
+          - paragraph [ref=e149]:
+            - link "Fortress Investment Group Leads $500 Million Senior Secured Credit Facility for Blue Raven Solutions" [ref=e150] [cursor=pointer]:
+              - /url: /media/2026-01-21-fortress-investment-group-leads-500-million-senior-secured-credit-facility-for-blue-raven-solutions
+        - generic [ref=e152]:
+          - paragraph [ref=e153]:
+            - link "Press Release" [ref=e154] [cursor=pointer]:
+              - /url: /media/search-results?category=Press Release
+            - text: "| November, 2025"
+          - link "Ripple Announces $500 Million Strategic Investment Led by Fortress and Citadel Securities, Valuing the Company at $40 Billion Following Record Growth" [ref=e155] [cursor=pointer]:
+            - /url: /media/2025-11-05-ripple-announces-500-million-strategic-investment-led-by-fortress-and-citadel-securities-valuing-the-company-at-40-billion-following-record-growth
+            - img "Ripple Announces $500 Million Strategic Investment Led by Fortress and Citadel Securities, Valuing the Company at $40 Billion Following Record Growth" [ref=e156]
+          - paragraph [ref=e157]:
+            - link "Ripple Announces $500 Million Strategic Investment Led by Fortress and Citadel Securities, Valuing the Company at $40 Billion Following Record Growth" [ref=e158] [cursor=pointer]:
+              - /url: /media/2025-11-05-ripple-announces-500-million-strategic-investment-led-by-fortress-and-citadel-securities-valuing-the-company-at-40-billion-following-record-growth
+      - paragraph [ref=e159]:
+        - link "All News" [ref=e160] [cursor=pointer]:
+          - /url: /media
+    - generic [ref=e164]:
+      - paragraph [ref=e165]:
+        - img "Expert Opinion" [ref=e166]
+      - paragraph [ref=e167]: Portfolio Insights
+      - 'heading "An Interview with Tabeo CEO Paul Ebert: Reshaping payments in primary care in the UK" [level=2] [ref=e168]'
+      - paragraph [ref=e169]: Fortress announced a £750 million forward flow agreement with Tabeo, a software company that helps dentists and vets manage payments. The financing agreement with Fortress is helping Tabeo to grow. The company’s CEO Paul Ebert shared insights into the Tabeo business model, competitive positioning and growth prospects.
+      - paragraph [ref=e170]:
+        - link "Go to the Interview" [ref=e171] [cursor=pointer]:
+          - /url: /media/2024-09-04-an-interview-with-tabeo-ceo-paul-ebert-reshaping-payments-in-primary-care-in-the-uk
+    - generic [ref=e175]:
+      - paragraph [ref=e176]: “Our capabilities and our collaborative process give us the ability to pivot between public and private markets, and across asset classes and geographies, to where we see the most compelling risk-adjusted opportunities.”
+      - paragraph [ref=e177]: Drew McKnight
+      - paragraph [ref=e178]:
+        - text: Co-Chief Executive Officer
+        - text: "& Managing Partner"
+    - generic [ref=e181]:
+      - generic [ref=e182]:
+        - paragraph [ref=e183]: Build your career at Fortress
+        - heading "We generate strong outcomes by building strong teams" [level=2] [ref=e184]
+        - paragraph [ref=e185]: We are focused on attracting, retaining, and developing top talent, and consistently rewarding performance.
+        - paragraph [ref=e186]: We’re looking for the best and brightest to join our team of talented problem solvers.
+        - paragraph [ref=e187]:
+          - link "Career Opportunities" [ref=e188] [cursor=pointer]:
+            - /url: /careers
+      - img [ref=e190]
+    - generic [ref=e193]:
+      - generic [ref=e194]:
+        - paragraph [ref=e195]: Private Wealth Solutions
+        - heading "Fortress solutions, tailored for individuals" [level=2] [ref=e196]
+        - paragraph [ref=e197]: Today, individual investors can access the same expertise, experience, resources, and capabilities that have supported Fortress' success for more than 20 years as a manager for some of the world’s largest and most sophisticated investors.
+        - paragraph [ref=e198]: Fortress Private Wealth Solutions seeks to deliver purpose-built, investor-oriented alternative investment solutions and resources to financial advisors and individuals.
+        - paragraph [ref=e199]:
+          - link "Learn More" [ref=e200] [cursor=pointer]:
+            - /url: /pws
+      - img "Private Wealth Solutions" [ref=e202]
+    - generic [ref=e204]:
+      - generic [ref=e207]:
+        - heading "Our discipline sets us apart." [level=2] [ref=e208]
+        - text: We have earned the trust of our investors over time and against a full range of market, economic, and credit backdrops. From our proprietary sourcing network to our global team of asset managers, our cutting-edge technology and highly-talented personnel are targeted toward consistently delivering attractive, risk-adjusted returns.
+      - paragraph [ref=e209]:
+        - link "Learn More" [ref=e210] [cursor=pointer]:
+          - /url: /what-we-do
+  - contentinfo [ref=e211]:
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - generic [ref=e215]:
+          - paragraph [ref=e216]: What We Do
+          - link "About Fortress" [ref=e217] [cursor=pointer]:
+            - /url: /what-we-do/index
+          - link "Corporate Credit" [ref=e218] [cursor=pointer]:
+            - /url: /what-we-do/corporate-credit
+          - link "Asset-Based Finance" [ref=e219] [cursor=pointer]:
+            - /url: /what-we-do/asset-based-finance
+          - link "Real Estate" [ref=e220] [cursor=pointer]:
+            - /url: /what-we-do/real-estate
+          - link "Private Equity" [ref=e221] [cursor=pointer]:
+            - /url: /what-we-do/private-equity
+          - link "Insurance" [ref=e222] [cursor=pointer]:
+            - /url: /what-we-do/insurance-solutions
+          - link "Multi-Manager" [ref=e223] [cursor=pointer]:
+            - /url: /what-we-do/multi-manager
+        - generic [ref=e225]:
+          - paragraph [ref=e226]: Who We Are
+          - link "Overview" [ref=e227] [cursor=pointer]:
+            - /url: /who-we-are/index
+          - link "Team" [ref=e228] [cursor=pointer]:
+            - /url: /who-we-are/team
+          - link "Impact" [ref=e229] [cursor=pointer]:
+            - /url: /who-we-are/impact
+        - generic [ref=e231]:
+          - paragraph [ref=e232]: Investors
+          - link "Institutional Investors" [ref=e233] [cursor=pointer]:
+            - /url: /investors/index
+          - link "Financial Advisors" [ref=e234] [cursor=pointer]:
+            - /url: /investors/financial-advisors
+          - link "Insurance" [ref=e235] [cursor=pointer]:
+            - /url: /investors/insurance
+        - generic [ref=e237]:
+          - paragraph [ref=e238]: Media
+          - link "News & Insights" [ref=e239] [cursor=pointer]:
+            - /url: /media/index
+        - generic [ref=e241]:
+          - link "Media" [ref=e242] [cursor=pointer]:
+            - /url: /media
+          - link "Careers" [ref=e243] [cursor=pointer]:
+            - /url: /careers
+          - link "Contact" [ref=e244] [cursor=pointer]:
+            - /url: /contact
+        - link "" [ref=e247] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/fortress-investment-group/
+          - generic [ref=e248]: 
+      - generic [ref=e249]:
+        - generic [ref=e251]:
+          - paragraph [ref=e252]: "Important Notice: Fortress Investment Group does not operate any Line, Telegram, Signal, WhatsApp, or other messaging groups or forums."
+          - paragraph [ref=e253]: Copyright © 2026 Fortress Investment Group LLC
+          - navigation [ref=e254]:
+            - link "Terms of Use" [ref=e255] [cursor=pointer]:
+              - /url: /disclosures/terms
+            - text: //
+            - link "Privacy Statement" [ref=e256] [cursor=pointer]:
+              - /url: /disclosures/privacy-statement
+            - text: //
+            - link "Regulatory Disclosures" [ref=e257] [cursor=pointer]:
+              - /url: /disclosures/sfdr-information
+        - link [ref=e259] [cursor=pointer]:
+          - /url: /
+          - img [ref=e260]
+  - iframe [ref=e261]:
+    

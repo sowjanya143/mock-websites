@@ -27,3 +27,31 @@ node_modules/
 dist/
 build/
 htmlcov/
+
+# Deployment & SSL
+ssl/
+*.crt
+*.key
+*.pem
+.env.production
+docker-compose.override.yml
+
+# Backups
+backups/
+*.backup
+*.tar.gz
+*.zip
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Docker
+.docker/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

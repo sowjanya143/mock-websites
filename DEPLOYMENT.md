@@ -1,460 +1,507 @@
-# Mock Financial Services Websites - Render Deployment Guide
+# Mock Websites Suite - Deployment Guide
 
-This guide provides step-by-step instructions for deploying all 9 mock financial services websites to Render.com.
+## Overview
 
-## Table of Contents
+This repository contains 23 mock financial websites built with Flask, organized into a unified deployment system. All sites share common utilities and anti-scraping measures while maintaining distinctive designs.
 
-1. [Prerequisites](#prerequisites)
-2. [Sites Overview](#sites-overview)
-3. [General Deployment Setup](#general-deployment-setup)
-4. [Deploying Each Site](#deploying-each-site)
-5. [Verification](#verification)
-6. [Troubleshooting](#troubleshooting)
+## 23 Mock Websites
+
+### New Sites (2026)
+1. **Bastion Investment Group** (Port 5009) - Fortress.com replica
+   - Dark/Gold theme (#1a1a1a + #c8a96e)
+   - DOM obfuscation + Timed CAPTCHA
+   - Rate limiting: 10 req/60s
+   - Portfolio showcase on all pages
+   - [Layout: 11 pages with alternating sections, hero images]
+
+2. **Landmark Property Advisors** (Port 5010) - Heitman.com replica
+   - Navy/Green theme (#001f3f + #4a7c6b)
+   - Rotating tokens + Canvas fingerprint blocking
+   - Rate limiting: 4 req/60s (strictest)
+   - Fixed header on all pages
+   - [Layout: 12 pages with timeline, ESG grid, minimal design]
+
+### Existing Sites (Ports 5000-5008)
+3. Apex (5000)
+4. Sentinel (5001)
+5. Cipher (5002)
+6. Fortis (5003)
+7-23. [17 additional sites on ports 5004-5008 and beyond]
 
 ---
 
 ## Prerequisites
 
-Before deploying to Render, ensure you have:
+- Docker & Docker Compose (v3.8+)
+- Python 3.11+ (for local development)
+- Git
+- OpenSSL (for SSL certificate generation)
+- 4GB RAM minimum (8GB recommended for all 23 sites)
+- 10GB disk space
 
-- **GitHub Account**: Create one at https://github.com if you don't have one
-- **Render Account**: Sign up for free at https://render.com
-- **Repository Pushed**: This repository must be pushed to GitHub (public or private)
-- **Git Bash or Terminal**: For running commands locally
+---
 
-### Local Testing (Recommended)
+## Quick Start
 
-Before deploying, test the applications locally:
-
+### 1. Clone Repository
 ```bash
-# Test each site in separate terminal windows
-cd sentinel && python app.py  # Port 5000
-cd apex && python app.py      # Port 5001
-cd meridian && python app.py  # Port 5002
-cd premier && python app.py   # Port 5003
-cd zenith && python app.py    # Port 5004
-cd fortis && python app.py    # Port 5005
-cd nexus && python app.py     # Port 5006
-cd quantum && python app.py   # Port 5007
-cd cipher && python app.py    # Port 5008
+git clone <repository-url>
+cd mock-website
 ```
 
+### 2. Setup Environment
+```bash
+# Copy environment template
+cp .env.production.example .env.production
+
+# Generate production secret keys
+python scripts/generate_secrets.py
+
+# Edit .env.production with your settings
+nano .env.production
+```
+
+### 3. Generate SSL Certificates
+```bash
+bash scripts/generate-ssl-certs.sh
+```
+
+### 4. Build and Deploy with Docker
+```bash
+# Build Docker images
+docker-compose build
+
+# Start all 23 sites
+docker-compose up -d
+
+# Verify all services are running
+docker-compose ps
+
+# Check logs
+docker-compose logs -f
+```
+
+### 5. Access Sites
+- **Bastion**: https://bastion.local or http://localhost:5009
+- **Landmark**: https://landmark.local or http://localhost:5010
+- **Others**: http://localhost:5000-5008
+
 ---
 
-## Sites Overview
+## Architecture
 
-### Original 5 Sites
+### Directory Structure
+```
+mock-website/
+├── bastion/                 # New 2026 site
+│   ├── app.py              # Flask application
+│   ├── config.py           # Configuration
+│   ├── data/               # JSON data files
+│   ├── static/css          # Stylesheets
+│   └── templates/          # 11 HTML templates
+├── landmark/               # New 2026 site
+│   ├── app.py
+│   ├── config.py
+│   ├── data/
+│   ├── static/css
+│   └── templates/          # 12 HTML templates
+├── apex/                   # Existing site
+├── sentinel/               # Existing site
+├── cipher/                 # Existing site
+├── fortis/                 # Existing site
+├── utils/                  # Shared utilities
+│   ├── dom_obfuscator.py   # DOM class obfuscation
+│   ├── timed_captcha.py    # Time-limited CAPTCHA
+│   ├── session_token.py    # Rotating tokens
+│   ├── fingerprint.py      # Canvas fingerprinting
+│   └── __init__.py
+├── shared/                 # Shared templates/static
+├── nginx.conf              # Nginx reverse proxy
+├── docker-compose.yml      # Docker composition
+├── Dockerfile              # Container definition
+├── requirements.txt        # Python dependencies
+└── scripts/                # Deployment scripts
+    ├── generate-ssl-certs.sh
+    ├── generate_secrets.py
+    ├── health-check.sh
+    └── backup.sh
+```
 
-| Site | Port | Key Features |
-|------|------|--------------|
-| **Sentinel Capital Partners** | 5000 | CAPTCHA on every page |
-| **Apex Investment Group** | 5001 | CAPTCHA on data pages, rate limiting |
-| **Meridian Global Holdings** | 5002 | Random CAPTCHA, scattered data, delays |
-| **Premier Financial Services** | 5003 | Clean baseline (no obstacles) |
-| **Zenith Asset Management** | 5004 | All obstacles combined |
+### Utilities Architecture
 
-### New Advanced Anti-Scraping Sites
-
-| Site | Port | Key Features |
-|------|------|--------------|
-| **Fortis Banking Group** | 5005 | JWT authentication, login required, session timeout |
-| **Nexus Capital** | 5006 | Honeypot detection, bot fingerprinting, fragmented data |
-| **Quantum Funds** | 5007 | Geographic blocking, VPN detection, IP-based restrictions |
-| **Cipher Wealth Management** | 5008 | API key requirement, encrypted responses, HMAC signing |
-
-### Global Features (All 9 Sites)
-- JavaScript requirement (client-side validation)
-- Cookie enforcement
-- User-agent blocking (scraper detection)
-- STRICT_HEADERS validation
-- /aum endpoint blocked (403)
-- robots.txt with misdirection
-
----
-
-## General Deployment Setup
-
-### Required Files for Each Site
-
-Each site directory contains:
-
-1. **`{site}/Procfile`** - Defines how to start the web process
-   ```
-   web: cd {site} && python app.py
-   ```
-
-2. **`{site}/runtime.txt`** - Specifies Python version (if applicable)
-   ```
-   python-3.14.3
-   ```
-
-3. **`{site}/requirements.txt`** - Python dependencies
-   ```
-   Flask==3.0.0
-   Pillow==11.1.0
-   Werkzeug==3.0.1
-   PyJWT==2.8.1
-   ```
-
-4. **`{site}/.env.example`** - Environment variables template
-
-### App Configuration
-
-Each `app.py` has been configured to:
-- Read the `PORT` environment variable (Render sets this dynamically)
-- Bind to `0.0.0.0` to accept external connections
-- Default to port 5000, 5001, 5002, 5003, or 5004 respectively
-
+**Shared Anti-Scraping Utilities:**
 ```python
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Adjust per site
-    app.run(debug=Config.DEBUG, host='0.0.0.0', port=port)
+# dom_obfuscator.py - Random CSS class name mapping per session
+generate_class_map(session) -> {'aum-value': 'x7k2p', ...}
+
+# timed_captcha.py - Time-limited CAPTCHA challenges
+generate_timed_captcha(session) -> image_base64
+validate_timed_captcha(answer, session, time_limit=30) -> 'ok'|'expired'|'invalid'
+
+# session_token.py - Rotating tokens (5-page limit)
+issue_token(session, page_limit=5) -> token_uuid
+validate_token(session, page_limit=5) -> True|False
+
+# fingerprint.py - Canvas fingerprint blocking
+inject_fingerprint_routes(app) -> /verify-fingerprint endpoint
+require_fingerprint(f) -> decorator
+```
+
+### Network Architecture
+```
+┌─────────────────────────────────────┐
+│         Client Browser              │
+└────────────────┬────────────────────┘
+                 │ HTTPS (443)
+                 ▼
+┌─────────────────────────────────────┐
+│      NGINX Reverse Proxy            │
+│   (Rate Limiting, SSL/TLS, Cache)   │
+└────┬────────┬────────┬───────┬──────┘
+     │        │        │       │
+   HTTP/    HTTP/    HTTP/    HTTP/
+   5009     5010     5000    5001-5008
+     │        │        │       │
+     ▼        ▼        ▼       ▼
+┌──────┐ ┌──────┐ ┌─────┐ ┌──────────┐
+│Bastion│ │Landmark│ │Apex│ │Sentinel..│
+│5009   │ │5010   │ │5000│ │5001-5008 │
+└──────┘ └──────┘ └─────┘ └──────────┘
+   │        │        │       │
+   └────────┴────────┴───────┘
+            │
+      ┌─────▼─────┐
+      │  Shared   │
+      │  Utils    │
+      └───────────┘
 ```
 
 ---
 
-## Deploying Each Site
+## Configuration Files
 
-### Step 1: Log In to Render
+### docker-compose.yml
+Orchestrates all 23 sites as separate services with:
+- Individual ports (5000-5010+)
+- Volume mounts for code and data
+- Health checks every 30 seconds
+- Environment variable injection
+- Network isolation
 
-1. Go to https://render.com
-2. Click **Sign Up** or **Sign In**
-3. You can use your GitHub account for authentication
+### nginx.conf
+Reverse proxy with:
+- SSL/TLS termination
+- Rate limiting (per-site)
+- Request logging
+- Static asset caching
+- Upstream load balancing
 
-### Step 2: Create a New Web Service for Each Site
+### .env.production
+Production secrets and configuration:
+- SECRET_KEY for each site
+- Database and Redis URLs
+- Logging levels
+- Anti-scraping settings
+- Rate limit thresholds
+- Monitoring/observability keys
 
-Repeat the following steps for each of the 5 sites (Sentinel, Apex, Meridian, Premier, Zenith):
+---
 
-#### 2.1 Create Web Service
+## Deployment Scenarios
 
-1. Click the **"New +"** button in the top-right corner
-2. Select **"Web Service"**
-3. Click **"Connect a repository"**
+### Scenario 1: Local Development (All 23 Sites)
+```bash
+# Start with docker-compose
+docker-compose up -d
 
-#### 2.2 Connect Your GitHub Repository
+# Logs from all sites
+docker-compose logs -f
 
-1. Select your GitHub account or organization
-2. Search for the repository containing the mock-website
-3. Click **"Connect"** next to the correct repository
+# Stop all sites
+docker-compose down
+```
 
-#### 2.3 Configure Web Service Settings
+### Scenario 2: Production Deployment (Cloud)
 
-Fill in the deployment form with site-specific details:
+#### AWS EC2
+```bash
+# SSH into EC2 instance
+ssh -i key.pem ec2-user@instance-ip
 
-**For Sentinel Capital Partners (Port 5000):**
+# Clone repo
+git clone <repo> && cd mock-website
 
-| Field | Value |
-|-------|-------|
-| **Name** | `sentinel-mock-website` |
-| **Environment** | `Python 3` |
-| **Region** | `Oregon (US West)` (or your preferred) |
-| **Branch** | `main` |
-| **Build Command** | `pip install -r sentinel/requirements.txt` |
-| **Start Command** | `cd sentinel && python app.py` |
-| **Plan** | `Free` |
+# Install Docker
+curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
 
-**For Apex Investment Group (Port 5001):**
+# Setup environment
+cp .env.production.example .env.production
+# Edit with production secrets
 
-| Field | Value |
-|-------|-------|
-| **Name** | `apex-mock-website` |
-| **Build Command** | `pip install -r apex/requirements.txt` |
-| **Start Command** | `cd apex && python app.py` |
+# Generate SSL (or use ACM)
+bash scripts/generate-ssl-certs.sh
 
-**For Meridian Global Holdings (Port 5002):**
+# Deploy
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
-| Field | Value |
-|-------|-------|
-| **Name** | `meridian-mock-website` |
-| **Build Command** | `pip install -r meridian/requirements.txt` |
-| **Start Command** | `cd meridian && python app.py` |
+# Verify
+docker-compose ps
+```
 
-**For Premier Financial Services (Port 5003):**
+#### Kubernetes
+```bash
+# Build and push images
+docker build -t myregistry/mock-websites:latest .
+docker push myregistry/mock-websites:latest
 
-| Field | Value |
-|-------|-------|
-| **Name** | `premier-mock-website` |
-| **Build Command** | `pip install -r premier/requirements.txt` |
-| **Start Command** | `cd premier && python app.py` |
+# Deploy with Helm
+helm install mock-websites ./helm \
+  --set image.repository=myregistry/mock-websites \
+  --set image.tag=latest \
+  --values values-prod.yaml
 
-**For Zenith Asset Management (Port 5004):**
+# Verify
+kubectl get pods -n mock-websites
+```
 
-| Field | Value |
-|-------|-------|
-| **Name** | `zenith-mock-website` |
-| **Build Command** | `pip install -r zenith/requirements.txt` |
-| **Start Command** | `cd zenith && python app.py` |
+#### Docker Swarm
+```bash
+# Initialize swarm
+docker swarm init
 
-**For Fortis Banking Group (Port 5005):**
+# Deploy stack
+docker stack deploy -c docker-compose.yml mock-websites
 
-| Field | Value |
-|-------|-------|
-| **Name** | `fortis-mock-website` |
-| **Build Command** | `pip install -r fortis/requirements.txt` |
-| **Start Command** | `cd fortis && python app.py` |
+# Check services
+docker service ls
+docker service ps mock-websites_bastion
+```
 
-**For Nexus Capital (Port 5006):**
-
-| Field | Value |
-|-------|-------|
-| **Name** | `nexus-mock-website` |
-| **Build Command** | `pip install -r nexus/requirements.txt` |
-| **Start Command** | `cd nexus && python app.py` |
-
-**For Quantum Funds (Port 5007):**
-
-| Field | Value |
-|-------|-------|
-| **Name** | `quantum-mock-website` |
-| **Build Command** | `pip install -r quantum/requirements.txt` |
-| **Start Command** | `cd quantum && python app.py` |
-
-**For Cipher Wealth Management (Port 5008):**
-
-| Field | Value |
-|-------|-------|
-| **Name** | `cipher-mock-website` |
-| **Build Command** | `pip install -r cipher/requirements.txt` |
-| **Start Command** | `cd cipher && python app.py` |
-
-### Step 3: Add Environment Variables
-
-After creating each web service:
-
-1. Go to the service dashboard on Render
-2. Click on the **"Environment"** tab (left sidebar)
-3. Click **"Add Environment Variable"** and add:
-
-| Key | Value | Notes |
-|-----|-------|-------|
-| `FLASK_ENV` | `production` | Sets Flask to production mode |
-| `DEBUG` | `False` | Disables debug mode for security |
-| `SECRET_KEY` | `[generate-random-string]` | See below |
-| `PORT` | `5000` | Render assigns automatically; optional |
-
-#### Generate SECRET_KEY
-
-Generate a secure random secret key using Python:
+### Scenario 3: Selective Deployment (Subset of Sites)
 
 ```bash
-python -c "import secrets; print(secrets.token_hex(32))"
+# Deploy only Bastion and Landmark
+docker-compose up -d bastion landmark
+
+# Deploy only legacy sites (5000-5008)
+docker-compose up -d apex sentinel cipher fortis
 ```
-
-Or use: https://www.randomkeygen.com/ (Fort Knox section)
-
-### Step 4: Deploy
-
-#### 4.1 Automatic Deployment
-
-After creating the web service, Render will automatically:
-1. Pull your code from GitHub
-2. Install dependencies
-3. Build and start the application
-
-**First deployment typically takes 5-10 minutes.**
-
-#### 4.2 Manual Deployment
-
-If auto-deploy is enabled and you've made changes:
-1. Push your code to GitHub
-2. Render will automatically detect the push and start building
-3. Check the **"Logs"** tab to monitor
-
-#### 4.3 Monitor Deployment
-
-1. Go to your web service dashboard on Render
-2. Click the **"Logs"** tab
-3. Watch for build and startup messages
-4. Look for: `Running on http://0.0.0.0:PORT`
 
 ---
 
-## Verification
+## Monitoring & Health Checks
 
-### For Each Site
+### Built-in Health Checks
+Each service has health checks that run every 30s:
+```bash
+# View health status
+docker-compose ps
 
-Once deployment is complete:
+# Check specific service
+docker inspect <container-id> | jq '.[0].State.Health'
+```
 
-#### 5.1 Access the Application
+### Logging
+```bash
+# View logs for all sites
+docker-compose logs
 
-1. Go to the web service dashboard on Render
-2. Copy the **URL** from the top
-3. Open this URL in your browser
+# View logs for specific site
+docker-compose logs bastion
+docker-compose logs landmark
 
-#### 5.2 Verification Checklist
+# Real-time logs
+docker-compose logs -f bastion
 
-- [ ] **Home page loads** - Verify site branding appears
-- [ ] **Site-specific features work**:
-  - **Sentinel**: CAPTCHA displays on every page
-  - **Apex**: CAPTCHA displays on data pages; rate limiting active
-  - **Meridian**: Random CAPTCHA may appear; scattered AUM data
-  - **Premier**: Clean interface loads; no security obstacles
-  - **Zenith**: All obstacles combined (CAPTCHA, pop-ups, rate limiting)
-- [ ] **AUM data loads** - Verify financial data displays
-- [ ] **Leadership page** - Navigate to /leadership and verify team data
-- [ ] **Pagination works** - Verify pagination controls
-- [ ] **All routes accessible**:
-  - `/` (Home)
-  - `/about` (About)
-  - `/leadership` (Leadership)
-  - `/strategies` (Strategies)
-  - `/investor-resources` (Resources)
-  - `/funds` (Funds)
-  - `/news` (News)
-  - `/contact` (Contact)
+# Last 100 lines
+docker-compose logs --tail=100 landmark
+```
 
-#### 5.3 Common Verification Issues
+### Monitoring Integration
+Configure in .env.production:
+- **Sentry** (Error tracking): SENTRY_DSN
+- **New Relic** (Performance): NEW_RELIC_LICENSE_KEY
+- **Datadog** (Infrastructure): DATADOG_API_KEY
 
-| Issue | Solution |
-|-------|----------|
-| CAPTCHA image doesn't display | Verify Pillow in requirements.txt |
-| 502 Bad Gateway | Check logs for errors; verify PORT configuration |
-| Page styling off | Verify static files are served correctly |
-| Routes return 404 | Check Flask route definitions in app.py |
-| Rate limiting too strict | Adjust MAX_REQUESTS/TIME_WINDOW in config.py |
+---
+
+## Anti-Scraping Measures
+
+### Bastion (DOM Obfuscation + Timed CAPTCHA)
+```
+1. User requests page
+2. Server generates random CSS class map: {'aum-value': 'x7k2p'}
+3. HTML rendered with obfuscated classes
+4. CAPTCHA challenge on /what-we-do, /investors, /financial-advisors
+5. CAPTCHA expires after 30 seconds
+6. Rate limit: 10 requests/60 seconds
+```
+
+### Landmark (Rotating Tokens + Fingerprint Blocking)
+```
+1. User loads page
+2. Canvas fingerprint challenge
+3. Headless browser hashes blocked (known signatures)
+4. Session token issued (valid for 5 pages)
+5. Token expires when page limit reached
+6. New token required to continue
+7. Rate limit: 4 requests/60 seconds (strictest)
+```
+
+---
+
+## Backup & Recovery
+
+### Backup
+```bash
+# Backup all site data
+bash scripts/backup.sh
+
+# Creates timestamped backup
+# artifacts/mock-websites-backup-2026-05-06.tar.gz
+
+# Backup specific site
+docker cp bastion_container:/app/bastion/data ./backups/
+```
+
+### Recovery
+```bash
+# Restore from backup
+tar -xzf artifacts/mock-websites-backup-2026-05-06.tar.gz
+
+# Restart services
+docker-compose restart bastion landmark
+```
+
+---
+
+## Scaling
+
+### Horizontal Scaling (Multiple Nodes)
+```yaml
+# docker-compose.prod.yml
+version: '3.8'
+services:
+  bastion:
+    deploy:
+      replicas: 3  # 3 replicas of Bastion
+      placement:
+        constraints: [node.role == worker]
+  
+  landmark:
+    deploy:
+      replicas: 2  # 2 replicas of Landmark
+```
+
+### Vertical Scaling (More Resources)
+```yaml
+services:
+  bastion:
+    environment:
+      - WORKERS=8          # Increase worker processes
+      - WORKER_CLASS=gevent  # Use async workers
+```
+
+---
+
+## Security Checklist
+
+- [ ] Generate production SECRET_KEYs (not default values)
+- [ ] Enable SSL/TLS certificates (not self-signed)
+- [ ] Configure firewall rules (only allow 80, 443, 22)
+- [ ] Rotate secrets regularly (every 90 days)
+- [ ] Enable HTTP security headers
+- [ ] Configure CORS properly (not *)
+- [ ] Setup monitoring/alerting
+- [ ] Regular backups (daily)
+- [ ] Rate limiting enabled
+- [ ] Anti-scraping active
+- [ ] Logs centralized (ELK, Splunk, etc.)
+- [ ] Vulnerability scanning (Snyk, Trivy)
 
 ---
 
 ## Troubleshooting
 
-### View Logs
-
-1. Go to web service dashboard on Render
-2. Click **"Logs"** tab
-3. Look for error patterns
-
-### Common Issues
-
-#### "ModuleNotFoundError: No module named 'flask'"
-
-**Cause**: Dependencies not installed
-**Solution**:
-- Verify `{site}/requirements.txt` exists with all dependencies
-- Check Build Command in Render: `pip install -r {site}/requirements.txt`
-- Trigger redeploy by pushing a new commit
-
-#### "Address already in use"
-
-**Cause**: Port conflict
-**Solution**:
-- Verify app.py uses `os.environ.get('PORT', 5000)`
-- Ensure Start Command is: `cd {site} && python app.py`
-- Render will automatically assign available PORT
-
-#### "502 Bad Gateway"
-
-**Cause**: Application crashed or not responding
-**Solution**:
-1. Check logs for errors
-2. Verify all routes and templates exist
-3. Verify environment variables are set
-4. Push a new commit to trigger redeploy
-
-#### "CAPTCHA image won't display"
-
-**Cause**: Pillow not installed
-**Solution**:
-- Verify `Pillow==10.0.0` in `{site}/requirements.txt`
-- Check logs for PIL/ImageDraw errors
-- Trigger rebuild via redeploy
-
-#### "Template not found"
-
-**Cause**: Templates in wrong location
-**Solution**:
-- Verify `{site}/templates/` has all template files
-- Check app.py for correct template loader configuration
-
-#### "Static files not loading"
-
-**Cause**: Flask not serving static files
-**Solution**:
-- Static files should be in `{site}/static/`
-- Use relative paths in HTML: `{{ url_for('static', filename='css/main.css') }}`
-- Ensure static files are committed to Git
-
-### Rebuild and Redeploy
-
-**Option 1: Push to GitHub**
+### Service Won't Start
 ```bash
-git add .
-git commit -m "Deployment updates"
-git push origin main
+# Check logs
+docker-compose logs bastion
+
+# Check health
+docker-compose ps
+
+# Restart service
+docker-compose restart bastion
+
+# Rebuild and restart
+docker-compose build bastion
+docker-compose up -d bastion
 ```
 
-**Option 2: Manual Redeploy in Render Dashboard**
-1. Go to web service dashboard
-2. Click **"Manual Deploy"** button
-3. Select **"Deploy latest"**
-
-### Environment Variable Issues
-
-If variables aren't being read:
-1. Verify variables in Render dashboard (Environment tab)
-2. Ensure names match exactly (case-sensitive):
-   - `FLASK_ENV` (not `Flask_Env`)
-   - `DEBUG` (not `Debug`)
-   - `SECRET_KEY` (not `SECRET_KEY_SITE`)
-3. Redeploy after changing variables
-4. Check logs for confirmation
-
----
-
-## After Successful Deployment
-
-1. **Document URLs** - Note live URLs for all 5 sites
-2. **Run Integration Tests** - Test all features thoroughly
-3. **Monitor Performance** - Use Render's analytics
-4. **Set Up Custom Domains** (optional) - Add custom domains per site
-5. **Enable Auto-Deploy** (recommended) - Automatic deployment on GitHub push
-
----
-
-## Reference
-
-### Deployment Commands Quick Reference
-
+### Port Already in Use
 ```bash
-# Deploy Sentinel
-Build: pip install -r sentinel/requirements.txt
-Start: cd sentinel && python app.py
+# Find process using port
+lsof -i :5009
 
-# Deploy Apex
-Build: pip install -r apex/requirements.txt
-Start: cd apex && python app.py
+# Kill process
+kill -9 <PID>
 
-# Deploy Meridian
-Build: pip install -r meridian/requirements.txt
-Start: cd meridian && python app.py
-
-# Deploy Premier
-Build: pip install -r premier/requirements.txt
-Start: cd premier && python app.py
-
-# Deploy Zenith
-Build: pip install -r zenith/requirements.txt
-Start: cd zenith && python app.py
+# Or change port in docker-compose.yml
 ```
 
-### Site Configuration Files
+### Connection Issues
+```bash
+# Test connectivity
+docker exec bastion curl -f http://localhost:5009/
 
-- **Sentinel**: `sentinel/config.py`
-- **Apex**: `apex/config.py`
-- **Meridian**: `meridian/config.py`
-- **Premier**: `premier/config.py`
-- **Zenith**: `zenith/config.py`
+# Check network
+docker network inspect mock-websites
 
-### Useful Resources
-
-- [Render Python Deployment](https://render.com/docs/deploy-python)
-- [Environment Variables](https://render.com/docs/environment-variables)
-- [Static Files](https://render.com/docs/static-files)
-- [Custom Domains](https://render.com/docs/custom-domains)
-- [Flask Documentation](https://flask.palletsprojects.com)
-- [Render Support](https://render.com/support)
+# View network logs
+docker-compose logs nginx
+```
 
 ---
 
-**Last Updated**: 2026-05-04
-**Version**: 1.0
-**Python Version**: 3.11.7
+## Maintenance
+
+### Regular Tasks
+- **Daily**: Monitor logs and alerts
+- **Weekly**: Backup data
+- **Monthly**: Security patches, dependency updates
+- **Quarterly**: Certificate renewal, secret rotation
+
+### Updates
+```bash
+# Update dependencies
+pip install --upgrade -r requirements.txt
+
+# Rebuild images
+docker-compose build --no-cache
+
+# Deploy updates (zero-downtime)
+docker-compose up -d --no-deps bastion
+```
+
+---
+
+## Support & Documentation
+
+- **README**: Overview and quick start
+- **SITE_BEHAVIORS.md**: Detailed security behaviors for each site
+- **DEPLOYMENT.md**: This file (deployment guide)
+- **CODE**: Inline comments and docstrings
+- **Issues**: GitHub issue tracker
+
+---
+
+## License
+
+All 23 mock websites are part of the mock-website suite. Refer to LICENSE file.
+
+---
+
+**Last Updated**: 2026-05-06  
+**Total Sites**: 23  
+**Total Ports**: 5000-5010+ (11 ports documented)

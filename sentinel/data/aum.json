@@ -14,33 +14,72 @@
   "by_fund": [
     {
       "id": 1,
-      "name": "Sentinel Transformational Capital Fund",
-      "aum": 4200000000,
-      "strategy": "Transformational Capital"
+      "name": "Sentinel Transformational Capital Fund I",
+      "aum": 2800000000,
+      "strategy": "Transformational Capital",
+      "vintage_year": 2018,
+      "status": "active",
+      "irr": 16.8
     },
     {
       "id": 2,
-      "name": "Sentinel Private Credit Fund",
-      "aum": 3100000000,
-      "strategy": "Private Credit"
+      "name": "Sentinel Transformational Capital Fund II",
+      "aum": 1400000000,
+      "strategy": "Transformational Capital",
+      "vintage_year": 2022,
+      "status": "active",
+      "irr": 12.3
     },
     {
       "id": 3,
-      "name": "Sentinel Public Credit Fund",
-      "aum": 1800000000,
-      "strategy": "Public Credit"
+      "name": "Sentinel Private Credit Fund I",
+      "aum": 1900000000,
+      "strategy": "Private Credit",
+      "vintage_year": 2019,
+      "status": "active",
+      "yield": 7.2
     },
     {
       "id": 4,
-      "name": "Sentinel Regulatory Capital Fund",
-      "aum": 900000000,
-      "strategy": "Private Credit"
+      "name": "Sentinel Private Credit Opportunities",
+      "aum": 1200000000,
+      "strategy": "Private Credit",
+      "vintage_year": 2021,
+      "status": "active",
+      "yield": 8.5
     },
     {
       "id": 5,
-      "name": "Sentinel Special Opportunities Fund",
-      "aum": 700000000,
-      "strategy": "Private Credit"
+      "name": "Sentinel Public Credit Fund",
+      "aum": 1800000000,
+      "strategy": "Public Credit",
+      "vintage_year": 2020,
+      "status": "active",
+      "yield": 5.8
+    },
+    {
+      "id": 6,
+      "name": "Sentinel Special Situations Fund",
+      "aum": 900000000,
+      "strategy": "Private Credit",
+      "vintage_year": 2023,
+      "status": "fundraising",
+      "target_size": 1500000000
+    },
+    {
+      "id": 7,
+      "name": "Sentinel Infrastructure Finance",
+      "aum": 800000000,
+      "strategy": "Transformational Capital",
+      "vintage_year": 2021,
+      "status": "active",
+      "irr": 14.2
     }
-  ]
+  ],
+  "capital_deployment_metrics": {
+    "total_portfolio_companies": 247,
+    "average_holding_period_years": 5.3,
+    "multiple_of_invested_capital": 2.1,
+    "net_internal_rate_return": 14.7
+  }
 }

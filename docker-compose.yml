@@ -1,0 +1,172 @@
+version: '3.8'
+
+services:
+  # BASTION (Port 5009) - Fortress replica
+  bastion:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=bastion/app.py
+      - FLASK_ENV=production
+      - PORT=5009
+      - SECRET_KEY=${BASTION_SECRET_KEY:-bastion-prod-key-5009}
+    ports:
+      - "5009:5009"
+    volumes:
+      - ./bastion:/app/bastion
+      - ./utils:/app/utils
+      - ./shared:/app/shared
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5009/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mock-websites
+
+  # LANDMARK (Port 5010) - Heitman replica
+  landmark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=landmark/app.py
+      - FLASK_ENV=production
+      - PORT=5010
+      - SECRET_KEY=${LANDMARK_SECRET_KEY:-landmark-prod-key-5010}
+    ports:
+      - "5010:5010"
+    volumes:
+      - ./landmark:/app/landmark
+      - ./utils:/app/utils
+      - ./shared:/app/shared
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5010/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mock-websites
+
+  # APEX (Port 5000)
+  apex:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=apex/app.py
+      - FLASK_ENV=production
+      - PORT=5000
+      - SECRET_KEY=${APEX_SECRET_KEY:-apex-prod-key-5000}
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./apex:/app/apex
+      - ./utils:/app/utils
+      - ./shared:/app/shared
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mock-websites
+
+  # SENTINEL (Port 5001)
+  sentinel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=sentinel/app.py
+      - FLASK_ENV=production
+      - PORT=5001
+      - SECRET_KEY=${SENTINEL_SECRET_KEY:-sentinel-prod-key-5001}
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./sentinel:/app/sentinel
+      - ./utils:/app/utils
+      - ./shared:/app/shared
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mock-websites
+
+  # CIPHER (Port 5002)
+  cipher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=cipher/app.py
+      - FLASK_ENV=production
+      - PORT=5002
+      - SECRET_KEY=${CIPHER_SECRET_KEY:-cipher-prod-key-5002}
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./cipher:/app/cipher
+      - ./utils:/app/utils
+      - ./shared:/app/shared
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5002/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mock-websites
+
+  # FORTIS (Port 5003)
+  fortis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - FLASK_APP=fortis/app.py
+      - FLASK_ENV=production
+      - PORT=5003
+      - SECRET_KEY=${FORTIS_SECRET_KEY:-fortis-prod-key-5003}
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./fortis:/app/fortis
+      - ./utils:/app/utils
+      - ./shared:/app/shared
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5003/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - mock-websites
+
+  # Additional 17 sites (ports 5004-5008 and beyond)
+  # Add more services here following the same pattern
+
+  # NGINX Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - bastion
+      - landmark
+      - apex
+      - sentinel
+      - cipher
+      - fortis
+    networks:
+      - mock-websites
+
+networks:
+  mock-websites:
+    driver: bridge

@@ -1,0 +1,129 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Bastion Investment Group" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "What We Do" [ref=e6] [cursor=pointer]:
+          - /url: /what-we-do
+        - link "Who We Are" [ref=e7] [cursor=pointer]:
+          - /url: /who-we-are
+        - link "Investors" [ref=e8] [cursor=pointer]:
+          - /url: /investors
+        - link "Media" [ref=e9] [cursor=pointer]:
+          - /url: /media
+        - link "Careers" [ref=e10] [cursor=pointer]:
+          - /url: /careers
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact
+  - generic [ref=e12]:
+    - heading "For Investors" [level=1] [ref=e13]
+    - paragraph [ref=e14]: Dedicated resources and portal access
+  - paragraph [ref=e16]: Bastion provides comprehensive support and resources for our institutional and individual investors. Explore the portals below to access performance data, fund documentation, account information, and investment resources.
+  - generic [ref=e17]:
+    - heading "Investor Portals" [level=2] [ref=e18]
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: 📊
+        - heading "Institutional Investors" [level=3] [ref=e22]
+        - paragraph [ref=e23]: Access performance reports, fund documentation, account statements, and market commentary. Designed for pension funds, endowments, sovereign wealth funds, and institutional investors.
+        - list [ref=e24]:
+          - listitem [ref=e25]: ▸ Real-time performance data
+          - listitem [ref=e26]: ▸ Fund factsheets and documentation
+          - listitem [ref=e27]: ▸ Account statements and reporting
+          - listitem [ref=e28]: ▸ Investment research and commentary
+        - link "Enter Portal" [ref=e29] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e30]:
+        - generic [ref=e31]: 💼
+        - heading "Financial Advisors" [level=3] [ref=e32]
+        - paragraph [ref=e33]: Tailored resources and services for financial advisors and wealth managers. Access customized investment solutions and dedicated advisor services.
+        - list [ref=e34]:
+          - listitem [ref=e35]: ▸ Advisor-specific reporting
+          - listitem [ref=e36]: ▸ Fund information and performance
+          - listitem [ref=e37]: ▸ Marketing materials and resources
+          - listitem [ref=e38]: ▸ Dedicated advisor support
+        - link "Advisor Portal" [ref=e39] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e40]:
+        - generic [ref=e41]: 🏢
+        - heading "Insurance Carriers" [level=3] [ref=e42]
+        - paragraph [ref=e43]: Specialized insurance-linked investment solutions and documentation. Designed for insurance carriers seeking diversified investment opportunities and tailored structures.
+        - list [ref=e44]:
+          - listitem [ref=e45]: ▸ Insurance solutions overview
+          - listitem [ref=e46]: ▸ Structured product documentation
+          - listitem [ref=e47]: ▸ Risk management resources
+          - listitem [ref=e48]: ▸ Dedicated support team
+        - link "Learn More" [ref=e49] [cursor=pointer]:
+          - /url: "#"
+  - generic [ref=e50]:
+    - heading "Investor Support" [level=2] [ref=e51]
+    - generic [ref=e52]:
+      - paragraph [ref=e53]: "For investor relations inquiries, account questions, or to schedule a consultation with our investment team, please contact our Investor Relations department:"
+      - generic [ref=e54]:
+        - paragraph [ref=e55]:
+          - strong [ref=e56]: "Email:"
+          - text: investors@bastion.com
+        - paragraph [ref=e57]:
+          - strong [ref=e58]: "Phone:"
+          - text: +1 (212) 555-0100
+      - link "Contact Investor Relations" [ref=e59] [cursor=pointer]:
+        - /url: /contact
+  - generic [ref=e61]:
+    - generic [ref=e62]:
+      - heading "Portfolio Showcase" [level=2] [ref=e63]
+      - paragraph [ref=e64]: Companies across our investment strategies
+    - generic [ref=e65]:
+      - img "Company" [ref=e67]
+      - img "Company" [ref=e69]
+      - img "Company" [ref=e71]
+      - img "Company" [ref=e73]
+      - img "Company" [ref=e75]
+      - img "Company" [ref=e77]
+      - img "Company" [ref=e79]
+      - img "Company" [ref=e81]
+  - contentinfo [ref=e82]:
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - heading "Company" [level=4] [ref=e86]
+          - list [ref=e87]:
+            - listitem [ref=e88]:
+              - link "About Us" [ref=e89] [cursor=pointer]:
+                - /url: /who-we-are
+            - listitem [ref=e90]:
+              - link "Team" [ref=e91] [cursor=pointer]:
+                - /url: /who-we-are/team
+            - listitem [ref=e92]:
+              - link "Careers" [ref=e93] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=e94]:
+              - link "Contact" [ref=e95] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e96]:
+          - heading "Investments" [level=4] [ref=e97]
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - link "Strategies" [ref=e100] [cursor=pointer]:
+                - /url: /what-we-do
+            - listitem [ref=e101]:
+              - link "For Investors" [ref=e102] [cursor=pointer]:
+                - /url: /investors
+            - listitem [ref=e103]:
+              - link "For Advisors" [ref=e104] [cursor=pointer]:
+                - /url: /financial-advisors
+            - listitem [ref=e105]:
+              - link "News" [ref=e106] [cursor=pointer]:
+                - /url: /media
+        - generic [ref=e107]:
+          - heading "Subscribe" [level=4] [ref=e108]
+          - generic [ref=e109]:
+            - textbox "Your email" [ref=e110]
+            - button "Subscribe" [ref=e111] [cursor=pointer]
+      - paragraph [ref=e113]:
+        - text: © 2024 Bastion Investment Group. All rights reserved. |
+        - link "Privacy" [ref=e114] [cursor=pointer]:
+          - /url: /privacy
+        - text: "|"
+        - link "Disclaimer" [ref=e115] [cursor=pointer]:
+          - /url: /disclaimer

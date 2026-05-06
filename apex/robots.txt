@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /
-Disallow: /api
-Crawl-delay: 999999
-Sitemap: /fake-sitemap.xml
