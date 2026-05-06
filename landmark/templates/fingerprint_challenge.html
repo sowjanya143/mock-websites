@@ -4,175 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Browser Verification - {{ company_name }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: linear-gradient(135deg, #1e4d3b 0%, #2d6a52 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #1e4d3b;
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            align-items: center;
+            padding: 20px;
         }
-        .fingerprint-container {
+        .fp-container {
             background: white;
             border-radius: 8px;
-            padding: 48px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 400px;
             width: 100%;
-            text-align: center;
         }
-        .fingerprint-container h1 {
-            color: #1e4d3b;
-            margin-bottom: 16px;
-            font-size: 28px;
-        }
-        .fingerprint-container p {
-            color: #666;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-        .fingerprint-status {
-            padding: 16px;
-            border-radius: 4px;
-            margin: 24px 0;
-            font-size: 14px;
-            display: none;
-        }
-        .fingerprint-status.loading {
-            display: block;
-            background: #f0f4ff;
-            color: #1e4d3b;
-            border: 1px solid #d0dfe8;
-        }
-        .fingerprint-status.success {
-            display: block;
-            background: #dcf8e8;
-            color: #1e4d3b;
-            border: 1px solid #b3e5cb;
-        }
-        .fingerprint-status.error {
-            display: block;
-            background: #fee8e8;
-            color: #c33;
-            border: 1px solid #ffd0d0;
-        }
-        .fingerprint-spinner {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 3px solid #1e4d3b;
-            border-top: 3px solid transparent;
+        .fp-header { text-align: center; margin-bottom: 30px; }
+        .company-name { font-size: 24px; font-weight: bold; color: #1e4d3b; margin-bottom: 10px; }
+        .fp-title { font-size: 20px; color: #1e4d3b; margin-bottom: 5px; }
+        .fp-subtitle { font-size: 14px; color: #999; }
+        .fp-content { display: flex; flex-direction: column; gap: 20px; }
+        .loading-indicator { text-align: center; padding: 20px; }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #1e4d3b;
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-right: 8px;
-            vertical-align: middle;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .fingerprint-canvas {
-            display: none;
-        }
-        .fingerprint-info {
-            background: #f5f3f0;
-            padding: 16px;
-            border-radius: 4px;
-            margin: 24px 0;
-            font-size: 13px;
-            color: #666;
-            text-align: left;
-        }
-        .fingerprint-info strong {
-            color: #1e4d3b;
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .status-text { font-size: 14px; color: #666; }
+        .error-message { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 12px; border-radius: 4px; font-size: 14px; display: none; }
+        .error-message.show { display: block; }
+        .retry-btn { padding: 12px 24px; font-size: 16px; font-weight: 600; background: #1e4d3b; color: white; border: none; border-radius: 4px; cursor: pointer; display: none; }
+        .retry-btn.show { display: block; }
+        .retry-btn:hover { background: #153028; }
+        .help-text { font-size: 12px; color: #999; text-align: center; }
     </style>
 </head>
 <body>
-    <div class="fingerprint-container">
-        <h1>Browser Verification</h1>
-        <p>We're verifying your browser to ensure secure access to Landmark Property Advisors.</p>
-
-        <div class="fingerprint-status loading" id="status">
-            <span class="fingerprint-spinner"></span>
-            <span id="statusText">Verifying your browser...</span>
+    <div class="fp-container">
+        <div class="fp-header">
+            <div class="company-name">{{ company_name }}</div>
+            <div class="fp-title">Browser Verification</div>
+            <div class="fp-subtitle">Confirming your browser compatibility</div>
         </div>
-
-        <canvas class="fingerprint-canvas" id="canvas" width="280" height="60"></canvas>
-
-        <div class="fingerprint-info">
-            <strong>What's happening:</strong>
-            <p>We use canvas fingerprinting to detect automated browsers and scrapers. This helps protect our content and investors.</p>
+        <div class="fp-content">
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <div class="status-text" id="status">Verifying browser...</div>
+            </div>
+            <div class="error-message" id="errorMsg">
+                Browser verification failed. Your browser may not be compatible. Please use a standard web browser.
+            </div>
+            <button class="retry-btn" id="retryBtn" onclick="location.reload()">Try Again</button>
+            <div class="help-text">
+                This is a standard security check. It should complete within a few seconds.
+            </div>
         </div>
-
-        <p style="font-size: 12px; color: #999; margin-top: 32px;">
-            If you continue to see this page, please contact <a href="mailto:support@landmarkadvisors.com" style="color: #1e4d3b;">support@landmarkadvisors.com</a>
-        </p>
     </div>
-
     <script>
-        async function verifyBrowser() {
+        async function verifyFingerprint() {
             try {
-                // Generate canvas fingerprint
-                const canvas = document.getElementById('canvas');
+                const canvas = document.createElement('canvas');
+                canvas.width = 280;
+                canvas.height = 60;
                 const ctx = canvas.getContext('2d');
-
-                // Draw text with specific styling
                 ctx.textBaseline = 'top';
                 ctx.font = '14px Arial';
                 ctx.textBaseline = 'alphabetic';
-                ctx.fillStyle = '#1e4d3b';
+                ctx.fillStyle = '#f60';
                 ctx.fillRect(125, 1, 62, 20);
-                ctx.fillStyle = '#fff';
-                ctx.fillText('Landmark Advisor Browser Verification', 2, 15);
-                ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
-                ctx.fillText('Landmark Advisor Browser Verification', 4, 17);
-
-                // Get canvas data as hash
-                const imageData = canvas.toDataURL();
-                const hash = imageData.split('').reduce((prev, current) => {
-                    return ((prev << 5) - prev) + current.charCodeAt(0);
-                }, 0).toString(16);
-
-                // Send verification
+                ctx.fillStyle = '#069';
+                ctx.fillText('Browser Verify', 2, 15);
+                const hash = canvas.toDataURL().substring(0, 100);
                 const response = await fetch('/verify-fingerprint', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ hash: hash })
                 });
-
                 if (response.ok) {
-                    const statusEl = document.getElementById('status');
-                    statusEl.classList.remove('loading');
-                    statusEl.classList.add('success');
-                    document.getElementById('statusText').textContent = 'Verification successful! Redirecting...';
-
-                    // Reload or redirect
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1500);
+                    document.getElementById('status').textContent = 'Verification successful!';
+                    setTimeout(() => location.reload(), 1000);
                 } else if (response.status === 403) {
-                    const statusEl = document.getElementById('status');
-                    statusEl.classList.remove('loading');
-                    statusEl.classList.add('error');
-                    document.getElementById('statusText').textContent = 'Headless browser detected. Access denied.';
-                } else {
-                    throw new Error('Verification failed');
+                    document.getElementById('errorMsg').classList.add('show');
+                    document.getElementById('retryBtn').classList.add('show');
+                    document.getElementById('status').textContent = 'Verification failed';
+                    document.querySelector('.spinner').style.display = 'none';
                 }
-            } catch (error) {
-                const statusEl = document.getElementById('status');
-                statusEl.classList.remove('loading');
-                statusEl.classList.add('error');
-                document.getElementById('statusText').textContent = 'Verification error. Please try again.';
-                console.error('Fingerprint verification error:', error);
+            } catch (err) {
+                document.getElementById('errorMsg').classList.add('show');
+                document.getElementById('retryBtn').classList.add('show');
+                document.getElementById('status').textContent = 'Error during verification';
+                document.querySelector('.spinner').style.display = 'none';
             }
         }
-
-        // Run verification on page load
-        window.addEventListener('load', verifyBrowser);
+        window.addEventListener('load', verifyFingerprint);
     </script>
 </body>
 </html>
