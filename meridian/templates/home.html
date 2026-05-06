@@ -1,104 +1,85 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Global AUM: $380,000,000,000 -->
-
 <section class="hero">
-    <h1>{{ company_name }}</h1>
-    <p class="tagline">Global Investment Banking & Trading</p>
-    <p class="intro">Leading provider of financial services with extensive capabilities in equities, fixed income, derivatives, and alternative investments.</p>
+  <div style="text-align: center;">
+    <h2>Your Financial Future, Secured</h2>
+    <p>Comprehensive insurance and investment solutions for your family</p>
+  </div>
 </section>
 
-<section class="highlights">
-    <h2>Our Capabilities</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Equities</h3>
-            <p>Comprehensive equity trading, research, and investment services across global markets.</p>
-        </div>
-        <div class="card">
-            <h3>Fixed Income</h3>
-            <p>Expert fixed income trading and portfolio management across all major markets and credit sectors.</p>
-        </div>
-        <div class="card">
-            <h3>Derivatives</h3>
-            <p>Sophisticated derivatives and FX solutions tailored to institutional client needs.</p>
-        </div>
-        <div class="card">
-            <h3>Alternatives</h3>
-            <p>Access to alternative investment opportunities and specialized hedge fund strategies.</p>
-        </div>
+<section class="services-grid">
+  <div class="service-card">
+    <div style="font-size: 2.5rem; color: #ff6b35;">🛡️</div>
+    <h3>Life Insurance</h3>
+    <p>Protect your loved ones with comprehensive coverage options tailored to your needs.</p>
+  </div>
+  <div class="service-card">
+    <div style="font-size: 2.5rem; color: #ff6b35;">💰</div>
+    <h3>Investments</h3>
+    <p>Grow your wealth with our professionally managed investment portfolios.</p>
+  </div>
+  <div class="service-card">
+    <div style="font-size: 2.5rem; color: #ff6b35;">🏠</div>
+    <h3>Home & Auto</h3>
+    <p>Comprehensive protection for your home, vehicle, and personal possessions.</p>
+  </div>
+  <div class="service-card">
+    <div style="font-size: 2.5rem; color: #ff6b35;">👨‍⚕️</div>
+    <h3>Health Coverage</h3>
+    <p>Access quality healthcare with our flexible health insurance plans.</p>
+  </div>
+</section>
+
+<section style="padding: 3rem 2rem; background: white; max-width: 1200px; margin: 0 auto;">
+  <h2 style="text-align: center; color: #003366; margin-bottom: 3rem; font-size: 2rem;">Featured Products</h2>
+  <div class="content-grid">
+    <div class="content-item">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Life Insurance">
+      <div class="content-item-text">
+        <h3>Premium Life Insurance</h3>
+        <p>Affordable coverage with flexible payment options. Get quoted in minutes.</p>
+        <button style="margin-top: 1rem; padding: 0.7rem 1.5rem; background: #ff6b35; color: white; border: none; border-radius: 4px; cursor: pointer;">Learn More</button>
+      </div>
     </div>
+    <div class="content-item">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Investment Plans">
+      <div class="content-item-text">
+        <h3>Investment Plans</h3>
+        <p>Build wealth steadily with our diversified investment options.</p>
+        <button style="margin-top: 1rem; padding: 0.7rem 1.5rem; background: #ff6b35; color: white; border: none; border-radius: 4px; cursor: pointer;">Explore</button>
+      </div>
+    </div>
+    <div class="content-item">
+      <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=400&q=80" alt="Retirement Plans">
+      <div class="content-item-text">
+        <h3>Retirement Plans</h3>
+        <p>Plan for a secure retirement with our expert-managed schemes.</p>
+        <button style="margin-top: 1rem; padding: 0.7rem 1.5rem; background: #ff6b35; color: white; border: none; border-radius: 4px; cursor: pointer;">Details</button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<style>
-    .hero {
-        text-align: center;
-        padding: 60px 20px;
-        background: linear-gradient(135deg, #003366 0%, #004d99 100%);
-        color: white;
-        border-radius: 8px;
-        margin-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: 48px;
-        margin-bottom: 10px;
-        font-weight: bold;
-    }
-
-    .tagline {
-        font-size: 24px;
-        margin-bottom: 10px;
-        opacity: 0.9;
-    }
-
-    .intro {
-        font-size: 16px;
-        margin-top: 15px;
-        opacity: 0.85;
-    }
-
-    .highlights {
-        margin-top: 40px;
-    }
-
-    .highlights h2 {
-        font-size: 32px;
-        margin-bottom: 30px;
-        color: #333;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    .card {
-        background: white;
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        border-left: 4px solid #003366;
-        transition: transform 0.2s;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .card h3 {
-        color: #003366;
-        margin-bottom: 10px;
-        font-size: 18px;
-    }
-
-    .card p {
-        color: #666;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-</style>
+<section class="portfolio-section">
+  <h2>Why Choose Meridian</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <h3>25+ Years</h3>
+      <p>Trusted by millions of families</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>50,000+</h3>
+      <p>Happy customers across Asia</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>$2.5B+</h3>
+      <p>Total claims paid annually</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>24/7</h3>
+      <p>Customer support available</p>
+    </div>
+  </div>
+</section>
 {% endblock %}
