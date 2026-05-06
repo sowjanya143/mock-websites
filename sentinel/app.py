@@ -14,6 +14,11 @@ parent_dir = str(Path(__file__).parent.parent)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
+# Add current directory to path for config import
+current_dir = str(Path(__file__).parent)
+if current_dir not in sys.path:
+    sys.path.insert(0, current_dir)
+
 from utils import (
     generate_captcha,
     generate_dynamic_aum,
@@ -21,7 +26,6 @@ from utils import (
     get_paginated_data,
     validate_captcha,
     inject_js_routes,
-    inject_cookie_middleware,
     inject_user_agent_middleware,
     inject_headers_middleware,
     require_javascript,
@@ -48,9 +52,9 @@ app.config.from_object(Config)
 app.secret_key = Config.SECRET_KEY
 
 # Inject global middleware for security features
-inject_user_agent_middleware(app)
+if Config.USER_AGENT_BLOCKING:
+    inject_user_agent_middleware(app)
 inject_headers_middleware(app)
-inject_cookie_middleware(app)
 inject_js_routes(app)
 inject_cookie_banner_routes(app, mode=Config.COOKIE_BANNER_MODE)
 

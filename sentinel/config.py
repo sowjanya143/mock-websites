@@ -23,6 +23,7 @@ class Config:
     # Feature flags
     SHOW_POPUPS = False
     RATE_LIMIT_ENABLED = False
+    USER_AGENT_BLOCKING = os.environ.get('USER_AGENT_BLOCKING', 'true').lower() == 'true'
 
     # Performance
     ARTIFICIAL_DELAY = 0
