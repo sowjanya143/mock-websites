@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}Public Equity Real Estate - Landmark Property Advisors{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1452187580459-fdfe23a60dad?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
+    }
+
+    /* Stat Cards - 4 Column */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 80px;
+    }
+
+    .stat-card {
+        background: #f5f3f0;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .stat-number {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        font-weight: normal;
+        color: #1e4d3b;
+        margin-bottom: 10px;
+    }
+
+    .stat-label {
+        font-family: Georgia, serif;
+        font-size: 13px;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    /* Alternating Approach Sections */
+    .approach-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 80px;
+        padding: 80px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .approach-block:nth-child(even) {
+        direction: rtl;
+        background: #f5f3f0;
+    }
+
+    .approach-block:nth-child(even) > * {
+        direction: ltr;
+    }
+
+    .approach-block:nth-child(odd) {
+        background: white;
+    }
+
+    .approach-text h2 {
+        font-family: Georgia, serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #001f3f;
+    }
+
+    .approach-text p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .approach-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    /* Case Study Section */
+    .case-study-section {
+        padding: 80px 0;
+        background: #f5f3f0;
+    }
+
+    .case-study-card {
+        background: white;
+        padding: 50px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .case-study-card h3 {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #001f3f;
+    }
+
+    .case-study-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .case-metric {
+        text-align: center;
+    }
+
+    .case-metric-value {
+        font-family: Georgia, serif;
+        font-size: 36px;
+        font-weight: normal;
+        color: #1e4d3b;
+        margin-bottom: 8px;
+    }
+
+    .case-metric-label {
+        font-size: 13px;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    .case-study-text p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    /* CTA Button */
+    .cta-button {
+        background: #4a7c6b;
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+        background: #5a8d7b;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 350px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .approach-block {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            padding: 60px 0;
+        }
+
+        .approach-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .case-study-metrics {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Public Equity Real Estate</h1>
+    </section>
+
+    <!-- Key Metrics - 4 Cards -->
+    <section class="container" style="padding: 80px 0;">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">$12.3B</div>
+                <div class="stat-label">Assets Under Management</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5.1%</div>
+                <div class="stat-label">Average Yield</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8.4%</div>
+                <div class="stat-label">Total Return (5yr avg)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">45</div>
+                <div class="stat-label">REIT Holdings</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Sections - Alternating -->
+    <div class="container">
+        <section class="approach-block">
+            <div class="approach-text">
+                <h2>REIT Investments</h2>
+                <p>We maintain a diversified portfolio of REITs across all major property types and geographies. Our REIT strategy focuses on quality operators with strong management teams, consistent dividend growth, and meaningful capital appreciation potential across economic cycles.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="REIT Investments" class="approach-image">
+        </section>
+
+        <section class="approach-block">
+            <div class="approach-text">
+                <h2>Real Estate Securities</h2>
+                <p>Beyond traditional REITs, we actively manage positions in real estate-focused stocks, real estate operating companies, and publicly traded platforms. This diversified securities approach provides exposure to both pure-play and mixed business model opportunities.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Real Estate Securities" class="approach-image">
+        </section>
+
+        <section class="approach-block">
+            <div class="approach-text">
+                <h2>Active Management</h2>
+                <p>We actively manage our public equity portfolio, making tactical adjustments based on market valuations, interest rate environments, and sector-specific dynamics. Our research team conducts deep fundamental analysis to identify compelling opportunities and mispriced securities.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1511228684778-1ae7f13c5ffa?w=600&q=80" alt="Active Management" class="approach-image">
+        </section>
+
+        <section class="approach-block">
+            <div class="approach-text">
+                <h2>Daily Liquidity</h2>
+                <p>Public equity real estate provides investors with daily liquidity and transparent pricing. This strategy offers flexible capital deployment, allowing investors to maintain optionality while generating attractive current income through dividends and long-term capital appreciation.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1487646212335-ed2f463991c0?w=600&q=80" alt="Liquidity" class="approach-image">
+        </section>
+    </div>
+
+    <!-- Case Study -->
+    <section class="case-study-section">
+        <div class="container">
+            <h2 class="section-title">Case Study: Sector Rotation Strategy</h2>
+            <div class="case-study-card">
+                <h3>Successful Sector Rotation Capturing Market Cycle</h3>
+                <div class="case-study-metrics">
+                    <div class="case-metric">
+                        <div class="case-metric-value">$2.8B</div>
+                        <div class="case-metric-label">Portfolio Rotation</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">11.2%</div>
+                        <div class="case-metric-label">Outperformance vs Index</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">5.8%</div>
+                        <div class="case-metric-label">Total Return</div>
+                    </div>
+                </div>
+                <div class="case-study-text">
+                    <p>In 2021-2022, we executed a strategic sector rotation, recognizing shifting market dynamics post-pandemic. We systematically reduced overweight positions in hospitality and entertainment sectors, while increasing exposure to industrial, logistics, and data center REITs positioning for e-commerce and digital infrastructure tailwinds.</p>
+                    <p>Our analysis identified compelling valuations in logistics and data center properties driven by strong structural growth fundamentals. We rotated approximately $2.8B into these sectors ahead of broader market recognition, capturing valuation expansion and benefiting from significant dividend growth as these sectors outperformed.</p>
+                    <p>This strategic positioning delivered 11.2% outperformance versus the FTSE NAREIT index and a total 5.8% return, substantially outpacing the broader market decline during this period, demonstrating the value of active management and disciplined sector allocation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="background: #1e4d3b; padding: 80px 0; text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-family: Georgia, serif; font-size: 42px; margin-bottom: 30px; font-weight: normal;">Invest in Public Real Estate</h2>
+            <button class="cta-button" onclick="document.location='/contact'">Schedule a Consultation</button>
+        </div>
+    </section>
+</main>
+{% endblock %}

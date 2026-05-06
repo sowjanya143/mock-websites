@@ -1,328 +1,357 @@
 {% extends "base.html" %}
 
-{% block title %}About - {{ company_name }}{% endblock %}
+{% block title %}About Landmark Property Advisors{% endblock %}
 
 {% block extra_css %}
 <style>
-    .page-header {
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        padding: 60px 0;
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         text-align: center;
-    }
-    .page-header h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-        font-family: Georgia, serif;
-    }
-    .page-header p {
-        font-size: 18px;
-        color: #a8c86f;
+        margin-bottom: 80px;
     }
 
-    .company-history {
-        padding: 60px 0;
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
+    }
+
+    /* Timeline - Horizontal 8 Milestones */
+    .timeline-section {
+        padding: 80px 0;
         background: white;
     }
-    .company-history h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
+
     .timeline {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    .timeline-item {
-        background: #f5f3f0;
-        padding: 25px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #a8c86f;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 15px;
+        margin-bottom: 60px;
         position: relative;
     }
-    .timeline-marker {
-        font-size: 18px;
-        font-weight: bold;
-        color: #1e4d3b;
-        margin-bottom: 10px;
+
+    .timeline-item {
+        background: #f5f3f0;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #1e4d3b;
+    }
+
+    .timeline-year {
         font-family: Georgia, serif;
-    }
-    .timeline-item h3 {
-        font-size: 14px;
-        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: normal;
         color: #1e4d3b;
-        font-weight: 600;
+        margin-bottom: 10px;
     }
-    .timeline-item p {
+
+    .timeline-milestone {
         font-size: 12px;
         color: #666;
         line-height: 1.5;
     }
 
-    .global-offices {
-        padding: 60px 0;
+    /* Office Regions - 4 Cards in 2x2 */
+    .offices-section {
+        padding: 80px 0;
         background: #f5f3f0;
-    }
-    .global-offices h2 {
-        font-size: 32px;
-        margin-bottom: 10px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .section-subtitle {
-        text-align: center;
-        color: #666;
-        font-size: 14px;
-        margin-bottom: 40px;
-    }
-    .offices-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    .office-card {
-        background: white;
-        padding: 25px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #1e4d3b;
-    }
-    .office-card h3 {
-        font-size: 14px;
-        margin-bottom: 15px;
-        color: #1e4d3b;
-        font-weight: 600;
-        border-bottom: 2px solid #a8c86f;
-        padding-bottom: 10px;
-    }
-    .office-card ul {
-        list-style: none;
-    }
-    .office-card li {
-        font-size: 12px;
-        color: #666;
-        padding: 6px 0;
     }
 
-    .core-values {
-        padding: 60px 0;
-        background: white;
-    }
-    .core-values h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .values-grid {
+    .offices-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
     }
-    .value-card {
-        background: #f5f3f0;
-        padding: 25px;
+
+    .office-card {
+        background: white;
+        padding: 40px;
+        border-left: 5px solid #1e4d3b;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #a8c86f;
     }
-    .value-card h3 {
-        font-size: 16px;
-        margin-bottom: 12px;
-        color: #1e4d3b;
-        font-weight: 600;
+
+    .office-card h3 {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #001f3f;
     }
-    .value-card p {
-        font-size: 13px;
+
+    .office-card p {
+        font-size: 14px;
         color: #666;
         line-height: 1.6;
     }
 
-    .learn-more {
-        padding: 60px 0;
-        background: #f5f3f0;
-        text-align: center;
-    }
-    .learn-more h2 {
-        font-size: 32px;
-        margin-bottom: 30px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-    }
-    .learn-links {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-    }
-    .btn {
-        display: inline-block;
-        background: #1e4d3b;
-        color: white;
-        padding: 12px 30px;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 12px;
-        letter-spacing: 1px;
-        transition: all 0.3s;
-    }
-    .btn:hover {
-        background: #a8c86f;
-        color: #1e4d3b;
-    }
-    .btn-secondary {
+    /* Core Values - 3x2 Grid */
+    .values-section {
+        padding: 80px 0;
         background: white;
-        color: #1e4d3b;
-        border: 2px solid #1e4d3b;
     }
-    .btn-secondary:hover {
-        background: #1e4d3b;
-        color: white;
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .value-card {
+        background: #f5f3f0;
+        padding: 40px;
+        border-left: 5px solid #1e4d3b;
+    }
+
+    .value-card h3 {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #001f3f;
+    }
+
+    .value-card p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Culture Section with Alternating Images */
+    .culture-section {
+        padding: 80px 0;
+        background: white;
+    }
+
+    .culture-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 60px;
+        padding: 40px 0;
+    }
+
+    .culture-block:nth-child(even) {
+        direction: rtl;
+    }
+
+    .culture-block:nth-child(even) > * {
+        direction: ltr;
+    }
+
+    .culture-text h2 {
+        font-family: Georgia, serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #001f3f;
+    }
+
+    .culture-text p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .culture-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 350px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .timeline {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .offices-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .culture-block {
+            grid-template-columns: 1fr;
+            direction: ltr;
+        }
+
+        .culture-block:nth-child(even) > * {
+            direction: ltr;
+        }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1>About Landmark</h1>
-    <p>60 years of transforming real estate</p>
-</div>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>About Landmark Property Advisors</h1>
+    </section>
 
-<!-- Company History -->
-<section class="company-history">
-    <h2>Our 60-Year Journey</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-marker">1966</div>
-            <h3>Founding</h3>
-            <p>Robert Heitman founds Landmark Property Advisors with vision to transform commercial real estate investment through disciplined underwriting and active management.</p>
+    <!-- Timeline - 8 Milestones -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">60 Years of Real Estate Excellence</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1964</div>
+                    <div class="timeline-milestone">Founded as regional real estate investment firm</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1978</div>
+                    <div class="timeline-milestone">Expanded to international markets</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1995</div>
+                    <div class="timeline-milestone">Established private equity platform</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2003</div>
+                    <div class="timeline-milestone">Launched private debt strategy</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-milestone">Public equity platform inception</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-milestone">Achieved $30B in AUM milestone</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-milestone">ESG leadership recognition</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-milestone">$47B+ AUM, 500+ team members</div>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">1975</div>
-            <h3>First Fund Launch</h3>
-            <p>Launch of inaugural Landmark Real Estate Fund I with $500M in commitments, establishing foundation for institutional investor relationships.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">1990</div>
-            <h3>International Expansion</h3>
-            <p>Establish Landmark offices in London and Tokyo, beginning global real estate investment platform with local market expertise.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">2000</div>
-            <h3>AUM Milestone: $10B</h3>
-            <p>Landmark achieves $10B in assets under management across expanded fund complex and investment strategies.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">2010</div>
-            <h3>Strategic Diversification</h3>
-            <p>Launch of Private Debt and Public Equity platforms, creating integrated real estate investment company with three complementary strategies.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">2015</div>
-            <h3>Sustainability Leadership</h3>
-            <p>Launch green properties fund with commitment to carbon-neutral real estate and LEED certifications across portfolio.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">2020</div>
-            <h3>Resilience & Growth</h3>
-            <p>Navigate real estate markets through pandemic, deploy $2.3B capital and establish resilient real estate platform for long-term growth.</p>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-marker">2026</div>
-            <h3>Global Leadership</h3>
-            <p>Landmark reaches $47B AUM with 10 global offices, 847 managed properties, and 60-year track record of superior returns.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Global Offices -->
-<section class="global-offices">
-    <h2>Global Offices</h2>
-    <p class="section-subtitle">10 regional offices spanning 6 continents</p>
+    <!-- Office Regions - 4 Cards -->
+    <section class="offices-section">
+        <div class="container">
+            <h2 class="section-title">Global Office Locations</h2>
+            <div class="offices-grid">
+                <div class="office-card">
+                    <h3>North America</h3>
+                    <p>Our largest region with offices in New York, Toronto, Los Angeles, Houston, Chicago, and Miami. North America represents 45% of our AUM with focus on gateway markets and emerging metros.</p>
+                </div>
+                <div class="office-card">
+                    <h3>Europe</h3>
+                    <p>Strong presence across London, Frankfurt, Paris, Madrid, and Amsterdam. European investments focus on core-plus and value-add opportunities in primary business districts and suburban markets.</p>
+                </div>
+                <div class="office-card">
+                    <h3>Asia-Pacific</h3>
+                    <p>Rapidly expanding region with offices in Singapore, Hong Kong, Tokyo, Sydney, Mumbai, and Shanghai. Focus on high-growth markets with urbanization and development tailwinds.</p>
+                </div>
+                <div class="office-card">
+                    <h3>Emerging Markets</h3>
+                    <p>Strategic presence in Latin America, Middle East, and Africa with offices in Mexico City, São Paulo, Dubai, Cairo, and Johannesburg. Targeting high-growth emerging markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="offices-grid">
-        <div class="office-card">
-            <h3>North America</h3>
-            <ul>
-                <li>New York (Headquarters)</li>
-                <li>Toronto</li>
-                <li>Los Angeles</li>
-                <li>Houston</li>
-                <li>Chicago</li>
-            </ul>
+    <!-- Core Values - 6 Cards in 3x2 Grid -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Integrity</h3>
+                    <p>We operate with absolute transparency and maintain the highest ethical standards. Our investors trust us to act in their interests with unwavering integrity.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Excellence</h3>
+                    <p>We pursue excellence in every aspect of our work, from deal sourcing and underwriting to property management and investor relations.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Partnership</h3>
+                    <p>We view every investor as a true partner. Your success is our success, and we're committed to delivering results that exceed expectations.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Innovation</h3>
+                    <p>We embrace innovation through technology, sustainability initiatives, and new market opportunities that create competitive advantages for our investors.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Stewardship</h3>
+                    <p>We're stewards of our investors' capital and custodians of the properties we manage, ensuring long-term value creation for all stakeholders.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Community</h3>
+                    <p>We invest in the communities where we operate, creating positive social impact through job creation, affordable housing, and environmental sustainability.</p>
+                </div>
+            </div>
         </div>
-        <div class="office-card">
-            <h3>Europe</h3>
-            <ul>
-                <li>London</li>
-                <li>Frankfurt</li>
-                <li>Paris</li>
-            </ul>
-        </div>
-        <div class="office-card">
-            <h3>Asia-Pacific</h3>
-            <ul>
-                <li>Singapore (Regional HQ)</li>
-                <li>Hong Kong</li>
-                <li>Tokyo</li>
-            </ul>
-        </div>
-        <div class="office-card">
-            <h3>Emerging Markets</h3>
-            <ul>
-                <li>40+ regional offices</li>
-                <li>Across 60 countries</li>
-                <li>Local market expertise</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Core Values -->
-<section class="core-values">
-    <h2>Our Core Values</h2>
-    <div class="values-grid">
-        <div class="value-card">
-            <h3>Integrity</h3>
-            <p>We maintain the highest standards of ethical behavior and transparency with investors, partners, and stakeholders.</p>
-        </div>
-        <div class="value-card">
-            <h3>Excellence</h3>
-            <p>We pursue continuous improvement and operational excellence across all investment activities and portfolio management.</p>
-        </div>
-        <div class="value-card">
-            <h3>Expertise</h3>
-            <p>We combine deep market knowledge with disciplined underwriting to identify compelling real estate investment opportunities.</p>
-        </div>
-        <div class="value-card">
-            <h3>Innovation</h3>
-            <p>We embrace new technologies and investment structures to create competitive advantages for our investors.</p>
-        </div>
-        <div class="value-card">
-            <h3>Partnership</h3>
-            <p>We build long-term collaborative relationships with investors, operators, and partners aligned toward shared goals.</p>
-        </div>
-        <div class="value-card">
-            <h3>Sustainability</h3>
-            <p>We prioritize environmental, social, and governance initiatives to create enduring value for stakeholders and communities.</p>
-        </div>
-    </div>
-</section>
+    <!-- Culture Section with Alternating Images -->
+    <section class="culture-section">
+        <div class="container">
+            <h2 class="section-title">Our Culture</h2>
 
-<!-- Learn More -->
-<section class="learn-more">
-    <h2>Learn More</h2>
-    <div class="learn-links">
-        <a href="/about/team" class="btn btn-secondary">Meet Our Leadership Team</a>
-        <a href="/about/sustainability" class="btn btn-secondary">Our Sustainability Initiatives</a>
-        <a href="/landmark-difference" class="btn btn-secondary">The Landmark Difference</a>
-    </div>
-</section>
+            <div class="culture-block">
+                <div class="culture-text">
+                    <h2>Collaborative Excellence</h2>
+                    <p>At Landmark, we believe that exceptional real estate investments require exceptional people working together. We foster a collaborative culture where diverse perspectives are valued, and teamwork drives superior outcomes.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Collaborative Excellence" class="culture-image">
+            </div>
+
+            <div class="culture-block">
+                <div class="culture-text">
+                    <h2>Professional Development</h2>
+                    <p>We invest in our people through continuous learning, mentorship, and career advancement opportunities. Our team members have access to industry-leading training, conference participation, and professional certifications.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Professional Development" class="culture-image">
+            </div>
+
+            <div class="culture-block">
+                <div class="culture-text">
+                    <h2>Diversity & Inclusion</h2>
+                    <p>We celebrate diversity and foster an inclusive environment where all team members can thrive. Our commitment to diversity across gender, ethnicity, and experience strengthens our decision-making and market insights.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Diversity & Inclusion" class="culture-image">
+            </div>
+
+            <div class="culture-block">
+                <div class="culture-text">
+                    <h2>Work-Life Balance</h2>
+                    <p>We recognize that our people are our greatest asset. We offer flexible work arrangements, wellness programs, and competitive benefits to support the wellbeing of our team members and their families.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Work-Life Balance" class="culture-image">
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

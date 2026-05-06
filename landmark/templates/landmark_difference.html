@@ -1,327 +1,353 @@
 {% extends "base.html" %}
 
-{% block title %}The Landmark Difference - {{ company_name }}{% endblock %}
+{% block title %}The Landmark Difference - Landmark Property Advisors{% endblock %}
 
 {% block extra_css %}
 <style>
-    .page-header {
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        padding: 60px 0;
-        color: white;
-        text-align: center;
-    }
-    .page-header h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-        font-family: Georgia, serif;
-    }
-    .page-header p {
-        font-size: 18px;
-        color: #a8c86f;
-    }
-
-    .philosophy-section {
-        padding: 60px 0;
-        background: white;
-    }
-    .philosophy-section h2 {
-        font-size: 32px;
-        margin-bottom: 30px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .philosophy-content {
-        max-width: 800px;
-        margin: 0 auto;
-        font-size: 15px;
-        color: #666;
-        line-height: 1.8;
-    }
-
-    .differentiators {
-        padding: 60px 0;
-        background: #f5f3f0;
-    }
-    .differentiators h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .differentiators-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-    .differentiator-card {
-        background: white;
-        padding: 30px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #1e4d3b;
-    }
-    .differentiator-card h3 {
-        font-size: 16px;
-        margin-bottom: 15px;
-        color: #1e4d3b;
-        font-weight: 600;
-    }
-    .differentiator-card p {
-        font-size: 13px;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    .global-presence {
-        padding: 60px 0;
-        background: white;
-    }
-    .global-presence h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .presence-map {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    .region-item {
-        background: #f5f3f0;
-        padding: 25px;
-        border-left: 5px solid #a8c86f;
-        text-align: center;
-    }
-    .region-item h3 {
-        font-size: 15px;
-        margin-bottom: 10px;
-        color: #1e4d3b;
-        font-weight: 600;
-    }
-    .region-item p {
-        font-size: 12px;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    .investment-thesis {
-        padding: 60px 0;
-        background: #f5f3f0;
-    }
-    .investment-thesis h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .thesis-points {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    .thesis-point {
-        background: white;
-        padding: 30px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-    .point-number {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        background: #1e4d3b;
-        color: white;
-        border-radius: 50%;
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
+        color: white;
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
+    }
+
+    /* Differentiator Blocks - Alternating Layout */
+    .differentiator-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 0;
+        padding: 80px 0;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .differentiator-block:nth-child(even) {
+        direction: rtl;
+        background: #f5f3f0;
+    }
+
+    .differentiator-block:nth-child(even) > * {
+        direction: ltr;
+    }
+
+    .differentiator-block:nth-child(odd) {
+        background: white;
+    }
+
+    .diff-text h2 {
+        font-family: Georgia, serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #001f3f;
+    }
+
+    .diff-text p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
         margin-bottom: 15px;
     }
-    .thesis-point h3 {
-        font-size: 16px;
-        margin-bottom: 12px;
-        color: #1e4d3b;
-        font-weight: 600;
+
+    .diff-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 4px;
     }
-    .thesis-point p {
+
+    /* Offices Section */
+    .offices-section {
+        padding: 80px 0;
+        background: white;
+    }
+
+    .offices-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .office-card {
+        background: #f5f3f0;
+        border-left: 5px solid #1e4d3b;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .office-card h3 {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #001f3f;
+    }
+
+    .office-card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    /* Track Record Metrics - 4 Column */
+    .track-record-section {
+        padding: 80px 0;
+        background: #f5f3f0;
+    }
+
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .metric-card {
+        text-align: center;
+        background: white;
+        padding: 40px 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .metric-number {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        font-weight: normal;
+        color: #1e4d3b;
+        margin-bottom: 10px;
+    }
+
+    .metric-label {
+        font-family: Georgia, serif;
         font-size: 13px;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    /* Core Values - 2 Column Grid */
+    .values-section {
+        background: white;
+        padding: 80px 0;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .value-card {
+        background: #f5f3f0;
+        padding: 40px;
+        border-left: 5px solid #1e4d3b;
+    }
+
+    .value-card h3 {
+        font-family: Georgia, serif;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #001f3f;
+    }
+
+    .value-card p {
+        font-size: 14px;
         color: #666;
         line-height: 1.6;
     }
 
-    .track-record {
-        padding: 60px 0;
-        background: white;
-    }
-    .track-record h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .record-metrics {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
-    }
-    .metric {
-        text-align: center;
-        background: #f5f3f0;
-        padding: 25px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #a8c86f;
-    }
-    .metric-value {
-        font-size: 28px;
-        font-weight: bold;
-        color: #1e4d3b;
-        margin-bottom: 10px;
-        font-family: Georgia, serif;
-    }
-    .metric-label {
-        font-size: 12px;
-        color: #666;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    @media (max-width: 768px) {
+        .hero {
+            height: 350px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .differentiator-block {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            padding: 60px 0;
+        }
+
+        .differentiator-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .offices-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .metrics-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1>The Landmark Difference</h1>
-    <p>60 years of innovation, expertise, and investor returns</p>
-</div>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>The Landmark Difference</h1>
+    </section>
 
-<!-- Philosophy Section -->
-<section class="philosophy-section">
-    <h2>Our Investment Philosophy</h2>
-    <div class="philosophy-content">
-        <p>At Landmark Property Advisors, we believe exceptional real estate investment results come from deep market expertise, disciplined underwriting, and a long-term perspective. Since 1966, we have built a reputation for identifying transformative real estate opportunities and delivering consistent, superior returns to our investors.</p>
-    </div>
-</section>
-
-<!-- Differentiators Section -->
-<section class="differentiators">
-    <h2>What Sets Us Apart</h2>
-    <div class="differentiators-grid">
-        <div class="differentiator-card">
-            <h3>Global Expertise</h3>
-            <p>Operations across 10 regions and 60+ countries, providing local market insight with institutional scale.</p>
-        </div>
-        <div class="differentiator-card">
-            <h3>Proven Track Record</h3>
-            <p>12.3% average IRR across real estate funds with 2.3x cash-on-cash multiples and 6+ year holding periods.</p>
-        </div>
-        <div class="differentiator-card">
-            <h3>Integrated Platforms</h3>
-            <p>Three complementary strategies (Private Equity, Private Debt, Public Equity) providing diversified exposure to real estate.</p>
-        </div>
-        <div class="differentiator-card">
-            <h3>Sustainability Leadership</h3>
-            <p>35% carbon reduction across portfolio through LEED certifications and sustainable property initiatives.</p>
-        </div>
-        <div class="differentiator-card">
-            <h3>Active Management</h3>
-            <p>847 actively managed properties with operational expertise in lease optimization and capital planning.</p>
-        </div>
-        <div class="differentiator-card">
-            <h3>Founder-Led</h3>
-            <p>Founder Robert Heitman (35+ years real estate) leads firm strategy with founder-aligned capital alongside investors.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Global Presence Section -->
-<section class="global-presence">
-    <h2>Global Presence</h2>
-    <div class="presence-content">
-        <div class="presence-map">
-            <div class="region-item">
-                <h3>North America</h3>
-                <p>New York, Toronto, Los Angeles, Houston, Chicago</p>
+    <!-- Differentiator Blocks - 6 Alternating Sections -->
+    <div class="container">
+        <section class="differentiator-block">
+            <div class="diff-text">
+                <h2>Global Expertise</h2>
+                <p>With operations across 10 major regions and 60+ countries, we provide truly local market expertise paired with institutional-scale resources. Our global network enables us to identify opportunities that others miss while maintaining deep community relationships.</p>
             </div>
-            <div class="region-item">
-                <h3>Europe</h3>
-                <p>London, Frankfurt, Paris</p>
-            </div>
-            <div class="region-item">
-                <h3>Asia-Pacific</h3>
-                <p>Singapore, Hong Kong, Tokyo, Sydney, Mumbai</p>
-            </div>
-            <div class="region-item">
-                <h3>Other Regions</h3>
-                <p>40+ emerging market offices</p>
-            </div>
-        </div>
-    </div>
-</section>
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Global Expertise" class="diff-image">
+        </section>
 
-<!-- Investment Thesis -->
-<section class="investment-thesis">
-    <h2>Our Investment Thesis</h2>
-    <div class="thesis-points">
-        <div class="thesis-point">
-            <div class="point-number">1</div>
-            <h3>Real Estate Fundamentals Drive Returns</h3>
-            <p>Strong rental growth, population migration, and supply constraints create compelling real estate investment opportunities.</p>
-        </div>
-        <div class="thesis-point">
-            <div class="point-number">2</div>
-            <h3>Differentiated Insights Matter</h3>
-            <p>Our proprietary research platform analyzing 50,000+ properties identifies mispriced assets before the market.</p>
-        </div>
-        <div class="thesis-point">
-            <div class="point-number">3</div>
-            <h3>Operational Excellence Creates Value</h3>
-            <p>Active management, tenant optimization, and capital deployment accelerate portfolio value creation.</p>
-        </div>
-        <div class="thesis-point">
-            <div class="point-number">4</div>
-            <h3>Sustainable Properties Outperform</h3>
-            <p>ESG-focused properties command premium valuations and generate stable, long-term returns.</p>
-        </div>
-    </div>
-</section>
+        <section class="differentiator-block">
+            <div class="diff-text">
+                <h2>Proven Track Record</h2>
+                <p>Our track record speaks for itself: 12.3% average IRR across all real estate funds, 2.3x cash-on-cash multiples, and consistent 6+ year hold periods. We've delivered exceptional returns through multiple market cycles, generating over $47B in cumulative AUM.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Proven Track Record" class="diff-image">
+        </section>
 
-<!-- Track Record -->
-<section class="track-record">
-    <h2>Track Record Highlights</h2>
-    <div class="record-metrics">
-        <div class="metric">
-            <div class="metric-value">$47B</div>
-            <div class="metric-label">Total AUM</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">183</div>
-            <div class="metric-label">Portfolio Companies</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">12.3%</div>
-            <div class="metric-label">Average IRR</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">6.1 yrs</div>
-            <div class="metric-label">Avg. Holding Period</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">2.3x</div>
-            <div class="metric-label">MOIC</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">35%</div>
-            <div class="metric-label">Carbon Reduction</div>
-        </div>
+        <section class="differentiator-block">
+            <div class="diff-text">
+                <h2>Integrated Platforms</h2>
+                <p>Our three complementary strategies—Private Equity, Private Debt, and Public Equity Real Estate—work together to provide diversified real estate exposure. This integrated approach allows us to optimize risk-adjusted returns across different market cycles and property types.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1511228684778-1ae7f13c5ffa?w=600&q=80" alt="Integrated Platforms" class="diff-image">
+        </section>
+
+        <section class="differentiator-block">
+            <div class="diff-text">
+                <h2>Sustainability Leadership</h2>
+                <p>We've achieved 35% carbon reduction across our portfolio through LEED certifications and sustainable property initiatives. Our ESG-focused approach not only reduces environmental impact but creates premium valuations and stable, long-term returns for investors.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1487646212335-ed2f463991c0?w=600&q=80" alt="Sustainability Leadership" class="diff-image">
+        </section>
+
+        <section class="differentiator-block">
+            <div class="diff-text">
+                <h2>Active Management</h2>
+                <p>We actively manage 847 properties across our portfolio with deep operational expertise in lease optimization, tenant relations, and capital deployment. This hands-on approach accelerates value creation and generates superior risk-adjusted returns for all stakeholders.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Active Management" class="diff-image">
+        </section>
+
+        <section class="differentiator-block">
+            <div class="diff-text">
+                <h2>Founder-Led Culture</h2>
+                <p>Founder Robert Heitman, with 35+ years in real estate, leads firm strategy and maintains significant founder-aligned capital alongside all investors. This alignment ensures we're never separated from the long-term success of our partnerships and investments.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Founder-Led Culture" class="diff-image">
+        </section>
     </div>
-</section>
+
+    <!-- Office Locations - 5 Cards -->
+    <section class="offices-section">
+        <div class="container">
+            <h2 class="section-title">Global Office Locations</h2>
+            <div class="offices-grid">
+                <div class="office-card">
+                    <h3>North America</h3>
+                    <p>New York, Toronto, Los Angeles, Houston, Chicago, Miami</p>
+                </div>
+                <div class="office-card">
+                    <h3>Europe</h3>
+                    <p>London, Frankfurt, Paris, Madrid, Amsterdam</p>
+                </div>
+                <div class="office-card">
+                    <h3>Asia-Pacific</h3>
+                    <p>Singapore, Hong Kong, Tokyo, Sydney, Mumbai, Shanghai</p>
+                </div>
+                <div class="office-card">
+                    <h3>Latin America</h3>
+                    <p>Mexico City, São Paulo, Buenos Aires</p>
+                </div>
+                <div class="office-card">
+                    <h3>Middle East & Africa</h3>
+                    <p>Dubai, Cairo, Johannesburg, Lagos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Track Record Metrics - 4 Column -->
+    <section class="track-record-section">
+        <div class="container">
+            <h2 class="section-title">Track Record Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">$47B</div>
+                    <div class="metric-label">Cumulative AUM</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">12.3%</div>
+                    <div class="metric-label">Average IRR</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">2.3x</div>
+                    <div class="metric-label">Cash-on-Cash</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">6.1 yrs</div>
+                    <div class="metric-label">Average Hold</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values - 5 Cards in 2-Column Grid -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Integrity</h3>
+                    <p>We operate with absolute transparency and maintain the highest ethical standards. Our investors trust us to act with their interests first, every time.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Excellence</h3>
+                    <p>We pursue excellence in every aspect of our work, from deal sourcing and underwriting to property management and investor relations.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Partnership</h3>
+                    <p>We view every investor as a true partner. Your success is our success, and we're committed to delivering results that exceed expectations.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Innovation</h3>
+                    <p>We embrace innovation in real estate through technology, sustainability initiatives, and new market opportunities that create competitive advantages.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Stewardship</h3>
+                    <p>We're stewards of our investors' capital and custodians of the properties we manage, ensuring long-term value creation for all stakeholders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}

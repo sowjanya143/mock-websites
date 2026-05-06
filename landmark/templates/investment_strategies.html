@@ -1,145 +1,139 @@
 {% extends "base.html" %}
 
-{% block title %}Investment Strategies - {{ company_name }}{% endblock %}
+{% block title %}Investment Strategies - Landmark Property Advisors{% endblock %}
 
 {% block extra_css %}
 <style>
-    .page-header {
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        padding: 60px 0;
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         text-align: center;
-    }
-    .page-header h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-        font-family: Georgia, serif;
-    }
-    .page-header p {
-        font-size: 18px;
-        color: #a8c86f;
+        margin-bottom: 80px;
     }
 
-    .strategies-overview {
-        padding: 60px 0;
-        background: white;
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
     }
-    .strategies-list {
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
+    }
+
+    /* Strategy Cards - 2 Column + 1 Full */
+    .strategies-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
+        margin-bottom: 80px;
     }
-    .strategy-item {
+
+    .strategy-card {
         background: #f5f3f0;
         padding: 40px;
-        border-left: 5px solid #a8c86f;
+        border-left: 5px solid #1e4d3b;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
-    .strategy-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 2px solid #a8c86f;
-    }
-    .strategy-header h2 {
-        font-size: 26px;
-        color: #1e4d3b;
-        font-weight: 600;
+
+    .strategy-card h3 {
         font-family: Georgia, serif;
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #001f3f;
     }
-    .strategy-aum {
-        font-size: 14px;
+
+    .strategy-card .aum {
+        font-size: 12px;
+        color: #4a7c6b;
         font-weight: bold;
-        color: #1e4d3b;
+        margin-bottom: 20px;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
-    .strategy-description {
+
+    .strategy-card p {
         font-size: 14px;
         color: #666;
-        line-height: 1.8;
+        line-height: 1.6;
         margin-bottom: 20px;
     }
+
     .strategy-metrics {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-bottom: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-bottom: 20px;
     }
-    .metric-box {
+
+    .metric-small {
         background: white;
-        padding: 15px;
+        padding: 12px;
         text-align: center;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     }
+
     .metric-label {
         font-size: 11px;
         color: #999;
         text-transform: uppercase;
         letter-spacing: 1px;
-        margin-bottom: 8px;
-    }
-    .metric-value {
-        font-size: 18px;
-        font-weight: bold;
-        color: #1e4d3b;
-    }
-    .btn {
-        display: inline-block;
-        background: #1e4d3b;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 12px;
-        letter-spacing: 1px;
-        transition: all 0.3s;
-    }
-    .btn:hover {
-        background: #a8c86f;
-        color: #1e4d3b;
-    }
-    .btn-secondary {
-        background: white;
-        color: #1e4d3b;
-        border: 2px solid #1e4d3b;
-    }
-    .btn-secondary:hover {
-        background: #1e4d3b;
-        color: white;
+        margin-bottom: 5px;
     }
 
-    .funds-summary {
-        padding: 60px 0;
-        background: #f5f3f0;
-    }
-    .funds-summary h2 {
-        font-size: 32px;
-        margin-bottom: 10px;
-        color: #1e4d3b;
-        font-weight: 600;
+    .metric-value {
         font-family: Georgia, serif;
-        text-align: center;
+        font-size: 16px;
+        font-weight: normal;
+        color: #1e4d3b;
     }
-    .section-subtitle {
-        text-align: center;
-        color: #666;
-        font-size: 14px;
-        margin-bottom: 40px;
+
+    .cta-link {
+        color: #1e4d3b;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        transition: color 0.3s;
     }
+
+    .cta-link:hover {
+        color: #4a7c6b;
+    }
+
+    .strategy-card-full {
+        grid-column: 1 / -1;
+    }
+
+    /* Funds Comparison Table */
+    .funds-section {
+        padding: 80px 0;
+        background: white;
+    }
+
     .funds-table {
         background: white;
         padding: 30px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         overflow-x: auto;
+        margin-bottom: 60px;
     }
+
     .funds-table table {
         width: 100%;
         border-collapse: collapse;
     }
+
     .funds-table th {
         background: #1e4d3b;
         color: white;
@@ -149,16 +143,20 @@
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     }
+
     .funds-table td {
         padding: 12px 15px;
         border-bottom: 1px solid #e5e5e5;
         font-size: 13px;
         color: #666;
     }
+
     .funds-table tr:hover {
         background: #f9f7f4;
     }
+
     .status-badge {
         display: inline-block;
         padding: 4px 10px;
@@ -168,204 +166,268 @@
         text-transform: uppercase;
         letter-spacing: 1px;
     }
+
     .status-active {
         background: #d4edda;
         color: #155724;
     }
+
     .status-fundraising {
         background: #fff3cd;
         color: #856404;
     }
 
-    .strategy-comparison {
-        padding: 60px 0;
-        background: white;
-    }
-    .strategy-comparison h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .comparison-matrix {
+    /* ESG Characteristics Matrix */
+    .esg-section {
+        padding: 80px 0;
         background: #f5f3f0;
-        padding: 30px;
     }
-    .comparison-row {
+
+    .esg-matrix {
+        background: white;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .matrix-row {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 15px;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 20px;
         margin-bottom: 15px;
         padding-bottom: 15px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #e0e0e0;
     }
-    .comparison-row:last-child {
+
+    .matrix-row:last-child {
         border-bottom: none;
         margin-bottom: 0;
     }
-    .comparison-label {
+
+    .matrix-label {
         font-weight: 600;
         color: #1e4d3b;
-        padding-right: 20px;
+        font-family: Georgia, serif;
+        font-size: 14px;
     }
-    .comparison-cell {
-        background: white;
+
+    .matrix-cell {
+        background: #f5f3f0;
         padding: 12px;
         text-align: center;
         font-size: 13px;
         color: #666;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    /* CTA Button */
+    .cta-button {
+        background: #4a7c6b;
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+        background: #5a8d7b;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 350px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .strategies-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .strategy-card-full {
+            grid-column: 1;
+        }
+
+        .matrix-row {
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1>Investment Strategies</h1>
-    <p>Three complementary real estate investment platforms</p>
-</div>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Investment Strategies</h1>
+    </section>
 
-<!-- Strategies Overview -->
-<section class="strategies-overview">
-    <div class="strategies-list">
-        <div class="strategy-item">
-            <div class="strategy-header">
-                <h2>Private Equity Real Estate</h2>
-                <div class="strategy-aum">$18.5B AUM</div>
-            </div>
-            <p class="strategy-description">Our flagship private equity platform acquires, develops, and repositions premium commercial properties with focus on long-term value creation and superior risk-adjusted returns.</p>
-
-            <div class="strategy-metrics">
-                <div class="metric-box">
-                    <div class="metric-label">Target IRR</div>
-                    <div class="metric-value">14.2%</div>
+    <!-- Strategy Cards - 2 Column + 1 Full -->
+    <section class="container" style="padding: 80px 0;">
+        <h2 class="section-title">Three Complementary Platforms</h2>
+        <div class="strategies-grid">
+            <div class="strategy-card">
+                <h3>Private Equity Real Estate</h3>
+                <div class="aum">$18.5B AUM</div>
+                <p>Acquire, develop, and reposition premium commercial properties with focus on long-term value creation and superior risk-adjusted returns across 6+ year hold periods.</p>
+                <div class="strategy-metrics">
+                    <div class="metric-small">
+                        <div class="metric-label">Target IRR</div>
+                        <div class="metric-value">14.2%</div>
+                    </div>
+                    <div class="metric-small">
+                        <div class="metric-label">Vintage</div>
+                        <div class="metric-value">2015-2019</div>
+                    </div>
                 </div>
-                <div class="metric-box">
-                    <div class="metric-label">Vintage Years</div>
-                    <div class="metric-value">2015-2019</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Funds Active</div>
-                    <div class="metric-value">2</div>
-                </div>
+                <a href="/investment-strategies/private-equity-re" class="cta-link">Learn More →</a>
             </div>
 
-            <a href="/investment-strategies/private-equity" class="btn btn-secondary">View Details</a>
-        </div>
-
-        <div class="strategy-item">
-            <div class="strategy-header">
-                <h2>Private Debt Real Estate</h2>
-                <div class="strategy-aum">$16.2B AUM</div>
-            </div>
-            <p class="strategy-description">Strategic real estate lending platform providing construction financing, mezzanine capital, and long-term mortgage debt to institutional sponsors and developers across major markets.</p>
-
-            <div class="strategy-metrics">
-                <div class="metric-box">
-                    <div class="metric-label">Target Yield</div>
-                    <div class="metric-value">7.2%</div>
+            <div class="strategy-card">
+                <h3>Private Debt Real Estate</h3>
+                <div class="aum">$16.2B AUM</div>
+                <p>Strategic real estate lending providing construction financing, mezzanine capital, and long-term mortgage debt to institutional sponsors across major markets.</p>
+                <div class="strategy-metrics">
+                    <div class="metric-small">
+                        <div class="metric-label">Target Yield</div>
+                        <div class="metric-value">7.2%</div>
+                    </div>
+                    <div class="metric-small">
+                        <div class="metric-label">Vintage</div>
+                        <div class="metric-value">2017-2020</div>
+                    </div>
                 </div>
-                <div class="metric-box">
-                    <div class="metric-label">Vintage Years</div>
-                    <div class="metric-value">2017-2020</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Funds Active</div>
-                    <div class="metric-value">2</div>
-                </div>
+                <a href="/investment-strategies/private-debt-re" class="cta-link">Learn More →</a>
             </div>
 
-            <a href="/investment-strategies/private-debt" class="btn btn-secondary">View Details</a>
-        </div>
-
-        <div class="strategy-item">
-            <div class="strategy-header">
-                <h2>Public Equity Real Estate</h2>
-                <div class="strategy-aum">$12.3B AUM</div>
+            <div class="strategy-card strategy-card-full">
+                <h3>Public Equity Real Estate</h3>
+                <div class="aum">$12.3B AUM</div>
+                <p>Public market real estate securities strategy including REIT investments, real estate stocks, and publicly traded real estate vehicles with focus on dividend income and capital appreciation.</p>
+                <div class="strategy-metrics">
+                    <div class="metric-small" style="max-width: 200px;">
+                        <div class="metric-label">Avg. Yield</div>
+                        <div class="metric-value">5.1%</div>
+                    </div>
+                    <div class="metric-small" style="max-width: 200px;">
+                        <div class="metric-label">Vintage</div>
+                        <div class="metric-value">2018-2021</div>
+                    </div>
+                </div>
+                <a href="/investment-strategies/public-equity-re" class="cta-link">Learn More →</a>
             </div>
-            <p class="strategy-description">Public market real estate securities strategy including REIT investments, real estate stocks, and publicly traded real estate vehicles with focus on dividend income and capital appreciation.</p>
+        </div>
+    </section>
 
-            <div class="strategy-metrics">
-                <div class="metric-box">
-                    <div class="metric-label">Avg. Yield</div>
-                    <div class="metric-value">5.1%</div>
+    <!-- Funds Comparison Table -->
+    <section class="funds-section">
+        <div class="container">
+            <h2 class="section-title">Our Fund Complex</h2>
+            <div class="funds-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fund Name</th>
+                            <th>Strategy</th>
+                            <th>AUM</th>
+                            <th>Vintage</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Landmark PE VII</td>
+                            <td>Private Equity</td>
+                            <td>$6.2B</td>
+                            <td>2019</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Landmark PE VI</td>
+                            <td>Private Equity</td>
+                            <td>$5.1B</td>
+                            <td>2015</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Landmark Debt III</td>
+                            <td>Private Debt</td>
+                            <td>$5.8B</td>
+                            <td>2020</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Landmark Debt II</td>
+                            <td>Private Debt</td>
+                            <td>$5.2B</td>
+                            <td>2017</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Landmark Public Equity III</td>
+                            <td>Public Equity</td>
+                            <td>$6.1B</td>
+                            <td>2021</td>
+                            <td><span class="status-badge status-fundraising">Fundraising</span></td>
+                        </tr>
+                        <tr>
+                            <td>Landmark Public Equity II</td>
+                            <td>Public Equity</td>
+                            <td>$4.2B</td>
+                            <td>2018</td>
+                            <td><span class="status-badge status-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG Characteristics Matrix -->
+    <section class="esg-section">
+        <div class="container">
+            <h2 class="section-title">ESG Characteristics Matrix</h2>
+            <div class="esg-matrix">
+                <div class="matrix-row">
+                    <div class="matrix-label">Environmental Impact</div>
+                    <div class="matrix-cell">LEED Certified</div>
+                    <div class="matrix-cell">Green Financing</div>
+                    <div class="matrix-cell">Carbon Tracking</div>
                 </div>
-                <div class="metric-box">
-                    <div class="metric-label">Vintage Years</div>
-                    <div class="metric-value">2018-2021</div>
+                <div class="matrix-row">
+                    <div class="matrix-label">Portfolio Carbon Reduction</div>
+                    <div class="matrix-cell">35% Reduction</div>
+                    <div class="matrix-cell">30% Reduction</div>
+                    <div class="matrix-cell">25% Reduction</div>
                 </div>
-                <div class="metric-box">
-                    <div class="metric-label">Funds Active</div>
-                    <div class="metric-value">2</div>
+                <div class="matrix-row">
+                    <div class="matrix-label">Social Impact</div>
+                    <div class="matrix-cell">Community Benefits</div>
+                    <div class="matrix-cell">Local Jobs</div>
+                    <div class="matrix-cell">Affordable Housing</div>
+                </div>
+                <div class="matrix-row">
+                    <div class="matrix-label">Governance Standards</div>
+                    <div class="matrix-cell">ESG Oversight</div>
+                    <div class="matrix-cell">Annual Reporting</div>
+                    <div class="matrix-cell">Investor Alignment</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <a href="/investment-strategies/public-equity" class="btn btn-secondary">View Details</a>
+    <!-- CTA Section -->
+    <section style="background: #1e4d3b; padding: 80px 0; text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-family: Georgia, serif; font-size: 42px; margin-bottom: 30px; font-weight: normal;">Ready to Invest?</h2>
+            <button class="cta-button" onclick="document.location='/contact'">Schedule a Consultation</button>
         </div>
-    </div>
-</section>
-
-<!-- Funds Summary -->
-<section class="funds-summary">
-    <h2>Our Fund Complex</h2>
-    <p class="section-subtitle">Six active funds managing real estate across the strategy spectrum</p>
-
-    <div class="funds-table">
-        <table>
-            <thead>
-                <tr>
-                    <th>Fund Name</th>
-                    <th>Strategy</th>
-                    <th>AUM</th>
-                    <th>Vintage</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for fund in aum_data.by_fund %}
-                <tr>
-                    <td>{{ fund.name }}</td>
-                    <td>{{ fund.strategy }}</td>
-                    <td>${{ (fund.aum / 1000000000) | round(1) }}B</td>
-                    <td>{{ fund.vintage_year }}</td>
-                    <td><span class="status-badge status-{{ fund.status }}">{{ fund.status }}</span></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- Comparison Section -->
-<section class="strategy-comparison">
-    <h2>Strategy Comparison</h2>
-    <div class="comparison-matrix">
-        <div class="comparison-row">
-            <div class="comparison-label">Risk Profile</div>
-            <div class="comparison-cell">Moderate</div>
-            <div class="comparison-cell">Low</div>
-            <div class="comparison-cell">Low-Moderate</div>
-        </div>
-        <div class="comparison-row">
-            <div class="comparison-label">Return Profile</div>
-            <div class="comparison-cell">High (14%+ IRR)</div>
-            <div class="comparison-cell">Moderate (7%+ Yield)</div>
-            <div class="comparison-cell">Moderate (5%+ Yield)</div>
-        </div>
-        <div class="comparison-row">
-            <div class="comparison-label">Liquidity</div>
-            <div class="comparison-cell">Long-term</div>
-            <div class="comparison-cell">Long-term</div>
-            <div class="comparison-cell">Daily</div>
-        </div>
-        <div class="comparison-row">
-            <div class="comparison-label">Investment Horizon</div>
-            <div class="comparison-cell">6-10 years</div>
-            <div class="comparison-cell">5-8 years</div>
-            <div class="comparison-cell">Flexible</div>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 {% endblock %}

@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% block title %}Team - Landmark Property Advisors{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
+    }
+
+    /* Team Grid - 3 Columns */
+    .team-section {
+        padding: 80px 0;
+        background: white;
+    }
+
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .team-card {
+        background: #f5f3f0;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .team-photo {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .team-info {
+        padding: 30px;
+    }
+
+    .team-name {
+        font-family: Georgia, serif;
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #001f3f;
+    }
+
+    .team-title {
+        font-size: 12px;
+        color: #4a7c6b;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .team-bio {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    /* Pagination */
+    .pagination {
+        text-align: center;
+        margin: 60px 0;
+    }
+
+    .pagination-btn {
+        background: white;
+        border: 1px solid #1e4d3b;
+        color: #1e4d3b;
+        padding: 10px 20px;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-weight: bold;
+        font-size: 13px;
+    }
+
+    .pagination-btn:hover {
+        background: #1e4d3b;
+        color: white;
+    }
+
+    .pagination-btn.active {
+        background: #1e4d3b;
+        color: white;
+    }
+
+    /* Culture Section */
+    .culture-section {
+        padding: 80px 0;
+        background: #f5f3f0;
+    }
+
+    .culture-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+
+    .culture-block:nth-child(even) {
+        direction: rtl;
+    }
+
+    .culture-block:nth-child(even) > * {
+        direction: ltr;
+    }
+
+    .culture-text h2 {
+        font-family: Georgia, serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #001f3f;
+    }
+
+    .culture-text p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .culture-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    /* Join Us CTA */
+    .join-section {
+        padding: 80px 0;
+        background: white;
+    }
+
+    .cta-button {
+        background: #4a7c6b;
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+        background: #5a8d7b;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 350px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .culture-block {
+            grid-template-columns: 1fr;
+            direction: ltr;
+        }
+
+        .culture-block:nth-child(even) > * {
+            direction: ltr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Our Team</h1>
+    </section>
+
+    <!-- Team Grid - 3 Columns with Pagination -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">500+ Investment Professionals</h2>
+            <div class="team-grid" id="team-grid">
+                <!-- Sample team members (5 per page) -->
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Team Member" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Robert Heitman</div>
+                        <div class="team-title">Founder & CEO</div>
+                        <div class="team-bio">35+ years in real estate with extensive experience in acquisitions, development, and portfolio management.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Team Member" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Sarah Chen</div>
+                        <div class="team-title">Chief Investment Officer</div>
+                        <div class="team-bio">Leads all investment strategies with 25 years of real estate investment and portfolio management expertise.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Team Member" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">James Williams</div>
+                        <div class="team-title">Head of Acquisitions</div>
+                        <div class="team-bio">Oversees deal sourcing and acquisitions across all strategies with track record of $12B+ in deals closed.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Team Member" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Maria Garcia</div>
+                        <div class="team-title">Head of Operations</div>
+                        <div class="team-bio">Manages 847 properties globally with focus on operational excellence and tenant satisfaction.</div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Team Member" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">David Kumar</div>
+                        <div class="team-title">Chief Financial Officer</div>
+                        <div class="team-bio">Oversees financial management and investor relations with 20 years in institutional finance.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pagination">
+                <button class="pagination-btn active" onclick="showPage(1)">Page 1</button>
+                <button class="pagination-btn" onclick="showPage(2)">Page 2</button>
+                <button class="pagination-btn" onclick="showPage(3)">Page 3</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture-section">
+        <div class="container">
+            <h2 class="section-title">Why Join Landmark?</h2>
+
+            <div class="culture-block">
+                <div class="culture-text">
+                    <h2>World-Class Team</h2>
+                    <p>Work alongside industry experts and thought leaders. Our team brings deep domain expertise, diverse perspectives, and a commitment to excellence in everything we do.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="World-Class Team" class="culture-image">
+            </div>
+
+            <div class="culture-block">
+                <div class="culture-text">
+                    <h2>Growth Opportunities</h2>
+                    <p>We invest in our people through mentorship, training, and clear career pathways. Many of our senior leaders have grown through the ranks over decades with us.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Growth Opportunities" class="culture-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us CTA -->
+    <section class="join-section">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">Ready to Join Our Team?</h2>
+            <p style="font-size: 16px; color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.8;">We're always looking for talented professionals to join our growing team. Visit our careers page to view open positions and learn more about working at Landmark.</p>
+            <button class="cta-button" onclick="document.location='/careers'">View Open Positions</button>
+        </div>
+    </section>
+</main>
+
+<script>
+function showPage(page) {
+    const buttons = document.querySelectorAll('.pagination-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    buttons[page - 1].classList.add('active');
+    // In a real application, this would fetch and display different team members
+}
+</script>
+{% endblock %}

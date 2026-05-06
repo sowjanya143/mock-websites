@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}Careers - {{ company_name }}{% endblock %}
+{% block title %}Careers - Landmark Property Advisors{% endblock %}
 
 {% block extra_css %}
 <style>
-    .page-header {
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        padding: 60px 0;
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         text-align: center;
+        margin-bottom: 80px;
     }
-    .page-header h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
+
+    .hero h1 {
         font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
     }
-    .page-header p {
-        font-size: 18px;
-        color: #a8c86f;
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
     }
 
     .why-join {
@@ -221,14 +233,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1>Careers at Landmark</h1>
-    <p>Join a global leader in real estate investment</p>
-</div>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Join Our Team</h1>
+    </section>
 
-<!-- Why Join Section -->
-<section class="why-join">
-    <h2>Why Join Landmark?</h2>
+    <!-- Benefits - 6 Cards in 2-Column Grid -->
+    <section class="benefits-section" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title">Why Work at Landmark?</h2>
     <div class="benefits-grid">
         <div class="benefit">
             <h3>Global Opportunity</h3>

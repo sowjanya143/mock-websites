@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}Contact - {{ company_name }}{% endblock %}
+{% block title %}Contact - Landmark Property Advisors{% endblock %}
 
 {% block extra_css %}
 <style>
-    .page-header {
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        padding: 60px 0;
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         text-align: center;
+        margin-bottom: 80px;
     }
-    .page-header h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
+
+    .hero h1 {
         font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
     }
-    .page-header p {
-        font-size: 18px;
-        color: #a8c86f;
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
     }
 
     .contact-section {
@@ -183,12 +195,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1>Contact Us</h1>
-    <p>Get in touch with the Landmark team</p>
-</div>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Contact Landmark</h1>
+    </section>
 
-<section class="contact-section">
+    <!-- 2-Column Contact Form & Info -->
+    <section class="contact-section" style="padding: 80px 0; background: white;">
     <div class="contact-container">
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
@@ -286,44 +300,42 @@
     </div>
 </section>
 
-<!-- Regional Offices Map -->
-<section class="regional-map">
-    <h2>Regional Offices</h2>
-    <div class="offices-map-grid">
-        <div class="map-region">
-            <h3>North America</h3>
-            <ul>
-                <li>New York (HQ)</li>
-                <li>Toronto</li>
-                <li>Los Angeles</li>
-                <li>Houston</li>
-                <li>Chicago</li>
-            </ul>
+    <!-- Regional Offices - 4 Cards in 2x2 Grid -->
+    <section class="regional-map" style="padding: 80px 0; background: #f5f3f0;">
+        <div class="container">
+            <h2 class="section-title">Regional Office Locations</h2>
+            <div class="offices-map-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+                <div class="map-region" style="background: white; padding: 40px; border-left: 5px solid #1e4d3b; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                    <h3 style="font-size: 20px; margin-bottom: 15px; color: #001f3f; border: none; padding: 0;">North America</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 15px;">Offices in New York (HQ), Toronto, Los Angeles, Houston, and Chicago. Regional focus on gateway and emerging markets.</p>
+                </div>
+                <div class="map-region" style="background: white; padding: 40px; border-left: 5px solid #1e4d3b; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                    <h3 style="font-size: 20px; margin-bottom: 15px; color: #001f3f; border: none; padding: 0;">Europe</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 15px;">European presence in London, Frankfurt, Paris, Madrid, and Amsterdam serving core and value-add opportunities.</p>
+                </div>
+                <div class="map-region" style="background: white; padding: 40px; border-left: 5px solid #1e4d3b; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                    <h3 style="font-size: 20px; margin-bottom: 15px; color: #001f3f; border: none; padding: 0;">Asia-Pacific</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 15px;">Regional hub in Singapore with offices in Hong Kong, Tokyo, Sydney, Mumbai, and Shanghai targeting high-growth markets.</p>
+                </div>
+                <div class="map-region" style="background: white; padding: 40px; border-left: 5px solid #1e4d3b; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+                    <h3 style="font-size: 20px; margin-bottom: 15px; color: #001f3f; border: none; padding: 0;">Emerging Markets</h3>
+                    <p style="font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 15px;">Strategic presence across Latin America, Middle East, and Africa with 40+ offices serving emerging opportunities.</p>
+                </div>
+            </div>
         </div>
-        <div class="map-region">
-            <h3>Europe</h3>
-            <ul>
-                <li>London</li>
-                <li>Frankfurt</li>
-                <li>Paris</li>
-            </ul>
+    </section>
+
+    <!-- Newsletter Signup - Green Background -->
+    <section style="padding: 80px 0; background: #4a7c6b; color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-family: Georgia, serif; font-size: 42px; margin-bottom: 30px; font-weight: normal;">Stay Updated</h2>
+            <p style="font-size: 16px; margin-bottom: 40px; line-height: 1.8; max-width: 600px; margin-left: auto; margin-right: auto;">Subscribe to our newsletter for the latest news, investment updates, and insights from Landmark Property Advisors.</p>
+            <form style="display: flex; gap: 10px; max-width: 500px; margin: 0 auto; margin-bottom: 20px;">
+                <input type="email" placeholder="Your email address" required style="flex: 1; padding: 12px; border: none; font-family: inherit;">
+                <button type="submit" style="background: white; color: #4a7c6b; padding: 12px 30px; border: none; font-weight: bold; cursor: pointer; transition: background 0.3s;">Subscribe</button>
+            </form>
+            <p style="font-size: 12px; color: rgba(255,255,255,0.8);">We respect your privacy. Unsubscribe at any time.</p>
         </div>
-        <div class="map-region">
-            <h3>Asia-Pacific</h3>
-            <ul>
-                <li>Singapore (Regional)</li>
-                <li>Hong Kong</li>
-                <li>Tokyo</li>
-            </ul>
-        </div>
-        <div class="map-region">
-            <h3>Emerging Markets</h3>
-            <ul>
-                <li>40+ offices</li>
-                <li>60+ countries</li>
-                <li>Global coverage</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </section>
+</main>
 {% endblock %}

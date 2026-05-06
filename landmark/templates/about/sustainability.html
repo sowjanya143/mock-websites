@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% block title %}Sustainability - Landmark Property Advisors{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Hero Section */
+    .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1487646212335-ed2f463991c0?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        margin-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        max-width: 700px;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
+    }
+
+    /* Sustainability Initiatives - 4 Alternating */
+    .initiatives-section {
+        padding: 80px 0;
+        background: white;
+    }
+
+    .initiative-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-bottom: 80px;
+        padding: 40px 0;
+    }
+
+    .initiative-block:nth-child(even) {
+        direction: rtl;
+        background: #f5f3f0;
+    }
+
+    .initiative-block:nth-child(even) > * {
+        direction: ltr;
+    }
+
+    .initiative-block:nth-child(odd) {
+        background: white;
+    }
+
+    .initiative-text h2 {
+        font-family: Georgia, serif;
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #001f3f;
+    }
+
+    .initiative-text p {
+        font-size: 15px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .initiative-image {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    /* ESG Targets - 3 Column Grid */
+    .targets-section {
+        padding: 80px 0;
+        background: #f5f3f0;
+    }
+
+    .targets-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .target-card {
+        background: white;
+        padding: 40px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .target-card h3 {
+        font-family: Georgia, serif;
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #001f3f;
+    }
+
+    .target-metric {
+        font-family: Georgia, serif;
+        font-size: 28px;
+        font-weight: normal;
+        color: #1e4d3b;
+        margin-bottom: 10px;
+    }
+
+    .target-desc {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    /* Impact Statement */
+    .impact-section {
+        padding: 80px 0;
+        background: #1e4d3b;
+        color: white;
+        text-align: center;
+    }
+
+    .impact-heading {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        margin-bottom: 30px;
+        font-weight: normal;
+    }
+
+    .impact-text {
+        font-size: 16px;
+        line-height: 1.8;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .hero {
+            height: 350px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .initiative-block {
+            grid-template-columns: 1fr;
+            direction: ltr;
+            padding: 40px 0;
+        }
+
+        .initiative-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .targets-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Sustainability & ESG Leadership</h1>
+    </section>
+
+    <!-- Sustainability Initiatives - 4 Alternating Sections -->
+    <section class="initiatives-section">
+        <div class="container">
+            <h2 class="section-title">Our Sustainability Initiatives</h2>
+
+            <div class="initiative-block">
+                <div class="initiative-text">
+                    <h2>LEED Certification & Green Buildings</h2>
+                    <p>We prioritize LEED certification across our property portfolio. Currently, 65% of our properties are LEED certified or pursuing certification, significantly reducing energy consumption and operational costs while providing healthier environments for tenants.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1487646212335-ed2f463991c0?w=600&q=80" alt="Green Buildings" class="initiative-image">
+            </div>
+
+            <div class="initiative-block">
+                <div class="initiative-text">
+                    <h2>Carbon Reduction & Climate Action</h2>
+                    <p>We've achieved 35% carbon reduction across our portfolio through renewable energy adoption, building efficiency upgrades, and operational improvements. Our target is 50% reduction by 2030 and carbon neutrality by 2040.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Carbon Reduction" class="initiative-image">
+            </div>
+
+            <div class="initiative-block">
+                <div class="initiative-text">
+                    <h2>Community Impact & Social Equity</h2>
+                    <p>We're committed to creating positive community impact through affordable housing initiatives, local job creation, and community development programs. 25% of new developments include affordable housing components.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Community Impact" class="initiative-image">
+            </div>
+
+            <div class="initiative-block">
+                <div class="initiative-text">
+                    <h2>Water Conservation & Waste Reduction</h2>
+                    <p>We've implemented comprehensive water conservation programs and waste reduction initiatives across all properties. Water usage per square foot has been reduced by 28%, and we've achieved 60% waste diversion rates.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Water Conservation" class="initiative-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG Targets - 3 Column Grid -->
+    <section class="targets-section">
+        <div class="container">
+            <h2 class="section-title">ESG Targets & Metrics</h2>
+            <div class="targets-grid">
+                <div class="target-card">
+                    <h3>Environmental</h3>
+                    <div class="target-metric">50% by 2030</div>
+                    <div class="target-desc">Carbon reduction target across portfolio. Current progress: 35% achieved. Focus areas include renewable energy and building efficiency.</div>
+                </div>
+                <div class="target-card">
+                    <h3>Social</h3>
+                    <div class="target-metric">25% Affordable</div>
+                    <div class="target-desc">Affordable housing target in new developments. Creating inclusive communities with 1,500+ affordable units delivered to date.</div>
+                </div>
+                <div class="target-card">
+                    <h3>Governance</h3>
+                    <div class="target-metric">50% Women</div>
+                    <div class="target-desc">Gender diversity target in leadership. Current: 42% women in management. Committed to achieving parity in senior roles by 2027.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Statement -->
+    <section class="impact-section">
+        <div class="container">
+            <h2 class="impact-heading">Creating Sustainable Value</h2>
+            <div class="impact-text">
+                <p>Sustainability is not just a corporate initiative at Landmark—it's embedded in our investment philosophy and operational practices. We believe that sustainable properties create superior long-term returns while reducing risk and creating positive environmental and social impact. By integrating ESG principles across our platform, we're building a more resilient, equitable, and sustainable real estate portfolio for our investors and the communities we serve.</p>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,329 +1,371 @@
 {% extends "base.html" %}
 
-{% block title %}Home - {{ company_name }}{% endblock %}
+{% block title %}Home - Landmark Property Advisors{% endblock %}
 
 {% block extra_css %}
 <style>
     /* Hero Section */
-    .hero-section {
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        padding: 80px 0;
+    .hero {
+        height: 600px;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         text-align: center;
-    }
-    .hero-content h1 {
-        font-size: 44px;
-        margin-bottom: 15px;
-        font-family: Georgia, serif;
-        font-weight: 600;
-    }
-    .hero-content p {
-        font-size: 18px;
-        color: #a8c86f;
+        margin-bottom: 80px;
     }
 
-    /* Stat Cards - Clickable stats hero */
-    .stats-section {
-        padding: 60px 0;
-        background: white;
+    .hero h1 {
+        font-family: Georgia, serif;
+        font-size: 52px;
+        font-weight: normal;
+        max-width: 600px;
     }
+
+    /* Stat Cards Grid */
     .stats-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         gap: 20px;
+        margin-bottom: 80px;
     }
+
     .stat-card {
         background: white;
-        padding: 35px 20px;
+        border-left: 5px solid #1e4d3b;
+        padding: 40px 30px;
         text-align: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #1e4d3b;
         cursor: pointer;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
+
     .stat-card:hover {
-        background: #f5f3f0;
-        box-shadow: 0 8px 16px rgba(30, 77, 59, 0.15);
-        transform: translateY(-3px);
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        border-left-color: #4a7c6b;
     }
+
     .stat-number {
-        font-size: 36px;
-        font-weight: bold;
-        color: #1e4d3b;
-        margin-bottom: 12px;
         font-family: Georgia, serif;
+        font-size: 48px;
+        font-weight: normal;
+        color: #1e4d3b;
+        margin-bottom: 10px;
     }
+
     .stat-label {
-        font-size: 13px;
+        font-family: Georgia, serif;
+        font-size: 14px;
         color: #666;
-        text-transform: uppercase;
         letter-spacing: 1px;
     }
 
-    /* Divider */
-    .section-divider {
-        height: 2px;
-        background: #a8c86f;
-        margin: 50px 0;
+    /* Strategy Cards */
+    .strategies-section {
+        background: white;
+        padding: 80px 0;
+        margin-bottom: 80px;
     }
 
-    /* Strategies Section */
-    .strategies-preview {
-        padding: 60px 0;
-        background: #f5f3f0;
-    }
-    .strategies-preview h2 {
-        font-size: 36px;
-        margin-bottom: 10px;
-        color: #1e4d3b;
-        font-weight: 600;
+    .section-title {
         font-family: Georgia, serif;
+        font-size: 42px;
         text-align: center;
+        margin-bottom: 60px;
+        color: #001f3f;
     }
-    .section-subtitle {
-        text-align: center;
-        color: #666;
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-    .strategies-grid {
+
+    .strategy-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
-    }
-    .strategy-card {
-        background: white;
-        padding: 35px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-left: 5px solid #a8c86f;
-        position: relative;
-    }
-    .strategy-icon {
-        font-size: 28px;
-        font-weight: bold;
-        color: #1e4d3b;
-        background: #f5f3f0;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 4px;
-        margin-bottom: 15px;
-    }
-    .strategy-card h3 {
-        font-size: 18px;
-        margin-bottom: 8px;
-        color: #1e4d3b;
-        font-weight: 600;
-    }
-    .strategy-aum {
-        font-size: 13px;
-        color: #a8c86f;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-    }
-    .strategy-card p {
-        font-size: 13px;
-        color: #666;
-        line-height: 1.7;
-        margin-bottom: 20px;
-    }
-    .btn {
-        display: inline-block;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s;
-        font-size: 12px;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-    }
-    .btn-secondary {
-        background: white;
-        color: #1e4d3b;
-        border: 2px solid #1e4d3b;
-    }
-    .btn-secondary:hover {
-        background: #1e4d3b;
-        color: white;
+        margin-bottom: 60px;
     }
 
-    /* Featured News */
-    .featured-news {
-        padding: 60px 0;
+    .strategy-card {
         background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: transform 0.3s ease;
     }
-    .featured-news h2 {
-        font-size: 36px;
-        margin-bottom: 40px;
-        color: #1e4d3b;
-        font-weight: 600;
+
+    .strategy-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .strategy-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .strategy-card-content {
+        padding: 30px;
+    }
+
+    .strategy-name {
         font-family: Georgia, serif;
-        text-align: center;
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #001f3f;
     }
+
+    .strategy-metrics {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .strategy-link {
+        color: #1e4d3b;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+        transition: color 0.3s;
+    }
+
+    .strategy-link:hover {
+        color: #4a7c6b;
+    }
+
+    /* Alternating backgrounds */
+    .strategy-card:nth-child(2) {
+        background: #f5f3f0;
+    }
+
+    /* News Section */
+    .news-section {
+        padding: 80px 0;
+        margin-bottom: 80px;
+        background: #f5f3f0;
+    }
+
     .news-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
+
     .news-card {
-        background: #f5f3f0;
-        padding: 25px;
+        background: white;
+        overflow: hidden;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 4px solid #1e4d3b;
+        transition: transform 0.3s ease;
     }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .news-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .news-content {
+        padding: 25px;
+    }
+
     .news-date {
+        background: #1e4d3b;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 3px;
         font-size: 12px;
-        color: #a8c86f;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-    .news-card h3 {
-        font-size: 16px;
+        display: inline-block;
         margin-bottom: 12px;
-        color: #1e4d3b;
-        font-weight: 600;
     }
-    .news-card p {
+
+    .news-headline {
+        font-family: Georgia, serif;
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #001f3f;
+    }
+
+    .news-excerpt {
         font-size: 13px;
         color: #666;
         line-height: 1.6;
-        margin-bottom: 15px;
-    }
-    .news-link {
-        color: #1e4d3b;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 12px;
-        transition: color 0.3s;
-    }
-    .news-link:hover {
-        color: #a8c86f;
     }
 
     /* CTA Section */
     .cta-section {
-        padding: 60px 0;
-        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
-        color: white;
+        background: #1e4d3b;
+        padding: 80px 0;
         text-align: center;
+        color: white;
     }
-    .cta-section h2 {
-        font-size: 36px;
-        margin-bottom: 15px;
+
+    .cta-heading {
         font-family: Georgia, serif;
-    }
-    .cta-section p {
-        font-size: 16px;
+        font-size: 42px;
         margin-bottom: 30px;
-        color: #a8c86f;
+        font-weight: normal;
     }
-    .btn-primary {
-        background: #a8c86f;
-        color: #1e4d3b;
-    }
-    .btn-primary:hover {
-        background: #b8d882;
-    }
-    .btn-lg {
+
+    .cta-button {
+        background: #4a7c6b;
+        color: white;
         padding: 15px 40px;
+        border: none;
         font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+        background: #5a8d7b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero {
+            height: 400px;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+        }
+
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .strategy-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .news-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .section-title {
+            font-size: 28px;
+        }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="hero-section">
-    <div class="hero-content">
-        <h1>Global Real Estate Investment Leadership</h1>
-        <p>Transforming properties into premium investment vehicles across continents</p>
-    </div>
-</div>
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Investment focus: real estate</h1>
+    </section>
 
-<!-- Stats Section - Clickable stat cards -->
-<section class="stats-section">
-    <div class="stats-grid">
-        <div class="stat-card" onclick="location.href='/investment-strategies';">
-            <div class="stat-number">$47B</div>
-            <div class="stat-label">Assets Under Management</div>
-        </div>
-        <div class="stat-card" onclick="location.href='/about';">
-            <div class="stat-number">10</div>
-            <div class="stat-label">Global Offices</div>
-        </div>
-        <div class="stat-card" onclick="location.href='/investment-strategies';">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Solutions & Strategies</div>
-        </div>
-        <div class="stat-card" onclick="location.href='/about';">
-            <div class="stat-number">847</div>
-            <div class="stat-label">Properties Managed</div>
-        </div>
-        <div class="stat-card" onclick="location.href='/about';">
-            <div class="stat-number">60</div>
-            <div class="stat-label">Years of Excellence</div>
-        </div>
-    </div>
-</section>
-
-<!-- Strategies Section -->
-<section class="strategies-preview">
-    <h2>Our Investment Strategies</h2>
-    <p class="section-subtitle">Three core real estate investment platforms</p>
-
-    <div class="strategies-grid">
-        <div class="strategy-card">
-            <div class="strategy-icon">PE</div>
-            <h3>Private Equity Real Estate</h3>
-            <div class="strategy-aum">$18.5B AUM</div>
-            <p>Acquisition and development of premium commercial properties with focus on value creation and long-term appreciation.</p>
-            <a href="/investment-strategies" class="btn btn-secondary">Learn More</a>
-        </div>
-
-        <div class="strategy-card">
-            <div class="strategy-icon">PD</div>
-            <h3>Private Debt Real Estate</h3>
-            <div class="strategy-aum">$16.2B AUM</div>
-            <p>Strategic real estate lending including construction financing and long-term property debt structures.</p>
-            <a href="/investment-strategies" class="btn btn-secondary">Learn More</a>
-        </div>
-
-        <div class="strategy-card">
-            <div class="strategy-icon">PE+</div>
-            <h3>Public Equity Real Estate</h3>
-            <div class="strategy-aum">$12.3B AUM</div>
-            <p>Public market real estate securities and REIT investments with emphasis on dividend income and capital appreciation.</p>
-            <a href="/investment-strategies" class="btn btn-secondary">Learn More</a>
+    <!-- Stat Cards -->
+    <div class="container">
+        <div class="stats-grid">
+            <a href="/investment-strategies" style="text-decoration: none; color: inherit;">
+                <div class="stat-card">
+                    <div class="stat-number">${{ (aum_data.global_aum / 1000000000) | int }}B</div>
+                    <div class="stat-label">Global AUM</div>
+                </div>
+            </a>
+            <a href="/about" style="text-decoration: none; color: inherit;">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Years</div>
+                </div>
+            </a>
+            <a href="/about" style="text-decoration: none; color: inherit;">
+                <div class="stat-card">
+                    <div class="stat-number">Global</div>
+                    <div class="stat-label">Presence</div>
+                </div>
+            </a>
+            <a href="/investment-strategies" style="text-decoration: none; color: inherit;">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Strategies</div>
+                </div>
+            </a>
+            <a href="/about/team" style="text-decoration: none; color: inherit;">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Team</div>
+                </div>
+            </a>
         </div>
     </div>
-</section>
 
-<!-- Featured News Section -->
-<section class="featured-news">
-    <h2>Recent News</h2>
-    <div class="news-grid">
-        {% for news in news_data[:3] %}
-        <div class="news-card">
-            <div class="news-date">{{ news.date }}</div>
-            <h3>{{ news.title }}</h3>
-            <p>{{ news.content[:150] if news.content else news.excerpt or 'Latest updates from Landmark.' }}...</p>
-            <a href="/news" class="news-link">Read More →</a>
+    <!-- Strategies Section -->
+    <section class="strategies-section">
+        <div class="container">
+            <h2 class="section-title">Investment Strategies</h2>
+            <div class="strategy-cards">
+                <div class="strategy-card">
+                    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80" alt="Private Equity Real Estate">
+                    <div class="strategy-card-content">
+                        <div class="strategy-name">Private Equity Real Estate</div>
+                        <div class="strategy-metrics">
+                            <span>$18.5B AUM</span>
+                            <span>14.2% IRR</span>
+                        </div>
+                        <a href="/investment-strategies/private-equity-re" class="strategy-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&q=80" alt="Private Debt Real Estate">
+                    <div class="strategy-card-content">
+                        <div class="strategy-name">Private Debt Real Estate</div>
+                        <div class="strategy-metrics">
+                            <span>$16.2B AUM</span>
+                            <span>6.8% Yield</span>
+                        </div>
+                        <a href="/investment-strategies/private-debt-re" class="strategy-link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="strategy-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&q=80" alt="Public Equity Real Estate">
+                    <div class="strategy-card-content">
+                        <div class="strategy-name">Public Equity Real Estate</div>
+                        <div class="strategy-metrics">
+                            <span>$12.3B AUM</span>
+                            <span>5.1% Yield</span>
+                        </div>
+                        <a href="/investment-strategies/public-equity-re" class="strategy-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        {% endfor %}
-    </div>
-</section>
+    </section>
 
-<!-- CTA Section -->
-<section class="cta-section">
-    <h2>Ready to Explore Landmark?</h2>
-    <p>Discover how our global real estate expertise can drive your portfolio performance</p>
-    <a href="/contact" class="btn btn-primary btn-lg">Get in Touch</a>
-</section>
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <h2 class="section-title">Latest News</h2>
+            <div class="news-grid">
+                {% for item in news_data[:4] %}
+                <div class="news-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&q=80" alt="{{ item.title }}" class="news-image">
+                    <div class="news-content">
+                        <div class="news-date">{{ item.date }}</div>
+                        <div class="news-headline">{{ item.title }}</div>
+                        <div class="news-excerpt">{{ item.excerpt }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-heading">Ready to Partner with Us?</h2>
+            <button class="cta-button" onclick="document.location='/contact'">Speak with an Advisor</button>
+        </div>
+    </section>
+</main>
 {% endblock %}

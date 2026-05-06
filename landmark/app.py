@@ -110,6 +110,30 @@ def landmark_difference():
 def investment_strategies():
     return render_template('investment_strategies.html')
 
+@app.route('/investment-strategies/private-equity-re')
+@rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
+@require_fingerprint
+@require_token(Config.TOKEN_PAGE_LIMIT)
+def private_equity_re():
+    return render_template('investment_strategies/private_equity_re.html')
+
+@app.route('/investment-strategies/private-debt-re')
+@rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
+@require_fingerprint
+@require_token(Config.TOKEN_PAGE_LIMIT)
+def private_debt_re():
+    return render_template('investment_strategies/private_debt_re.html')
+
+@app.route('/investment-strategies/public-equity-re')
+@rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_javascript
+@require_fingerprint
+@require_token(Config.TOKEN_PAGE_LIMIT)
+def public_equity_re():
+    return render_template('investment_strategies/public_equity_re.html')
+
 @app.route('/investment-strategies/<slug>')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 @require_javascript
