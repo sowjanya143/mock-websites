@@ -1,98 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>About Fortress Investment Group</h1>
-
-<section class="about-content">
-    <div class="about-section">
-        <h2>Company History</h2>
-        <p>
-            Fortress Investment Group was founded in 1998 to provide innovative solutions for alternative asset management. Over the past two decades, we have grown into one of the world's leading global alternative investors, managing approximately $850 billion in assets across multiple asset classes and geographies.
-        </p>
-        <p>
-            Our journey has been marked by a commitment to identifying unique investment opportunities, developing specialized expertise, and delivering superior risk-adjusted returns to our investors. Through market cycles and evolving economic conditions, we have maintained our core philosophy of disciplined investing and prudent risk management.
-        </p>
-    </div>
-
-    <div class="about-section">
-        <h2>Our Mission</h2>
-        <p>
-            To be the leading global alternative asset manager by delivering exceptional returns to our investors while maintaining the highest standards of integrity, transparency, and operational excellence.
-        </p>
-    </div>
-
-    <div class="about-section">
-        <h2>Business Overview</h2>
-        <p>
-            Fortress operates across four principal asset classes:
-        </p>
-        <ul class="business-segments">
-            <li><strong>Real Estate:</strong> $350B in commercial and residential properties across multiple markets</li>
-            <li><strong>Credit:</strong> $250B in corporate credit, structured finance, and distressed securities</li>
-            <li><strong>Infrastructure:</strong> $150B in essential infrastructure assets globally</li>
-            <li><strong>Natural Resources:</strong> $100B in energy, commodities, and sustainable resource investments</li>
-        </ul>
-        <p>
-            Our diversified platform allows us to capitalize on unique market opportunities while maintaining disciplined risk management across all investments.
-        </p>
-    </div>
-
-    <div class="about-section">
-        <h2>Our Values</h2>
-        <ul class="values-list">
-            <li><strong>Integrity:</strong> We conduct business with the highest ethical standards</li>
-            <li><strong>Excellence:</strong> We pursue exceptional outcomes in all endeavors</li>
-            <li><strong>Innovation:</strong> We continuously seek new approaches and solutions</li>
-            <li><strong>Transparency:</strong> We maintain open and honest communication with all stakeholders</li>
-            <li><strong>Accountability:</strong> We take responsibility for our actions and results</li>
-        </ul>
-    </div>
+<section class="hero">
+  <div>
+    <h2>About Cipher</h2>
+    <p>Leading Asia Pacific property manager</p>
+  </div>
 </section>
 
-<style>
-    h1 {
-        font-size: 40px;
-        margin-bottom: 30px;
-        color: #333;
-    }
+<section class="content-section">
+  <div class="content-grid" style="margin-bottom: 2rem;">
+    <div>
+      <h2>Our Story</h2>
+      <p style="margin-bottom: 1rem; line-height: 1.8;">Founded in 2008, Cipher Wealth Management has grown to become one of Asia Pacific's most respected property investment managers. We manage over $8.5 billion in premium real estate assets across 45+ properties.</p>
+      <p style="margin-bottom: 1rem; line-height: 1.8;">Our commitment to quality, transparency, and sustainable growth has earned us the trust of institutional investors worldwide. We combine local expertise with global best practices to deliver exceptional returns.</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80" alt="Office" style="border-radius: 8px;">
+  </div>
+</section>
 
-    .about-content {
-        margin-top: 30px;
-    }
-
-    .about-section {
-        margin-bottom: 40px;
-        line-height: 1.8;
-    }
-
-    .about-section h2 {
-        font-size: 24px;
-        color: #667eea;
-        margin-bottom: 15px;
-        font-weight: bold;
-    }
-
-    .about-section p {
-        color: #555;
-        margin-bottom: 15px;
-        font-size: 16px;
-    }
-
-    .business-segments,
-    .values-list {
-        margin-left: 20px;
-        list-style: disc;
-    }
-
-    .business-segments li,
-    .values-list li {
-        margin-bottom: 12px;
-        color: #555;
-    }
-
-    .business-segments strong,
-    .values-list strong {
-        color: #333;
-    }
-</style>
+<section style="background: #fafafa; padding: 3rem 2rem;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="text-align: center; color: #00897b; margin-bottom: 3rem; font-size: 2rem;">Our Values</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <h3>Quality</h3>
+        <p>We invest in premium properties in high-growth markets with strong fundamentals.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Transparency</h3>
+        <p>Regular reporting and clear communication with all stakeholders.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Sustainability</h3>
+        <p>Environmental responsibility in all our developments and operations.</p>
+      </div>
+      <div class="portfolio-item">
+        <h3>Innovation</h3>
+        <p>Pioneering new development models and investment structures.</p>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
