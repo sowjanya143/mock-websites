@@ -2,6 +2,186 @@
 
 {% block title %}Contact - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .contact-section {
+        padding: 60px 0;
+        background: white;
+    }
+    .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+    }
+    .contact-form-wrapper h2, .contact-info-wrapper h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-group label {
+        font-size: 13px;
+        color: #1e4d3b;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        border: 1px solid #ddd;
+        font-size: 13px;
+        font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #a8c86f;
+        background-color: #f9f7f4;
+    }
+    .btn {
+        background-color: #1e4d3b;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        align-self: flex-start;
+    }
+    .btn:hover {
+        background-color: #a8c86f;
+        color: #1e4d3b;
+    }
+
+    .contact-office {
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .contact-office:last-of-type {
+        border-bottom: none;
+    }
+    .contact-office h3 {
+        font-size: 14px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .contact-office p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.8;
+    }
+    .contact-methods {
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 2px solid #a8c86f;
+    }
+    .contact-methods h3 {
+        font-size: 14px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .contact-methods p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+    .contact-hours {
+        margin-top: 20px;
+    }
+    .contact-hours h3 {
+        font-size: 14px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .contact-hours p {
+        font-size: 12px;
+        color: #666;
+    }
+
+    .regional-map {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .regional-map h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .offices-map-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .map-region {
+        background: white;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #1e4d3b;
+    }
+    .map-region h3 {
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: #1e4d3b;
+        font-weight: 600;
+        border-bottom: 2px solid #a8c86f;
+        padding-bottom: 10px;
+    }
+    .map-region ul {
+        list-style: none;
+    }
+    .map-region li {
+        font-size: 12px;
+        color: #666;
+        padding: 6px 0;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>Contact Us</h1>

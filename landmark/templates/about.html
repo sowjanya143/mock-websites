@@ -2,6 +2,193 @@
 
 {% block title %}About - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .company-history {
+        padding: 60px 0;
+        background: white;
+    }
+    .company-history h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .timeline-item {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+        position: relative;
+    }
+    .timeline-marker {
+        font-size: 18px;
+        font-weight: bold;
+        color: #1e4d3b;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .timeline-item h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .timeline-item p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.5;
+    }
+
+    .global-offices {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .global-offices h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+    .offices-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .office-card {
+        background: white;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #1e4d3b;
+    }
+    .office-card h3 {
+        font-size: 14px;
+        margin-bottom: 15px;
+        color: #1e4d3b;
+        font-weight: 600;
+        border-bottom: 2px solid #a8c86f;
+        padding-bottom: 10px;
+    }
+    .office-card ul {
+        list-style: none;
+    }
+    .office-card li {
+        font-size: 12px;
+        color: #666;
+        padding: 6px 0;
+    }
+
+    .core-values {
+        padding: 60px 0;
+        background: white;
+    }
+    .core-values h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .value-card {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .value-card h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .value-card p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .learn-more {
+        padding: 60px 0;
+        background: #f5f3f0;
+        text-align: center;
+    }
+    .learn-more h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .learn-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+    .btn {
+        display: inline-block;
+        background: #1e4d3b;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+    }
+    .btn:hover {
+        background: #a8c86f;
+        color: #1e4d3b;
+    }
+    .btn-secondary {
+        background: white;
+        color: #1e4d3b;
+        border: 2px solid #1e4d3b;
+    }
+    .btn-secondary:hover {
+        background: #1e4d3b;
+        color: white;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>About Landmark</h1>

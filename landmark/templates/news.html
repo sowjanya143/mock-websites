@@ -2,6 +2,123 @@
 
 {% block title %}News - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .news-listing {
+        padding: 60px 0;
+        background: white;
+    }
+    .news-article {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 2px solid #a8c86f;
+    }
+    .news-article:last-child {
+        border-bottom: none;
+    }
+    .news-header {
+        margin-bottom: 20px;
+    }
+    .news-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 10px;
+    }
+    .news-date {
+        font-size: 12px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+    .news-category {
+        font-size: 12px;
+        color: #1e4d3b;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+    .news-article h2 {
+        font-size: 24px;
+        color: #1e4d3b;
+        margin-bottom: 15px;
+        font-family: Georgia, serif;
+        font-weight: 600;
+    }
+    .news-excerpt {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .news-content {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .press-contact {
+        padding: 60px 0;
+        background: #f5f3f0;
+        text-align: center;
+    }
+    .press-contact h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .press-contact p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 25px;
+    }
+    .btn {
+        display: inline-block;
+        background: #1e4d3b;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+    }
+    .btn:hover {
+        background: #a8c86f;
+        color: #1e4d3b;
+    }
+    .btn-secondary {
+        background: white;
+        color: #1e4d3b;
+        border: 2px solid #1e4d3b;
+    }
+    .btn-secondary:hover {
+        background: #1e4d3b;
+        color: white;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>News & Press</h1>

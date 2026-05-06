@@ -2,6 +2,187 @@
 
 {% block title %}Sustainability - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .esg-overview {
+        padding: 60px 0;
+        background: white;
+        text-align: center;
+    }
+    .esg-overview h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+    }
+    .esg-overview p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .environmental, .social-impact, .governance, .sustainability-metrics {
+        padding: 60px 0;
+    }
+    .environmental, .governance {
+        background: white;
+    }
+    .social-impact, .sustainability-metrics {
+        background: #f5f3f0;
+    }
+
+    .environmental h2, .social-impact h2, .governance h2, .sustainability-metrics h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+
+    .initiative-cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .initiative-card {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .initiative-card h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .initiative-stat {
+        font-size: 22px;
+        font-weight: bold;
+        color: #a8c86f;
+        margin-bottom: 12px;
+        font-family: Georgia, serif;
+    }
+    .initiative-card p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .social-initiatives {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .social-item {
+        background: white;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #a8c86f;
+    }
+    .social-item h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .social-item p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .governance-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .governance-item {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .governance-item h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .governance-item p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .metric-item {
+        background: white;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .metric-item h3 {
+        font-size: 15px;
+        margin-bottom: 10px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .metric-item p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    .metric-progress {
+        font-size: 12px;
+        color: #a8c86f;
+        font-weight: bold;
+    }
+
+    .green-fund {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        color: white;
+        text-align: center;
+    }
+    .green-fund h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        font-family: Georgia, serif;
+    }
+    .green-fund p {
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>Sustainability & ESG</h1>

@@ -2,6 +2,224 @@
 
 {% block title %}Careers - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .why-join {
+        padding: 60px 0;
+        background: white;
+    }
+    .why-join h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .benefit {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .benefit h3 {
+        font-size: 15px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .benefit p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .open-positions {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .open-positions h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+    .positions-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .position-card {
+        background: white;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #a8c86f;
+    }
+    .position-header h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .position-location {
+        font-size: 12px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+    .position-description {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+        margin: 15px 0;
+    }
+    .position-requirements {
+        font-size: 12px;
+        color: #666;
+    }
+    .position-requirements strong {
+        display: block;
+        margin-bottom: 8px;
+        color: #1e4d3b;
+    }
+    .position-requirements ul {
+        list-style: none;
+        padding-left: 20px;
+    }
+    .position-requirements li {
+        padding: 4px 0;
+        position: relative;
+        padding-left: 20px;
+    }
+    .position-requirements li:before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: #a8c86f;
+        font-weight: bold;
+    }
+
+    .application-process {
+        padding: 60px 0;
+        background: white;
+    }
+    .application-process h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .step {
+        background: #f5f3f0;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .step-number {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background: #1e4d3b;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .step h3 {
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .step p {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .careers-cta {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        color: white;
+        text-align: center;
+    }
+    .careers-cta h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        font-family: Georgia, serif;
+    }
+    .careers-cta p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #a8c86f;
+    }
+    .btn {
+        display: inline-block;
+        background: #a8c86f;
+        color: #1e4d3b;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        font-size: 12px;
+    }
+    .btn:hover {
+        background: white;
+        color: #1e4d3b;
+    }
+    .btn-primary {
+        background: #a8c86f;
+    }
+    .btn-lg {
+        padding: 15px 40px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>Careers at Landmark</h1>

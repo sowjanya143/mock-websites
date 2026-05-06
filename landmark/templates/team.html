@@ -2,6 +2,186 @@
 
 {% block title %}Leadership Team - {{ company_name }}{% endblock %}
 
+{% block extra_css %}
+<style>
+    .page-header {
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        padding: 60px 0;
+        color: white;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-family: Georgia, serif;
+    }
+    .page-header p {
+        font-size: 18px;
+        color: #a8c86f;
+    }
+
+    .team-members {
+        padding: 60px 0;
+        background: white;
+    }
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    .team-card {
+        background: #f5f3f0;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #a8c86f;
+    }
+    .team-member-header {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #a8c86f;
+    }
+    .team-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .member-title {
+        font-size: 12px;
+        color: #a8c86f;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+    .member-bio {
+        font-size: 12px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .pagination-section {
+        padding: 30px 0;
+        text-align: center;
+    }
+    .pagination {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .pagination-link {
+        display: block;
+        padding: 10px 15px;
+        background: white;
+        color: #1e4d3b;
+        text-decoration: none;
+        border: 2px solid #1e4d3b;
+        font-weight: bold;
+        transition: all 0.3s;
+        font-size: 12px;
+    }
+    .pagination-link:hover {
+        background: #1e4d3b;
+        color: white;
+    }
+    .pagination-current {
+        display: block;
+        padding: 10px 15px;
+        background: #1e4d3b;
+        color: white;
+        font-weight: bold;
+        border: 2px solid #1e4d3b;
+        font-size: 12px;
+    }
+
+    .team-culture {
+        padding: 60px 0;
+        background: #f5f3f0;
+    }
+    .team-culture h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #1e4d3b;
+        font-weight: 600;
+        font-family: Georgia, serif;
+        text-align: center;
+    }
+    .team-culture > p {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .culture-points {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    .culture-point {
+        background: white;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #a8c86f;
+    }
+    .culture-point h3 {
+        font-size: 16px;
+        margin-bottom: 12px;
+        color: #1e4d3b;
+        font-weight: 600;
+    }
+    .culture-point p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .careers-cta {
+        padding: 60px 0;
+        background: linear-gradient(135deg, #1e4d3b 0%, #2d6e52 100%);
+        color: white;
+        text-align: center;
+    }
+    .careers-cta h2 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        font-family: Georgia, serif;
+    }
+    .careers-cta p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #a8c86f;
+    }
+    .btn {
+        display: inline-block;
+        background: #a8c86f;
+        color: #1e4d3b;
+        padding: 12px 30px;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        font-size: 12px;
+    }
+    .btn:hover {
+        background: white;
+        color: #1e4d3b;
+    }
+    .btn-primary {
+        background: #a8c86f;
+        color: #1e4d3b;
+    }
+    .btn-lg {
+        padding: 15px 40px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="page-header">
     <h1>Leadership Team</h1>
