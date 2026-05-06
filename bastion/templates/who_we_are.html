@@ -1,198 +1,263 @@
 {% extends "base.html" %}
 
+{% block title %}Who We Are - {{ company_name }}{% endblock %}
+
 {% block extra_css %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+
+    /* ========== PAGE HERO ========== */
     .page-hero {
-        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-        padding: 60px 0;
+        background: linear-gradient(rgba(26, 26, 26, 0.65), rgba(26, 26, 26, 0.65)),
+                    url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=500&fit=crop') center/cover;
+        padding: 100px 0;
         color: white;
-        border-left: 8px solid #d4a574;
-    }
-    .page-hero h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-    }
-
-    .company-overview {
-        padding: 60px 0;
-        background-color: white;
-    }
-    .overview-content {
-        margin-bottom: 50px;
-    }
-    .overview-content h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-        color: #1a1a1a;
-        font-weight: 600;
-        font-family: Georgia, serif;
-    }
-    .overview-content p {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.8;
-        margin-bottom: 15px;
-    }
-
-    .company-stats {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        padding: 30px;
-        background-color: #f9f7f4;
-    }
-    .stat-item {
         text-align: center;
-        padding: 20px;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 5px solid #d4a574;
     }
-    .stat-number {
-        font-size: 28px;
-        font-weight: bold;
-        color: #d4a574;
-        margin-bottom: 10px;
-    }
-    .stat-label {
-        font-size: 13px;
-        color: #666;
-        text-transform: uppercase;
+
+    .page-hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        margin-bottom: 15px;
+        font-weight: 700;
         letter-spacing: 1px;
     }
 
-    .mission-vision {
-        padding: 60px 0;
-        background-color: #f9f7f4;
+    /* ========== COMPANY OVERVIEW ========== */
+    .company-overview {
+        padding: 80px 0;
+        background-color: white;
+    }
+
+    .overview-content {
+        margin-bottom: 60px;
+    }
+
+    .overview-content h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 40px;
+        margin-bottom: 30px;
+        color: #1a1a1a;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .overview-content p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 18px;
+    }
+
+    /* ========== COMPANY STATS ========== */
+    .company-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        padding: 0;
+        background-color: transparent;
+        margin-top: 50px;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(135deg, #f5f3f0 0%, #fff 100%);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #c8a96e;
+        transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .stat-number {
+        font-family: 'Playfair Display', serif;
+        font-size: 42px;
+        font-weight: 700;
+        color: #c8a96e;
+        margin-bottom: 12px;
+    }
+
+    .stat-label {
+        font-size: 12px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+    }
+
+    /* ========== MISSION & VISION ========== */
+    .mission-vision-section {
+        padding: 80px 0;
+        background-color: #f5f3f0;
+    }
+
+    .mission-vision-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
     }
+
     .mission-section, .vision-section {
         background: white;
-        padding: 30px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-left: 5px solid #d4a574;
+        padding: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #c8a96e;
+        transition: all 0.3s ease;
     }
+
+    .mission-section:hover, .vision-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
     .mission-section h3, .vision-section h3 {
-        font-size: 22px;
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #1a1a1a;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+
+    .mission-section p, .vision-section p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.8;
+    }
+
+    /* ========== VALUES GRID ========== */
+    .values-section {
+        padding: 80px 0;
+        background-color: white;
+    }
+
+    .values-section h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 40px;
+        margin-bottom: 60px;
+        text-align: center;
+        color: #1a1a1a;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .value-card {
+        padding: 40px;
+        background: linear-gradient(135deg, #f5f3f0 0%, #fff 100%);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid #c8a96e;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .value-icon {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
         margin-bottom: 15px;
         color: #1a1a1a;
-        font-weight: 600;
+        font-weight: 700;
+        letter-spacing: 0.5px;
     }
-    .mission-section p, .vision-section p {
-        font-size: 14px;
+
+    .value-card p {
+        font-size: 13px;
         color: #666;
         line-height: 1.7;
     }
 
-    .core-values {
-        padding: 60px 0;
-        background-color: white;
+    /* ========== PORTFOLIO SHOWCASE ========== */
+    .portfolio-section {
+        padding: 80px 0;
+        background-color: #1a1a1a;
     }
-    .core-values h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-        color: #1a1a1a;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
+
+    .portfolio-section .section-title h2 {
+        color: white;
     }
-    .values-grid {
+
+    .portfolio-section .section-title p {
+        color: #aaa;
+    }
+
+    .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    .value-card {
-        background: #f9f7f4;
-        padding: 25px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-top: 5px solid #d4a574;
-    }
-    .value-card h3 {
-        font-size: 18px;
-        margin-bottom: 15px;
-        color: #1a1a1a;
-        font-weight: 600;
-    }
-    .value-card p {
-        font-size: 13px;
-        color: #666;
-        line-height: 1.6;
+        gap: 30px;
     }
 
-    .impact-section {
-        padding: 60px 0;
-        background-color: #f9f7f4;
-    }
-    .impact-section h2 {
-        font-size: 32px;
-        margin-bottom: 30px;
-        color: #1a1a1a;
-        font-weight: 600;
-        font-family: Georgia, serif;
-        text-align: center;
-    }
-    .impact-content {
-        background: white;
-        padding: 40px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        border-left: 5px solid #d4a574;
-    }
-    .impact-content p {
-        font-size: 15px;
-        color: #666;
-        line-height: 1.8;
-        margin-bottom: 20px;
-    }
-    .impact-content ul {
-        list-style: none;
-    }
-    .impact-content li {
-        font-size: 14px;
-        color: #666;
-        line-height: 1.8;
-        margin-bottom: 15px;
-        padding-left: 25px;
-        position: relative;
-    }
-    .impact-content li:before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: #d4a574;
-        font-weight: bold;
+    .portfolio-item {
+        background: rgba(255, 255, 255, 0.1);
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
 
-    .cta-section {
-        padding: 60px 0;
-        background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-        color: white;
-        text-align: center;
-        border-left: 8px solid #d4a574;
+    .portfolio-item:hover {
+        opacity: 0.7;
     }
-    .cta-section h2 {
-        font-size: 32px;
-        margin-bottom: 15px;
+
+    .portfolio-item img {
+        max-width: 80%;
+        max-height: 80%;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: all 0.3s ease;
     }
-    .cta-section p {
-        font-size: 16px;
-        margin-bottom: 30px;
-        color: #d4a574;
+
+    .portfolio-item:hover img {
+        filter: grayscale(0%);
+        opacity: 1;
     }
-    .cta-button {
-        display: inline-block;
-        background-color: #d4a574;
-        color: #1a1a1a;
-        padding: 12px 30px;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: background-color 0.3s;
-    }
-    .cta-button:hover {
-        background-color: #e5b88a;
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+        .page-hero h1 {
+            font-size: 32px;
+        }
+
+        .overview-content h2,
+        .values-section h2 {
+            font-size: 32px;
+        }
+
+        .company-stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mission-vision-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 </style>
 {% endblock %}
@@ -200,85 +265,108 @@
 {% block content %}
 <section class="page-hero">
     <h1>Who We Are</h1>
+    <p style="color: #c8a96e; font-size: 18px; margin-top: 15px;">Building tomorrow's investment leaders</p>
 </section>
 
 <section class="company-overview">
-    <div class="overview-content">
-        <h2>About Bastion Investment Group</h2>
-        <p>Bastion Investment Group is a premier global alternative investment manager with $55 billion in assets under management. Founded on principles of disciplined investing, operational excellence, and long-term value creation, Bastion has established itself as a trusted partner for institutional investors, pension funds, endowments, and high-net-worth families worldwide.</p>
-        <p>Our success is built on a foundation of deep expertise, rigorous analytical processes, and a team of experienced investment professionals dedicated to delivering superior risk-adjusted returns across multiple alternative asset classes.</p>
-    </div>
+    <div class="container">
+        <div class="overview-content">
+            <h2>About {{ company_name }}</h2>
+            <p>{{ company_name }} is a leading global alternative investment manager founded on principles of disciplined investing, rigorous research, and superior risk management. With over 25 years of institutional experience, we manage diverse portfolios across private equity, credit, real assets, and growth capital for sophisticated institutional investors worldwide.</p>
+            <p>Our team of experienced investment professionals combines deep domain expertise with a commitment to delivering exceptional risk-adjusted returns. We operate with institutional-grade infrastructure and maintain the highest standards of governance, compliance, and transparency.</p>
+        </div>
 
-    <div class="company-stats">
-        <div class="stat-item">
-            <div class="stat-number">$55B+</div>
-            <div class="stat-label">Global AUM</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">6</div>
-            <div class="stat-label">Core Strategies</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">28+</div>
-            <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-number">Global</div>
-            <div class="stat-label">Market Presence</div>
-        </div>
-    </div>
-</section>
-
-<section class="mission-vision">
-    <div class="mission-section">
-        <h3>Our Mission</h3>
-        <p>To deliver exceptional risk-adjusted returns for our investors through disciplined alternative investing, rigorous analytical processes, and a commitment to operational excellence and regulatory compliance.</p>
-    </div>
-
-    <div class="vision-section">
-        <h3>Our Vision</h3>
-        <p>To be recognized globally as the premier alternative investment manager that institutional investors and high-net-worth individuals turn to for reliable, sophisticated, and diversified investment solutions.</p>
-    </div>
-</section>
-
-<section class="core-values">
-    <h2>Core Values</h2>
-    <div class="values-grid">
-        <div class="value-card">
-            <h3>Integrity</h3>
-            <p>Unwavering commitment to ethical conduct, transparency, and accountability in all business dealings.</p>
-        </div>
-        <div class="value-card">
-            <h3>Excellence</h3>
-            <p>Pursuit of the highest standards in investment management, risk processes, and client service.</p>
-        </div>
-        <div class="value-card">
-            <h3>Innovation</h3>
-            <p>Continuous development of new strategies, methodologies, and market approaches to create value.</p>
-        </div>
-        <div class="value-card">
-            <h3>Collaboration</h3>
-            <p>Team-based approach fostering knowledge sharing and leveraging diverse expertise across the organization.</p>
+        <div class="company-stats">
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Investment Professionals</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$55B+</div>
+                <div class="stat-label">Assets Under Management</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Global Offices</div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="impact-section">
-    <h2>Our Impact</h2>
-    <div class="impact-content">
-        <p>Through our investments and business activities, Bastion creates positive impact across multiple dimensions:</p>
-        <ul>
-            <li><strong>Investor Returns:</strong> Consistently deliver superior risk-adjusted returns that help our investors meet their financial objectives</li>
-            <li><strong>Economic Growth:</strong> Capital deployment that supports business growth, job creation, and economic development</li>
-            <li><strong>Market Efficiency:</strong> Contribute to more efficient capital markets through disciplined analysis and active engagement</li>
-            <li><strong>Operational Excellence:</strong> Support portfolio companies in achieving operational improvements and sustainable competitive advantages</li>
-        </ul>
+<section class="mission-vision-section">
+    <div class="container">
+        <div class="mission-vision-grid">
+            <div class="mission-section">
+                <h3>Our Mission</h3>
+                <p>To deliver superior risk-adjusted returns by identifying and executing compelling investment opportunities across alternative asset classes. We are committed to building long-term value for our stakeholders through disciplined investment processes, rigorous risk management, and exceptional execution capabilities.</p>
+            </div>
+            <div class="vision-section">
+                <h3>Our Vision</h3>
+                <p>To be recognized as the premier global alternative investment manager trusted by institutional investors for sophisticated capital deployment, institutional-grade infrastructure, and unwavering commitment to excellence. We aspire to create generational wealth while upholding the highest standards of integrity and governance.</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="cta-section">
-    <h2>Meet Our Leadership Team</h2>
-    <p>Learn more about the experienced investment professionals leading Bastion</p>
-    <a href="/who-we-are/team" class="cta-button">View Team</a>
+<section class="values-section">
+    <div class="container">
+        <h2>Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎯</div>
+                <h3>Excellence</h3>
+                <p>Uncompromising commitment to quality in every aspect of our business, from investment processes to client service.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🔬</div>
+                <h3>Rigor</h3>
+                <p>Disciplined, evidence-based approach to investing grounded in thorough research, analysis, and quantitative discipline.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h3>Global Vision</h3>
+                <p>Deep understanding of global markets with local expertise across key financial centers and emerging markets.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Integrity</h3>
+                <p>Transparent operations and unwavering ethical standards in all client relationships and business dealings.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">⚡</div>
+                <h3>Innovation</h3>
+                <p>Continuous evolution of investment approaches and technologies to capitalize on emerging market opportunities.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📈</div>
+                <h3>Performance</h3>
+                <p>Relentless focus on delivering exceptional returns while maintaining strict risk parameters and capital preservation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Showcase Section -->
+<section class="portfolio-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Portfolio Showcase</h2>
+            <p>Companies across our investment strategies</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1450101499163-c8917c7b4c3e?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1460925895917-adf4e565db18?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1450101499163-c8917c7b4c3e?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1460925895917-adf4e565db18?w=100&q=80" alt="Company"></div>
+        </div>
+    </div>
 </section>
 {% endblock %}

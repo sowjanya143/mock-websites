@@ -146,6 +146,76 @@
     .cta-button:hover {
         background-color: #e5b88a;
     }
+
+    /* Portfolio Section */
+    .portfolio-section {
+        padding: 80px 0;
+        background-color: #1a1a1a;
+    }
+
+    .portfolio-section .section-title h2 {
+        color: white;
+    }
+
+    .portfolio-section .section-title p {
+        color: #aaa;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+        font-family: Georgia, serif;
+        font-size: 42px;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+    }
+
+    .section-title p {
+        font-size: 16px;
+        color: #666;
+    }
+
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .portfolio-item {
+        background: rgba(255, 255, 255, 0.1);
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .portfolio-item:hover {
+        opacity: 0.7;
+    }
+
+    .portfolio-item img {
+        max-width: 80%;
+        max-height: 80%;
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+
+    .portfolio-item:hover img {
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .portfolio-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
 </style>
 {% endblock %}
 
@@ -212,6 +282,26 @@
             <p><strong>Phone:</strong> +1 (212) 555-0100</p>
         </div>
         <a href="/contact" class="cta-button">Contact Investor Relations</a>
+    </div>
+</section>
+
+<!-- Portfolio Showcase Section -->
+<section class="portfolio-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Portfolio Showcase</h2>
+            <p>Companies across our investment strategies</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1450101499163-c8917c7b4c3e?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1460925895917-adf4e565db18?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1450101499163-c8917c7b4c3e?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&q=80" alt="Company"></div>
+            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1460925895917-adf4e565db18?w=100&q=80" alt="Company"></div>
+        </div>
     </div>
 </section>
 {% endblock %}
