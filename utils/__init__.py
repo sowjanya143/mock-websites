@@ -11,7 +11,6 @@ from utils.data_generator import (
 from utils.popups import mark_popup_dismissed, render_popup, should_show_popup
 from utils.rate_limit import rate_limit
 from utils.javascript_validation import require_javascript, inject_js_routes, generate_js_token
-from utils.cookie_validation import inject_cookie_middleware, get_required_cookie_value
 from utils.user_agent_check import block_user_agent, inject_user_agent_middleware, is_blocked_user_agent
 from utils.strict_headers import require_headers, inject_headers_middleware, has_required_headers
 from utils.auth_utils import generate_jwt_token, verify_jwt_token, require_login, authenticate_user
@@ -25,6 +24,10 @@ from utils.cookie_banner import (
     is_banner_dismissed,
     BANNER_MODES,
 )
+from utils.dom_obfuscator import generate_class_map, inject_dom_obfuscator
+from utils.timed_captcha import generate_timed_captcha, validate_timed_captcha
+from utils.session_token import issue_token, validate_token, require_token, inject_token_routes
+from utils.fingerprint import inject_fingerprint_routes, require_fingerprint
 
 __all__ = [
     'generate_captcha',
@@ -41,8 +44,6 @@ __all__ = [
     'require_javascript',
     'inject_js_routes',
     'generate_js_token',
-    'inject_cookie_middleware',
-    'get_required_cookie_value',
     'block_user_agent',
     'inject_user_agent_middleware',
     'is_blocked_user_agent',
@@ -70,4 +71,14 @@ __all__ = [
     'is_cookie_accepted',
     'is_banner_dismissed',
     'BANNER_MODES',
+    'generate_class_map',
+    'inject_dom_obfuscator',
+    'generate_timed_captcha',
+    'validate_timed_captcha',
+    'issue_token',
+    'validate_token',
+    'require_token',
+    'inject_token_routes',
+    'inject_fingerprint_routes',
+    'require_fingerprint',
 ]
