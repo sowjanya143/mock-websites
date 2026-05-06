@@ -2,75 +2,79 @@
 
 {% block content %}
 <section class="hero">
-    <h1>{{ company_name }}</h1>
-    <p class="tagline">Truly Global. Solutions Driven.</p>
-    <p class="mission">Providing Financial Security for pensioners, educators, and stakeholders worldwide</p>
+  <div style="text-align: center;">
+    <h2>Institutional Investment Excellence</h2>
+    <p>Strategic capital solutions for global investors</p>
+  </div>
 </section>
 
-<section class="capital-metrics">
-    <h2>Capital Management Track Record</h2>
-    <div class="metrics-grid">
-        <div class="metric-card">
-            <div class="metric-number">${{ "{:.1f}B".format(15.8) }}</div>
-            <div class="metric-label">Total Capital Raised</div>
+<section class="stats-grid">
+  <div class="stat-card">
+    <h3>$125B+</h3>
+    <p>Assets Under Management</p>
+  </div>
+  <div class="stat-card">
+    <h3>45+</h3>
+    <p>Portfolio Companies</p>
+  </div>
+  <div class="stat-card">
+    <h3>30+</h3>
+    <p>Years of Excellence</p>
+  </div>
+  <div class="stat-card">
+    <h3>150+</h3>
+    <p>Investment Professionals</p>
+  </div>
+</section>
+
+<section style="padding: 3rem 2rem; background: white;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="text-align: center; color: #001f3f; margin-bottom: 2rem;">Investment Strategies</h2>
+    <div class="content-grid">
+      <div class="content-item">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Private Equity">
+        <div class="content-item-text">
+          <h3>Private Equity</h3>
+          <p>Strategic investments in mature companies with strong management teams and growth potential.</p>
         </div>
-        <div class="metric-card">
-            <div class="metric-number">${{ "{:.1f}B".format(17.1) }}</div>
-            <div class="metric-label">Total Capital Deployed</div>
+      </div>
+      <div class="content-item">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Infrastructure">
+        <div class="content-item-text">
+          <h3>Infrastructure</h3>
+          <p>Long-term value creation through essential infrastructure assets worldwide.</p>
         </div>
-        <div class="metric-card">
-            <div class="metric-number">${{ "{:.1f}B".format(10.4) }}</div>
-            <div class="metric-label">Amount Returned</div>
+      </div>
+      <div class="content-item">
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80" alt="Real Estate">
+        <div class="content-item-text">
+          <h3>Real Estate</h3>
+          <p>Premium commercial and residential properties with strong yield characteristics.</p>
         </div>
-        <div class="metric-card">
-            <div class="metric-number">${{ "{:.1f}B".format(aum_data.by_business_line.get('Firm AUM', 0) / 1e9) }}</div>
-            <div class="metric-label">Firm AUM</div>
-        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="business-lines">
-    <h2>Our Investment Strategies</h2>
-    <div class="lines-grid">
-        <div class="line-card">
-            <h3>Transformational Capital</h3>
-            <p class="line-aum">${{ "{:.1f}B".format(aum_data.by_asset_class.get('Transformational Capital', 0) / 1e9) }}</p>
-            <p>Complex challenges require creative solutions. We solve transformational capital needs for global financial institutions.</p>
-        </div>
-        <div class="line-card">
-            <h3>Private Credit</h3>
-            <p class="line-aum">${{ "{:.1f}B".format(aum_data.by_asset_class.get('Private Credit', 0) / 1e9) }}</p>
-            <p>Regulatory capital, special opportunities lending, and structured credit solutions for sophisticated borrowers.</p>
-        </div>
-        <div class="line-card">
-            <h3>Public Credit</h3>
-            <p class="line-aum">${{ "{:.1f}B".format(aum_data.by_asset_class.get('Public Credit', 0) / 1e9) }}</p>
-            <p>CLOs, long-short credit strategies, and public market opportunities with institutional-grade risk management.</p>
-        </div>
+<section class="portfolio-section">
+  <h2>Portfolio Highlights</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <h3>Technology</h3>
+      <p>12 Companies | $4.2B AUM</p>
     </div>
-</section>
-
-<section class="featured-funds">
-    <h2>Featured Funds</h2>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Fund Name</th>
-                <th>AUM</th>
-                <th>Strategy</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if aum_data.by_fund %}
-                {% for fund in aum_data.by_fund %}
-                <tr>
-                    <td><strong>{{ fund.name }}</strong></td>
-                    <td>${{ "{:.1f}B".format(fund.aum / 1e9) }}</td>
-                    <td>{{ fund.strategy }}</td>
-                </tr>
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+    <div class="portfolio-item">
+      <h3>Healthcare</h3>
+      <p>8 Companies | $2.8B AUM</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>Financial Services</h3>
+      <p>6 Companies | $1.9B AUM</p>
+    </div>
+    <div class="portfolio-item">
+      <h3>Consumer</h3>
+      <p>10 Companies | $3.1B AUM</p>
+    </div>
+  </div>
 </section>
 {% endblock %}
