@@ -537,7 +537,83 @@ def home():
 
 ---
 
-## GLOBAL FEATURES (All 9 Sites)
+### 10. Bastion Investment Group (Port 5009)
+**Primary Obstacles: Dynamic DOM Obfuscation + Timed CAPTCHA**
+
+#### Specific Behaviors:
+- **DOM Obfuscation**: CSS classes randomized per session
+  - `generate_class_map(session)` creates random 5-char strings for semantic class names
+  - Class map stored in `session['class_map']`; regenerated on new session
+  - All AUM-containing elements use `{{ class_map['aum-value'] }}` instead of hardcoded names
+  - Scrapers using CSS selectors find different class names each session
+  
+- **Timed CAPTCHA**: 30s expiry on data pages
+  - Applied on data pages: `/what-we-do`, `/investors`, `/financial-advisors`
+  - `session['captcha_issued_at']` set when CAPTCHA generated
+  - `validate_timed_captcha(answer)` checks elapsed > 30s → expired; wrong answer → invalid; correct → ok
+  - Countdown timer in UI shows remaining time
+  
+- **Rate Limiting**: 10 requests per 60 seconds
+  - `@rate_limit(10, 60)` on all routes
+  - Moderate restriction (between Zenith's 3 and Apex's 5)
+  
+- **Cookie Banner**: Optional mode (non-blocking)
+- **Global layers**: JS validation, cookie enforcement, UA blocking, strict headers, /aum blocked, robots.txt
+
+#### Config snippet:
+```python
+COMPANY_NAME = 'Bastion Investment Group'
+ROTATING_TOKENS = False
+TIMED_CAPTCHA = True
+CAPTCHA_TIME_LIMIT = 30
+DOM_OBFUSCATION = True
+MAX_REQUESTS = 10
+COOKIE_BANNER_MODE = 'optional'
+GLOBAL_AUM = '$55,000,000,000'
+```
+
+---
+
+### 11. Landmark Property Advisors (Port 5010)
+**Primary Obstacles: Rotating Session Tokens + Canvas/WebGL Fingerprint Blocking**
+
+#### Specific Behaviors:
+- **Rotating Session Tokens**: Expire after 5 page views
+  - `issue_token(session)` sets `session['page_token']` (UUID) and `session['page_count'] = 0`
+  - `@require_token(5)` decorator on ALL routes increments page_count
+  - After 5 page views, token expires and redirects to `/refresh-token`
+  - `/refresh-token` re-issues token and redirects back to referrer
+  - Scrapers lose session state mid-crawl if they don't handle token refresh
+  
+- **Canvas/WebGL Fingerprint Blocking**: Detects headless browsers
+  - On first visit, `base.html` includes hidden `<canvas>` + JavaScript fingerprint check
+  - Hash POSTed to `/verify-fingerprint`
+  - Known headless hashes (Puppeteer, Playwright defaults) return 403
+  - Valid hashes stored in `session['fp_verified'] = True`
+  - `require_fingerprint` decorator on all routes renders challenge if not verified
+  
+- **Rate Limiting**: 4 requests per 60 seconds (strictest)
+  - `@rate_limit(4, 60)` on all routes
+  - Defeats concurrent scraping attempts
+  
+- **Cookie Banner**: Mandatory mode (blocks content until accepted)
+- **NO CAPTCHA** (key difference - uses fingerprint instead)
+- **Global layers**: JS validation, cookie enforcement, UA blocking, strict headers, /aum blocked, robots.txt
+
+#### Config snippet:
+```python
+COMPANY_NAME = 'Landmark Property Advisors'
+ROTATING_TOKENS = True
+TOKEN_PAGE_LIMIT = 5
+FINGERPRINT_BLOCKING = True
+MAX_REQUESTS = 4
+COOKIE_BANNER_MODE = 'mandatory'
+GLOBAL_AUM = '$47,000,000,000'
+```
+
+---
+
+## GLOBAL FEATURES (All 11 Sites)
 
 ### 1. JavaScript Requirement
 **Implemented**: `require_javascript` decorator + `inject_js_routes(app)`
@@ -671,42 +747,51 @@ Sitemap: /fake-sitemap.xml
 
 ## Summary Table: Behaviors by Site
 
-| Behavior | Sentinel | Apex | Meridian | Premier | Zenith | Fortis | Nexus | Quantum | Cipher |
-|----------|----------|------|----------|---------|--------|--------|-------|---------|--------|
+| Behavior | Sentinel | Apex | Meridian | Premier | Zenith | Fortis | Nexus | Quantum | Cipher | Bastion | Landmark |
+|----------|----------|------|----------|---------|--------|--------|-------|---------|--------|---------|----------|
 | **CAPTCHA Strategies** |
-| Every Page CAPTCHA | ✓ | - | - | - | - | - | - | - | ✓ |
-| Data Pages CAPTCHA | - | ✓ | - | - | ✓ | ✓ | - | - | - |
-| Random CAPTCHA (30%) | - | - | ✓ | - | - | - | - | - | - |
-| First-Visit + Data | - | - | - | - | ✓ | - | - | - | - |
+| Every Page CAPTCHA | ✓ | - | - | - | - | - | - | - | ✓ | - | - |
+| Data Pages CAPTCHA | - | ✓ | - | - | ✓ | ✓ | - | - | - | ✓ | - |
+| Random CAPTCHA (30%) | - | - | ✓ | - | - | - | - | - | - | - | - |
+| First-Visit + Data | - | - | - | - | ✓ | - | - | - | - | - | - |
+| Timed CAPTCHA (30s) | - | - | - | - | - | - | - | - | - | ✓ | - |
 | **Rate Limiting** |
-| 3 req/60s | - | - | - | - | ✓ | - | - | - | - |
-| 5 req/60s | - | ✓ | - | - | - | - | - | - | - |
-| 6 req/60s | - | - | - | - | - | - | - | ✓ | ✓ |
-| 7 req/60s | - | - | - | - | - | ✓ | - | - | - |
-| 8 req/60s | - | - | - | - | - | - | ✓ | - | - |
+| 3 req/60s | - | - | - | - | ✓ | - | - | - | - | - | - |
+| 4 req/60s | - | - | - | - | - | - | - | - | - | - | ✓ |
+| 5 req/60s | - | ✓ | - | - | - | - | - | - | - | - | - |
+| 6 req/60s | - | - | - | - | - | - | - | ✓ | ✓ | - | - |
+| 7 req/60s | - | - | - | - | - | ✓ | - | - | - | - | - |
+| 8 req/60s | - | - | - | - | - | - | ✓ | - | - | - | - |
+| 10 req/60s | - | - | - | - | - | - | - | - | - | ✓ | - |
 | **Delays & Popups** |
-| Artificial Delay | - | - | 1.0s | - | 0.5s | - | 0.2s | - | 0.1s |
-| Dismissible Popup | - | ✓ | - | - | - | - | - | - | - |
-| Modal Popup | - | - | ✓ | - | - | - | - | - | - |
-| Sticky Auto-Dismiss | - | - | - | - | ✓ | - | - | - | - |
+| Artificial Delay | - | - | 1.0s | - | 0.5s | - | 0.2s | - | 0.1s | - | - |
+| Dismissible Popup | - | ✓ | - | - | - | - | - | - | - | - | - |
+| Modal Popup | - | - | ✓ | - | - | - | - | - | - | - | - |
+| Sticky Auto-Dismiss | - | - | - | - | ✓ | - | - | - | - | - | - |
 | **Auth & Detection** |
-| Honeypot Forms | - | - | - | - | - | - | ✓ | - | - |
-| GeoIP Blocking | - | - | - | - | - | - | - | ✓ | - |
-| VPN Detection | - | - | - | - | - | - | - | ✓ | - |
+| Honeypot Forms | - | - | - | - | - | - | ✓ | - | - | - | - |
+| DOM Obfuscation | - | - | - | - | - | - | - | - | - | ✓ | - |
+| Rotating Tokens | - | - | - | - | - | - | - | - | - | - | ✓ |
+| Canvas Fingerprint | - | - | - | - | - | - | - | - | - | - | ✓ |
+| GeoIP Blocking | - | - | - | - | - | - | - | ✓ | - | - | - |
+| VPN Detection | - | - | - | - | - | - | - | ✓ | - | - | - |
 | **Data Presentation** |
-| JSON Endpoint | - | ✓ | - | - | - | - | - | - | - |
-| AJAX Loading | - | - | - | - | ✓ | - | - | - | - |
-| Scattered Layout | - | - | ✓ | - | - | - | - | - | - |
-| Fragmented Layout | - | - | - | - | - | - | ✓ | - | - |
-| Geofenced Data | - | - | - | - | - | - | - | ✓ | - |
-| Protected Tables | - | - | - | - | - | - | - | - | ✓ |
+| JSON Endpoint | - | ✓ | - | - | - | - | - | - | - | - | - |
+| AJAX Loading | - | - | - | - | ✓ | - | - | - | - | - | - |
+| Scattered Layout | - | - | ✓ | - | - | - | - | - | - | - | - |
+| Fragmented Layout | - | - | - | - | - | - | ✓ | - | - | - | - |
+| Geofenced Data | - | - | - | - | - | - | - | ✓ | - | - | - |
+| Protected Tables | - | - | - | - | - | - | - | - | ✓ | - | - |
+| **Cookie Banner** |
+| Optional | - | - | - | - | - | - | - | - | - | ✓ | - |
+| Mandatory | - | - | - | - | - | - | - | - | - | - | ✓ |
 | **Global Features** |
-| JS Validation | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Cookie Enforcement | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| UA Blocking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Strict Headers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| /aum Blocked | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
-| robots.txt | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| JS Validation | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Cookie Enforcement | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| UA Blocking | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Strict Headers | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| /aum Blocked | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+| robots.txt | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 ---
 
@@ -732,10 +817,12 @@ Sitemap: /fake-sitemap.xml
 3. **Meridian**: Random CAPTCHA + delays
 4. **Premier**: None (baseline)
 5. **Zenith**: Multi-gate CAPTCHA + delays + AJAX
-6. **Fortis**: JWT authentication
+6. **Fortis**: CAPTCHA on data pages + rate limiting
 7. **Nexus**: Honeypot detection
-8. **Quantum**: GeoIP blocking
-9. **Cipher**: API encryption
+8. **Quantum**: GeoIP blocking + VPN detection
+9. **Cipher**: CAPTCHA on every page + artificial delay
+10. **Bastion**: DOM obfuscation + timed CAPTCHA + rate limiting
+11. **Landmark**: Rotating tokens + canvas fingerprint blocking + strict rate limiting
 
 **Bypass difficulty**: Hard to Very Hard (varies by site)
 
