@@ -1,276 +1,44 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Contact Us</h1>
-
-<p class="intro">Get in touch with Nomura for inquiries, business opportunities, or general information.</p>
-
-<section class="contact-section">
-    <div class="contact-grid">
-        <div class="contact-form-container">
-            <h2>Send us a Message</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-
-        <div class="contact-info">
-            <h2>Contact Information</h2>
-
-            <div class="info-block">
-                <h3>Global Headquarters</h3>
-                <p>Nomura Inc.<br>
-                1-9-1 Nihonbashi<br>
-                Tokyo, Japan 103-8645<br>
-                Phone: +81 3 XXXX XXXX</p>
-            </div>
-
-            <div class="info-block">
-                <h3>Americas Office</h3>
-                <p>Nomura Securities Inc.<br>
-                2 World Financial Center<br>
-                New York, NY 10080, USA<br>
-                Phone: +1 212 XXXX XXXX</p>
-            </div>
-
-            <div class="info-block">
-                <h3>Europe Office</h3>
-                <p>Nomura International PLC<br>
-                1 Angel Lane<br>
-                London, EC4R 3AB, UK<br>
-                Phone: +44 20 XXXX XXXX</p>
-            </div>
-
-            <div class="info-block">
-                <h3>Asia-Pacific Office</h3>
-                <p>Nomura Asia Limited<br>
-                Level 45, Nomura Building<br>
-                Hong Kong<br>
-                Phone: +852 XXXX XXXX</p>
-            </div>
-
-            <div class="info-block">
-                <h3>General Inquiries</h3>
-                <p>Email: <a href="mailto:info@nomura.com">info@nomura.com</a><br>
-                Website: www.nomura.com</p>
-            </div>
-        </div>
-    </div>
+<section class="hero">
+  <div style="text-align: center;">
+    <h2>Contact Meridian</h2>
+    <p>We're here to help you</p>
+  </div>
 </section>
 
-<section class="departments">
-    <h2>Departments & Services</h2>
-    <div class="departments-grid">
-        <div class="dept-card">
-            <h3>Investment Banking</h3>
-            <p>Mergers & acquisitions, capital markets, and strategic advisory services.</p>
-        </div>
-        <div class="dept-card">
-            <h3>Sales & Trading</h3>
-            <p>Equities, fixed income, derivatives, and FX sales and trading.</p>
-        </div>
-        <div class="dept-card">
-            <h3>Wealth Management</h3>
-            <p>Portfolio management and investment advisory for high-net-worth individuals.</p>
-        </div>
-        <div class="dept-card">
-            <h3>Asset Management</h3>
-            <p>Institutional asset management and investment fund services.</p>
-        </div>
-        <div class="dept-card">
-            <h3>Research</h3>
-            <p>Equity research, fixed income analysis, and market insights.</p>
-        </div>
-        <div class="dept-card">
-            <h3>Operations</h3>
-            <p>Client support, settlement, and technology services.</p>
-        </div>
+<section style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+    <div>
+      <h2 style="color: #003366; margin-bottom: 2rem;">Get In Touch</h2>
+      <form style="display: flex; flex-direction: column; gap: 1rem;">
+        <input type="text" placeholder="Full Name" required style="padding: 0.8rem; border: 1px solid #e0e0e0; border-radius: 4px; font-family: inherit;">
+        <input type="email" placeholder="Email Address" required style="padding: 0.8rem; border: 1px solid #e0e0e0; border-radius: 4px; font-family: inherit;">
+        <input type="tel" placeholder="Phone Number" style="padding: 0.8rem; border: 1px solid #e0e0e0; border-radius: 4px; font-family: inherit;">
+        <textarea placeholder="Your Message" rows="5" required style="padding: 0.8rem; border: 1px solid #e0e0e0; border-radius: 4px; font-family: inherit; resize: vertical;"></textarea>
+        <button type="submit" style="padding: 1rem; background: #ff6b35; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; transition: background 0.3s;" onmouseover="this.style.background='#003366';" onmouseout="this.style.background='#ff6b35';">Send Message</button>
+      </form>
     </div>
+    <div>
+      <h2 style="color: #003366; margin-bottom: 2rem;">Contact Information</h2>
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #ff6b35; margin-bottom: 0.5rem;">Main Office</h3>
+        <p>456 Financial District<br>Hong Kong<br>Hong Kong</p>
+      </div>
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #ff6b35; margin-bottom: 0.5rem;">Phone</h3>
+        <p>+852 2100 1234<br>Toll Free: 1800-MERIDIAN</p>
+      </div>
+      <div style="margin-bottom: 2rem;">
+        <h3 style="color: #ff6b35; margin-bottom: 0.5rem;">Email</h3>
+        <p>support@meridian.com<br>insurance@meridian.com</p>
+      </div>
+      <div>
+        <h3 style="color: #ff6b35; margin-bottom: 0.5rem;">Hours</h3>
+        <p>Monday - Friday: 9am - 6pm<br>Saturday: 10am - 4pm<br>Sunday: Closed</p>
+      </div>
+    </div>
+  </div>
 </section>
-
-<style>
-    h1 {
-        color: #003366;
-        margin-bottom: 15px;
-        font-size: 36px;
-    }
-
-    .intro {
-        color: #666;
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    h2 {
-        color: #003366;
-        margin-top: 30px;
-        margin-bottom: 25px;
-        font-size: 24px;
-    }
-
-    .contact-section {
-        margin-bottom: 50px;
-    }
-
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-    }
-
-    @media (max-width: 768px) {
-        .contact-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .contact-form-container {
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-form-container h2 {
-        margin-top: 0;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        color: #003366;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 14px;
-        font-family: inherit;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-        outline: none;
-        border-color: #003366;
-        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
-    }
-
-    .submit-btn {
-        width: 100%;
-        padding: 12px;
-        background: #003366;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.2s;
-    }
-
-    .submit-btn:hover {
-        background: #001f40;
-    }
-
-    .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .contact-info h2 {
-        margin-top: 0;
-    }
-
-    .info-block {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .info-block h3 {
-        color: #003366;
-        margin-bottom: 12px;
-        font-size: 16px;
-    }
-
-    .info-block p {
-        color: #666;
-        font-size: 14px;
-        line-height: 1.8;
-        margin: 0;
-    }
-
-    .info-block a {
-        color: #003366;
-        text-decoration: none;
-    }
-
-    .info-block a:hover {
-        text-decoration: underline;
-    }
-
-    .departments {
-        background: white;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .departments-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-    }
-
-    .dept-card {
-        background: #f5f5f5;
-        padding: 20px;
-        border-radius: 8px;
-        border-left: 4px solid #003366;
-    }
-
-    .dept-card h3 {
-        color: #003366;
-        margin-bottom: 10px;
-        font-size: 16px;
-    }
-
-    .dept-card p {
-        color: #666;
-        font-size: 13px;
-        line-height: 1.6;
-        margin: 0;
-    }
-</style>
 {% endblock %}
