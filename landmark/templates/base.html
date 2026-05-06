@@ -4,229 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ company_name }}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #fff;
             color: #333;
+            padding-top: 120px;
         }
+
+        /* Fixed Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #001f3f;
+            color: white;
+            z-index: 200;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .top-bar {
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header .top-bar .tagline {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ccc;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 3px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #4a7c6b;
+        }
+
+        /* Footer */
+        footer {
+            background: #001f3f;
+            color: white;
+            padding: 60px 0;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer .footer-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer .footer-section h4 {
+            font-size: 12px;
+            color: #4a7c6b;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        footer .footer-section ul {
+            list-style: none;
+        }
+
+        footer .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-section ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            transition: color 0.3s;
+        }
+
+        footer .footer-section ul li a:hover {
+            color: #4a7c6b;
+        }
+
+        /* Newsletter */
+        footer .newsletter {
+            margin-bottom: 40px;
+        }
+
+        footer .newsletter h4 {
+            font-size: 12px;
+            color: #4a7c6b;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        footer .newsletter form {
+            display: flex;
+            gap: 10px;
+        }
+
+        footer .newsletter input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        footer .newsletter input::placeholder {
+            color: #999;
+        }
+
+        footer .newsletter button {
+            padding: 12px 24px;
+            background: #4a7c6b;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
+        footer .newsletter button:hover {
+            background: #5a8d7b;
+        }
+
+        footer .footer-bottom {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* Header/Navigation - Landmark forest green */
-        header {
-            background-color: #1e4d3b;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo a {
-            font-size: 22px;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            font-family: Georgia, serif;
-        }
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #a8c86f;
-        }
-        .nav-dropdown {
-            position: relative;
-        }
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #16382b;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1001;
-            padding: 15px 0;
-        }
-        .nav-dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            color: white;
-            font-size: 13px;
-        }
-        .dropdown-menu a:hover {
-            background: #1e4d3b;
-            color: #a8c86f;
-        }
-        /* Main content */
-        .main-content {
-            min-height: calc(100vh - 300px);
-        }
-        /* Footer */
-        footer {
-            background-color: #1e4d3b;
-            color: white;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-bottom: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .footer-section h4 {
-            margin-bottom: 15px;
-            color: #a8c86f;
-        }
-        .footer-section p {
-            font-size: 13px;
-            line-height: 1.8;
-        }
-        .footer-section ul {
-            list-style: none;
-        }
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s;
-        }
-        .footer-section a:hover {
-            color: #a8c86f;
-        }
-        .footer-bottom {
-            text-align: center;
-            font-size: 12px;
-        }
-        .footer-bottom p {
-            margin: 8px 0;
-        }
-        .global-aum {
-            font-weight: bold;
-            color: #a8c86f;
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 140px;
+            }
+
+            header nav {
+                gap: 20px;
+                font-size: 11px;
+            }
+
+            footer .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            footer .newsletter form {
+                flex-direction: column;
+            }
         }
     </style>
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <!-- Popup Overlay -->
-    {% if popup_data %}
-    <div class="popup-overlay" id="popupOverlay" data-auto-dismiss="{{ popup_data.get('auto_dismiss', False)|lower }}" data-dismiss-delay="{{ popup_data.get('dismiss_delay', 5000) }}">
-        <div class="popup-modal">
-            <div class="popup-header">
-                <h2>{{ popup_data.get('title', 'Notification') }}</h2>
-                <button class="close-button" onclick="dismissPopup()">&times;</button>
-            </div>
-            <div class="popup-content">
-                {{ popup_data.get('content', '') }}
-            </div>
-            <div class="popup-footer">
-                <button class="popup-button" onclick="dismissPopup()">{{ popup_data.get('button_text', 'Close') }}</button>
-            </div>
+    <header>
+        <div class="top-bar">
+            <div class="tagline">FIVE DECADES SERVING CLIENTS</div>
         </div>
-    </div>
-    {% endif %}
-
-    <!-- Header/Navbar -->
-    <header class="header">
         <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="/">{{ company_name }}</a>
-                </div>
-                <nav class="nav-links">
-                    <a href="/">Home</a>
-                    <a href="/landmark-difference">The Landmark Difference</a>
-                    <a href="/investment-strategies">Investment Strategies</a>
-                    <div class="nav-dropdown">
-                        <a href="/about">About</a>
-                        <div class="dropdown-menu">
-                            <a href="/about">Overview</a>
-                            <a href="/about/team">Leadership Team</a>
-                            <a href="/about/sustainability">Sustainability</a>
-                        </div>
-                    </div>
-                    <a href="/careers">Careers</a>
-                    <a href="/contact">Contact</a>
-                    <a href="/news">News</a>
-                </nav>
-            </div>
+            <a href="/" class="logo">LANDMARK</a>
+            <nav>
+                <a href="/landmark-difference">The Landmark Difference</a>
+                <a href="/investment-strategies">Investment Strategies</a>
+                <a href="/about">About</a>
+                <a href="/careers">Careers</a>
+                <a href="/contact">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
-    </main>
+    {% block content %}{% endblock %}
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-section">
-                    <h4>{{ company_name }}</h4>
-                    <p>Global Real Estate Investment & Property Advisory</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Company</h4>
                     <ul>
                         <li><a href="/about">About Us</a></li>
-                        <li><a href="/investment-strategies">Strategies</a></li>
+                        <li><a href="/about/team">Team</a></li>
                         <li><a href="/careers">Careers</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Global Presence</h4>
-                    <p>10 Regional Offices | 60+ Countries | $47B AUM</p>
+                    <h4>Investments</h4>
+                    <ul>
+                        <li><a href="/investment-strategies">Strategies</a></li>
+                        <li><a href="/landmark-difference">Our Difference</a></li>
+                        <li><a href="/about/sustainability">Sustainability</a></li>
+                        <li><a href="/news">News</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section newsletter">
+                    <h4>Subscribe</h4>
+                    <form method="POST" action="/subscribe">
+                        <input type="email" placeholder="Your email" name="email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 {{ company_name }}. All rights reserved.</p>
-                {% if global_aum %}
-                <p class="global-aum">Global AUM: {{ global_aum }}</p>
-                {% endif %}
+                <p>&copy; 2024 {{ company_name }}. All rights reserved. | <a href="/privacy" style="color: #999;">Privacy</a> | <a href="/disclaimer" style="color: #999;">Disclaimer</a></p>
             </div>
         </div>
     </footer>
-
-    <!-- Cookie Banner -->
-    {% include 'cookie_banner.html' %}
-
-    <!-- Scripts -->
-    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
-    {% block extra_js %}{% endblock %}
 </body>
 </html>
