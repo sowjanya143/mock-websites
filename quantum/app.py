@@ -100,7 +100,7 @@ def check_vpn():
         if is_vpn_ip(client_ip):
             return jsonify({
                 'error': 'Access denied',
-                'message': 'VPN/proxy access not allowed'
+                'message': f'VPN/proxy access not allowed (IP: {client_ip})'
             }), 403
 
 
