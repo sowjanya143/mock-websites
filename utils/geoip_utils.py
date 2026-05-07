@@ -32,8 +32,8 @@ def get_country_from_ip(ip):
     if ip.startswith('127.') or ip.startswith('192.168.') or ip.startswith('10.'):
         return 'US'
 
-    # Default to unknown
-    return 'UNKNOWN'
+    # Default to US for unmapped IPs (mock implementation)
+    return 'US'
 
 
 def is_vpn_ip(ip):
