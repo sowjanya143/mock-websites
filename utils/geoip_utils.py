@@ -11,11 +11,21 @@ IP_TO_COUNTRY = {
     '172.16.': 'US',
 }
 
-# Known VPN/proxy IPs (simplified mock)
+# Known VPN/proxy IP ranges (simplified mock)
 VPN_IPS = [
     '8.8.8.8',      # Google DNS
     '1.1.1.1',      # Cloudflare DNS
     '208.67.222.222',  # OpenDNS
+]
+
+# VPN/Proxy IP ranges (common data center IPs used by VPN providers)
+VPN_RANGES = [
+    '34.',      # AWS
+    '35.',      # Google Cloud
+    '104.',     # Azure
+    '54.',      # AWS
+    '18.',      # AWS
+    '52.',      # AWS
 ]
 
 
@@ -37,8 +47,16 @@ def get_country_from_ip(ip):
 
 
 def is_vpn_ip(ip):
-    """Mock VPN detection - check against known VPN IPs."""
-    return ip in VPN_IPS or ip.startswith('8.8.8.8') or ip.startswith('1.1.1.1')
+    """Mock VPN detection - check against known VPN IPs and ranges."""
+    if ip in VPN_IPS:
+        return True
+
+    # Check against VPN IP ranges (data center IPs commonly used by VPNs)
+    for vpn_range in VPN_RANGES:
+        if ip.startswith(vpn_range):
+            return True
+
+    return False
 
 
 def allow_countries(allowed_countries):
