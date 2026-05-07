@@ -1,0 +1,13 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: Zenith Asset Management
+    - generic [ref=e5]: Verification Required
+    - generic [ref=e6]: Please verify you are human
+  - generic [ref=e7]:
+    - img "CAPTCHA image" [ref=e9]
+    - generic [ref=e10]:
+      - generic [ref=e11]: "Enter the characters shown above:"
+      - textbox "Enter the characters shown above:" [active] [ref=e12]:
+        - /placeholder: Characters
+    - button "Verify" [ref=e13] [cursor=pointer]
+    - generic [ref=e14]: This verification expires in 15 minutes.
