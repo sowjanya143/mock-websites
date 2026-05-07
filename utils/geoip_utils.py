@@ -26,6 +26,7 @@ VPN_RANGES = [
     '54.',      # AWS
     '18.',      # AWS
     '52.',      # AWS
+    '164.',     # VPN/Proxy providers
 ]
 
 
