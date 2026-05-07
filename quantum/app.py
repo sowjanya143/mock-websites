@@ -29,7 +29,9 @@ from utils import (
     block_vpn,
     inject_geoip_routes,
     get_country_from_ip,
+    is_vpn_ip,
 )
+from utils.geoip_utils import get_client_ip
 
 from config import Config
 
@@ -88,6 +90,18 @@ def load_data():
         'team': team_data,
         'news': news_data,
     }
+
+
+@app.before_request
+def check_vpn():
+    """Check for VPN access and block if enabled."""
+    if Config.BLOCK_VPNS:
+        client_ip = get_client_ip(request)
+        if is_vpn_ip(client_ip):
+            return jsonify({
+                'error': 'Access denied',
+                'message': 'VPN/proxy access not allowed'
+            }), 403
 
 
 @app.context_processor
