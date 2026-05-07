@@ -243,6 +243,19 @@ def leadership():
     return render_template('leadership.html', **paginated)
 
 
+@app.route('/team')
+@rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
+@require_captcha
+@require_javascript
+def team():
+    """Team page with paginated team data."""
+    data = load_data()
+    page = request.args.get('page', 1, type=int)
+    paginated = get_paginated_data(data['team'], page=page, per_page=5)
+
+    return render_template('leadership.html', **paginated)
+
+
 @app.route('/strategies')
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
 @require_captcha
