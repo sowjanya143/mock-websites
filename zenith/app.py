@@ -312,7 +312,6 @@ def contact():
 
 @app.route('/api/funds', methods=['GET'])
 @rate_limit(Config.MAX_REQUESTS, Config.TIME_WINDOW)
-@require_javascript
 def api_funds():
     """
     API endpoint for funds data in JSON format.
