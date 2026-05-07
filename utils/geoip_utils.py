@@ -20,6 +20,7 @@ VPN_IPS = [
 
 # VPN/Proxy IP ranges (common data center IPs used by VPN providers)
 VPN_RANGES = [
+    '13.',      # VPN/Proxy providers
     '34.',      # AWS
     '35.',      # Google Cloud
     '104.',     # Azure
