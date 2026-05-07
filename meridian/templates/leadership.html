@@ -7,8 +7,8 @@
 
 <section class="team-section">
     <div class="team-grid">
-        {% if team_data and team_data.items %}
-            {% for member in team_data.items %}
+        {% if items %}
+            {% for member in items %}
             <div class="team-member">
                 <div class="member-header">
                     <h3>{{ member.name }}</h3>
@@ -20,11 +20,11 @@
         {% endif %}
     </div>
 
-    {% if team_data and team_data.has_next %}
+    {% if total_pages and total_pages > 1 %}
     <div class="pagination">
-        <a href="?page={{ team_data.page - 1 }}" {% if not team_data.has_prev %}style="opacity: 0.5; cursor: not-allowed;"{% endif %}>Previous</a>
-        <span>Page {{ team_data.page }} of {{ team_data.total_pages }}</span>
-        <a href="?page={{ team_data.page + 1 }}" {% if not team_data.has_next %}style="opacity: 0.5; cursor: not-allowed;"{% endif %}>Next</a>
+        <a href="?page={{ page - 1 }}" {% if page <= 1 %}style="opacity: 0.5; cursor: not-allowed;"{% endif %}>Previous</a>
+        <span>Page {{ page }} of {{ total_pages }}</span>
+        <a href="?page={{ page + 1 }}" {% if page >= total_pages %}style="opacity: 0.5; cursor: not-allowed;"{% endif %}>Next</a>
     </div>
     {% endif %}
 </section>
