@@ -5,7 +5,7 @@ Tokens expire after N page views, breaking mid-crawl.
 
 import uuid
 from functools import wraps
-from flask import session, redirect, url_for
+from flask import session, redirect, url_for, request
 
 
 def issue_token(sess, page_limit=5):
@@ -88,5 +88,5 @@ def inject_token_routes(app, page_limit=5):
     @app.route('/refresh-token', methods=['GET'])
     def refresh_token():
         issue_token(session, page_limit)
-        referer = app.request.referrer or '/'
+        referer = request.referrer or '/'
         return redirect(referer)
