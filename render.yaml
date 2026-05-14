@@ -3,6 +3,7 @@ services:
   - type: web
     name: baep-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r baep/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 baep.app:app
     healthCheckPath: /
@@ -15,6 +16,7 @@ services:
   - type: web
     name: bastion-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r bastion/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 bastion.app:app
     healthCheckPath: /
@@ -29,6 +31,7 @@ services:
   - type: web
     name: cipher-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r cipher/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 cipher.app:app
     healthCheckPath: /
@@ -43,6 +46,7 @@ services:
   - type: web
     name: convoy-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r convoy/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 convoy.app:app
     healthCheckPath: /
@@ -55,6 +59,7 @@ services:
   - type: web
     name: kbiglobalinvestors-mock-website
     runtime: python
+    plan: free
     rootDir: kbiglobalinvestors
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 run:app
@@ -68,6 +73,7 @@ services:
   - type: web
     name: landmark-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r landmark/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 landmark.app:app
     healthCheckPath: /
@@ -82,6 +88,7 @@ services:
   - type: web
     name: meridian-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r meridian/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 meridian.app:app
     healthCheckPath: /
@@ -96,6 +103,7 @@ services:
   - type: web
     name: nexus-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r nexus/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 nexus.app:app
     healthCheckPath: /
@@ -110,6 +118,7 @@ services:
   - type: web
     name: quantum-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r quantum/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 quantum.app:app
     healthCheckPath: /
@@ -122,6 +131,7 @@ services:
   - type: web
     name: sentinel-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r sentinel/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 sentinel.app:app
     healthCheckPath: /
@@ -136,6 +146,7 @@ services:
   - type: web
     name: zenith-mock-website
     runtime: python
+    plan: free
     buildCommand: pip install -r requirements.txt -r zenith/requirements.txt
     startCommand: gunicorn --bind 0.0.0.0:$PORT --workers 2 --timeout 30 zenith.app:app
     healthCheckPath: /
